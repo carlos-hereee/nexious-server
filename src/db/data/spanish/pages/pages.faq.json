@@ -1,0 +1,83 @@
+{
+  "hero": {
+    "url": "unsplash/jeff-sheldon-6MT4_Ut8a3Y-unsplash.jpg",
+    "small": "small/unsplash/jeff-sheldon-6MT4_Ut8a3Y-unsplash.jpg",
+    "name": "hero-main",
+    "alt": "clean kitchen",
+    "credit": {
+      "artistName": "jeff-sheldon",
+      "artistUrl": "https://unsplash.com/@ugmonk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+      "assetUrl": "https://unsplash.com/s/photos/cleaning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+    }
+  },
+  "title": "Preguntas frecuentes",
+  "body": "¿Tienes preguntas? Tenemos respuestas. Aquí tienes algunas preguntas frecuentes sobre nuestros servicios de limpieza:",
+  "faq": [
+    {
+      "uid": "review-1",
+      "title": "¿Con qué frecuencia debo programar una limpieza regular?",
+      "hero": {
+        "url": "icons/phone.svg",
+        "small": "small/icons/phone.jpg",
+        "name": "contact-hero",
+        "alt": "contact-hero"
+      },
+      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, molestias reprehenderit. Voluptates fugit tenetur itaque minus sed, assumenda delectus accusantium!"
+    },
+    {
+      "uid": "review-2",
+      "title": "¿Son sus productos de limpieza seguros para niños y mascotas?",
+      "hero": {
+        "url": "icons/gps.svg",
+        "small": "small/icons/gps.jpg",
+        "name": "contact-hero",
+        "alt": "contact-hero"
+      },
+      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, molestias reprehenderit. Voluptates fugit tenetur itaque minus sed, assumenda delectus accusantium!"
+    },
+    {
+      "uid": "review-3",
+      "title": "¿Puedo solicitar servicios adicionales no incluidos en los paquetes?",
+      "hero": {
+        "url": "icons/mail.svg",
+        "small": "small/icons/mail.jpg",
+        "name": "contact-hero",
+        "alt": "contact-hero"
+      },
+      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, molestias reprehenderit. Voluptates fugit tenetur itaque minus sed, assumenda delectus accusantium!"
+    },
+    {
+      "uid": "review-4",
+      "title": "¿Proporcionan equipos y suministros de limpieza?",
+      "hero": {
+        "url": "icons/mail.svg",
+        "small": "small/icons/mail.jpg",
+        "name": "contact-hero",
+        "alt": "contact-hero"
+      },
+      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, molestias reprehenderit. Voluptates fugit tenetur itaque minus sed, assumenda delectus accusantium!"
+    },
+    {
+      "uid": "review-5",
+      "title": "¿Cuál es su política de cancelación?",
+      "hero": {
+        "url": "icons/mail.svg",
+        "small": "small/icons/mail.jpg",
+        "name": "contact-hero",
+        "alt": "contact-hero"
+      },
+      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, molestias reprehenderit. Voluptates fugit tenetur itaque minus sed, assumenda delectus accusantium!"
+    },
+    {
+      "uid": "review-6",
+      "title": "¿Quieres hablar con un humano?",
+      "hero": {
+        "url": "icons/mail.svg",
+        "small": "small/icons/mail.jpg",
+        "name": "contact-hero",
+        "alt": "contact-hero"
+      },
+      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, molestias reprehenderit. Voluptates fugit tenetur itaque minus sed, assumenda delectus accusantium!"
+    }
+  ]
+}

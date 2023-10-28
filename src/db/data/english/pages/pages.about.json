@@ -1,0 +1,82 @@
+{
+  "hero": {
+    "url": "unsplash/sidekix-media-_AK42TQRyCw-unsplash.jpg",
+    "small": "small/unsplash/sidekix-media-_AK42TQRyCw-unsplash.jpg",
+    "name": "hero-main",
+    "alt": "clean kitchen",
+    "credit": {
+      "artistName": "sidekix-media",
+      "artistUrl": "https://unsplash.com/@sidekix?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+      "assetUrl": "https://unsplash.com/s/photos/cleaning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+    }
+  },
+  "title": "Committed to professionalism, reliability, and creating a clean and healthy environment for our clients.",
+  "cta": [
+    {
+      "icon": "checkout",
+      "uid": "button-check-123",
+      "label": "Book Now!",
+      "name": "main"
+    }
+  ],
+  "body": "At Sparkle & Shine, we take pride in being a trusted provider of top-notch house cleaning services. With years of experience in the industry, our team is dedicated to delivering exceptional results and exceeding customer expectations.",
+  "team": [
+    {
+      "uid": "review-1",
+      "name": "John Doe",
+      "user": {
+        "name": "John Doe",
+        "hero": {
+          "url": "unsplash/johan-godinez-dDYRYivNzbI-unsplash.jpg",
+          "small": "small/unsplash/johan-godinez-dDYRYivNzbI-unsplash.jpg",
+          "name": "feature-hero",
+          "alt": "user-hero",
+          "credit": {
+            "artistName": "sidekix-media",
+            "artistUrl": "https://unsplash.com/@johanemanuel?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+            "assetUrl": "https://unsplash.com/s/photos/happy-customer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+          }
+        }
+      },
+      "body": "The epitome of Zen in a world of chaos. With a knack for finding inner peace in the most unexpected places, leaving a trail of tranquility in my wake. "
+    },
+    {
+      "uid": "review-2",
+      "name": "Samantha J.",
+      "user": {
+        "name": "Samantha J.",
+        "hero": {
+          "url": "unsplash/ivana-cajina-dnL6ZIpht2s-unsplash.jpg",
+          "small": "small/unsplash/ivana-cajina-dnL6ZIpht2s-unsplash.jpg",
+          "name": "feature-hero",
+          "alt": "user-hero",
+          "credit": {
+            "artistName": "ivana-cajina",
+            "artistUrl": "https://unsplash.com/@von_co?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+            "assetUrl": "https://unsplash.com/s/photos/happy-customer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+          }
+        }
+      },
+      "body": "With an effortless swagger and a perpetual smirk. A master of good vibes and great company, the ultimate guru of living life my own pace."
+    },
+    {
+      "uid": "review-3",
+      "name": "Lucy S.",
+      "user": {
+        "name": "Lucy S.",
+        "hero": {
+          "url": "unsplash/lidya-nada-_0aKQa9gr4s-unsplash.jpg",
+          "small": "small/unsplash/lidya-nada-_0aKQa9gr4s-unsplash.jpg",
+          "name": "feature-hero",
+          "alt": "user-hero",
+          "credit": {
+            "artistName": "lidya-nada",
+            "artistUrl": "https://unsplash.com/@lidyanada?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+            "assetUrl": "https://unsplash.com/s/photos/happy-customer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+          }
+        }
+      },
+      "body": "Daydreamer with a heart full of wanderlust. With a perpetually tousled mane and a smile that radiates warmth, she effortlessly floats through life's adventures."
+    }
+  ]
+}

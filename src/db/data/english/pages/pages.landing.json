@@ -1,0 +1,63 @@
+{
+  "appName": "Sharkle and Shine",
+  "hero": {
+    "url": "unsplash/naomi-hebert-MP0bgaS_d1c-unsplash.jpg",
+    "small": "small/unsplash/naomi-hebert-MP0bgaS_d1c-unsplash.jpg",
+    "name": "hero-main",
+    "alt": "clean kitchen",
+    "credit": {
+      "artistName": "naomi-hebert",
+      "artistUrl": "https://unsplash.com/de/@naomish?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+      "assetUrl": "https://unsplash.com/s/photos/cleaning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+    }
+  },
+  "title": "Sharkle and Shine: Professional House Cleaning Services",
+  "tagline": "Transforming your home into a clean haven",
+  "cta": [
+    {
+      "name": "main",
+      "icon": "checkout",
+      "uid": "button-check-123",
+      "label": "Book Now!"
+    }
+  ],
+  "body": "Welcome to Sparkle and Shine, your go-to solution for top-quality house cleaning services. We believe that a clean home is a happy home, and our dedicated team is here  help you achieve just that. With our exceptional cleaning experstise and attention to detail, we are committed to providing a prestine living evironment that you can truly relax in",
+  "features": [
+    {
+      "uid": "feature-1",
+      "hero": {
+        "url": "icons/secure-icon.svg",
+        "small": "small/icons/secure-icon.jpg",
+        "name": "icon-hero",
+        "theme": "icon-hero",
+        "alt": "trusted-brand"
+      },
+      "title": "Trusted Professionals",
+      "body": "Our cleaning staff consists of experienced and trained professionals who are dedicated to providing exceptional service and attention to detail."
+    },
+    {
+      "uid": "feature-2",
+      "hero": {
+        "url": "icons/recycle.svg",
+        "small": "small/icons/recycle.jpg",
+        "name": "icon-hero",
+        "theme": "icon-hero",
+        "alt": "eco-friendly"
+      },
+      "title": "Eco-Friendly Approach",
+      "body": "We use environmentally friendly cleaning products that are effective in removing dirt and grime without compromising the health of your family or the planet."
+    },
+    {
+      "uid": "feature-3",
+      "hero": {
+        "url": "icons/custom.svg",
+        "small": "small/icons/custom.jpg",
+        "icon": "custom",
+        "theme": "icon-hero",
+        "name": "icon-hero"
+      },
+      "title": "Customizable Cleaning Plans",
+      "body": "We understand that every home is unique. That's why we offer customizable cleaning plans that allow you to tailor our services to meet your specific requirements."
+    }
+  ]
+}

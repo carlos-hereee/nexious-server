@@ -1,0 +1,66 @@
+{
+  "title": "Testimonials",
+  "body": "Don't just take our word for it! Hear what our satisfied customers have to say about our services:",
+  "reviews": [
+    {
+      "uid": "review-1",
+      "title": "Blown Away",
+      "rating": 5,
+      "user": {
+        "name": "John Doe",
+        "hero": {
+          "url": "unsplash/johan-godinez-dDYRYivNzbI-unsplash.jpg",
+          "small": "small/unsplash/johan-godinez-dDYRYivNzbI-unsplash.jpg",
+          "name": "user-hero",
+          "alt": "user-hero",
+          "credit": {
+            "artistName": "johan-godinez",
+            "artistUrl": "https://unsplash.com/@lidyanada?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+            "assetUrl": "https://unsplash.com/s/photos/happy-customer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+          }
+        }
+      },
+      "body": "I am blown away by the level of detail and professionalism demonstrated by Sparkle & Shine. My home has never looked better!"
+    },
+    {
+      "uid": "review-2",
+      "title": "Transfomative",
+      "rating": 5,
+      "user": {
+        "name": "Jessica G.",
+        "hero": {
+          "url": "unsplash/ivana-cajina-dnL6ZIpht2s-unsplash.jpg",
+          "small": "small/unsplash/ivana-cajina-dnL6ZIpht2s-unsplash.jpg",
+          "name": "user-hero",
+          "alt": "user-hero",
+          "credit": {
+            "artistName": "ivana-cajina",
+            "artistUrl": "https://unsplash.com/@lidyanada?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+            "assetUrl": "https://unsplash.com/s/photos/happy-customer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+          }
+        }
+      },
+      "body": "The team at Sparkle & Shine transformed my messy post-construction site into a spotless and habitable home. I highly recommend their services."
+    },
+    {
+      "uid": "review-3",
+      "title": "Eco friendly",
+      "rating": 5,
+      "user": {
+        "name": "Samantha J.",
+        "hero": {
+          "url": "unsplash/lidya-nada-_0aKQa9gr4s-unsplash.jpg",
+          "small": "small/unsplash/lidya-nada-_0aKQa9gr4s-unsplash.jpg",
+          "name": "user-hero",
+          "alt": "user-hero",
+          "credit": {
+            "artistName": "lidya-nada",
+            "artistUrl": "https://unsplash.com/@lidyanada?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+            "assetUrl": "https://unsplash.com/s/photos/happy-customer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+          }
+        }
+      },
+      "body": "I appreciate the eco-friendly approach of Sparkle & Shine. They not only provide excellent cleaning but also take care of our planet. Well done!"
+    }
+  ]
+}

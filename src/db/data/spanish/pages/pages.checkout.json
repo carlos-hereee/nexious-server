@@ -1,0 +1,40 @@
+{
+  "title": "Detalles del pedido",
+  "paymentMethods": [
+    {
+      "uid": "payment-1",
+      "type": "visa/credit",
+      "name": "Debit/Credit card",
+      "label": "Tarjeta de crédito débito",
+      "icon": "visa",
+      "hero": {
+        "url": "icons/bebit-credit.svg",
+        "small": "small/icons/bebit-credit.jpg",
+        "name": "mastercard",
+        "label": "",
+        "alt": "mastercard"
+      }
+    },
+    {
+      "uid": "payment-2",
+      "type": "paypal",
+      "name": "paypal",
+      "label": "Paypal",
+      "icon": "paypal",
+      "hero": {
+        "url": "icons/paypal.svg",
+        "small": "small/icons/paypal.jpg",
+        "name": "paypal",
+        "label": "",
+        "alt": "paypal"
+      }
+    },
+    {
+      "uid": "payment-3",
+      "type": "in-store",
+      "name": "store",
+      "label": "En el almacén",
+      "icon": "store"
+    }
+  ]
+}

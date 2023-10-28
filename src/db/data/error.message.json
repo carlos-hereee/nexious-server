@@ -1,0 +1,20 @@
+{
+  "appNameTaken": "Appname is already taken try a different name",
+  "appNotFound": "App not found",
+  "invalidEmailOrPassword": "Invalid username/email or password",
+  "invalidCredentails": "One or more credential(s) are wrong",
+  "unauthorizedUser": "You dont have enough permission",
+  "userNotFound": "User not found",
+  "userDoesNotExist": "User does not exists",
+  "userAlreadyExist": "A user already exists with that username",
+  "hashPasswordNotIncluded": "Update password: password security is low",
+  "payloadNotFound": "username and sessionId not included/found in payload",
+  "notVerfifed": "could not verify",
+  "payloadExpired": "Payload is expired",
+  "missingCredentials": "Missing one or more credentials",
+  "serverIsDown": "Server is down, try again later.",
+  "adminRequired": "Permission not met/granted",
+  "calendarNotFound": "Not found: Calendar for this app has not been created",
+  "passwordAlreadyInHistory": "Password used in the passed.",
+  "tokenNotFound": "No cookies sent"
+}

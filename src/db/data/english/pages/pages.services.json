@@ -1,0 +1,154 @@
+{
+  "title": "Professional cleaning services",
+  "subtitle": "",
+  "body": "We offer a wide range of professional cleaning services tailored to meet your specific needs. Whether you require regular cleaning maintenance, deep cleaning for a thorough refresh, or specialized cleaning for a move-in/out or post-construction situation, our skilled team is here to deliver exceptional results. We pride ourselves on using eco-fr iendly cleaning products that are safe for your home and the environment. Explore our services below:",
+  "hero": { "url": "", "name": "", "alt": "" },
+  "services": [
+    {
+      "title": "Regular Cleaning",
+      "subtitle": "",
+      "body": "Designed to maintain the cleanliness and organization of your home on a recurring basis. Our trained cleaning professionals will visit your home at scheduled intervals to perform essential cleaning tasks. This service typically includes dusting surfaces, vacuuming carpets and floors, mopping hard surfaces, sanitizing bathrooms, and tidying up common areas. By choosing regular cleaning, you can enjoy a consistently clean and inviting living space without the stress of managing it yourself.",
+      "uid": "services-1",
+      "hero": {
+        "url": "unsplash/pille-r-priske-Y1JjwhHaPRM-unsplash.jpg",
+        "small": "small/unsplash/pille-r-priske-Y1JjwhHaPRM-unsplash.jpg",
+        "name": "hero",
+        "theme": "thumbnail",
+        "alt": "regular cleaning",
+        "credit": {
+          "artistName": "pille-r-priske",
+          "artistUrl": "https://unsplash.com/@pillepriske?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+          "assetUrl": "https://unsplash.com/s/photos/cleaning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+        }
+      },
+      "isForSale": true,
+      "isBookable": true,
+      "isAccessory": false,
+      "count": 1,
+      "hyperlink": [{ "word": "Maiores", "link": "/lorem" }],
+      "cost": 199,
+      "features": [
+        {
+          "uid": "feat-1-1",
+          "title": "What's included?",
+          "haslist": true,
+          "list": [
+            "Dusting of surfaces.",
+            "Vacuuming carpets and rugs.",
+            "Mopping hard floors.",
+            "Cleaning and sanitizing bathrooms.",
+            "Tidying up common areas."
+          ]
+        },
+        {
+          "uid": "feat-1-2",
+          "title": "Benefits",
+          "haslist": true,
+          "list": [
+            "Maintain a clean and healthy environment.",
+            "Save time and energy by outsourcing cleaning tasks.",
+            "Create a comfortable and welcoming atmosphere for your family and guests.",
+            "Reduce the buildup of dust, allergens, and germs."
+          ]
+        }
+      ],
+      "cta": [
+        {
+          "icon": "checkout",
+          "uid": "button-check-123",
+          "label": "Book Now!",
+          "name": "main"
+        }
+      ]
+    },
+    {
+      "uid": "services-2",
+      "title": "Deep Cleaning",
+      "subtitle": "",
+      "hero": {
+        "url": "unsplash/no-revisions-cpIgNaazQ6w-unsplash.jpg",
+        "small": "small/unsplash/no-revisions-cpIgNaazQ6w-unsplash.jpg",
+        "name": "hero",
+        "theme": "thumbnail",
+        "alt": "Deep cleaning",
+        "credit": {
+          "artistName": "no-revisions",
+          "artistUrl": "https://unsplash.com/@norevisions?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+          "assetUrl": "https://unsplash.com/s/photos/cleaning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+        }
+      },
+      "isForSale": true,
+      "isBookable": true,
+      "isAccessory": false,
+      "count": 1,
+      "hyperlink": [{ "word": "Maiores", "link": "/lorem" }],
+      "cost": 199,
+      "body": "Provides a thorough and comprehensive cleaning of your entire home, targeting areas that may not receive regular attention. Our dedicated team will meticulously clean hard-to-reach places, such as behind furniture, inside cabinets, and under appliances. We focus on removing built-up grime, dirt, and dust, leaving your home refreshed and revitalized. Deep cleaning is recommended for occasional deep refreshment, before special occasions, or as a seasonal cleaning routine.",
+      "features": [
+        {
+          "uid": "feat-2-1",
+          "title": "What's included?",
+          "haslist": true,
+          "list": [
+            "Everything in the Basic Package, plus:",
+            "Detailed dusting of furniture, fixtures, and decorations",
+            "Deep cleaning of kitchen surfaces and appliances",
+            "Spot cleaning of walls and baseboards",
+            "Interior window cleaning (reachable height)"
+          ]
+        },
+        {
+          "uid": "feat-2-2",
+          "title": "Benefits",
+          "haslist": true,
+          "list": [
+            "Restore a high level of cleanliness and freshness to your home.",
+            "Eliminate hidden dirt, dust, and allergens.",
+            "Improve indoor air quality and create a healthier living environment.",
+            "Enhance the appearance and longevity of your furniture and surfaces."
+          ]
+        }
+      ],
+      "cta": [
+        {
+          "name": "main",
+          "icon": "checkout",
+          "uid": "button-check-123",
+          "label": "Book Now!"
+        }
+      ]
+    },
+    {
+      "uid": "services-3",
+      "title": "Specialized Services",
+      "subtitle": "Move-In/Out Cleaning",
+      "hero": {
+        "url": "unsplash/volha-flaxeco-BCNjBsK37XA-unsplash.jpg",
+        "small": "small/unsplash/volha-flaxeco-BCNjBsK37XA-unsplash.jpg",
+        "name": "hero",
+        "theme": "thumbnail",
+        "alt": "Deep cleaning",
+        "credit": {
+          "artistName": "volha-flaxeco",
+          "artistUrl": "https://unsplash.com/@flaxeco?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+          "assetUrl": "https://unsplash.com/s/photos/cleaning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+        }
+      },
+      "isForSale": true,
+      "isBookable": true,
+      "isAccessory": false,
+      "count": 1,
+      "hyperlink": [{ "word": "Maiores", "link": "/lorem" }],
+      "cost": 199,
+      "body": "If you're moving into a new home or preparing to move out, our move-in/out cleaning service is ideal. We meticulously clean every nook and cranny, ensuring that the space is spotless and ready for you or the next residents.",
+      "cta": [
+        {
+          "name": "main",
+          "icon": "checkout",
+          "uid": "button-check-123",
+          "label": "Book Now!"
+        }
+      ]
+    }
+  ]
+}

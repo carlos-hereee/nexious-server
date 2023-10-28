@@ -1,0 +1,11 @@
+{
+  "isLoading": false,
+  "isFiltered": false,
+  "isUserReq": true,
+  "cart": [],
+  "bookable": [],
+  "booked": [],
+  "filtered": [],
+  "active": {},
+  "total": 0
+}

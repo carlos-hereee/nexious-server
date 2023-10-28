@@ -1,0 +1,675 @@
+{
+  "faq": {
+    "hero": {
+      "url": "unsplash/jeff-sheldon-6MT4_Ut8a3Y-unsplash.jpg",
+      "small": "small/unsplash/jeff-sheldon-6MT4_Ut8a3Y-unsplash.jpg",
+      "name": "hero-main",
+      "alt": "clean kitchen",
+      "credit": {
+        "artistName": "jeff-sheldon",
+        "artistUrl": "https://unsplash.com/@ugmonk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+        "assetUrl": "https://unsplash.com/s/photos/cleaning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+      }
+    },
+    "title": "Frequently asked questions",
+    "body": "Got questions? We have answers. Here are some frequently asked questions about our cleaning services:",
+    "faq": [
+      {
+        "uid": "review-1",
+        "name": "How often should I schedule a regular cleaning?",
+        "hero": {
+          "url": "icons/phone.svg",
+          "small": "small/icons/phone.jpg",
+          "name": "contact-hero",
+          "alt": "contact-hero"
+        },
+        "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, molestias reprehenderit. Voluptates fugit tenetur itaque minus sed, assumenda delectus accusantium!"
+      },
+      {
+        "uid": "review-2",
+        "name": "Are you cleaning products safe for children and pets?",
+        "hero": {
+          "url": "icons/gps.svg",
+          "small": "small/icons/gps.jpg",
+          "name": "contact-hero",
+          "alt": "contact-hero"
+        },
+        "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, molestias reprehenderit. Voluptates fugit tenetur itaque minus sed, assumenda delectus accusantium!"
+      },
+      {
+        "uid": "review-3",
+        "name": "Can I request additional services not included in the packages?",
+        "hero": {
+          "url": "icons/mail.svg",
+          "small": "small/icons/mail.jpg",
+          "name": "contact-hero",
+          "alt": "contact-hero"
+        },
+        "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, molestias reprehenderit. Voluptates fugit tenetur itaque minus sed, assumenda delectus accusantium!"
+      },
+      {
+        "uid": "review-4",
+        "name": "Do you provide cleaning equipment and supplies?",
+        "hero": {
+          "url": "icons/mail.svg",
+          "small": "small/icons/mail.jpg",
+          "name": "contact-hero",
+          "alt": "contact-hero"
+        },
+        "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, molestias reprehenderit. Voluptates fugit tenetur itaque minus sed, assumenda delectus accusantium!"
+      },
+      {
+        "uid": "review-5",
+        "name": "What is your cancellation policy?",
+        "hero": {
+          "url": "icons/mail.svg",
+          "small": "small/icons/mail.jpg",
+
+          "name": "contact-hero",
+          "alt": "contact-hero"
+        },
+        "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, molestias reprehenderit. Voluptates fugit tenetur itaque minus sed, assumenda delectus accusantium!"
+      },
+      {
+        "uid": "review-6",
+        "name": "Want to talk to a human?",
+        "hero": {
+          "url": "icons/mail.svg",
+          "small": "small/icons/mail.jpg",
+          "name": "contact-hero",
+          "alt": "contact-hero"
+        },
+        "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, molestias reprehenderit. Voluptates fugit tenetur itaque minus sed, assumenda delectus accusantium!"
+      }
+    ]
+  },
+  "about": {
+    "hero": {
+      "url": "unsplash/sidekix-media-_AK42TQRyCw-unsplash.jpg",
+      "small": "small/unsplash/sidekix-media-_AK42TQRyCw-unsplash.jpg",
+      "name": "hero-main",
+      "alt": "clean kitchen",
+      "credit": {
+        "artistName": "sidekix-media",
+        "artistUrl": "https://unsplash.com/@sidekix?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+        "assetUrl": "https://unsplash.com/s/photos/cleaning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+      }
+    },
+    "title": "Committed to professionalism, reliability, and creating a clean and healthy environment for our clients.",
+    "cta": [
+      {
+        "icon": "checkout",
+        "uid": "button-check-123",
+        "label": "Book Now!",
+        "name": "main"
+      }
+    ],
+    "body": "At Sparkle & Shine, we take pride in being a trusted provider of top-notch house cleaning services. With years of experience in the industry, our team is dedicated to delivering exceptional results and exceeding customer expectations.",
+    "team": [
+      {
+        "uid": "review-1",
+        "name": "John Doe",
+        "user": {
+          "name": "John Doe",
+          "hero": {
+            "url": "unsplash/johan-godinez-dDYRYivNzbI-unsplash.jpg",
+            "small": "small/unsplash/johan-godinez-dDYRYivNzbI-unsplash.jpg",
+            "name": "feature-hero",
+            "alt": "user-hero",
+            "credit": {
+              "artistName": "sidekix-media",
+              "artistUrl": "https://unsplash.com/@johanemanuel?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+              "assetUrl": "https://unsplash.com/s/photos/happy-customer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+            }
+          }
+        },
+        "body": "The epitome of Zen in a world of chaos. With a knack for finding inner peace in the most unexpected places, leaving a trail of tranquility in my wake. "
+      },
+      {
+        "uid": "review-2",
+        "name": "Samantha J.",
+        "user": {
+          "name": "Samantha J.",
+          "hero": {
+            "url": "unsplash/ivana-cajina-dnL6ZIpht2s-unsplash.jpg",
+            "small": "small/unsplash/ivana-cajina-dnL6ZIpht2s-unsplash.jpg",
+            "name": "feature-hero",
+            "alt": "user-hero",
+            "credit": {
+              "artistName": "ivana-cajina",
+              "artistUrl": "https://unsplash.com/@von_co?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+              "assetUrl": "https://unsplash.com/s/photos/happy-customer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+            }
+          }
+        },
+        "body": "With an effortless swagger and a perpetual smirk. A master of good vibes and great company, the ultimate guru of living life my own pace."
+      },
+      {
+        "uid": "review-3",
+        "name": "Lucy S.",
+        "user": {
+          "name": "Lucy S.",
+          "hero": {
+            "url": "unsplash/lidya-nada-_0aKQa9gr4s-unsplash.jpg",
+            "small": "small/unsplash/lidya-nada-_0aKQa9gr4s-unsplash.jpg",
+            "name": "feature-hero",
+            "alt": "user-hero",
+            "credit": {
+              "artistName": "lidya-nada",
+              "artistUrl": "https://unsplash.com/@lidyanada?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+              "assetUrl": "https://unsplash.com/s/photos/happy-customer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+            }
+          }
+        },
+        "body": "Daydreamer with a heart full of wanderlust. With a perpetually tousled mane and a smile that radiates warmth, she effortlessly floats through life's adventures."
+      }
+    ]
+  },
+  "checkout": {
+    "title": "Order details",
+    "paymentMethods": [
+      {
+        "uid": "payment-1",
+        "type": "visa/credit",
+        "name": "Debit/Credit card",
+        "icon": "visa",
+        "hero": {
+          "url": "icons/bebit-credit.svg",
+          "small": "small/icons/bebit-credit.jpg",
+          "name": "mastercard",
+          "alt": "mastercard"
+        }
+      },
+      {
+        "uid": "payment-2",
+        "type": "paypal",
+        "name": "Paypal",
+        "icon": "paypal",
+        "hero": {
+          "url": "icons/paypal.svg",
+          "small": "small/icons/paypal.jpg",
+          "name": "paypal",
+          "alt": "paypal"
+        }
+      },
+      {
+        "uid": "payment-3",
+        "type": "in-store",
+        "name": "Store",
+        "icon": "store"
+      }
+    ]
+  },
+  "contact": {
+    "hero": {
+      "url": "unsplash/francesca-tosolini-KJFKCed0YKo-unsplash.jpg",
+      "small": "small/unsplash/francesca-tosolini-KJFKCed0YKo-unsplash.jpg",
+      "name": "hero-main",
+      "alt": "clean kitchen",
+      "credit": {
+        "artistName": "francesca-tosolini",
+        "artistUrl": "https://unsplash.com/@fromitaly?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+        "assetUrl": "https://unsplash.com/s/photos/cleaning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+      }
+    },
+    "title": "We’d love to hear from you",
+    "body": "Ready to experience the joy of a clean and pristine home? Contact Sparkle & Shine today to schedule your appointment or request a free quote. Our dedicated team is ready to assist you and answer any questions you may have. You can reach us by:",
+    "contact": [
+      {
+        "uid": "review-1",
+        "name": "phone",
+        "hero": {
+          "url": "icons/phone.svg",
+          "small": "small/icons/phone.jpg",
+          "name": "contact-hero",
+          "alt": "contact-hero",
+          "theme": "contact-icons"
+        },
+        "body": "+1 (123) 456 - 7890"
+      },
+      {
+        "uid": "review-2",
+        "name": "Address",
+        "hero": {
+          "url": "icons/gps.svg",
+          "small": "small/icons/gps.jpg",
+          "name": "contact-hero",
+          "theme": "contact-icons",
+          "alt": "contact-hero"
+        },
+        "body": "Greater Houston Houston, TX 12345"
+      },
+      {
+        "uid": "review-3",
+        "name": "email",
+        "hero": {
+          "url": "icons/email.svg",
+          "small": "small/icons/mail.jpg",
+          "name": "contact-hero",
+          "theme": "contact-icons",
+          "alt": "contact-hero"
+        },
+        "body": "example@email.com"
+      }
+    ],
+    "form": { "initialValues": { "name": "", "email": "", "message": "" } }
+  },
+  "services": {
+    "title": "Professional cleaning services",
+    "subtitle": "",
+    "body": "We offer a wide range of professional cleaning services tailored to meet your specific needs. Whether you require regular cleaning maintenance, deep cleaning for a thorough refresh, or specialized cleaning for a move-in/out or post-construction situation, our skilled team is here to deliver exceptional results. We pride ourselves on using eco-fr iendly cleaning products that are safe for your home and the environment. Explore our services below:",
+    "hero": { "url": "", "name": "", "alt": "" },
+    "services": [
+      {
+        "title": "Regular Cleaning",
+        "subtitle": "",
+        "body": "Designed to maintain the cleanliness and organization of your home on a recurring basis. Our trained cleaning professionals will visit your home at scheduled intervals to perform essential cleaning tasks. This service typically includes dusting surfaces, vacuuming carpets and floors, mopping hard surfaces, sanitizing bathrooms, and tidying up common areas. By choosing regular cleaning, you can enjoy a consistently clean and inviting living space without the stress of managing it yourself.",
+        "uid": "services-1",
+        "hero": {
+          "url": "unsplash/pille-r-priske-Y1JjwhHaPRM-unsplash.jpg",
+          "small": "small/unsplash/pille-r-priske-Y1JjwhHaPRM-unsplash.jpg",
+          "name": "hero",
+          "theme": "thumbnail",
+          "alt": "regular cleaning",
+          "credit": {
+            "artistName": "pille-r-priske",
+            "artistUrl": "https://unsplash.com/@pillepriske?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+            "assetUrl": "https://unsplash.com/s/photos/cleaning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+          }
+        },
+        "isForSale": true,
+        "isBookable": true,
+        "isAccessory": false,
+        "count": 1,
+        "hyperlink": [{ "word": "Maiores", "link": "/lorem" }],
+        "cost": 199,
+        "features": [
+          {
+            "uid": "feat-1-1",
+            "title": "What's included?",
+            "haslist": true,
+            "list": [
+              "Dusting of surfaces.",
+              "Vacuuming carpets and rugs.",
+              "Mopping hard floors.",
+              "Cleaning and sanitizing bathrooms.",
+              "Tidying up common areas."
+            ]
+          },
+          {
+            "uid": "feat-1-2",
+            "title": "Benefits",
+            "haslist": true,
+            "list": [
+              "Maintain a clean and healthy environment.",
+              "Save time and energy by outsourcing cleaning tasks.",
+              "Create a comfortable and welcoming atmosphere for your family and guests.",
+              "Reduce the buildup of dust, allergens, and germs."
+            ]
+          }
+        ],
+        "cta": [
+          {
+            "icon": "checkout",
+            "uid": "button-check-123",
+            "label": "Book Now!",
+            "name": "main"
+          }
+        ]
+      },
+      {
+        "uid": "services-2",
+        "title": "Deep Cleaning",
+        "subtitle": "",
+        "hero": {
+          "url": "unsplash/no-revisions-cpIgNaazQ6w-unsplash.jpg",
+          "small": "small/unsplash/no-revisions-cpIgNaazQ6w-unsplash.jpg",
+          "name": "hero",
+          "theme": "thumbnail",
+          "alt": "Deep cleaning",
+          "credit": {
+            "artistName": "no-revisions",
+            "artistUrl": "https://unsplash.com/@norevisions?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+            "assetUrl": "https://unsplash.com/s/photos/cleaning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+          }
+        },
+        "isForSale": true,
+        "isBookable": true,
+        "isAccessory": false,
+        "count": 1,
+        "hyperlink": [{ "word": "Maiores", "link": "/lorem" }],
+        "cost": 199,
+        "body": "Provides a thorough and comprehensive cleaning of your entire home, targeting areas that may not receive regular attention. Our dedicated team will meticulously clean hard-to-reach places, such as behind furniture, inside cabinets, and under appliances. We focus on removing built-up grime, dirt, and dust, leaving your home refreshed and revitalized. Deep cleaning is recommended for occasional deep refreshment, before special occasions, or as a seasonal cleaning routine.",
+        "features": [
+          {
+            "uid": "feat-2-1",
+            "title": "What's included?",
+            "haslist": true,
+            "list": [
+              "Everything in the Basic Package, plus:",
+              "Detailed dusting of furniture, fixtures, and decorations",
+              "Deep cleaning of kitchen surfaces and appliances",
+              "Spot cleaning of walls and baseboards",
+              "Interior window cleaning (reachable height)"
+            ]
+          },
+          {
+            "uid": "feat-2-2",
+            "title": "Benefits",
+            "haslist": true,
+            "list": [
+              "Restore a high level of cleanliness and freshness to your home.",
+              "Eliminate hidden dirt, dust, and allergens.",
+              "Improve indoor air quality and create a healthier living environment.",
+              "Enhance the appearance and longevity of your furniture and surfaces."
+            ]
+          }
+        ],
+        "cta": [
+          {
+            "name": "main",
+            "icon": "checkout",
+            "uid": "button-check-123",
+            "label": "Book Now!"
+          }
+        ]
+      },
+      {
+        "uid": "services-3",
+        "title": "Specialized Services",
+        "subtitle": "Move-In/Out Cleaning",
+        "hero": {
+          "url": "unsplash/volha-flaxeco-BCNjBsK37XA-unsplash.jpg",
+          "small": "small/unsplash/volha-flaxeco-BCNjBsK37XA-unsplash.jpg",
+          "name": "hero",
+          "theme": "thumbnail",
+          "alt": "Deep cleaning",
+          "credit": {
+            "artistName": "volha-flaxeco",
+            "artistUrl": "https://unsplash.com/@flaxeco?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+            "assetUrl": "https://unsplash.com/s/photos/cleaning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+          }
+        },
+        "isForSale": true,
+        "isBookable": true,
+        "isAccessory": false,
+        "count": 1,
+        "hyperlink": [{ "word": "Maiores", "link": "/lorem" }],
+        "cost": 199,
+        "body": "If you're moving into a new home or preparing to move out, our move-in/out cleaning service is ideal. We meticulously clean every nook and cranny, ensuring that the space is spotless and ready for you or the next residents.",
+        "cta": [
+          {
+            "name": "main",
+            "icon": "checkout",
+            "uid": "button-check-123",
+            "label": "Book Now!"
+          }
+        ]
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "Testimonials",
+    "body": "Don't just take our word for it! Hear what our satisfied customers have to say about our services:",
+    "reviews": [
+      {
+        "uid": "review-1",
+        "title": "Blown Away",
+        "rating": 5,
+        "user": {
+          "name": "John Doe",
+          "hero": {
+            "url": "unsplash/johan-godinez-dDYRYivNzbI-unsplash.jpg",
+            "small": "small/unsplash/johan-godinez-dDYRYivNzbI-unsplash.jpg",
+            "name": "user-hero",
+            "alt": "user-hero",
+            "credit": {
+              "artistName": "johan-godinez",
+              "artistUrl": "https://unsplash.com/@lidyanada?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+              "assetUrl": "https://unsplash.com/s/photos/happy-customer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+            }
+          }
+        },
+        "body": "I am blown away by the level of detail and professionalism demonstrated by Sparkle & Shine. My home has never looked better!"
+      },
+      {
+        "uid": "review-2",
+        "title": "Transfomative",
+        "rating": 5,
+        "user": {
+          "name": "Jessica G.",
+          "hero": {
+            "url": "unsplash/ivana-cajina-dnL6ZIpht2s-unsplash.jpg",
+            "small": "small/unsplash/ivana-cajina-dnL6ZIpht2s-unsplash.jpg",
+            "name": "user-hero",
+            "alt": "user-hero",
+            "credit": {
+              "artistName": "ivana-cajina",
+              "artistUrl": "https://unsplash.com/@lidyanada?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+              "assetUrl": "https://unsplash.com/s/photos/happy-customer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+            }
+          }
+        },
+        "body": "The team at Sparkle & Shine transformed my messy post-construction site into a spotless and habitable home. I highly recommend their services."
+      },
+      {
+        "uid": "review-3",
+        "title": "Eco friendly",
+        "rating": 5,
+        "user": {
+          "name": "Samantha J.",
+          "hero": {
+            "url": "unsplash/lidya-nada-_0aKQa9gr4s-unsplash.jpg",
+            "small": "small/unsplash/lidya-nada-_0aKQa9gr4s-unsplash.jpg",
+            "name": "user-hero",
+            "alt": "user-hero",
+            "credit": {
+              "artistName": "lidya-nada",
+              "artistUrl": "https://unsplash.com/@lidyanada?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+              "assetUrl": "https://unsplash.com/s/photos/happy-customer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+            }
+          }
+        },
+        "body": "I appreciate the eco-friendly approach of Sparkle & Shine. They not only provide excellent cleaning but also take care of our planet. Well done!"
+      }
+    ]
+  },
+  "app": {
+    "isLoading": true,
+    "newsletter": {
+      "title": "Join the newsletter",
+      "subtitle": "Suscribe to get the latest content by email",
+      "response": "Unsubscribe at any time.",
+      "hero": { "link": "", "name": "main-hero" }
+    },
+    "name": "Sparkle and Shine",
+    "theme": "default",
+    "language": "default",
+    "logo": {
+      "url": "icons/logo.svg",
+      "small": "small/icons/logo.jpg",
+      "name": "logo",
+      "alt": "industry brand",
+      "label": "Sparkle and Shine",
+      "uid": "sparke-shine-logo"
+    },
+    "media": {
+      "title": "Dont miss a thing! Follow us on our socials",
+      "socials": [
+        {
+          "isEmpty": true,
+          "name": "instagram",
+          "link": "https://www.instagram.com//",
+          "uid": "instagram-1"
+        },
+        {
+          "isEmpty": true,
+          "name": "twitter",
+          "link": "https://www.twitter.com//",
+          "uid": "twitter-1"
+        },
+        {
+          "isEmpty": true,
+          "name": "facebook",
+          "link": "https://www.twitter.com//",
+          "uid": "facebook-1"
+        }
+      ]
+    },
+    "calendar": { "events": [] }
+  },
+  "landing": {
+    "appName": "Sharkle and Shine",
+    "hero": {
+      "url": "unsplash/naomi-hebert-MP0bgaS_d1c-unsplash.jpg",
+      "small": "small/unsplash/naomi-hebert-MP0bgaS_d1c-unsplash.jpg",
+      "name": "hero-main",
+      "alt": "clean kitchen",
+      "credit": {
+        "artistName": "naomi-hebert",
+        "artistUrl": "https://unsplash.com/de/@naomish?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+        "assetUrl": "https://unsplash.com/s/photos/cleaning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+      }
+    },
+    "title": "Sharkle and Shine: Professional House Cleaning Services",
+    "tagline": "Transforming your home into a clean haven",
+    "cta": [
+      {
+        "name": "main",
+        "icon": "checkout",
+        "uid": "button-check-123",
+        "label": "Book Now!",
+        "link": ""
+      }
+    ],
+    "body": "Welcome to Sparkle and Shine, your go-to solution for top-quality house cleaning services. We believe that a clean home is a happy home, and our dedicated team is here  help you achieve just that. With our exceptional cleaning experstise and attention to detail, we are committed to providing a prestine living evironment that you can truly relax in",
+    "features": [
+      {
+        "uid": "feature-1",
+        "hero": {
+          "url": "icons/secure-icon.svg",
+          "small": "small/icons/secure-icon.jpg",
+          "name": "icon-hero",
+          "theme": "icon-hero",
+          "alt": "trusted-brand"
+        },
+        "title": "Trusted Professionals",
+        "body": "Our cleaning staff consists of experienced and trained professionals who are dedicated to providing exceptional service and attention to detail."
+      },
+      {
+        "uid": "feature-2",
+        "hero": {
+          "url": "icons/recycle.svg",
+          "small": "small/icons/recycle.jpg",
+          "name": "icon-hero",
+          "theme": "icon-hero",
+          "alt": "eco-friendly"
+        },
+        "title": "Eco-Friendly Approach",
+        "body": "We use environmentally friendly cleaning products that are effective in removing dirt and grime without compromising the health of your family or the planet."
+      },
+      {
+        "uid": "feature-3",
+        "hero": {
+          "url": "icons/custom.svg",
+          "small": "small/icons/custom.jpg",
+          "icon": "custom",
+          "name": "icon-hero",
+          "theme": "icon-hero"
+        },
+        "title": "Customizable Cleaning Plans",
+        "body": "We understand that every home is unique. That's why we offer customizable cleaning plans that allow you to tailor our services to meet your specific requirements."
+      }
+    ],
+    "menu": [
+      {
+        "isToggle": true,
+        "lang": "en",
+        "uid": "menu-item-lan",
+        "alternatives": [
+          {
+            "name": "english",
+            "label": "english",
+            "locale": "en",
+            "url": "icons/english.svg",
+            "uid": "lan-english"
+          },
+          {
+            "name": "espanol",
+            "locale": "es",
+            "label": "espanol",
+            "url": "icons/spanish.svg",
+            "uid": "lan-espanol"
+          }
+        ]
+      },
+      {
+        "name": "services",
+        "label": "services",
+        "link": "services",
+        "icon": "services",
+        "uid": "services",
+        "ping": 0
+      },
+      {
+        "name": "testimonials",
+        "label": "testimonials",
+        "link": "testimonials",
+        "icon": "testimonials",
+        "uid": "testimonial",
+        "ping": 0
+      },
+      {
+        "name": "about",
+        "label": "about",
+        "link": "about",
+        "icon": "about",
+        "uid": "about",
+        "ping": 0
+      },
+      {
+        "name": "contact",
+        "label": "contact",
+        "link": "contact",
+        "icon": "contact",
+        "uid": "contact",
+        "ping": 0
+      },
+      {
+        "name": "FAQ",
+        "label": "FAQ",
+        "link": "FAQ",
+        "icon": "FAQ",
+        "uid": "faq",
+        "ping": 0
+      },
+      {
+        "active": {
+          "name": "login",
+          "label": "login",
+          "icon": "login",
+          "uid": "auth-login"
+        },
+        "link": "login",
+        "isPrivate": true,
+        "uid": "auth-1",
+        "alternatives": [
+          {
+            "name": "login",
+            "label": "login",
+            "icon": "login",
+            "uid": "auth-login",
+            "link": "login"
+          },
+          {
+            "name": "dashboard",
+            "label": "dashboard",
+            "icon": "user",
+            "uid": "auth-dash",
+            "link": "dashboard"
+          }
+        ]
+      }
+    ]
+  }
+}

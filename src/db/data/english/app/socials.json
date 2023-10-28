@@ -1,0 +1,8 @@
+{
+  "title": "Dont miss a thing! Follow us on our socials",
+  "socials": [
+    { "name": "instagram", "link": "https://www.instagram.com//", "uid": "instagram-1" },
+    { "name": "twitter", "link": "https://www.twitter.com//", "uid": "twitter-1" },
+    { "name": "facebook", "link": "https://www.twitter.com//", "uid": "facebook-1" }
+  ]
+}

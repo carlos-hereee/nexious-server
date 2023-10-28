@@ -1,0 +1,13 @@
+{
+  "events": {
+    "title": "Book Appointments",
+    "subtitle": "",
+    "isNav": false,
+    "sections": []
+  },
+  "isLoading": false,
+  "calendar": [],
+  "selectedDay": {},
+  "meeting": {},
+  "booked": []
+}

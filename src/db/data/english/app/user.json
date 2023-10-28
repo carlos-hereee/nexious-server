@@ -1,0 +1,13 @@
+{
+  "email": "email@example.com",
+  "name": "qwerty",
+  "phone": "987-654-3210",
+  "uid": "test123",
+  "isDev": true,
+  "hero": {
+    "url": "icons/user-default.svg",
+    "small": "small/icons/user-default.jpg",
+    "name": "user-hero",
+    "alt": "user-hero"
+  }
+}

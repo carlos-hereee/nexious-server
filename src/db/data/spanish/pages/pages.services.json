@@ -1,0 +1,152 @@
+{
+  "title": "servicios de limpieza profesional",
+  "body": "Ofrecemos una amplia gama de servicios de limpieza profesionales adaptados a sus necesidades específicas. Ya sea que necesite un mantenimiento de limpieza regular, una limpieza profunda para una renovación completa o una limpieza especializada para una situación de mudanza o salida o posterior a la construcción, nuestro equipo capacitado está aquí para brindar resultados excepcionales. Nos enorgullecemos de utilizar productos de limpieza ecológicos que son seguros para su hogar y el medio ambiente. Explora nuestros servicios a continuación:",
+  "hero": { "url": "", "alt": "", "name": "" },
+  "services": [
+    {
+      "uid": "services-1",
+      "title": "Limpieza periódica",
+      "hero": {
+        "url": "unsplash/pille-r-priske-Y1JjwhHaPRM-unsplash.jpg",
+        "small": "small/unsplash/pille-r-priske-Y1JjwhHaPRM-unsplash.jpg",
+        "name": "hero",
+        "theme": "thumbnail",
+        "alt": "regular cleaning",
+        "credit": {
+          "artistName": "pille-r-priske",
+          "artistUrl": "https://unsplash.com/@pillepriske?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+          "assetUrl": "https://unsplash.com/s/photos/cleaning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+        }
+      },
+      "isForSale": true,
+      "isBookable": true,
+      "isAccessory": false,
+      "count": 1,
+      "hyperlink": [{ "word": "Maiores", "link": "/lorem" }],
+      "cost": 199,
+      "body": "Diseñado para mantener la limpieza y organización de tu hogar de forma recurrente. Nuestros profesionales de limpieza capacitados visitarán su hogar a intervalos programados para realizar tareas de limpieza esenciales. Este servicio generalmente incluye quitar el polvo de las superficies, aspirar alfombras y pisos, trapear superficies duras, desinfectar baños y ordenar áreas comunes. Al elegir una limpieza regular, podrá disfrutar de un espacio habitable siempre limpio y acogedor sin el estrés de tener que gestionarlo usted mismo.",
+      "features": [
+        {
+          "uid": "feat-1-1",
+          "title": "¿Qué está incluido?",
+          "haslist": true,
+          "list": [
+            "Desempolvado de superficies.",
+            "Aspirar alfombras y tapetes.",
+            "Trapear suelos duros.",
+            "Limpieza y desinfección de baños.",
+            "Ordenar las zonas comunes."
+          ]
+        },
+        {
+          "uid": "feat-1-2",
+          "title": "Beneficios",
+          "haslist": true,
+          "list": [
+            "Mantener un medio ambiente limpio y saludable.",
+            "Ahorre tiempo y energía subcontratando las tareas de limpieza.",
+            "Cree un ambiente cómodo y acogedor para su familia e invitados.",
+            "Reduce la acumulación de polvo, alérgenos y gérmenes"
+          ]
+        }
+      ],
+      "cta": [
+        {
+          "icon": "checkout",
+          "uid": "button-check-123",
+          "label": "Reservar ahora!",
+          "name": "main"
+        }
+      ]
+    },
+    {
+      "uid": "services-2",
+      "title": "Limpieza profunda",
+      "subtitle": "",
+      "hero": {
+        "url": "unsplash/no-revisions-cpIgNaazQ6w-unsplash.jpg",
+        "small": "small/unsplash/no-revisions-cpIgNaazQ6w-unsplash.jpg",
+        "name": "hero",
+        "theme": "thumbnail",
+        "alt": "Limpieza profunda",
+        "credit": {
+          "artistName": "no-revisions",
+          "artistUrl": "https://unsplash.com/@norevisions?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+          "assetUrl": "https://unsplash.com/s/photos/cleaning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+        }
+      },
+      "isForSale": true,
+      "isBookable": true,
+      "isAccessory": false,
+      "count": 1,
+      "hyperlink": [{ "word": "Maiores", "link": "/lorem" }],
+      "cost": 199,
+      "body": "Proporciona una limpieza exhaustiva e integral de toda su casa, centrándose en áreas que pueden no recibir atención regular. Nuestro equipo dedicado limpiará meticulosamente los lugares de difícil acceso, como detrás de los muebles, el interior de los gabinetes y debajo de los electrodomésticos. Nos enfocamos en eliminar la suciedad, la suciedad y el polvo acumulados, dejando su hogar fresco y revitalizado. Se recomienda una limpieza profunda para un refrigerio profundo ocasional, antes de ocasiones especiales o como rutina de limpieza estacional.",
+      "features": [
+        {
+          "uid": "feat-2-1",
+          "title": "¿Qué está incluido?",
+          "haslist": true,
+          "list": [
+            "Todo lo que hay en el Paquete Básico, más:",
+            "Desempolvado detallado de muebles, enseres y decoraciones",
+            "Limpieza profunda de superficies y electrodomésticos de cocina",
+            "Limpieza puntual de paredes y zócalos",
+            "Limpieza de cristales interiores (altura alcanzable)"
+          ]
+        },
+        {
+          "uid": "feat-2-2",
+          "title": "Beneficios",
+          "haslist": true,
+          "list": [
+            "Devuelve un alto nivel de limpieza y frescura a tu hogar.",
+            "Elimina la suciedad, el polvo y los alérgenos ocultos.",
+            "Mejorar la calidad del aire interior y crear un entorno de vida más saludable.",
+            "Mejore la apariencia y la longevidad de sus muebles y superficies"
+          ]
+        }
+      ],
+      "cta": [
+        {
+          "icon": "checkout",
+          "uid": "button-check-123",
+          "label": "Reservar ahora!",
+          "name": "main"
+        }
+      ]
+    },
+    {
+      "uid": "services-3",
+      "title": "Servicios Especializados",
+      "subtitle": "Move-In/Out Cleaning",
+      "hero": {
+        "url": "unsplash/volha-flaxeco-BCNjBsK37XA-unsplash.jpg",
+        "small": "small/unsplash/volha-flaxeco-BCNjBsK37XA-unsplash.jpg",
+        "name": "hero",
+        "theme": "thumbnail",
+        "alt": "Deep cleaning",
+        "credit": {
+          "artistName": "volha-flaxeco",
+          "artistUrl": "https://unsplash.com/@flaxeco?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+          "assetUrl": "https://unsplash.com/s/photos/cleaning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+        }
+      },
+      "isForSale": true,
+      "isBookable": true,
+      "isAccessory": false,
+      "count": 1,
+      "hyperlink": [{ "word": "Maiores", "link": "/lorem" }],
+      "cost": 199,
+      "body": "Si se muda a una nueva casa o se prepara para mudarse, nuestro servicio de limpieza de entrada y salida es ideal. Limpiamos meticulosamente cada rincón, asegurándonos de que el espacio esté impecable y listo para usted o los próximos residentes.",
+      "cta": [
+        {
+          "name": "main",
+          "icon": "checkout",
+          "uid": "button-check-123",
+          "label": "Reservar ahora!"
+        }
+      ]
+    }
+  ]
+}

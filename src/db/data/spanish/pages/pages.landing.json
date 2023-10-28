@@ -1,0 +1,63 @@
+{
+  "appName": "Sparkle and Shine",
+  "hero": {
+    "url": "unsplash/naomi-hebert-MP0bgaS_d1c-unsplash.jpg",
+    "small": "small/unsplash/naomi-hebert-MP0bgaS_d1c-unsplash.jpg",
+    "name": "hero-main",
+    "alt": "clean kitchen",
+    "credit": {
+      "artistName": "naomi-hebert",
+      "artistUrl": "https://unsplash.com/de/@naomish?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+      "assetUrl": "https://unsplash.com/s/photos/cleaning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+    }
+  },
+  "title": "Sparkle and Shine: servicios profesionales de limpieza del hogar",
+  "tagline": "Transformando tu hogar en un refugio limpio",
+  "cta": [
+    {
+      "icon": "checkout",
+      "uid": "button-check-123",
+      "label": "Reservar ahora!",
+      "name": "main"
+    }
+  ],
+  "body": "Bienvenido a Sparkle and Shine, su solución ideal para servicios de limpieza del hogar de alta calidad. Creemos que un hogar limpio es un hogar feliz y nuestro dedicado equipo está aquí para ayudarlo a lograr precisamente eso. Con nuestra excepcional experiencia en limpieza y atención al detalle, estamos comprometidos a brindar un ambiente de vida impecable en el que usted realmente pueda relajarse.",
+  "features": [
+    {
+      "uid": "feature-1",
+      "hero": {
+        "url": "icons/secure-icon.svg",
+        "small": "small/icons/secure-icon.jpg",
+        "name": "icon-hero",
+        "theme": "icon-hero",
+        "alt": "trusted-brand"
+      },
+      "title": "Profesionales de confianza",
+      "body": "Nuestro personal de limpieza está formado por profesionales experimentados y capacitados que se dedican a brindar un servicio excepcional y atención al detalle."
+    },
+    {
+      "uid": "feature-2",
+      "hero": {
+        "url": "icons/recycle.svg",
+        "small": "small/icons/recycle.jpg",
+        "theme": "icon-hero",
+        "name": "icon-hero",
+        "alt": "eco-friendly"
+      },
+      "title": "Enfoque ecológico",
+      "body": "Utilizamos productos de limpieza respetuosos con el medio ambiente que son eficaces para eliminar la suciedad y la mugre sin comprometer la salud de tu familia ni la del planeta."
+    },
+    {
+      "uid": "feature-3",
+      "hero": {
+        "url": "icons/custom.svg",
+        "small": "small/icons/custom.jpg",
+        "theme": "icon-hero",
+        "icon": "custom",
+        "name": "icon-hero"
+      },
+      "title": "Customizable Cleaning Plans",
+      "body": "Entendemos que cada hogar es único. Es por eso que ofrecemos planes de limpieza personalizables que le permiten adaptar nuestros servicios para satisfacer sus requisitos específicos."
+    }
+  ]
+}
