@@ -6,10 +6,11 @@ module.exports = async (req, res) => {
   try {
     // made it through the forest, create new session cookie
     const sessionId = req.user.auth.sessionId;
-    const { accessToken } = storeCookies(res, req.user.username, sessionId);
-    const user = await getUser({ username: req.user.username });
+    const username = req.user.username;
+    const { accessToken } = storeCookies(res, username, sessionId);
+    const user = await getUser({ username });
     res.status(200).json({ accessToken, user }).end();
   } catch (error) {
-    useGenericErrors(res, res);
+    useGenericErrors(res, error, "error occured sending token");
   }
 };

@@ -15,7 +15,7 @@ const uploadSingle = require("../../utils/multer/uploadSingle");
 const updateAppLogo = require("./updateApp/appLogo");
 const initAppLogo = require("../../middleware/app/initAppLogo");
 const requireUniqueName = require("../../middleware/app/requireUniqueName");
-const getAllApps = require("./getApp/getAllApps");
+const getAppList = require("./getApp/appList");
 const requireAppName = require("../../middleware/app/requireAppName");
 const minAppData = require("./getApp/minAppData");
 const landingPageWithSection = require("./updateApp/landingPageWithSection");
@@ -29,7 +29,7 @@ const heroWare = [...adminWare, uploadSingle("hero"), getAppWithAppId, requireAp
 // const landingWare = [landingPageWithSection, minAppData];
 
 // load app data
-router.get("/app-list", getAllApps);
+router.get("/app-list", getAppList);
 router.get("/:appName", requireUser, getAppWithName);
 router.get("/latest/:appId", requireUser, latest);
 // build app data
