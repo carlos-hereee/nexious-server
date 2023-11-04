@@ -11,7 +11,6 @@ const { deserializeUser } = require("./middleware/auth");
 // create an express app
 const app = express();
 app.use(helmet.crossOriginResourcePolicy({ policy: "same-site" }));
-// app.use(helmet({ crossOriginEmbedderPolicy: false }));
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
