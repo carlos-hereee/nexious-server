@@ -10,8 +10,8 @@ module.exports = async (req, res, next) => {
     const heroId = v4();
     // declare logo data
     const logo = formatLogoData(appName, req.file);
-    const id = await updateHero({ heroId }, { ...logo, heroId });
-    req.logoId = id;
+    const hero = await updateHero({ heroId }, { ...logo, heroId });
+    req.logoId = hero._id || hero.upsertedId;
     next();
   } catch (error) {
     useGenericErrors(res, error, "error updating logo and appname");

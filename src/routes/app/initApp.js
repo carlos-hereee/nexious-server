@@ -1,17 +1,21 @@
 const { v4 } = require("uuid");
 const useGenericErrors = require("../../utils/auth/useGenericErrors");
 const createApp = require("../../db/models/app/createApp");
+const formatThemeList = require("../../utils/app/formatThemeList");
 
 module.exports = async (req, res, next) => {
   try {
     // key variables
     const appName = req.body.appName || req.parms.appName;
     const ownerId = req.user._id;
+    const themeList = formatThemeList(req.body.theme);
     const appId = v4();
     const logo = req.logoId;
+    const languageId = req.body.language || "";
+
     // init app
-    const appPayload = { appName, logo, appId, ownerId, adminIds: [ownerId] };
-    const app = await createApp(appPayload);
+    const appPayload = { appName, logo, appId, ownerId, themeList, adminIds: [ownerId] };
+    const app = await createApp({ ...appPayload, languageId });
     req.app = app;
     // update user   ownedApps
     req.user.ownedApps = [...req.user.ownedApps, app._id];
