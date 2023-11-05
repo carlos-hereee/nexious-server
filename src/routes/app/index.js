@@ -20,6 +20,7 @@ const requireAppName = require("../../middleware/app/requireAppName");
 const minAppData = require("./getApp/minAppData");
 const landingPageWithSection = require("./updateApp/landingPageWithSection");
 const getAppWithAppId = require("../../middleware/app/getAppWithAppId");
+const getAppWithLanguage = require("./getApp/getAppWithLanguage");
 // one liner
 const appWare = [getApp, requireApp];
 const logoWare = [requireUser, uploadSingle("logo")];
@@ -32,6 +33,7 @@ const heroWare = [...adminWare, uploadSingle("hero"), getAppWithAppId, requireAp
 router.get("/app-list", getAppList);
 router.get("/:appName", requireUser, getAppWithName);
 router.get("/latest/:appId", requireUser, latest);
+router.get("/:appName/locale/:locale", requireUser, getAppWithLanguage);
 // build app data
 router.post("/init-app/:appName", initAppWare, initAppLogo, initApp, minAppData);
 // update app

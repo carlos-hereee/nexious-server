@@ -1,6 +1,6 @@
 const { v4 } = require("uuid");
 const updateHero = require("../../../db/models/hero/updateHero");
-const formatLogoData = require("../../../utils/app/formatLogoData");
+const formatLogoData = require("../../../utils/app/format/formatLogoData");
 
 module.exports = async (req, res) => {
   // check if app logo has logo

@@ -1,4 +1,4 @@
-const formatFormData = require("../../../utils/app/formatFormData");
+const formatFormData = require("../../../utils/app/format/formatFormData");
 
 module.exports = async (req, res) => {
   // key variables

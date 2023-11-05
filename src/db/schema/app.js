@@ -8,7 +8,10 @@ const appSchema = new Schema(
     logo: { type: Schema.Types.ObjectId, ref: "Hero" },
     ownerId: { type: Schema.Types.ObjectId, ref: "Users" },
     adminIds: [{ type: Schema.Types.ObjectId, ref: "Users" }],
-    languageId: { type: String },
+    language: {
+      locale: { type: String },
+      languageList: [{ type: String }],
+    },
     themeList: [{ type: String }],
     landing: {
       title: { type: String },

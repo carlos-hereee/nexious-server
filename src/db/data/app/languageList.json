@@ -1,0 +1,14 @@
+{
+  "en-US": {
+    "name": "english",
+    "label": "English",
+    "value": "en-US (English)",
+    "url": "icons/english.svg"
+  },
+  "es-US": {
+    "name": "espanol",
+    "label": "Espanol",
+    "value": "en-US (Espanol)",
+    "url": "icons/spanish.svg"
+  }
+}

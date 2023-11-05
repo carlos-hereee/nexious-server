@@ -1,7 +1,7 @@
 const { v4 } = require("uuid");
 const updateHero = require("../../../db/models/hero/updateHero");
-const formatFormData = require("../../../utils/app/formatFormData");
-const formatPageData = require("../../../utils/app/formatPageData");
+const formatFormData = require("../../../utils/app/format/formatFormData");
+const formatPageData = require("../../../utils/app/format/formatPageData");
 const useGenericErrors = require("../../../utils/auth/useGenericErrors");
 
 module.exports = async (req, res) => {

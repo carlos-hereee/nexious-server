@@ -1,7 +1,7 @@
 const { v4 } = require("uuid");
 const updateHero = require("../../../db/models/hero/updateHero");
-const formatAssetData = require("../../../utils/app/formatAssetData");
-const formatFormData = require("../../../utils/app/formatFormData");
+const formatAssetData = require("../../../utils/app/format/formatAssetData");
+const formatFormData = require("../../../utils/app/format/formatFormData");
 const updateApp = require("../../../db/models/app/updateApp");
 const getApp = require("../../../db/models/app/getApp");
 

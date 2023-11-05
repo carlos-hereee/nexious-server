@@ -1,5 +1,5 @@
 const { v4 } = require("uuid");
-const { baseUrl } = require("../../../config.env");
+const { baseUrl } = require("../../../../config.env");
 
 module.exports = (file, data) => {
   const path = file.path.replace(/\/\//gi, "/") || "";
