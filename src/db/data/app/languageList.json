@@ -1,11 +1,11 @@
 {
-  "en-US": {
+  "en-US (English)": {
     "name": "english",
     "label": "English",
     "value": "en-US (English)",
     "url": "icons/english.svg"
   },
-  "es-US": {
+  "es-US (Espanol)": {
     "name": "espanol",
     "label": "Espanol",
     "value": "en-US (Espanol)",

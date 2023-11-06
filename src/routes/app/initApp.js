@@ -2,6 +2,7 @@ const { v4 } = require("uuid");
 const useGenericErrors = require("../../utils/auth/useGenericErrors");
 const createApp = require("../../db/models/app/createApp");
 const formatThemeList = require("../../utils/app/format/formatThemeList");
+const formatLanguageList = require("../../utils/app/format/formatLanguageList");
 
 module.exports = async (req, res, next) => {
   try {
@@ -12,16 +13,14 @@ module.exports = async (req, res, next) => {
     const appId = v4();
     const logo = req.logoId;
     // TODO: find other language ids and format data to language
-    const locale = req.body.locale || "";
-    const languageList = req.body.language;
-    console.log("locale, :>> ", locale);
-    console.log(" languageList :>> ", languageList);
-
-    return;
+    const language = {
+      locale: req.body.locale || "",
+      languageList: formatLanguageList(req.body.language),
+    };
 
     // init app
     const appPayload = { appName, logo, appId, ownerId, themeList, adminIds: [ownerId] };
-    const app = await createApp({ ...appPayload, locale });
+    const app = await createApp({ ...appPayload, language });
     req.app = app;
     // update user   ownedApps
     req.user.ownedApps = [...req.user.ownedApps, app._id];
