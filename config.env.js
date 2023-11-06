@@ -15,4 +15,5 @@ module.exports = {
   jwtPublicKey: process.env.JWT_PUBLIC_KEY,
   appId: process.env.APP_ID || "sparkle-shine",
   baseUrl: process.env.BASE_URL,
+  translatorKey: process.env.TRANSLATOR_AKI_KEY,
 };
