@@ -2,6 +2,7 @@ const useGenericErrors = require("../../utils/auth/useGenericErrors");
 const createApp = require("../../db/models/app/createApp");
 const formatThemeList = require("../../utils/app/format/formatThemeList");
 const formatLanguageList = require("../../utils/app/format/formatLanguageList");
+const { v4 } = require("uuid");
 
 module.exports = async (req, res, next) => {
   try {
@@ -14,8 +15,7 @@ module.exports = async (req, res, next) => {
     const language = formatLanguageList(req.body, appPayload);
     // const appData = formatInitAppData(language, appPayload);
     // console.log("appData :>> ", appData);
-    // init app
-    const app = await createApp({ ...appPayload, language });
+    const app = await createApp({ ...appPayload, ...language, appId: v4() });
     req.app = app;
     // update user   ownedApps
     req.user.ownedApps = [...req.user.ownedApps, app._id];

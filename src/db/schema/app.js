@@ -8,19 +8,17 @@ const appSchema = new Schema(
     logo: { type: Schema.Types.ObjectId, ref: "Hero" },
     ownerId: { type: Schema.Types.ObjectId, ref: "Users" },
     adminIds: [{ type: Schema.Types.ObjectId, ref: "Users" }],
-    language: {
-      locale: { type: String },
-      languageList: [
-        {
-          name: { type: String },
-          label: { type: String },
-          value: { type: String },
-          url: { type: String },
-          locale: { type: String },
-          uid: { type: String },
-        },
-      ],
-    },
+    locale: { type: String },
+    languageList: [
+      {
+        name: { type: String },
+        label: { type: String },
+        value: { type: String },
+        url: { type: String },
+        locale: { type: String },
+        uid: { type: String },
+      },
+    ],
     themeList: [
       {
         name: { type: String },

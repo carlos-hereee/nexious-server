@@ -9,7 +9,8 @@ const userSchema = new Schema(
     email: { type: String, set: toLower },
     nickname: { type: String },
     phone: { type: String },
-    languageId: { type: String },
+    locale: { type: String },
+    theme: { type: String },
     heroId: { type: Schema.Types.ObjectId, ref: "Hero" },
     permissions: [
       { appId: { type: Schema.Types.ObjectId, ref: "App" }, role: { type: String } },
