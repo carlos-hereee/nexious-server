@@ -1,0 +1,36 @@
+{
+  "light-mode": {
+    "name": "light-mode",
+    "value": "light-mode",
+    "label": "light-mode",
+    "colors": {
+      "primary": "",
+      "secondary": "",
+      "altPrimary": "",
+      "altSecondary": ""
+    },
+    "backgroundColors": {
+      "primary": "",
+      "secondary": "",
+      "altPrimary": "",
+      "altSecondary": ""
+    }
+  },
+  "dark-mode": {
+    "name": "dark-mode",
+    "value": "dark-mode",
+    "label": "dark-mode",
+    "colors": {
+      "primary": "",
+      "secondary": "",
+      "altPrimary": "",
+      "altSecondary": ""
+    },
+    "backgroundColors": {
+      "primary": "",
+      "secondary": "",
+      "altPrimary": "",
+      "altSecondary": ""
+    }
+  }
+}

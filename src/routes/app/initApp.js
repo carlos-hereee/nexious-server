@@ -12,11 +12,8 @@ module.exports = async (req, res, next) => {
     const themeList = formatThemeList(req.body.theme);
     const appId = v4();
     const logo = req.logoId;
-    // TODO: find other language ids and format data to language
-    const language = {
-      locale: req.body.locale || "",
-      languageList: formatLanguageList(req.body.language),
-    };
+    // TODO: add aditional  languages
+    const language = formatLanguageList(req.body);
 
     // init app
     const appPayload = { appName, logo, appId, ownerId, themeList, adminIds: [ownerId] };

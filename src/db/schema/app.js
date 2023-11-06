@@ -12,7 +12,27 @@ const appSchema = new Schema(
       locale: { type: String },
       languageList: [{ type: String }],
     },
-    themeList: [{ type: String }],
+    themeList: [
+      {
+        name: { type: String },
+        value: { type: String },
+        label: { type: String },
+        themeId: { type: String },
+        uid: { type: String },
+        colors: {
+          primary: { type: String },
+          altPrimary: { type: String },
+          secondary: { type: String },
+          altSecondary: { type: String },
+        },
+        backgroundColors: {
+          primary: { type: String },
+          altPrimary: { type: String },
+          secondary: { type: String },
+          altSecondary: { type: String },
+        },
+      },
+    ],
     landing: {
       title: { type: String },
       tagline: { type: String },
