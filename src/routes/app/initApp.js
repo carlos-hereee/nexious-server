@@ -13,6 +13,9 @@ module.exports = async (req, res, next) => {
     const logo = req.logoId;
     // TODO: find other language ids and format data to language
     const locale = req.body.locale || "";
+    const languageList = req.body.language;
+    console.log("locale, :>> ", locale);
+    console.log(" languageList :>> ", languageList);
 
     return;
 
