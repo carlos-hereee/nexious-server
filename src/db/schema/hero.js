@@ -19,6 +19,7 @@ const heroSchema = new Schema(
     icon: { type: String, set: toLower },
     name: { type: String },
     label: { type: String },
+    hero: { type: String },
     ping: { type: Number },
     // multer options
     fieldname: { type: String },

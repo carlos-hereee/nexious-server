@@ -10,6 +10,7 @@ module.exports = (appName, file) => {
     // TODO: compress image for faster loading
     small: `${baseUrl}/${path}`,
     url: `${baseUrl}/${path}`,
+    hero: `${baseUrl}/${path}`,
     alt: "Industry brand",
   };
 };

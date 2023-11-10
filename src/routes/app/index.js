@@ -41,7 +41,7 @@ router.post("/init-app/:appName", initAppWare, initAppLogo, initApp, minAppData)
 // update app
 router.post("/update-app", validateAdmin, updateApp);
 router.post("/update-app-name/:appId", logoWare, updateAppLogo);
-router.post("/update-landing-page/:appId", multiHeroWare, updateLandingPage);
+router.post("/update-landing-page/:appId", multiHeroWare, updateLandingPage, minAppData);
 router.post("/update-landing-page-with-hero/:appId", heroWare, landingPageWithSection);
 // building pages
 router.post("/add-page", appWare, saveAsset, addPage);
