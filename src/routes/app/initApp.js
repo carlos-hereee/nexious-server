@@ -12,10 +12,10 @@ module.exports = async (req, res, next) => {
     const themeList = formatThemeList(req.body.theme);
     // TODO: add aditional  languages data
     const appPayload = { appName, logo: req.logoId, ownerId, themeList, adminIds: [ownerId] };
-    const language = formatLanguageList(req.body, appPayload);
+    // const language = formatLanguageList(req.body, appPayload);
     // const appData = formatInitAppData(language, appPayload);
     // console.log("appData :>> ", appData);
-    const app = await createApp({ ...appPayload, ...language, appId: v4() });
+    const app = await createApp({ ...appPayload, appId: v4() });
     req.app = app;
     // update user   ownedApps
     req.user.ownedApps = [...req.user.ownedApps, app._id];

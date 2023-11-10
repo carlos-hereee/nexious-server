@@ -21,6 +21,7 @@ const minAppData = require("./getApp/appData");
 const landingPageWithSection = require("./updateApp/landingPageWithSection");
 const getAppWithAppId = require("../../middleware/app/getAppWithAppId");
 const getAppWithLanguage = require("./getApp/getAppWithLanguage");
+const uploadList = require("../../utils/multer/uploadList");
 // one liner
 const appWare = [getApp, requireApp];
 const logoWare = [requireUser, uploadSingle("logo")];
@@ -28,6 +29,7 @@ const initAppWare = [...logoWare, requireAppName, requireUniqueName];
 const adminWare = [requireUser, validateAdmin];
 const heroWare = [...adminWare, uploadSingle("hero"), getAppWithAppId, requireApp];
 // const landingWare = [landingPageWithSection, minAppData];
+const multiHeroWare = [...adminWare, uploadList("hero"), getAppWithAppId, requireApp];
 
 // load app data
 router.get("/app-list", getAppList);
@@ -39,7 +41,7 @@ router.post("/init-app/:appName", initAppWare, initAppLogo, initApp, minAppData)
 // update app
 router.post("/update-app", validateAdmin, updateApp);
 router.post("/update-app-name/:appId", logoWare, updateAppLogo);
-router.post("/update-landing-page/:appId", validateAdmin, updateLandingPage);
+router.post("/update-landing-page/:appId", multiHeroWare, updateLandingPage);
 router.post("/update-landing-page-with-hero/:appId", heroWare, landingPageWithSection);
 // building pages
 router.post("/add-page", appWare, saveAsset, addPage);
