@@ -23,6 +23,7 @@ const getAppWithAppId = require("../../middleware/app/getAppWithAppId");
 const getAppWithLanguage = require("./getApp/getAppWithLanguage");
 const uploadFields = require("../../utils/multer/uploadFields");
 const updateNewsletter = require("./updateApp/updateNewsletter");
+const updateMedias = require("./updateApp/updateMedias");
 
 // one liner
 const appWare = [getApp, requireApp];
@@ -42,6 +43,7 @@ router.post("/init-app/:appName", initAppWare, initAppLogo, initApp, minAppData)
 // update app
 router.post("/update-app", validateAdmin, updateApp);
 router.post("/update-newsletter/:appId", heroWare, updateNewsletter, minAppData);
+router.post("/update-medias/:appId", heroWare, updateMedias, minAppData);
 router.post("/update-app-name/:appId", logoWare, updateAppLogo);
 router.post("/update-landing-page/:appId", multiHeroWare, updateLandingPage, minAppData);
 // router.post("/update-landing-page-with-hero/:appId", heroWare, landingPageWithSection);

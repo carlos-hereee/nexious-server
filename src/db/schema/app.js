@@ -60,8 +60,9 @@ const appSchema = new Schema(
     media: {
       title: { type: String, default: "Dont miss a thing! Follow us on our socials" },
       subtitle: { type: String },
-      details: { type: String },
-      sections: [{ type: Schema.Types.ObjectId, ref: "Hero" }],
+      hasMedias: { type: Boolean },
+      hero: { type: Schema.Types.ObjectId, ref: "Hero" },
+      medias: [{ media: { type: String }, link: { type: String } }],
     },
     menu: [
       {
