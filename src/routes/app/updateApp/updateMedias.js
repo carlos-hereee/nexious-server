@@ -6,14 +6,13 @@ module.exports = async (req, res, next) => {
   try {
     if (req.file) {
       let heroId = req.app.media.hero;
-      const mediaHero = await saveHeroData({ heroData: req.file, heroId });
-      req.app.media.hero = mediaHero.upsertedId;
+      req.app.media.hero = await saveHeroData({ heroData: req.file, heroId });
     }
     let { pageData } = formatFormData(req.body);
     req.app.media = { ...req.app.media, ...pageData };
     await req.app.save();
     next();
   } catch (error) {
-    useGenericErrors(res, error, "errror occured upating newsletter");
+    useGenericErrors(res, error, "errror occured updating medias");
   }
 };

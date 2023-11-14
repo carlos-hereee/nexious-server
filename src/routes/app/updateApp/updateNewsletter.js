@@ -5,8 +5,7 @@ module.exports = async (req, res, next) => {
   try {
     if (req.file) {
       let heroId = req.app.newsletter.hero;
-      const newsletterHero = await saveHeroData({ heroData: req.file, heroId });
-      req.app.newsletter.hero = newsletterHero.upsertedId;
+      req.app.newsletter.hero = await saveHeroData({ heroData: req.file, heroId });
     }
     let { pageData } = formatFormData(req.body);
     req.app.newsletter = { ...req.app.newsletter, ...pageData };
