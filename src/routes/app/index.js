@@ -21,7 +21,8 @@ const minAppData = require("./getApp/appData");
 const landingPageWithSection = require("./updateApp/landingPageWithSection");
 const getAppWithAppId = require("../../middleware/app/getAppWithAppId");
 const getAppWithLanguage = require("./getApp/getAppWithLanguage");
-const uploadList = require("../../utils/multer/uploadList");
+const uploadFields = require("../../utils/multer/uploadFields");
+
 // one liner
 const appWare = [getApp, requireApp];
 const logoWare = [requireUser, uploadSingle("logo")];
@@ -29,7 +30,7 @@ const initAppWare = [...logoWare, requireAppName, requireUniqueName];
 const adminWare = [requireUser, validateAdmin];
 const heroWare = [...adminWare, uploadSingle("hero"), getAppWithAppId, requireApp];
 // const landingWare = [landingPageWithSection, minAppData];
-const multiHeroWare = [...adminWare, uploadList("hero"), getAppWithAppId, requireApp];
+const multiHeroWare = [...adminWare, uploadFields(), getAppWithAppId, requireApp];
 
 // load app data
 router.get("/app-list", getAppList);
