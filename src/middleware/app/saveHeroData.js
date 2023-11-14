@@ -7,13 +7,12 @@ const saveHero = require("../../db/models/hero/saveHero");
 module.exports = async (heroData, heroId) => {
   try {
     if (heroId) {
-      const asset = formatAssetData({ ...heroData, heroId });
+      const asset = formatAssetData(heroData, heroId);
       const hero = await updateHero({ refId: heroId }, asset);
       return hero.upsertedId;
     } else {
-      const id = v4();
-      const asset = formatAssetData({ ...heroData, heroId: id });
-      const hero = await saveHero({ heroId: id }, asset);
+      const asset = formatAssetData(heroData, v4());
+      const hero = await saveHero(asset);
       return hero._id;
     }
   } catch (error) {

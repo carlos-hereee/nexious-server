@@ -1,4 +1,3 @@
-const { v4 } = require("uuid");
 const { baseUrl } = require("../../../../config.env");
 
 module.exports = (file, data) => {

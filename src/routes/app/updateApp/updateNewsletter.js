@@ -4,8 +4,7 @@ const saveHeroData = require("../../../middleware/app/saveHeroData");
 module.exports = async (req, res, next) => {
   try {
     if (req.file) {
-      let heroId = req.app.newsletter.hero;
-      req.app.newsletter.hero = await saveHeroData({ heroData: req.file, heroId });
+      req.app.newsletter.hero = await saveHeroData(req.file, req.app.newsletter.hero);
     }
     let { pageData } = formatFormData(req.body);
     req.app.newsletter = { ...req.app.newsletter, ...pageData };

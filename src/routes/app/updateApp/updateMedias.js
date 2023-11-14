@@ -5,11 +5,10 @@ const useGenericErrors = require("../../../utils/auth/useGenericErrors");
 module.exports = async (req, res, next) => {
   try {
     if (req.file) {
-      let heroId = req.app.media.hero;
-      req.app.media.hero = await saveHeroData({ heroData: req.file, heroId });
+      req.app.media.hero = await saveHeroData(req.file, req.app.media.hero);
     }
-    let { pageData } = formatFormData(req.body);
-    req.app.media = { ...req.app.media, ...pageData };
+    let { pageData, refs } = formatFormData(req.body);
+    req.app.media = { ...req.app.media, ...pageData, medias: refs.hasMedias };
     await req.app.save();
     next();
   } catch (error) {
