@@ -2,7 +2,7 @@ const App = require("../../schema/app");
 
 module.exports = async ({ appId, appName, appIds, ownerId, all, locale }) => {
   const includeData =
-    "landing.cta landing.hero landing.sections menu.active menu.alternatives logo";
+    "landing.cta landing.hero landing.sections menu.active menu.alternatives logo newsletter.hero";
 
   if (all) {
     return await App.find().select("appName appId logo adminIds");

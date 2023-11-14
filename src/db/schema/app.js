@@ -54,7 +54,8 @@ const appSchema = new Schema(
       title: { type: String, default: "Join the newsletter" },
       subtitle: { type: String, default: "Suscribe to get the latest content by email" },
       details: { type: String, default: "Unsubscribe at any time." },
-      heroId: { type: Schema.Types.ObjectId, ref: "Hero" },
+      email: { type: String },
+      hero: { type: Schema.Types.ObjectId, ref: "Hero" },
     },
     media: {
       title: { type: String, default: "Dont miss a thing! Follow us on our socials" },

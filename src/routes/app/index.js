@@ -22,6 +22,7 @@ const landingPageWithSection = require("./updateApp/landingPageWithSection");
 const getAppWithAppId = require("../../middleware/app/getAppWithAppId");
 const getAppWithLanguage = require("./getApp/getAppWithLanguage");
 const uploadFields = require("../../utils/multer/uploadFields");
+const updateNewsletter = require("./updateApp/updateNewsletter");
 
 // one liner
 const appWare = [getApp, requireApp];
@@ -29,7 +30,6 @@ const logoWare = [requireUser, uploadSingle("logo")];
 const initAppWare = [...logoWare, requireAppName, requireUniqueName];
 const adminWare = [requireUser, validateAdmin];
 const heroWare = [...adminWare, uploadSingle("hero"), getAppWithAppId, requireApp];
-// const landingWare = [landingPageWithSection, minAppData];
 const multiHeroWare = [...adminWare, uploadFields(), getAppWithAppId, requireApp];
 
 // load app data
@@ -41,9 +41,10 @@ router.get("/:appName/locale/:locale", requireUser, getAppWithLanguage);
 router.post("/init-app/:appName", initAppWare, initAppLogo, initApp, minAppData);
 // update app
 router.post("/update-app", validateAdmin, updateApp);
+router.post("/update-newsletter/:appId", heroWare, updateNewsletter, minAppData);
 router.post("/update-app-name/:appId", logoWare, updateAppLogo);
 router.post("/update-landing-page/:appId", multiHeroWare, updateLandingPage, minAppData);
-router.post("/update-landing-page-with-hero/:appId", heroWare, landingPageWithSection);
+// router.post("/update-landing-page-with-hero/:appId", heroWare, landingPageWithSection);
 // building pages
 router.post("/add-page", appWare, saveAsset, addPage);
 // delete app
