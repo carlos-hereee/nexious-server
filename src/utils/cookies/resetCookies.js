@@ -1,4 +1,5 @@
+const { accessTokenName, refreshTokenName } = require("../../../config.env");
 module.exports = (res) => {
-  res.cookie("accessToken", "", { maxAge: 0, httpOnly: true });
-  res.cookie("refreshToken", "", { maxAge: 0, httpOnly: true });
+  res.cookie(accessTokenName, "", { maxAge: 0, httpOnly: true });
+  res.cookie(refreshTokenName, "", { maxAge: 0, httpOnly: true });
 };
