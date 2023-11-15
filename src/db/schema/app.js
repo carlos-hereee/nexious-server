@@ -62,7 +62,7 @@ const appSchema = new Schema(
       subtitle: { type: String },
       hasMedias: { type: Boolean },
       hero: { type: Schema.Types.ObjectId, ref: "Hero" },
-      medias: [{ media: { type: String }, link: { type: String } }],
+      medias: [{ media: { type: String }, link: { type: String }, sharedKey: { type: String } }],
     },
     menu: [
       {

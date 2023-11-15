@@ -5,7 +5,6 @@ const { requireUser } = require("../../middleware/auth");
 const addPage = require("./addPage");
 const deleteApp = require("./deleteApp");
 const initApp = require("./initApp");
-const latest = require("./getApp/latest");
 const updateApp = require("./updateApp/app");
 const getAppWithName = require("./getApp/getAppWithName");
 // const updateAppName = require("../../middleware/app/updateAppName");
@@ -18,7 +17,7 @@ const requireUniqueName = require("../../middleware/app/requireUniqueName");
 const getAppList = require("./getApp/appList");
 const requireAppName = require("../../middleware/app/requireAppName");
 const minAppData = require("./getApp/appData");
-const landingPageWithSection = require("./updateApp/landingPageWithSection");
+// const landingPageWithSection = require("./updateApp/landingPageWithSection");
 const getAppWithAppId = require("../../middleware/app/getAppWithAppId");
 const getAppWithLanguage = require("./getApp/getAppWithLanguage");
 const uploadFields = require("../../utils/multer/uploadFields");
@@ -36,7 +35,7 @@ const multiHeroWare = [...adminWare, uploadFields(), getAppWithAppId, requireApp
 // load app data
 router.get("/app-list", getAppList);
 router.get("/:appName", requireUser, getAppWithName);
-router.get("/latest/:appId", requireUser, latest);
+// router.get("/latest/:appId", requireUser, latest);
 router.get("/:appName/locale/:locale", requireUser, getAppWithLanguage);
 // build app data
 router.post("/init-app/:appName", initAppWare, initAppLogo, initApp, minAppData);
