@@ -8,7 +8,7 @@ module.exports = async (req, res) => {
     const sessionId = req.user.auth.sessionId;
     const username = req.user.username;
     const { accessToken } = storeCookies(res, username, sessionId);
-    const user = await getUser({ username });
+    const user = await getUser({ userId: req.user.userId });
     res.status(200).json({ accessToken, user }).end();
   } catch (error) {
     useGenericErrors(res, error, "error occured sending token");
