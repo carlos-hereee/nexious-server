@@ -7,7 +7,7 @@ module.exports = (req, res) => {
   console.log("req.calendar", req.calendar);
   //
   if (role === "admin") {
-    let calendar = { calendarId: v4(), adminId: userId };
+    let calendar = { calendarId: v4(), adminIds: userId };
     let event = { eventId, date };
   }
   // todo save and send response

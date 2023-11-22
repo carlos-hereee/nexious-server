@@ -1,11 +1,13 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const toLower = require("../../utils/app/lowerCase");
+const { v4 } = require("uuid");
 
 const heroSchema = new Schema(
   {
     // key variables
-    heroId: { type: String, require: true, unique: true },
+    uid: { type: String, require: true, unique: true, default: v4 },
+    heroId: { type: String, default: v4 },
     // hero detail data
     title: { type: String },
     data: { type: String },

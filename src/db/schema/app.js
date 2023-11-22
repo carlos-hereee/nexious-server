@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
+const { v4 } = require("uuid");
 const Schema = mongoose.Schema;
 
 const appSchema = new Schema(
   {
-    appId: { type: String, require: true },
+    appId: { type: String, require: true, default: v4 },
     appName: { type: String, unique: true },
     logo: { type: Schema.Types.ObjectId, ref: "Hero" },
     ownerId: { type: Schema.Types.ObjectId, ref: "Users" },
@@ -16,7 +17,7 @@ const appSchema = new Schema(
         value: { type: String },
         url: { type: String },
         locale: { type: String },
-        uid: { type: String },
+        uid: { type: String, default: v4 },
       },
     ],
     themeList: [
@@ -25,7 +26,7 @@ const appSchema = new Schema(
         value: { type: String },
         label: { type: String },
         themeId: { type: String },
-        uid: { type: String },
+        uid: { type: String, default: v4 },
         colors: {
           primary: { type: String },
           altPrimary: { type: String },
@@ -47,7 +48,14 @@ const appSchema = new Schema(
       hasCta: { type: Boolean },
       hasSections: { type: Boolean },
       hero: { type: Schema.Types.ObjectId, ref: "Hero" },
-      cta: [{ label: { type: String }, link: { type: String }, icon: { type: String } }],
+      cta: [
+        {
+          label: { type: String },
+          link: { type: String },
+          icon: { type: String },
+          uid: { type: String, default: v4 },
+        },
+      ],
       sections: [{ type: Schema.Types.ObjectId, ref: "Hero" }],
     },
     newsletter: {
@@ -62,24 +70,26 @@ const appSchema = new Schema(
       subtitle: { type: String },
       hasMedias: { type: Boolean },
       hero: { type: Schema.Types.ObjectId, ref: "Hero" },
-      medias: [{ media: { type: String }, link: { type: String }, sharedKey: { type: String } }],
+      medias: [
+        {
+          media: { type: String },
+          link: { type: String },
+          sharedKey: { type: String },
+          uid: { type: String, default: v4 },
+        },
+      ],
     },
     menu: [
       {
-        menuId: { type: String },
+        menuId: { type: String, default: v4 },
+        uid: { type: String, default: v4 },
         isToggle: { type: Boolean, default: false },
         isPrivate: { type: Boolean, default: false },
-        // menuItemId === heroId
         active: { type: Schema.Types.ObjectId, ref: "Hero" },
         alternatives: [{ type: Schema.Types.ObjectId, ref: "Hero" }],
       },
     ],
-    calendar: {
-      name: { type: String },
-      theme: { type: String },
-      calendarId: { type: String },
-      events: [{ eventId: { type: String } }],
-    },
+    calendar: { type: Schema.Types.ObjectId, ref: "Calendar" },
   },
   { timestamps: true }
 );
