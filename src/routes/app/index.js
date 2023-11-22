@@ -5,7 +5,7 @@ const { requireUser } = require("../../middleware/auth");
 const addPage = require("./addPage");
 const deleteApp = require("./deleteApp");
 const initApp = require("./initApp");
-const updateApp = require("./updateApp/app");
+// const updateApp = require("./updateApp/app");
 const getAppWithName = require("./getApp/getAppWithName");
 // const updateAppName = require("../../middleware/app/updateAppName");
 const updateLandingPage = require("./updateApp/landingPage");
@@ -40,11 +40,11 @@ router.get("/:appName/locale/:locale", requireUser, getAppWithLanguage);
 // build app data
 router.post("/init-app/:appName", initAppWare, initAppLogo, initApp, minAppData);
 // update app
-router.post("/update-app", validateAdmin, updateApp);
-router.post("/update-newsletter/:appId", heroWare, updateNewsletter, minAppData);
-router.post("/update-medias/:appId", heroWare, updateMedias, minAppData);
-router.post("/update-app-name/:appId", logoWare, updateAppLogo);
-router.post("/update-landing-page/:appId", multiHeroWare, updateLandingPage, minAppData);
+// router.put("/update-app", validateAdmin, updateApp);
+router.put("/update-newsletter/:appId", heroWare, updateNewsletter, minAppData);
+router.put("/update-medias/:appId", heroWare, updateMedias, minAppData);
+router.put("/update-app-name/:appId", logoWare, updateAppLogo);
+router.put("/update-landing-page/:appId", multiHeroWare, updateLandingPage, minAppData);
 // router.post("/update-landing-page-with-hero/:appId", heroWare, landingPageWithSection);
 // building pages
 router.post("/add-page", appWare, saveAsset, addPage);

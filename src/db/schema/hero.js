@@ -34,7 +34,7 @@ const heroSchema = new Schema(
     path: { type: String },
     size: { type: Number },
     // 3rd party asset
-    credit: {
+    creditTo: {
       artistName: { type: String },
       artistUrl: { type: String },
       assetUrl: { type: String },

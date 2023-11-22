@@ -7,6 +7,11 @@ module.exports = async (req, res) => {
   const appName = req.body.appName;
   const refId = req.app.logo;
   // logo payload
+  console.log("req.body :>> ", req.body);
+  if (req.file) {
+    console.log("req.file :>> ", req.file);
+  }
+  return;
   const logo = formatLogoData(appName, req.file);
   //  updating previous logo
   if (refId) {
