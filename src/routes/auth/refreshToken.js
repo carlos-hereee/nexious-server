@@ -12,6 +12,7 @@ module.exports = async (req, res) => {
     // create  cookies
     const user = await getUser({ userId: req.user.userId });
     const { accessToken } = storeCookies(res, user.username, sessionId);
+    console.log("accessToken :>> ", accessToken);
     res.status(200).json({ accessToken, user }).end();
   } catch (error) {
     useGenericErrors(res, error, "refresh token errror");
