@@ -1,26 +1,17 @@
 const useGenericErrors = require("../../utils/auth/useGenericErrors");
 const createApp = require("../../db/models/app/createApp");
-const formatThemeList = require("../../utils/app/format/formatThemeList");
-const formatLanguageList = require("../../utils/app/format/formatLanguageList");
-const { v4 } = require("uuid");
+// const formatThemeList = require("../../utils/app/format/formatThemeList");
+// const formatLanguageList = require("../../utils/app/format/formatLanguageList");
 
 module.exports = async (req, res, next) => {
   try {
     // key variables
     const appName = req.body.appName || req.parms.appName;
-    const ownerId = req.user._id;
-    const themeList = formatThemeList(req.body.theme);
-    // TODO: add aditional  languages data
-    const appPayload = { appName, logo: req.logoId, ownerId, themeList, adminIds: [ownerId] };
-    // const language = formatLanguageList(req.body, appPayload);
-    // const appData = formatInitAppData(language, appPayload);
-    // console.log("appData :>> ", appData);
-    const app = await createApp({ ...appPayload, appId: v4() });
-    req.app = app;
-    // update user   ownedApps
-    req.user.ownedApps = [...req.user.ownedApps, app._id];
+    const owner = req.user._id;
+    const app = await createApp({ appName, logo: req.logo, owner, adminIds: [owner] });
     // add user permissions
-    req.user.permissions = [...req.user.permissions, { appId: app._id, role: "owner" }];
+    req.user.ownedApps.push(app._id);
+    req.user.permissions.push({ appId: app._id, role: "owner" });
     await req.user.save();
     next();
   } catch (error) {

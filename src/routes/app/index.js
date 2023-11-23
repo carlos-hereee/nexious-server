@@ -12,7 +12,7 @@ const updateLandingPage = require("./updateApp/landingPage");
 const validateAdmin = require("../../middleware/app/validateAdmin");
 const uploadSingle = require("../../utils/multer/uploadSingle");
 const updateAppLogo = require("./updateApp/appLogo");
-const initAppLogo = require("../../middleware/app/updateLogo");
+const updateLogo = require("../../middleware/app/updateLogo");
 const requireUniqueName = require("../../middleware/app/requireUniqueName");
 const getAppList = require("./getApp/appList");
 const requireAppName = require("../../middleware/app/requireAppName");
@@ -23,6 +23,7 @@ const getAppWithLanguage = require("./getApp/getAppWithLanguage");
 const uploadFields = require("../../utils/multer/uploadFields");
 const updateNewsletter = require("./updateApp/updateNewsletter");
 const updateMedias = require("./updateApp/updateMedias");
+const initLogo = require("../../middleware/app/initLogo");
 
 // one liner
 const appWare = [getApp, requireApp];
@@ -38,7 +39,7 @@ router.get("/:appName", requireUser, getAppWithName);
 // router.get("/latest/:appId", requireUser, latest);
 router.get("/:appName/locale/:locale", requireUser, getAppWithLanguage);
 // build app data
-router.post("/init-app/:appName", initAppWare, initAppLogo, initApp, minAppData);
+router.post("/init-app/:appName", initAppWare, initLogo, initApp, minAppData);
 // update app
 // router.put("/update-app", validateAdmin, updateApp);
 router.put("/update-newsletter/:appId", heroWare, updateNewsletter, minAppData);
