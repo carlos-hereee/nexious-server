@@ -10,10 +10,10 @@ module.exports = async (req, res) => {
     req.user.auth.sessionId = sessionId;
     await req.user.save();
     // create  cookies
-    const user = await getUser({ userId: req.user.userId });
-    const { accessToken } = storeCookies(res, user.username, sessionId);
-    console.log("accessToken :>> ", accessToken);
-    res.status(200).json({ accessToken, user }).end();
+    // const user = await getUser({ userId: req.user.userId });
+    const { accessToken } = storeCookies(res, req.user.username, sessionId);
+    // console.log("accessToken :>> ", accessToken);
+    res.status(200).json(accessToken).end();
   } catch (error) {
     useGenericErrors(res, error, "refresh token errror");
   }

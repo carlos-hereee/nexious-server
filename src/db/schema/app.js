@@ -7,7 +7,7 @@ const appSchema = new Schema(
     appId: { type: String, require: true, default: v4 },
     appName: { type: String, unique: true },
     logo: { type: Schema.Types.ObjectId, ref: "Hero" },
-    ownerId: { type: Schema.Types.ObjectId, ref: "Users" },
+    owner: { type: Schema.Types.ObjectId, ref: "Users" },
     adminIds: [{ userId: { type: Schema.Types.ObjectId, ref: "Users" }, role: { type: String } }],
     locale: { type: String },
     languageList: [

@@ -23,7 +23,7 @@ const changePasswordWare = [addPassHistory, updatePassword, changePassword];
 router.get("/", requireUser, userRoute);
 // TODO: ADD ADDITIONAL VERFICATION METHODS
 router.get("/user/:username", userWare, getWithUsername);
-router.get("/access-token", userWare, getAccessData);
+router.get("/access-token", requireUser, getAccessData);
 // post
 router.post("/register", validateUser, authenticateUser, register, sendToken);
 router.post("/login", validateWare, login);

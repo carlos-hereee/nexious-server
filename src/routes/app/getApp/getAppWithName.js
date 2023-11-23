@@ -5,6 +5,7 @@ module.exports = async (req, res) => {
   try {
     const appName = req.params.appName.split("+").join(" ");
     const apps = await getApp({ appName });
+    // console.log("apps :>> ", apps.ownerId);
     res.status(200).json(apps).end();
   } catch (error) {
     useGenericErrors(res, error, "error occured getting app name");
