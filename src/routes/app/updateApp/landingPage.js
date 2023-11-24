@@ -8,45 +8,49 @@ const getHero = require("../../../db/models/hero/getHero");
 module.exports = async (req, res, next) => {
   try {
     console.log("req.files :>> ", req.files);
-    if (!req.files) return;
+    // if (!req.files) return;
     let { pageData, refs } = formatFormData(req.body);
     let sectionIds = [];
     let hero;
-    if (refs.hasSections) {
-      for (let item = 0; item < refs.hasSections.length; item++) {
-        const sectionHero = req.files.sectionHero[item];
-        const current = refs.hasSections[item];
-        const heroId = current.sharedKey;
-        const asset = formatAssetData(sectionHero, { ...current, heroId });
-        // check if new
-        let hero = await getHero({ heroId });
-        if (hero) {
-          await updateHero({ heroId }, asset);
-          sectionIds.push(hero._id);
-        } else {
-          const section = await updateHero({ heroId }, asset);
-          sectionIds.push(section.upsertedId);
+    if (req.files) {
+      if (refs.hasSections) {
+        for (let item = 0; item < refs.hasSections.length; item++) {
+          const sectionHero = req.files.sectionHero[item];
+          const current = refs.hasSections[item];
+          const heroId = current.sharedKey;
+          const asset = formatAssetData(sectionHero, { ...current, heroId });
+          // check if new
+          let hero = await getHero({ heroId });
+          if (hero) {
+            await updateHero({ heroId }, asset);
+            sectionIds.push(hero._id);
+          } else {
+            const section = await updateHero({ heroId }, asset);
+            sectionIds.push(section.upsertedId);
+          }
         }
       }
-    }
-    if (refs.hasCta) pageData = { ...pageData, cta: refs.hasCta };
-    if (req.files.hero) {
-      const pageHero = req.files.hero[0];
-      if (req.app.landing.hero) {
-        const heroId = req.app.landing.hero.heroId;
-        const asset = formatAssetData({ ...pageHero, heroId });
-        // check if new
-        const landingHero = await updateHero({ heroId }, asset);
-        hero = landingHero.upsertedId;
-      } else {
-        const heroId = v4();
-        const asset = formatAssetData({ ...pageHero, heroId });
-        // check if new
-        const landingHero = await updateHero({ heroId }, asset);
-        hero = landingHero.upsertedId;
+      if (req.files.hero) {
+        const pageHero = req.files.hero[0];
+        if (req.app.landing.hero) {
+          const heroId = req.app.landing.hero.heroId;
+          const asset = formatAssetData({ ...pageHero, heroId });
+          // check if new
+          const landingHero = await updateHero({ heroId }, asset);
+          hero = landingHero.upsertedId;
+        } else {
+          const heroId = v4();
+          const asset = formatAssetData({ ...pageHero, heroId });
+          // check if new
+          const landingHero = await updateHero({ heroId }, asset);
+          hero = landingHero.upsertedId;
+        }
+        req.app.landing = { ...req.app.landing, hero };
       }
+      req.app.landing = { ...req.app.landing, sections: sectionIds };
     }
-    req.app.landing = { ...pageData, hero, sections: sectionIds };
+    if (refs.hasCta) pageData = { ...req.app.landing, cta: refs.hasCta };
+    req.app.landing = { ...req.app.landing, ...pageData };
     await req.app.save();
     console.log("req.app.landing :>> ", req.app.landing);
     next();
