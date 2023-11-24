@@ -1,4 +1,4 @@
-const getUser = require("../../db/models/users/getUser");
+// const getUser = require("../../db/models/users/getUser");
 const makeSession = require("../../utils/auth/makeSession");
 const useGenericErrors = require("../../utils/auth/useGenericErrors");
 const storeCookies = require("../../utils/cookies/storeCookies");

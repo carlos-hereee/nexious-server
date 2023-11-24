@@ -4,5 +4,5 @@ const storage = require("./storage");
 module.exports = () =>
   multer({ storage: storage }).fields([
     { name: "hero", maxCount: 1 },
-    { name: "sectionHero", maxCount: 5 },
+    { name: "sectionHero", maxCount: 10 },
   ]);
