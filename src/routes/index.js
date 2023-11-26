@@ -3,6 +3,7 @@ const authRoute = require("./auth");
 const appRoute = require("./app");
 const calendarRoute = require("./calendar");
 const publicRoute = require("./public");
+const heroRoute = require("./hero");
 
 module.exports = (app) => {
   // initial test route
@@ -16,5 +17,6 @@ module.exports = (app) => {
   app.use("/auth/", authRoute);
   // app data
   app.use("/app/", appRoute);
+  app.use("/hero/", heroRoute);
   app.use("/calendar/", calendarRoute);
 };

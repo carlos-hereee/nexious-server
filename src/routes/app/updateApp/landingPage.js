@@ -7,9 +7,8 @@ const getHero = require("../../../db/models/hero/getHero");
 
 module.exports = async (req, res, next) => {
   try {
-    console.log("req.files :>> ", req.files);
-    // if (!req.files) return;
     let { pageData, refs } = formatFormData(req.body);
+    req.app.landing = { ...req.app.landing, ...pageData };
     let sectionIds = [];
     let hero;
     if (req.files) {
@@ -29,6 +28,7 @@ module.exports = async (req, res, next) => {
             sectionIds.push(section.upsertedId);
           }
         }
+        req.app.landing = { ...req.app.landing, sections: sectionIds };
       }
       if (req.files.hero) {
         const pageHero = req.files.hero[0];
@@ -47,12 +47,9 @@ module.exports = async (req, res, next) => {
         }
         req.app.landing = { ...req.app.landing, hero };
       }
-      req.app.landing = { ...req.app.landing, sections: sectionIds };
     }
     if (refs.hasCta) pageData = { ...req.app.landing, cta: refs.hasCta };
-    req.app.landing = { ...req.app.landing, ...pageData };
     await req.app.save();
-    console.log("req.app.landing :>> ", req.app.landing);
     next();
   } catch (error) {
     useGenericErrors(res, error, "error occured updating lading page");
