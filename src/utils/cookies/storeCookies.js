@@ -8,11 +8,13 @@ module.exports = (res, username, sessionId) => {
     maxAge: 300000,
     httpOnly: true,
     secure: isProduction,
+    sameSite: "none",
   });
   res.cookie(refreshTokenName, refreshToken, {
     maxAge: 3.154e10,
     httpOnly: true,
     secure: isProduction,
+    sameSite: "none",
   });
   return { accessToken };
 };
