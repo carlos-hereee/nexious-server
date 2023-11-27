@@ -4,6 +4,7 @@ module.exports = {
   clientUrl: process.env.CLIENT_URL,
   clientUrlAlt: process.env.CLIENT_URL_ALT,
   isDev: process.env.NODE_ENV === "development",
+  isProduction: process.env.NODE_ENV === "production",
   accessTokenSecret: process.env.ACCESS_TOKEN_SECRET,
   refreshTokenSecret: process.env.REFRESH_TOKEN_SECRET,
   appSecret: process.env.APP_SECRET,
@@ -13,7 +14,7 @@ module.exports = {
   mongoosePassword: process.env.MONGOOSE_PASSWORD,
   jwtPrivateKey: process.env.JWT_PRIVATE_KEY,
   jwtPublicKey: process.env.JWT_PUBLIC_KEY,
-  appId: process.env.APP_ID || "sparkle-shine",
+  appId: process.env.APP_ID,
   baseUrl: process.env.BASE_URL,
   translatorKey: process.env.TRANSLATOR_AKI_KEY,
 };

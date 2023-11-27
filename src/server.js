@@ -5,11 +5,15 @@ const cookieParser = require("cookie-parser");
 const helmet = require("helmet");
 const routes = require("./routes");
 const connectMongoose = require("./db/connectMongoose");
-const { clientUrl, clientUrlAlt } = require("../config.env");
+const { clientUrl, clientUrlAlt, isProduction } = require("../config.env");
 const { deserializeUser } = require("./middleware/auth");
 
 // create an express app
 const app = express();
+
+if (isProduction) {
+  app.set("trust proxy", 1);
+}
 app.use(helmet.crossOriginResourcePolicy({ policy: "same-site" }));
 app.use(cookieParser());
 app.use(express.json());
