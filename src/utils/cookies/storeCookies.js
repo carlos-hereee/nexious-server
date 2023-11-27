@@ -2,19 +2,19 @@ const { accessTokenName, refreshTokenName, isProduction } = require("../../../co
 const signJWT = require("../jwt/signJWT");
 
 module.exports = (res, username, sessionId) => {
-  const accessToken = signJWT({ username, sessionId }, "5m");
+  const accessToken = signJWT({ username, sessionId }, "1d");
   const refreshToken = signJWT({ sessionId }, "90d");
   res.cookie(accessTokenName, accessToken, {
-    maxAge: 300000,
+    maxAge: Date.now() + 1000 * 60 * 60 * 24,
     httpOnly: true,
-    secure: isProduction,
-    sameSite: "none",
+    secure: isProduction || undefined,
+    sameSite: isProduction && "none",
   });
   res.cookie(refreshTokenName, refreshToken, {
-    maxAge: 3.154e10,
+    maxAge: Date.now() + 1000 * 60 * 60 * 24 * 30,
     httpOnly: true,
-    secure: isProduction,
-    sameSite: "none",
+    secure: isProduction || undefined,
+    sameSite: isProduction && "none",
   });
   return { accessToken };
 };

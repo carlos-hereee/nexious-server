@@ -7,7 +7,7 @@ const formatInitMenu = require("../../utils/app/format/formatInitMenu");
 module.exports = async (req, res, next) => {
   try {
     // key variables
-    const appName = req.body.appName || req.parms.appName;
+    const appName = req.body.appName;
     const owner = req.user._id;
     const menu = formatInitMenu();
     const app = await createApp({ appName, logo: req.logo, owner, adminIds: [owner], menu });

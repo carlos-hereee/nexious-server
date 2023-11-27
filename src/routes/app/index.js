@@ -39,7 +39,7 @@ router.get("/:appName", requireUser, getAppWithName);
 // router.get("/latest/:appId", requireUser, latest);
 router.get("/:appName/locale/:locale", requireUser, getAppWithLanguage);
 // build app data
-router.post("/init-app/:appName", initAppWare, initLogo, initApp, minAppData);
+router.post("/init-app", initAppWare, initLogo, initApp, minAppData);
 // update app
 // router.put("/update-app", validateAdmin, updateApp);
 router.post("/update-newsletter/:appId", heroWare, updateNewsletter, minAppData);
