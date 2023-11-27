@@ -14,7 +14,14 @@ app.use(helmet.crossOriginResourcePolicy({ policy: "same-site" }));
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({ credentials: true, origin: [clientUrl, clientUrlAlt] }));
+app.use(
+  cors({
+    credentials: true,
+    origin: [clientUrl, clientUrlAlt],
+    // origin: "*",
+    methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
+  })
+);
 // serve asset files
 app.use(express.static(__dirname + "public"));
 

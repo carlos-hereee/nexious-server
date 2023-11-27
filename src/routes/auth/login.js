@@ -7,12 +7,12 @@ module.exports = async (req, res) => {
     // made it through the forest, generate session cookie
     const sessionId = req.user.auth.sessionId;
     if (sessionId) {
-      const username = req.user.username;
-      const { accessToken } = storeCookies(res, username, sessionId);
+      const { accessToken } = storeCookies(res, req.user.username, sessionId);
       return res.status(200).json(accessToken).end();
     }
     return res.status(400).json("Unable to login try again later").end();
   } catch (error) {
+    // console.log("error :>> ", error);
     useGenericErrors(res, error, "error occured sending token");
   }
 };
