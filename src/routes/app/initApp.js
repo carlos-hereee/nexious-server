@@ -3,7 +3,7 @@ const createApp = require("../../db/models/app/createApp");
 const formatInitMenu = require("../../utils/app/format/formatInitMenu");
 // const formatThemeList = require("../../utils/app/format/formatThemeList");
 // const formatLanguageList = require("../../utils/app/format/formatLanguageList");
-const themeList = require("../../../db/data/app/themeList.json");
+const themeList = require("../../db/data/app/themeList.json");
 
 module.exports = async (req, res, next) => {
   try {
