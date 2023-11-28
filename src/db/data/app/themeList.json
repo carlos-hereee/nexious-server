@@ -1,5 +1,5 @@
-{
-  "light-mode": {
+[
+  {
     "name": "light-mode",
     "value": "light-mode",
     "label": "light-mode",
@@ -16,7 +16,7 @@
       "altSecondary": ""
     }
   },
-  "dark-mode": {
+  {
     "name": "dark-mode",
     "value": "dark-mode",
     "label": "dark-mode",
@@ -33,4 +33,4 @@
       "altSecondary": ""
     }
   }
-}
+]
