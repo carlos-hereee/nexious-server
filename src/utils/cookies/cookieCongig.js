@@ -5,7 +5,7 @@ module.exports = (minutes) => {
   return {
     maxAge,
     httpOnly: true,
-    secure: isProduction || undefined,
-    sameSite: isProduction ? "Lax" : undefined,
+    secure: isProduction,
+    sameSite: isProduction ? "None" : false,
   };
 };
