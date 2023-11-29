@@ -13,7 +13,7 @@ const { deserializeUser } = require("./middleware/auth");
 const app = express();
 
 if (isProduction) app.set("trust proxy", 1);
-app.use(helmet.crossOriginResourcePolicy({ policy: "same-site" }));
+app.use(helmet({ crossOriginResourcePolicy: false }));
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
