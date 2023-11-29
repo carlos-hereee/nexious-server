@@ -1,15 +1,8 @@
-const { accessTokenName, refreshTokenName, isProduction } = require("../../../config.env");
+const { accessTokenName, refreshTokenName } = require("../../../config.env");
+const cookieCongig = require("./cookieCongig");
 module.exports = (res) => {
-  res.cookie(accessTokenName, "", {
-    maxAge: 0,
-    httpOnly: true,
-    secure: isProduction || undefined,
-    sameSite: isProduction && "none",
-  });
-  res.cookie(refreshTokenName, "", {
-    maxAge: 0,
-    httpOnly: true,
-    secure: isProduction || undefined,
-    sameSite: isProduction && "none",
-  });
+  const tokenConfig = cookieCongig(0);
+
+  res.cookie(accessTokenName, "", tokenConfig);
+  res.cookie(refreshTokenName, "", tokenConfig);
 };
