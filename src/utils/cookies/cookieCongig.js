@@ -1,4 +1,4 @@
-const { isProduction } = require("../../../config.env");
+const { isProduction, clientUrl } = require("../../../config.env");
 
 module.exports = (minutes) => {
   const maxAge = minutes === 0 ? 0 : Date.now() + minutes * 1000 * 60;
@@ -7,5 +7,6 @@ module.exports = (minutes) => {
     httpOnly: true,
     secure: isProduction,
     sameSite: isProduction ? "None" : false,
+    domain: clientUrl,
   };
 };
