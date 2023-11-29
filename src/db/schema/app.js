@@ -83,6 +83,7 @@ const appSchema = new Schema(
       {
         menuId: { type: String, default: v4 },
         uid: { type: String, default: v4 },
+        category: { type: String, required: true },
         isToggle: { type: Boolean, default: false },
         isPrivate: { type: Boolean, default: false },
         active: {
@@ -91,7 +92,6 @@ const appSchema = new Schema(
           locale: { type: String },
           link: { type: String },
           label: { type: String },
-          themeId: { type: String },
           menuItemId: { type: String },
           icon: { type: String },
           uid: { type: String },
@@ -104,7 +104,6 @@ const appSchema = new Schema(
             value: { type: String },
             icon: { type: String },
             label: { type: String },
-            themeId: { type: String },
             menuItemId: { type: String },
             uid: { type: String },
           },

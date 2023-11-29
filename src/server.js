@@ -12,9 +12,7 @@ const { deserializeUser } = require("./middleware/auth");
 // create an express app
 const app = express();
 
-if (isProduction) {
-  app.set("trust proxy", 1);
-}
+if (isProduction) app.set("trust proxy", 1);
 app.use(helmet.crossOriginResourcePolicy({ policy: "same-site" }));
 app.use(cookieParser());
 app.use(express.json());
@@ -23,7 +21,6 @@ app.use(
   cors({
     credentials: true,
     origin: [clientUrl, clientUrlAlt],
-    // origin: "*",
     methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
   })
 );
