@@ -1,5 +1,6 @@
 const getApp = require("../../db/models/app/getApp");
 const getUser = require("../../db/models/users/getUser");
+const useGenericErrors = require("../../utils/auth/useGenericErrors");
 
 module.exports = async (req, res) => {
   try {

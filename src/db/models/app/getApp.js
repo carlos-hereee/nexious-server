@@ -5,7 +5,10 @@ module.exports = async ({ appId, appName, appIds, ownerId, all, locale }) => {
     "landing.cta landing.hero landing.sections media.hero logo newsletter.hero owner";
 
   if (all) {
-    return await App.find().select("appName appId logo adminIds menu");
+    return await App.find().select("appName appId logo menu owner media").populate({
+      path: "owner logo",
+      select: "userId url hero alt small heroId uid",
+    });
   }
   if (locale && appName) {
     return await App.findOne({ appName, locale }).populate(includeData);
