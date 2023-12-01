@@ -1,6 +1,6 @@
-const listBucket = require("../../utils/aws/index");
+const { allBuckets } = require("../../utils/aws/index");
 
 module.exports = () => {
-  const data = listBucket();
+  const data = allBuckets();
   console.log("data :>> ", data);
 };
