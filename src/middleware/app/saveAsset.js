@@ -1,26 +1,17 @@
-const saveHero = require("../../db/models/hero/saveHero");
 const useGenericErrors = require("../../utils/auth/useGenericErrors");
-const uploadSingle = require("../../utils/multer/uploadSingle");
+const { addFile } = require("../../utils/aws");
+const { awsImageUrl } = require("../../../config.env");
+const { generateParamFile } = require("../../utils/aws/awsParams");
 
 module.exports = async (req, res, next) => {
   try {
-    // console.log("req.body", req.body);
-    // uploadSingle()
-    // key variables
-    // const { path, fieldname, filename } = req.file;
-    // req.hero = {
-    //   ...req.file,
-    //   heroId: filename,
-    //   url: path,
-    //   name: fieldname,
-    //   userId: req.user ? req.user.userId : "",
-    // };
-    // await saveHero(req.hero);
+    if (req.file) {
+      const params = generateParamFile(req.file);
+      await addFile(params);
+      req.asset = awsImageUrl + params.Key;
+    }
     next();
   } catch (error) {
-    useGenericErrors(res, error);
+    useGenericErrors(res, error, "unable to create logo");
   }
-
-  // console.log("req.file", req.file);
-  // console.log("req.file", heroId);
 };
