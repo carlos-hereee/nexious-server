@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { getApp, requireApp } = require("../../middleware/app");
+const { requireApp } = require("../../middleware/app");
 const saveAsset = require("../../middleware/app/saveAsset");
 const { requireUser } = require("../../middleware/auth");
 const addPage = require("./addPage");
@@ -26,9 +26,9 @@ const updateMedias = require("./updateApp/updateMedias");
 // const initLogo = require("../../middleware/app/initLogo");
 
 // one liner
-const appWare = [getApp, requireApp];
-const logoWare = [requireUser, uploadSingle("logo")];
-const initAppWare = [...logoWare, requireAppName, requireUniqueName];
+const appWare = [requireApp];
+const logoWare = [requireUser, validateAdmin, getAppWithAppId, uploadSingle("logo"), saveAsset];
+const initAppWare = [requireUser, uploadSingle("logo"), requireAppName, requireUniqueName];
 const adminWare = [requireUser, validateAdmin];
 const heroWare = [...adminWare, uploadSingle("hero"), getAppWithAppId, requireApp];
 const multiHeroWare = [...adminWare, uploadFields(), getAppWithAppId, requireApp];

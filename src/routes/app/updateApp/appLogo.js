@@ -1,28 +1,14 @@
-const { v4 } = require("uuid");
-const updateHero = require("../../../db/models/hero/updateHero");
-const formatLogoData = require("../../../utils/app/format/formatLogoData");
+const useGenericErrors = require("../../../utils/auth/useGenericErrors");
 
 module.exports = async (req, res) => {
-  // check if app logo has logo
-  const appName = req.body.appName;
-  const refId = req.app.logo;
-  // logo payload
-  console.log("req.body :>> ", req.body);
-  if (req.file) {
-    console.log("req.file :>> ", req.file);
+  try {
+    // update appname
+    req.app.appName = req.body.appName;
+    // req.asset middleware yields asset url
+    req.app.logo = req.asset;
+    await req.app.save();
+    res.status(200).json({ app: req.app }).end();
+  } catch (error) {
+    useGenericErrors(res, error, "error occurred updating app resources");
   }
-  return;
-  const logo = formatLogoData(appName, req.file);
-  //  updating previous logo
-  if (refId) {
-    const id = await updateHero({ refId }, logo);
-    req.app.logo = id;
-  } else {
-    //  create a new logo
-    const heroId = v4();
-    const id = await updateHero({ heroId }, { ...logo, heroId });
-    req.app.logo = id;
-  }
-  await req.app.save();
-  res.status(200).json(req.app).end();
 };

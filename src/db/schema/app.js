@@ -43,12 +43,12 @@ const appSchema = new Schema(
       },
     ],
     landing: {
-      title: { type: String },
-      tagline: { type: String },
-      body: { type: String },
-      hasCta: { type: Boolean },
-      hasSections: { type: Boolean },
-      hero: { type: Schema.Types.ObjectId, ref: "Hero" },
+      title: { type: String, default: "" },
+      tagline: { type: String, default: "" },
+      body: { type: String, default: "" },
+      hasCta: { type: Boolean, default: false },
+      hasSections: { type: Boolean, default: false },
+      hero: { type: String, default: "" },
       cta: [
         {
           label: { type: String },
@@ -57,7 +57,14 @@ const appSchema = new Schema(
           uid: { type: String, default: v4 },
         },
       ],
-      sections: [{ type: Schema.Types.ObjectId, ref: "Hero" }],
+      sections: [
+        {
+          title: { type: String },
+          hero: { type: String },
+          body: { type: String },
+          uid: { type: String, default: v4 },
+        },
+      ],
     },
     newsletter: {
       title: { type: String, default: "Join the newsletter" },
@@ -69,7 +76,7 @@ const appSchema = new Schema(
     media: {
       title: { type: String, default: "Dont miss a thing! Follow us on our socials" },
       subtitle: { type: String },
-      hasMedias: { type: Boolean },
+      hasMedias: { type: Boolean, default: false },
       hero: { type: Schema.Types.ObjectId, ref: "Hero" },
       medias: [
         {

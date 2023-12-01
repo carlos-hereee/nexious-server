@@ -1,4 +1,4 @@
-const getApp = require("./getOwnedApps");
+const getOwnedApp = require("./getOwnedApps");
 const requireApp = require("./requireApp");
 
-module.exports = { getApp, requireApp };
+module.exports = { getOwnedApp, requireApp };
