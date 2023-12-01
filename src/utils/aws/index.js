@@ -1,21 +1,16 @@
-const AWS = require("aws-sdk");
-const { awsRegion, awsApiVersion, awsAccessKey, awsSecretKey } = require("../../../config.env");
-const createBucket = require("./createBucket");
-const listBuckets = require("./listBuckets");
-const uploadFile = require("./uploadFile");
-const listBucketItems = require("./listBucketItems");
-const deleteBucket = require("./deleteBucket");
-
-// AWS.config.update({ region: awsRegion });
+const { S3 } = require("@aws-sdk/client-s3");
+const { awsRegion, awsAccessKey, awsSecretKey } = require("../../../config.env");
+const createBucket = require("./bucket/createBucket");
+const listBuckets = require("./bucket/listBuckets");
+const uploadFile = require("./file/uploadFile");
+const listBucketItems = require("./bucket/listBucketItems");
+const deleteBucket = require("./bucket/deleteBucket");
 
 // Create S3 service object
-const s3 = new AWS.S3({
+const s3 = new S3({
   region: awsRegion,
-  accessKeyId: awsAccessKey,
-  secretAccessKey: awsSecretKey,
+  credentials: { accessKeyId: awsAccessKey, secretAccessKey: awsSecretKey },
 });
-// const s3 = new AWS.S3({ apiVersion: awsApiVersion,  });
-// const s3 = new AWS.DynamoDB({ region: awsRegion });
 
 module.exports = {
   allBuckets: () => listBuckets(s3),
