@@ -3,8 +3,10 @@ const signJWT = require("../jwt/signJWT");
 const cookieCongig = require("./cookieCongig");
 
 module.exports = (res, username, sessionId) => {
-  const accessConfig = cookieCongig(60 * 24);
-  const refreshConfig = cookieCongig(60 * 24 * 30);
+  const accessConfig = cookieCongig(24);
+  const refreshConfig = cookieCongig(24 * 30 * 3);
+
+  // console.log("accessConfig :>> ", accessConfig);
 
   const accessToken = signJWT({ username, sessionId }, "1d");
   const refreshToken = signJWT({ sessionId }, "90d");

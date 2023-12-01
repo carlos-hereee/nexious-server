@@ -33,6 +33,7 @@ const heroSchema = new Schema(
     filename: { type: String },
     path: { type: String },
     size: { type: Number },
+    image: { data: Buffer, contentType: String },
     // 3rd party asset
     creditTo: {
       artistName: { type: String },

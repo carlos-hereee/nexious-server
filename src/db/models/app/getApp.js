@@ -7,7 +7,7 @@ module.exports = async ({ appId, appName, appIds, ownerId, all, locale }) => {
   if (all) {
     return await App.find().select("appName appId logo menu owner media").populate({
       path: "owner logo",
-      select: "userId url hero alt small heroId uid",
+      select: "userId url hero alt small heroId uid image",
     });
   }
   if (locale && appName) {

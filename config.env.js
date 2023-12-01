@@ -17,4 +17,5 @@ module.exports = {
   appId: process.env.APP_ID,
   baseUrl: process.env.BASE_URL,
   translatorKey: process.env.TRANSLATOR_AKI_KEY,
+  cookieDomain: process.env.COOKIE_DOMAIN,
 };

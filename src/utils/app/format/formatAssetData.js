@@ -5,6 +5,7 @@ module.exports = (file, data) => {
   const path = file?.path?.replace(/\/\//gi, "/") || "";
   return {
     ...file,
+    image: { data: file.filename, contentType: file.mimetype },
     heroId: data?.heroId,
     sharedKey: data?.sharedKey,
     heading: data?.heading || "",
