@@ -7,6 +7,7 @@ module.exports = async (req, res) => {
     // set propper content type else drowser will download file
     // res.setHeader("Content-Type", "image/svg+xml");
     // res.sendFile(filePath);
+    const bucketName = req.params.bucketName;
     const filename = req.params.assetId;
     console.log("fileName :>> ", filename);
     const hero = await getHero({ filename });
