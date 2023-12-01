@@ -8,6 +8,7 @@ module.exports = async (req, res) => {
     // res.setHeader("Content-Type", "image/svg+xml");
     // res.sendFile(filePath);
     const filename = req.params.assetId;
+    console.log("fileName :>> ", filename);
     const hero = await getHero({ filename });
     res.status(200).send(hero).end();
   } catch (error) {

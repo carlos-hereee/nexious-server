@@ -18,4 +18,11 @@ module.exports = {
   baseUrl: process.env.BASE_URL,
   translatorKey: process.env.TRANSLATOR_AKI_KEY,
   cookieDomain: process.env.COOKIE_DOMAIN,
+  awsRegion: process.env.AWS_REGION,
+  awsConsoleLogin: process.env.AWS_CONSOLE_LOGIN,
+  awsUsername: process.env.AWS_USERNAME,
+  awsPassword: process.env.AWS_PASSWORD,
+  awsSecretKey: process.env.AWS_SECRET_KEY,
+  awsAccessKey: process.env.AWS_ACCESS_KEY,
+  awsApiVersion: process.env.AWS_ACCESS_KEY,
 };

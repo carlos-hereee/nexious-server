@@ -1,28 +1,20 @@
 const AWS = require("aws-sdk");
+const { awsRegion, awsApiVersion } = require("../../../config.env");
+const createBucket = require("./createBucket");
+const listBuckets = require("./listBuckets");
+const uploadFile = require("./uploadFile");
+const listBucketItems = require("./listBucketItems");
+const deleteBucket = require("./deleteBucket");
 
-// AWS.config.update({ region: "" });
+AWS.config.update({ region: awsRegion });
 
 // Create S3 service object
-s3 = new AWS.S3();
+const s3 = new AWS.S3({ apiVersion: awsApiVersion });
 
-(async () => {
-  await s3
-    .putObject({
-      // content
-      Body: "",
-      // bucket name
-      Bucket: "nexious",
-      // name of file
-      Key: "",
-    })
-    .promise();
-})();
-
-// Call S3 to list the buckets
-s3.listBuckets((err, data) => {
-  if (err) {
-    console.log("Error", err);
-  } else {
-    console.log("Success", data.Buckets);
-  }
-});
+module.exports = {
+  allBuckets: () => listBuckets(s3),
+  makeBucket: (bucketName) => createBucket(s3, bucketName),
+  addFile: (bucketName) => uploadFile(s3, bucketName),
+  getBucketItems: (bucketName) => listBucketItems(s3, bucketName),
+  removeBucket: (bucketName) => deleteBucket(s3, bucketName),
+};
