@@ -1,5 +1,6 @@
 const multer = require("multer");
-const storage = require("./storage");
+const storage = require("./memoryStorage");
+// const storage = require("./storage");
 
 module.exports = () =>
   multer({ storage: storage }).fields([

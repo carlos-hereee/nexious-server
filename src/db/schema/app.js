@@ -6,7 +6,8 @@ const appSchema = new Schema(
   {
     appId: { type: String, require: true, default: v4 },
     appName: { type: String, unique: true },
-    logo: { type: Schema.Types.ObjectId, ref: "Hero" },
+    logo: { type: String },
+    // logo: { type: Schema.Types.ObjectId, ref: "Hero" },
     owner: { type: Schema.Types.ObjectId, ref: "Users" },
     adminIds: [{ userId: { type: Schema.Types.ObjectId, ref: "Users" }, role: { type: String } }],
     locale: { type: String },
@@ -42,12 +43,12 @@ const appSchema = new Schema(
       },
     ],
     landing: {
-      title: { type: String },
-      tagline: { type: String },
-      body: { type: String },
-      hasCta: { type: Boolean },
-      hasSections: { type: Boolean },
-      hero: { type: Schema.Types.ObjectId, ref: "Hero" },
+      title: { type: String, default: "" },
+      tagline: { type: String, default: "" },
+      body: { type: String, default: "" },
+      hasCta: { type: Boolean, default: false },
+      hasSections: { type: Boolean, default: false },
+      hero: { type: String, default: "" },
       cta: [
         {
           label: { type: String },
@@ -56,20 +57,26 @@ const appSchema = new Schema(
           uid: { type: String, default: v4 },
         },
       ],
-      sections: [{ type: Schema.Types.ObjectId, ref: "Hero" }],
+      sections: [
+        {
+          title: { type: String },
+          hero: { type: String },
+          body: { type: String },
+          uid: { type: String, default: v4 },
+        },
+      ],
     },
     newsletter: {
       title: { type: String, default: "Join the newsletter" },
       subtitle: { type: String, default: "Suscribe to get the latest content by email" },
       details: { type: String, default: "Unsubscribe at any time." },
-      email: { type: String },
-      hero: { type: Schema.Types.ObjectId, ref: "Hero" },
+      hero: { type: String, default: "" },
     },
     media: {
       title: { type: String, default: "Dont miss a thing! Follow us on our socials" },
-      subtitle: { type: String },
-      hasMedias: { type: Boolean },
-      hero: { type: Schema.Types.ObjectId, ref: "Hero" },
+      subtitle: { type: String, default: "" },
+      hasMedias: { type: Boolean, default: false },
+      hero: { type: String, default: "" },
       medias: [
         {
           media: { type: String },

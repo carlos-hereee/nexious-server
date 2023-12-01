@@ -1,28 +1,27 @@
-const AWS = require("aws-sdk");
-
-// AWS.config.update({ region: "" });
+const { S3 } = require("@aws-sdk/client-s3");
+const { awsRegion, awsAccessKey, awsSecretKey } = require("../../../config.env");
+const createBucket = require("./bucket/createBucket");
+const listBuckets = require("./bucket/listBuckets");
+const uploadFile = require("./file/uploadFile");
+const listBucketItems = require("./bucket/listBucketItems");
+const deleteBucket = require("./bucket/deleteBucket");
+const listBucket = require("./bucket/listBucket");
+const deleteFile = require("./file/deleteFile");
+const uploadFiles = require("./file/uploadFiles");
 
 // Create S3 service object
-s3 = new AWS.S3();
-
-(async () => {
-  await s3
-    .putObject({
-      // content
-      Body: "",
-      // bucket name
-      Bucket: "nexious",
-      // name of file
-      Key: "",
-    })
-    .promise();
-})();
-
-// Call S3 to list the buckets
-s3.listBuckets((err, data) => {
-  if (err) {
-    console.log("Error", err);
-  } else {
-    console.log("Success", data.Buckets);
-  }
+const s3 = new S3({
+  region: awsRegion,
+  credentials: { accessKeyId: awsAccessKey, secretAccessKey: awsSecretKey },
 });
+
+module.exports = {
+  allBuckets: () => listBuckets(s3),
+  getBucket: (bucketName) => listBucket(bucketName),
+  makeBucket: (bucketName) => createBucket(s3, bucketName),
+  removeBucket: (bucketName) => deleteBucket(s3, bucketName),
+  getBucketItems: (bucketName) => listBucketItems(s3, bucketName),
+  addFile: (params) => uploadFile(s3, params),
+  addMulipleFiles: (params) => uploadFiles(s3, params),
+  removeFile: (params) => deleteFile(s3, params),
+};

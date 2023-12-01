@@ -10,7 +10,7 @@ module.exports = async (req, res, next) => {
     // key variables
     const appName = req.body.appName;
     const owner = req.user._id;
-    const logo = req.logo;
+    const logo = req.asset;
     const menu = formatInitMenu();
     // const themeLis
     const app = await createApp({ appName, logo, owner, adminIds: [owner], menu, themeList });
