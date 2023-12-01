@@ -1,10 +1,13 @@
 // call S3 to retrieve upload file to specified bucket
-module.exports = (s3, { bucketName, filename, content }) =>
-  s3.putObject({ Bucket: bucketName, Key: filename, Body: content }, (err, data) => {
+module.exports = (s3, params) =>
+  s3.putObject(params, (err, data) => {
     if (err) {
-      console.log("Error", err);
+      throw Error("unable to upload file", err);
+      // console.log("Error", err);
     }
-    if (data) {
-      console.log("Upload Success", data.Location);
-    }
+    return data;
+    // if (data) {
+    //   console.log("data :>> ", data);
+    //   console.log("Upload Success", data.Location);
+    // }
   });

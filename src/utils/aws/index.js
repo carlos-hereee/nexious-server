@@ -1,5 +1,5 @@
 const { S3 } = require("@aws-sdk/client-s3");
-const { awsRegion, awsAccessKey, awsSecretKey, awsBucketName } = require("../../../config.env");
+const { awsRegion, awsAccessKey, awsSecretKey } = require("../../../config.env");
 const createBucket = require("./bucket/createBucket");
 const listBuckets = require("./bucket/listBuckets");
 const uploadFile = require("./file/uploadFile");

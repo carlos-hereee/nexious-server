@@ -2,12 +2,12 @@
 const useGenericErrors = require("../../utils/auth/useGenericErrors");
 const { addFile } = require("../../utils/aws");
 const { generateParamFile } = require("../../utils/aws/awsParams");
-const saveHeroData = require("./saveHeroData");
+// const saveHeroData = require("./saveHeroData");
 
 module.exports = async (req, res, next) => {
   try {
     if (req.file) {
-      console.log("req.file :>> ", req.file);
+      // console.log("req.file :>> ", req.file);
       const params = generateParamFile(req.file);
       const result = await addFile(params);
       console.log("fileData :>> ", params);
