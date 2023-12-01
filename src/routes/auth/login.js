@@ -6,6 +6,7 @@ module.exports = async (req, res) => {
   try {
     // made it through the forest, generate session cookie
     const sessionId = req.user.auth.sessionId;
+    // console.log("req.user :>> ", req.user);
     if (sessionId) {
       const { accessToken } = storeCookies(res, req.user.username, sessionId);
       return res.status(200).json(accessToken).end();
