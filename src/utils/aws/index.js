@@ -5,6 +5,7 @@ const listBuckets = require("./bucket/listBuckets");
 const uploadFile = require("./file/uploadFile");
 const listBucketItems = require("./bucket/listBucketItems");
 const deleteBucket = require("./bucket/deleteBucket");
+const listBucket = require("./bucket/listBucket");
 
 // Create S3 service object
 const s3 = new S3({
@@ -14,6 +15,7 @@ const s3 = new S3({
 
 module.exports = {
   allBuckets: () => listBuckets(s3),
+  getBucket: (bucketName) => listBucket(bucketName),
   makeBucket: (bucketName) => createBucket(s3, bucketName),
   removeBucket: (bucketName) => deleteBucket(s3, bucketName),
   getBucketItems: (bucketName) => listBucketItems(s3, bucketName),
