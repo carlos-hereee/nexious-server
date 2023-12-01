@@ -70,14 +70,13 @@ const appSchema = new Schema(
       title: { type: String, default: "Join the newsletter" },
       subtitle: { type: String, default: "Suscribe to get the latest content by email" },
       details: { type: String, default: "Unsubscribe at any time." },
-      email: { type: String },
-      hero: { type: Schema.Types.ObjectId, ref: "Hero" },
+      hero: { type: String, default: "" },
     },
     media: {
       title: { type: String, default: "Dont miss a thing! Follow us on our socials" },
-      subtitle: { type: String },
+      subtitle: { type: String, default: "" },
       hasMedias: { type: Boolean, default: false },
-      hero: { type: Schema.Types.ObjectId, ref: "Hero" },
+      hero: { type: String, default: "" },
       medias: [
         {
           media: { type: String },

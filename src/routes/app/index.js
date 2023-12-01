@@ -42,8 +42,8 @@ router.get("/:appName/locale/:locale", requireUser, getAppWithLanguage);
 router.post("/init-app", initAppWare, saveAsset, initApp, minAppData);
 // update app
 // router.put("/update-app", validateAdmin, updateApp);
-router.post("/update-newsletter/:appId", heroWare, updateNewsletter, minAppData);
-router.post("/update-medias/:appId", heroWare, updateMedias, minAppData);
+router.post("/update-newsletter/:appId", heroWare, saveAsset, updateNewsletter, minAppData);
+router.post("/update-medias/:appId", heroWare, saveAsset, updateMedias, minAppData);
 router.post("/update-app-name/:appId", logoWare, updateAppLogo, minAppData);
 router.post("/update-landing-page/:appId", multiHeroWare, updateLandingPage, minAppData);
 // router.post("/update-landing-page-with-hero/:appId", heroWare, landingPageWithSection);
