@@ -1,54 +1,32 @@
-const updateHero = require("../../../db/models/hero/updateHero");
 const formatFormData = require("../../../utils/app/format/formatFormData");
 const useGenericErrors = require("../../../utils/auth/useGenericErrors");
-const formatAssetData = require("../../../utils/app/format/formatAssetData");
-const { v4 } = require("uuid");
-const getHero = require("../../../db/models/hero/getHero");
+const { awsImageUrl } = require("../../../../config.env");
+const { generateParamFile } = require("../../../utils/aws/awsParams");
+const { addFile } = require("../../../utils/aws");
 
 module.exports = async (req, res, next) => {
   try {
     let { pageData, refs } = formatFormData(req.body);
-    req.app.landing = { ...req.app.landing, ...pageData };
-    let sectionIds = [];
-    let hero;
+    req.app.landing = pageData;
     if (req.files) {
+      if (req.files.hero) {
+        const pageHero = req.files.hero[0];
+        const params = generateParamFile(pageHero);
+        await addFile(params);
+        req.app.landing.hero = awsImageUrl + params.Key;
+      }
       if (refs.hasSections) {
+        let sections = [];
         for (let item = 0; item < refs.hasSections.length; item++) {
           const sectionHero = req.files.sectionHero[item];
           const current = refs.hasSections[item];
-          const heroId = current.sharedKey;
-          const asset = formatAssetData(sectionHero, { ...current, heroId });
-          // check if new
-          let hero = await getHero({ heroId });
-          if (hero) {
-            await updateHero({ heroId }, asset);
-            sectionIds.push(hero._id);
-          } else {
-            const section = await updateHero({ heroId }, asset);
-            sectionIds.push(section.upsertedId);
-          }
+          const params = generateParamFile(sectionHero);
+          await addFile(params);
+          sections.push({ ...current, sectionHero: awsImageUrl + params.Key });
         }
-        req.app.landing = { ...req.app.landing, sections: sectionIds };
-      }
-      if (req.files.hero) {
-        const pageHero = req.files.hero[0];
-        if (req.app.landing.hero) {
-          const heroId = req.app.landing.hero.heroId;
-          const asset = formatAssetData({ ...pageHero, heroId });
-          // check if new
-          const landingHero = await updateHero({ heroId }, asset);
-          hero = landingHero.upsertedId;
-        } else {
-          const heroId = v4();
-          const asset = formatAssetData({ ...pageHero, heroId });
-          // check if new
-          const landingHero = await updateHero({ heroId }, asset);
-          hero = landingHero.upsertedId;
-        }
-        req.app.landing = { ...req.app.landing, hero };
+        req.app.landing.sections = sections;
       }
     }
-    if (refs.hasCta) pageData = { ...req.app.landing, cta: refs.hasCta };
     await req.app.save();
     next();
   } catch (error) {

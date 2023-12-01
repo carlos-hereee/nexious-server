@@ -4,7 +4,8 @@ module.exports = (s3, { bucketName, filename, content }) =>
     if (err) {
       console.log("Error", err);
     }
-    if (data) {
-      console.log("Upload Success", data.Location);
-    }
+    return data;
+    // if (data) {
+    //   console.log("Upload Success", data.Location);
+    // }
   });
