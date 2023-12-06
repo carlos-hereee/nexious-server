@@ -1,32 +1,39 @@
-const { v4 } = require("uuid");
-const { pagePayload, menuItemPayload } = require("../../middleware/app/pagePayload");
-const savePage = require("../../db/models/page/savePage");
-// const updateApp = require("../../db/models/app/updateApp");
-// const updateUser = require("../../db/models/users/updateUser");
+const { awsImageUrl } = require("../../../config.env");
+const createPage = require("../../db/models/page/createPage");
+const formatFormData = require("../../utils/app/format/formatFormData");
+const useGenericErrors = require("../../utils/auth/useGenericErrors");
+const { addFile } = require("../../utils/aws");
+const { generateParamFile } = require("../../utils/aws/awsParams");
 
-module.exports = async (req, res) => {
+module.exports = async (req, res, next) => {
   try {
-    // key variables
-    let reqApp = req.app;
-    let reqUser = req.user;
-    const appId = reqApp.appId;
-    const languageId = reqUser.languageId;
-    const pageName = req.body.name;
-    const reqBody = { ...req.body };
-    // TODO: add hero to bd
-    const heroId = req.file ? v4() : "";
-    const payload = pagePayload(appId, languageId, reqBody, heroId);
-    await savePage(payload);
-    // add page to app data menu
-    const menuItem = menuItemPayload(v4(), pageName, pageName);
-    menu.push({ menuId: v4(), active: menuItem });
-    // await updateApp({ appId }, req.app);
-    // add admin edit powers
-    // await updateUser({ userId }, { pagesOwned: [] });
-
-    res.status(201).end();
+    let { pageData, refs } = formatFormData(req.body);
+    if (req.files) {
+      if (req.files.hero) {
+        const pageHero = req.files.hero[0];
+        const params = generateParamFile(pageHero);
+        await addFile(params);
+        pageData.hero = awsImageUrl + params.Key;
+      }
+      if (refs.hasSections) {
+        let sections = [];
+        for (let item = 0; item < refs.hasSections.length; item++) {
+          const sectionHero = req.files.sectionHero[item];
+          const current = refs.hasSections[item];
+          const params = generateParamFile(sectionHero);
+          if (params) {
+            await addFile(params);
+            sections.push({ ...current, sectionHero: awsImageUrl + params.Key });
+          }
+        }
+        pageData.sections = sections;
+      }
+    }
+    const page = await createPage(pageData);
+    req.app.pages.push(page._id);
+    await req.app.save();
+    next();
   } catch (error) {
-    console.log("error", error);
-    res.status(500).end();
+    useGenericErrors(res, error, "unable to add page ");
   }
 };

@@ -1,31 +1,32 @@
 const mongoose = require("mongoose");
-const { appId } = require("../../../config.env");
 const Schema = mongoose.Schema;
-const toLower = require("../../utils/app/lowerCase");
+const { v4 } = require("uuid");
 
 const pageSchema = new Schema(
   {
-    pageId: { type: String, require: true, unique: true },
+    pageId: { type: String, require: true, unique: true, default: v4 },
     userId: { type: String, require: true },
-    appId: { type: String },
-    languageId: { type: String, require: true },
-    heroId: { type: String },
-    title: { type: String },
-    body: { type: String },
-    details: { type: String },
-    name: { type: String },
-    theme: { type: String },
-    hasCta: { type: Boolean },
-    hasSections: { type: Boolean },
-    sections: [{ componentId: { type: String } }],
+    appId: { type: String, require: true },
+    // locale: { type: String, require: true },
+    title: { type: String, default: "" },
+    body: { type: String, default: "" },
+    hero: { type: String, default: "" },
+    hasCta: { type: Boolean, default: false },
+    hasSections: { type: Boolean, default: false },
+    sections: [
+      {
+        title: { type: String },
+        hero: { type: String },
+        body: { type: String },
+        uid: { type: String, default: v4 },
+      },
+    ],
     cta: [
       {
-        uid: { type: String },
-        icon: { type: String, set: toLower },
         label: { type: String },
-        name: { type: String },
-        title: { type: String },
-        theme: { type: String },
+        link: { type: String },
+        icon: { type: String },
+        uid: { type: String, default: v4 },
       },
     ],
   },

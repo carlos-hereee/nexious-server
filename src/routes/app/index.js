@@ -26,7 +26,6 @@ const updateMedias = require("./updateApp/updateMedias");
 // const initLogo = require("../../middleware/app/initLogo");
 
 // one liner
-const appWare = [requireApp];
 const logoWare = [requireUser, validateAdmin, getAppWithAppId, uploadSingle("logo"), saveAsset];
 const initAppWare = [requireUser, uploadSingle("logo"), requireAppName, requireUniqueName];
 const adminWare = [requireUser, validateAdmin];
@@ -41,14 +40,13 @@ router.get("/:appName/locale/:locale", requireUser, getAppWithLanguage);
 // build app data
 router.post("/init-app", initAppWare, saveAsset, initApp, minAppData);
 // update app
-// router.put("/update-app", validateAdmin, updateApp);
 router.post("/update-newsletter/:appId", heroWare, saveAsset, updateNewsletter, minAppData);
 router.post("/update-medias/:appId", heroWare, saveAsset, updateMedias, minAppData);
 router.post("/update-app-name/:appId", logoWare, updateAppLogo, minAppData);
 router.post("/update-landing-page/:appId", multiHeroWare, updateLandingPage, minAppData);
 // router.post("/update-landing-page-with-hero/:appId", heroWare, landingPageWithSection);
 // building pages
-router.post("/add-page", appWare, saveAsset, addPage);
+router.post("/add-page/:appId", multiHeroWare, addPage, minAppData);
 // delete app
 router.delete("/delete-app/:appId", adminWare, deleteApp);
 
