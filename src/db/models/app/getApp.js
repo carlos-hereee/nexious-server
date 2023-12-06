@@ -1,8 +1,9 @@
 const App = require("../../schema/app");
 
 module.exports = async ({ appId, appName, appIds, ownerId, all, locale }) => {
-  const includeData =
-    "landing.cta landing.hero landing.sections media.hero logo newsletter.hero owner";
+  const includeData = "owner pages";
+  // const includeData =
+  //   "landing.cta landing.hero landing.sections media.hero logo newsletter.hero owner pages";
 
   if (all) {
     return await App.find().select("appName appId logo menu owner media").populate({
