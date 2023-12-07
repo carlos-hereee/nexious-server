@@ -1,9 +1,9 @@
-const router = require("express").Router();
-const getFiles = require("./getFiles");
-const getWithHeroId = require("./getWithHeroId");
+// const router = require("express").Router();
+// const getFiles = require("./getFiles");
+// const getWithHeroId = require("./getWithHeroId");
 
-router.get("/", getFiles);
-router.get("/:heroId", getWithHeroId);
-router.post("/");
+// router.get("/", getFiles);
+// router.get("/:heroId", getWithHeroId);
+// router.post("/");
 
-module.exports = router;
+// module.exports = router;

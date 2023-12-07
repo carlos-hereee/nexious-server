@@ -6,11 +6,17 @@ const appSchema = new Schema(
   {
     appId: { type: String, require: true, default: v4 },
     appName: { type: String, unique: true },
-    logo: { type: String },
-    // logo: { type: Schema.Types.ObjectId, ref: "Hero" },
+    locale: { type: String },
+    appUrl: { type: String },
+    // logo: {
+    //   url: { type: String, default: "" },
+    //   alt: { type: String, default: "" },
+    //   link: { type: String, default: "/" },
+    //   heroId: { type: String, default: v4 },
+    // },
+    logo: { type: String, default: "" },
     owner: { type: Schema.Types.ObjectId, ref: "Users" },
     adminIds: [{ userId: { type: Schema.Types.ObjectId, ref: "Users" }, role: { type: String } }],
-    locale: { type: String },
     languageList: [
       {
         name: { type: String },

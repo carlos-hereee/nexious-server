@@ -8,11 +8,6 @@ const heroSchema = new Schema(
     // key variables
     uid: { type: String, require: true, unique: true, default: v4 },
     heroId: { type: String, default: v4 },
-    // hero detail data
-    title: { type: String },
-    data: { type: String },
-    body: { type: String },
-    heading: { type: String },
     // asset
     small: { type: String },
     url: { type: String },
@@ -21,7 +16,6 @@ const heroSchema = new Schema(
     icon: { type: String, set: toLower },
     name: { type: String },
     label: { type: String },
-    sharedKey: { type: String },
     hero: { type: String },
     ping: { type: Number },
     // multer options
@@ -33,7 +27,6 @@ const heroSchema = new Schema(
     filename: { type: String },
     path: { type: String },
     size: { type: Number },
-    image: { data: Buffer, contentType: String },
     // 3rd party asset
     creditTo: {
       artistName: { type: String },

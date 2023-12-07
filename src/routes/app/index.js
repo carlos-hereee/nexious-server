@@ -29,7 +29,7 @@ const updatePage = require("./pages/updatePage");
 
 // one liner
 const logoWare = [requireUser, validateAdmin, getAppWithAppId, uploadSingle("logo"), saveAsset];
-const initAppWare = [requireUser, uploadSingle("logo"), requireAppName, requireUniqueName];
+const initAppWare = [requireUser, requireAppName, requireUniqueName, uploadSingle("logo")];
 const adminWare = [requireUser, validateAdmin, getAppWithAppId, requireApp];
 const heroWare = [...adminWare, uploadSingle("hero")];
 const multiHeroWare = [...adminWare, uploadFields()];
