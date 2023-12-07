@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { requireApp } = require("../../middleware/app");
 const saveAsset = require("../../middleware/app/saveAsset");
 const { requireUser } = require("../../middleware/auth");
-const addPage = require("./addPage");
+const addPage = require("./pages/addPage");
 const deleteApp = require("./deleteApp");
 const initApp = require("./initApp");
 // const updateApp = require("./updateApp/app");
@@ -23,14 +23,15 @@ const getAppWithLanguage = require("./getApp/getAppWithLanguage");
 const uploadFields = require("../../utils/multer/uploadFields");
 const updateNewsletter = require("./updateApp/updateNewsletter");
 const updateMedias = require("./updateApp/updateMedias");
+const deletePage = require("./pages/deletePage");
 // const initLogo = require("../../middleware/app/initLogo");
 
 // one liner
 const logoWare = [requireUser, validateAdmin, getAppWithAppId, uploadSingle("logo"), saveAsset];
 const initAppWare = [requireUser, uploadSingle("logo"), requireAppName, requireUniqueName];
-const adminWare = [requireUser, validateAdmin];
-const heroWare = [...adminWare, uploadSingle("hero"), getAppWithAppId, requireApp];
-const multiHeroWare = [...adminWare, uploadFields(), getAppWithAppId, requireApp];
+const adminWare = [requireUser, validateAdmin, getAppWithAppId, requireApp];
+const heroWare = [...adminWare, uploadSingle("hero")];
+const multiHeroWare = [...adminWare, uploadFields()];
 
 // load app data
 router.get("/app-list", getAppList);
@@ -48,6 +49,8 @@ router.post("/update-landing-page/:appId", multiHeroWare, updateLandingPage, min
 // building pages
 router.post("/add-page/:appId", multiHeroWare, addPage, minAppData);
 // delete app
-router.delete("/delete-app/:appId", adminWare, deleteApp);
+router.delete("/delete-app/:appId", adminWare, deleteApp, minAppData);
+// delete page
+router.delete("/delete-page/:appId/page/:pageId", adminWare, deletePage, minAppData);
 
 module.exports = router;

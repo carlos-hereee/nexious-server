@@ -11,12 +11,13 @@ const pageSchema = new Schema(
     title: { type: String, default: "" },
     body: { type: String, default: "" },
     hero: { type: String, default: "" },
+    name: { type: String, default: "" },
     hasCta: { type: Boolean, default: false },
     hasSections: { type: Boolean, default: false },
     sections: [
       {
         title: { type: String },
-        hero: { type: String },
+        sectionHero: { type: String },
         body: { type: String },
         uid: { type: String, default: v4 },
       },
