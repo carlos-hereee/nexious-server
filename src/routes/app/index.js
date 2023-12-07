@@ -24,6 +24,7 @@ const uploadFields = require("../../utils/multer/uploadFields");
 const updateNewsletter = require("./updateApp/updateNewsletter");
 const updateMedias = require("./updateApp/updateMedias");
 const deletePage = require("./pages/deletePage");
+const updatePage = require("./pages/updatePage");
 // const initLogo = require("../../middleware/app/initLogo");
 
 // one liner
@@ -45,7 +46,7 @@ router.post("/update-newsletter/:appId", heroWare, saveAsset, updateNewsletter, 
 router.post("/update-medias/:appId", heroWare, saveAsset, updateMedias, minAppData);
 router.post("/update-app-name/:appId", logoWare, updateAppLogo, minAppData);
 router.post("/update-landing-page/:appId", multiHeroWare, updateLandingPage, minAppData);
-// router.post("/update-landing-page-with-hero/:appId", heroWare, landingPageWithSection);
+router.post("/update-page/:appId/page/:pageId", multiHeroWare, updatePage, minAppData);
 // building pages
 router.post("/add-page/:appId", multiHeroWare, addPage, minAppData);
 // delete app
