@@ -85,8 +85,9 @@ const appSchema = new Schema(
       hero: { type: String, default: "" },
       medias: [
         {
-          media: { type: String },
-          link: { type: String },
+          media: { type: String, default: "" },
+          link: { type: String, default: "" },
+          url: { type: String, default: "" },
           sharedKey: { type: String, default: v4 },
           uid: { type: String, default: v4 },
         },
