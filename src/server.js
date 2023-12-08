@@ -5,7 +5,6 @@ const cookieParser = require("cookie-parser");
 const helmet = require("helmet");
 const routes = require("./routes");
 const connectMongoose = require("./db/connectMongoose");
-const fs = require("fs");
 const { clientUrl, clientUrlAlt, isProduction } = require("../config.env");
 const { deserializeUser } = require("./middleware/auth");
 
@@ -25,10 +24,10 @@ app.use(
   })
 );
 
-// create publick file if doesnt not exsist
-if (!fs.existsSync("./public")) fs.mkdirSync("./public");
-// serve asset files
-app.use(express.static(__dirname + "public"));
+// // create publick file if doesnt not exsist for static assets
+// if (!fs.existsSync("./public")) fs.mkdirSync("./public");
+// // serve asset files
+// app.use(express.static(__dirname + "public"));
 
 // middleware for all functions
 app.use(deserializeUser);

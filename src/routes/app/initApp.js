@@ -18,7 +18,7 @@ module.exports = async (req, res, next) => {
     // const themeLis
     const app = await createApp({ appName, logo, owner, adminIds, menu, themeList, appUrl });
     // add user permissions
-    console.log("app :>> ", app);
+    // console.log("app :>> ", app);
     req.app = app;
     req.user.ownedApps.push(app._id);
     req.user.permissions.push({ appId: app._id, role: "owner" });

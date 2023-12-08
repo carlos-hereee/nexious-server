@@ -2,13 +2,11 @@ const App = require("../../schema/app");
 
 module.exports = async ({ appId, appName, appIds, ownerId, all, locale }) => {
   const includeData = "owner pages";
-  // const includeData =
-  //   "landing.cta landing.hero landing.sections media.hero logo newsletter.hero owner pages";
 
   if (all) {
     return await App.find().select("appName appId logo menu owner media").populate({
-      path: "owner logo",
-      select: "userId url hero alt small heroId uid image",
+      path: "owner",
+      select: "userId",
     });
   }
   if (locale && appName) {
@@ -21,7 +19,7 @@ module.exports = async ({ appId, appName, appIds, ownerId, all, locale }) => {
     return await App.find({ ownerId }).populate(includeData).exec();
   }
   if (appId) {
-    return await App.findOne({ appId }).populate(includeData);
+    return await App.findOne({ appId }).populate("owner");
   }
   if (appName) {
     return await App.findOne({ appName }).populate(includeData);

@@ -1,9 +1,14 @@
+const { awsImageUrl } = require("../../../../config.env");
+const updatePage = require("../../../db/models/page/updatePage");
+const formatFormData = require("../../../utils/app/format/formatFormData");
 const useGenericErrors = require("../../../utils/auth/useGenericErrors");
+const { addFile } = require("../../../utils/aws");
+const { generateParamFile } = require("../../../utils/aws/awsParams");
 
 module.exports = async (req, res, next) => {
   try {
+    const pageId = req.params.pageId;
     let { pageData, refs } = formatFormData(req.body);
-    // console.log("req.params :>> ", req.params);
     if (req.files) {
       if (req.files.hero) {
         const pageHero = req.files.hero[0];
@@ -11,7 +16,7 @@ module.exports = async (req, res, next) => {
         // await addFile(params);
         pageData.hero = awsImageUrl + params.Key;
       }
-      if (refs.hasSections) {
+      if (req.files.sectionHero) {
         let sections = [];
         for (let item = 0; item < refs.hasSections.length; item++) {
           const sectionHero = req.files.sectionHero[item];
@@ -25,7 +30,10 @@ module.exports = async (req, res, next) => {
         pageData.sections = sections;
       }
     }
-    console.log("pageData :>> ", pageData);
+    if (refs.hasCta) pageData.cta = refs.hasCta;
+
+    await updatePage({ pageId }, pageData);
+    next();
   } catch (error) {
     useGenericErrors(res, error, "unable to update page");
   }

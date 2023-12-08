@@ -16,5 +16,6 @@
   "adminRequired": "Permission not met/granted",
   "calendarNotFound": "Not found: Calendar for this app has not been created",
   "passwordAlreadyInHistory": "Password used in the passed.",
-  "tokenNotFound": "No cookies sent"
+  "tokenNotFound": "No cookies sent",
+  "pageNotFound": "Page not found"
 }
