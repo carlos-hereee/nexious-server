@@ -1,6 +1,7 @@
 const { awsImageUrl } = require("../../../../config.env");
 const createPage = require("../../../db/models/page/createPage");
 const formatFormData = require("../../../utils/app/format/formatFormData");
+const formatMenuPageData = require("../../../utils/app/format/formatMenuPageData");
 const useGenericErrors = require("../../../utils/auth/useGenericErrors");
 const { addFile } = require("../../../utils/aws");
 const { generateParamFile } = require("../../../utils/aws/awsParams");
@@ -30,7 +31,10 @@ module.exports = async (req, res, next) => {
       }
     }
     const page = await createPage(pageData);
+    const menuData = formatMenuPageData(page.name);
+
     req.app.pages.push(page._id);
+    req.app.menu.push(menuData);
     await req.app.save();
     next();
   } catch (error) {

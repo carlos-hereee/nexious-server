@@ -1,6 +1,7 @@
 const { awsImageUrl } = require("../../../../config.env");
 const updatePage = require("../../../db/models/page/updatePage");
 const formatFormData = require("../../../utils/app/format/formatFormData");
+const formatMenuPageData = require("../../../utils/app/format/formatMenuPageData");
 const useGenericErrors = require("../../../utils/auth/useGenericErrors");
 const { addFile } = require("../../../utils/aws");
 const { generateParamFile } = require("../../../utils/aws/awsParams");
@@ -31,6 +32,14 @@ module.exports = async (req, res, next) => {
       }
     }
     if (refs.hasCta) pageData.cta = refs.hasCta;
+    // update page name on menu
+    const pageName = pageData.name;
+    const pageIdx = req.app.menu.findIndex((m) => m.isPage && m.name === pageName);
+    if (pageIdx >= 0) {
+      const menuData = formatMenuPageData(pageName);
+      req.app.menu[pageIdx] = menuData;
+      await rea.app.save();
+    }
 
     await updatePage({ pageId }, pageData);
     next();
