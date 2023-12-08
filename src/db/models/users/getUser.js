@@ -6,11 +6,10 @@ module.exports = async ({ username, email, userId, all, appId }) => {
   }
   if (userId) {
     // send data required by client
-    // .select("logo appName appId ownerId menu media owner")
     return await Users.findOne({ userId }).populate({
-      path: "ownedApps",
-      select: "logo appName appId ownerId menu media owner",
-      populate: { path: "logo owner", select: "userId url small alt heroId uid" },
+      path: "ownedApps subscriptions",
+      select: "appName appId ownerId menu media owner",
+      populate: { path: "owner", select: "userId url small alt heroId uid" },
     });
   }
   if (email) {

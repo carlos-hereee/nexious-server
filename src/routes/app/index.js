@@ -25,11 +25,15 @@ const requirePage = require("../../middleware/app/requirePage");
 const updateMedias = require("./media/updateMedias");
 const addMedia = require("./media/addMedia");
 const removeMedia = require("./media/removeMedia.");
+const subscribe = require("./updateApp/subscribe");
+const unsubscribe = require("./updateApp/unsubscribe");
+const userData = require("../../middleware/auth/userData");
 
 // one liner
 const logoWare = [requireUser, validateAdmin, getAppWithAppId, uploadSingle("logo"), saveAsset];
 const initAppWare = [requireUser, requireAppName, requireUniqueName, uploadSingle("logo")];
 const adminWare = [requireUser, validateAdmin, getAppWithAppId, requireApp];
+const userWare = [requireUser, getAppWithAppId, requireApp];
 const heroWare = [...adminWare, uploadSingle("hero")];
 const multiHeroWare = [...adminWare, uploadFields()];
 
@@ -40,6 +44,9 @@ router.get("/:appName", requireUser, getAppWithName);
 router.get("/:appName/locale/:locale", requireUser, getAppWithLanguage);
 // build app data
 router.post("/init-app", initAppWare, saveAsset, initApp, minAppData);
+// user subscrition
+router.post("/subscribe/:appId", userWare, subscribe, userData);
+router.post("/unsubscribe/:appId", userWare, unsubscribe, userData);
 // update app
 router.post("/update-newsletter/:appId", heroWare, saveAsset, updateNewsletter, minAppData);
 router.post("/update-medias/:appId", heroWare, saveAsset, updateMedias, minAppData);

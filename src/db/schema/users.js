@@ -23,6 +23,7 @@ const userSchema = new Schema(
       passwordHistory: [{ type: String, select: false }],
     },
     ownedApps: [{ type: Schema.Types.ObjectId, ref: "App" }],
+    subscriptions: [{ type: Schema.Types.ObjectId, ref: "App" }],
   },
   { timestamps: true }
 );
