@@ -26,6 +26,7 @@ const updateMedias = require("./updateApp/updateMedias");
 const deletePage = require("./pages/deletePage");
 const updatePage = require("./pages/updatePage");
 const requirePage = require("../../middleware/app/requirePage");
+const addMedia = require("./updateApp/addMedia");
 // const initLogo = require("../../middleware/app/initLogo");
 
 // one liner
@@ -50,6 +51,7 @@ router.post("/update-landing-page/:appId", multiHeroWare, updateLandingPage, min
 router.post("/update-page/:appId/page/:pageId", multiHeroWare, requirePage, updatePage, minAppData);
 // building pages
 router.post("/add-page/:appId", multiHeroWare, addPage, minAppData);
+router.post("/add-media/:appId", adminWare, addMedia, minAppData);
 // delete app
 router.delete("/delete-app/:appId", adminWare, deleteApp, minAppData);
 // delete page

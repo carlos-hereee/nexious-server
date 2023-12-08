@@ -87,7 +87,7 @@ const appSchema = new Schema(
         {
           media: { type: String },
           link: { type: String },
-          sharedKey: { type: String },
+          sharedKey: { type: String, default: v4 },
           uid: { type: String, default: v4 },
         },
       ],

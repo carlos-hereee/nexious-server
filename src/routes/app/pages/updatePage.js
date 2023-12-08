@@ -13,7 +13,7 @@ module.exports = async (req, res, next) => {
       if (req.files.hero) {
         const pageHero = req.files.hero[0];
         const params = generateParamFile(pageHero);
-        // await addFile(params);
+        await addFile(params);
         pageData.hero = awsImageUrl + params.Key;
       }
       if (req.files.sectionHero) {
@@ -23,7 +23,7 @@ module.exports = async (req, res, next) => {
           const current = refs.hasSections[item];
           const params = generateParamFile(sectionHero);
           if (params) {
-            // await addFile(params);
+            await addFile(params);
             sections.push({ ...current, sectionHero: awsImageUrl + params.Key });
           }
         }
