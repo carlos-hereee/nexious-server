@@ -8,7 +8,7 @@ module.exports = async ({ username, email, userId, all, appId }) => {
     // send data required by client
     return await Users.findOne({ userId }).populate({
       path: "ownedApps subscriptions",
-      select: "appName appId ownerId menu media owner",
+      select: "appName appId ownerId menu media owner logo",
       populate: { path: "owner", select: "userId url small alt heroId uid" },
     });
   }
