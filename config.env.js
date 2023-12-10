@@ -18,6 +18,7 @@ module.exports = {
   baseUrl: process.env.BASE_URL,
   translatorKey: process.env.TRANSLATOR_AKI_KEY,
   cookieDomain: process.env.COOKIE_DOMAIN,
+  // aws
   awsBucketName: process.env.AWS_BUCKET_NAME,
   awsImageUrl: process.env.AWS_IMAGE_URL,
   awsRegion: process.env.AWS_REGION,
@@ -27,4 +28,8 @@ module.exports = {
   awsSecretKey: process.env.AWS_SECRET_KEY,
   awsAccessKey: process.env.AWS_ACCESS_KEY,
   awsApiVersion: process.env.AWS_ACCESS_KEY,
+  // stripe
+  stripeAccessKey: process.env.STRIPE_ACCESS_KEY,
+  stripeSecretKey: process.env.STRIPE_SECRET_KEY,
+  appEmail: process.env.APP_EMAIL,
 };
