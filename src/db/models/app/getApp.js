@@ -1,7 +1,7 @@
 const App = require("../../schema/app");
 
 module.exports = async ({ appId, appName, appIds, ownerId, all, locale }) => {
-  const includeData = "owner pages";
+  const includeData = "owner pages store calendar";
 
   if (all) {
     return await App.find().select("appName appId logo menu owner media").populate({
@@ -19,7 +19,7 @@ module.exports = async ({ appId, appName, appIds, ownerId, all, locale }) => {
     return await App.find({ ownerId }).populate(includeData).exec();
   }
   if (appId) {
-    return await App.findOne({ appId }).populate("owner");
+    return await App.findOne({ appId }).populate("owner store");
   }
   if (appName) {
     return await App.findOne({ appName }).populate(includeData);

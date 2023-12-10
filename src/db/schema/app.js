@@ -111,6 +111,7 @@ const appSchema = new Schema(
     ],
     calendar: { type: Schema.Types.ObjectId, ref: "Calendar" },
     pages: [{ type: Schema.Types.ObjectId, ref: "Pages" }],
+    store: { type: Schema.Types.ObjectId, ref: "Store" },
   },
   { timestamps: true }
 );
