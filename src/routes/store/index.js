@@ -6,6 +6,7 @@ const validateAdmin = require("../../middleware/app/validateAdmin");
 const { requireUser } = require("../../middleware/auth");
 const uploadSingle = require("../../utils/multer/uploadSingle");
 const minAppData = require("../app/getApp/minAppData");
+const addMerch = require("./addMerch");
 const addStore = require("./addStore");
 const getCustomers = require("./getCustomers");
 
@@ -15,5 +16,6 @@ const heroWare = [...adminWare, uploadSingle("hero"), saveAsset];
 router.get("/customers", getCustomers);
 // add to store
 router.post("/build-store/:appId", heroWare, addStore, minAppData);
+router.post("/add-merch/:appId", heroWare, addMerch, minAppData);
 
 module.exports = router;

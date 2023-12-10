@@ -12,6 +12,7 @@ const pageSchema = new Schema(
     body: { type: String, default: "" },
     hero: { type: String, default: "" },
     name: { type: String, default: "" },
+    isStore: { type: Boolean, default: false },
     hasCta: { type: Boolean, default: false },
     hasSections: { type: Boolean, default: false },
     sections: [

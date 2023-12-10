@@ -101,6 +101,7 @@ const appSchema = new Schema(
         isToggle: { type: Boolean, default: false },
         isPrivate: { type: Boolean, default: false },
         isPage: { type: Boolean, default: false },
+        isStore: { type: Boolean, default: false },
         name: { type: String },
         value: { type: String },
         link: { type: String },

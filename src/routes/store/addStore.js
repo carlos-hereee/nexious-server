@@ -13,13 +13,13 @@ module.exports = async (req, res, next) => {
     const menuData = formatMenuPageData(name);
 
     // page data
-    const page = await createPage({ name, title, body, hero, appId, userId });
+    const page = await createPage({ name, title, body, hero, appId, userId, isStore: true });
     // save store data
     const store = await createStore({ pageId: page._id, userId, appId });
     // connect store to app
     req.app.store = store._id;
     req.app.pages.push(page._id);
-    req.app.menu.push(menuData);
+    req.app.menu.push({ ...menuData, isStore: true });
     await req.app.save();
     next();
   } catch (error) {
