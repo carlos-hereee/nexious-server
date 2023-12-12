@@ -6,7 +6,8 @@ module.exports = async (req, res, next) => {
     // key variables
     const { name, body, quantity, cost } = req.body;
     const hero = req.asset;
-    const store = await getStore({ appId: req.app.appId });
+    let store = await getStore({ appId: req.app.appId });
+    // console.log("store :>> ", store);
     store.merchendise.push({ name, hero, body, quantity, cost });
     await store.save();
     next();

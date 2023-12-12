@@ -13,13 +13,13 @@ module.exports = async ({ appId, appName, appIds, ownerId, all, locale }) => {
     return await App.findOne({ appName, locale }).populate(includeData);
   }
   if (appIds) {
-    return await App.find(appIds).populate(includeData).exec();
+    return await App.find(appIds).populate(includeData);
   }
   if (ownerId) {
-    return await App.find({ ownerId }).populate(includeData).exec();
+    return await App.find({ ownerId }).populate(includeData);
   }
   if (appId) {
-    return await App.findOne({ appId }).populate("owner store");
+    return await App.findOne({ appId }).populate(includeData);
   }
   if (appName) {
     return await App.findOne({ appName }).populate(includeData);

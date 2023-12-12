@@ -7,7 +7,7 @@ module.exports = async (req, res, next) => {
   try {
     if (req.file) {
       const params = generateParamFile(req.file);
-      // await addFile(params);
+      await addFile(params);
       req.asset = awsImageUrl + params.Key;
     }
     next();

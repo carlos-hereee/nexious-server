@@ -31,7 +31,7 @@ const userData = require("../../middleware/auth/userData");
 
 // one liner
 const logoWare = [requireUser, validateAdmin, getAppWithAppId, uploadSingle("logo"), saveAsset];
-const initAppWare = [requireUser, requireAppName, requireUniqueName, uploadSingle("logo")];
+const initAppWare = [requireUser, uploadSingle("logo"), requireAppName, requireUniqueName];
 const adminWare = [requireUser, validateAdmin, getAppWithAppId, requireApp];
 const userWare = [requireUser, getAppWithAppId, requireApp];
 const heroWare = [...adminWare, uploadSingle("hero")];

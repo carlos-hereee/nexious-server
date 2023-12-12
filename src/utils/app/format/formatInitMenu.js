@@ -4,7 +4,7 @@ module.exports = () => {
       isPrivate: true,
       category: "auth",
       label: "Login",
-      icon: "login",
+      // icon: "login",
       value: "login",
       name: "login",
       link: "login",
