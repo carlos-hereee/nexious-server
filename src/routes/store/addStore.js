@@ -9,7 +9,7 @@ module.exports = async (req, res, next) => {
     const { name, title, body } = req.body;
     const appId = req.app.appId;
     const userId = req.user.userId;
-    const hero = req.asset;
+    const hero = req.asset || "";
     const menuData = formatMenuPageData(name);
 
     // page data
@@ -18,7 +18,6 @@ module.exports = async (req, res, next) => {
     const store = await createStore({ pageId: page._id, userId, appId });
     // connect store to app
     req.app.store = store._id;
-    req.app.pages.push(page._id);
     req.app.menu.push({ ...menuData, isStore: true });
     await req.app.save();
     next();

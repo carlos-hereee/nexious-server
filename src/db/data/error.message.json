@@ -17,5 +17,6 @@
   "calendarNotFound": "Not found: Calendar for this app has not been created",
   "passwordAlreadyInHistory": "Password used in the passed.",
   "tokenNotFound": "No cookies sent",
-  "pageNotFound": "Page not found"
+  "pageNotFound": "Page not found",
+  "storeNotFound": "Page not found"
 }

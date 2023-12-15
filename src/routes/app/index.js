@@ -20,7 +20,7 @@ const uploadFields = require("../../utils/multer/uploadFields");
 const updateNewsletter = require("./updateApp/updateNewsletter");
 const deletePage = require("./pages/deletePage");
 const updatePage = require("./pages/updatePage");
-const requirePage = require("../../middleware/app/requirePage");
+const requirePage = require("../../middleware/pages/requirePage");
 // media
 const updateMedias = require("./media/updateMedias");
 const addMedia = require("./media/addMedia");
@@ -39,7 +39,7 @@ const multiHeroWare = [...adminWare, uploadFields()];
 
 // load app data
 router.get("/app-list", getAppList);
-router.get("/:appName", requireUser, getAppWithName);
+router.get("/:appName", getAppWithName);
 // router.get("/latest/:appId", requireUser, latest);
 router.get("/:appName/locale/:locale", requireUser, getAppWithLanguage);
 // build app data

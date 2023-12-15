@@ -1,10 +1,7 @@
 const Store = require("../../schema/store");
 
-module.exports = async ({ appId, pageId }) => {
-  if (appId) {
-    return await Store.findOne({ appId });
-  }
-  if (pageId) {
-    return await Store.findOne({ pageId });
+module.exports = async ({ appId, userId }) => {
+  if (appId && userId) {
+    return await Store.findOne({ userId, appId });
   }
 };
