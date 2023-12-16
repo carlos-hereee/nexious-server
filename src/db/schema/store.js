@@ -4,7 +4,6 @@ const { v4 } = require("uuid");
 
 const storeSchema = new Schema(
   {
-    // pageId: { type: Schema.Types.ObjectId, ref: "Pages", require: true },
     // userId: { type: Schema.Types.ObjectId, ref: "Users", require: true },
     userId: { type: String, require: true },
     // appId: { type: Schema.Types.ObjectId, ref: "App", require: true },

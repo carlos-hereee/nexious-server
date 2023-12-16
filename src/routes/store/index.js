@@ -10,6 +10,7 @@ const uploadSingle = require("../../utils/multer/uploadSingle");
 const minAppData = require("../app/getApp/minAppData");
 const addMerch = require("./addMerch");
 const addStore = require("./addStore");
+const editMerch = require("./editMerch");
 const editStore = require("./editStore");
 const getCustomers = require("./getCustomers");
 
@@ -24,5 +25,6 @@ router.post("/add-merch/:appId", storeWare, addMerch, minAppData);
 // update store
 // router.put("/update-store/:appId", heroWare, editStore, minAppData);
 router.put("/update-store/:appId", storeWare, editStore, minAppData);
+router.put("/update-merch/:appId/:merchId", storeWare, editMerch, minAppData);
 
 module.exports = router;
