@@ -66,8 +66,8 @@ const appSchema = new Schema(
       sections: [
         {
           title: { type: String },
-          hero: { type: String },
           body: { type: String },
+          sectionHero: { type: String },
           uid: { type: String, default: v4 },
         },
       ],

@@ -28,6 +28,7 @@ const removeMedia = require("./media/removeMedia.");
 const subscribe = require("./updateApp/subscribe");
 const unsubscribe = require("./updateApp/unsubscribe");
 const userData = require("../../middleware/auth/userData");
+const saveFieldAssets = require("../../middleware/app/saveFieldAssets");
 
 // one liner
 const logoWare = [requireUser, validateAdmin, getAppWithAppId, uploadSingle("logo"), saveAsset];
@@ -35,7 +36,7 @@ const initAppWare = [requireUser, uploadSingle("logo"), requireAppName, requireU
 const adminWare = [requireUser, validateAdmin, getAppWithAppId, requireApp];
 const userWare = [requireUser, getAppWithAppId, requireApp];
 const heroWare = [...adminWare, uploadSingle("hero")];
-const multiHeroWare = [...adminWare, uploadFields()];
+const multiHeroWare = [...adminWare, uploadFields(), saveFieldAssets];
 
 // load app data
 router.get("/app-list", getAppList);
@@ -50,8 +51,8 @@ router.post("/unsubscribe/:appId", userWare, unsubscribe, userData);
 // update app
 router.post("/update-newsletter/:appId", heroWare, saveAsset, updateNewsletter, minAppData);
 router.post("/update-medias/:appId", heroWare, saveAsset, updateMedias, minAppData);
-router.post("/update-app-name/:appId", logoWare, updateAppLogo, minAppData);
 router.post("/update-landing-page/:appId", multiHeroWare, updateLandingPage, minAppData);
+router.post("/update-app-name/:appId", logoWare, updateAppLogo, minAppData);
 router.post("/update-page/:appId/page/:pageId", multiHeroWare, requirePage, updatePage, minAppData);
 // building pages
 router.post("/add-page/:appId", multiHeroWare, addPage, minAppData);
