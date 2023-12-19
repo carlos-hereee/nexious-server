@@ -1,4 +1,5 @@
 const getApp = require("../../../db/models/app/getApp");
+const getStore = require("../../../db/models/store/getStore");
 const getUser = require("../../../db/models/users/getUser");
 
 module.exports = async (req, res) => {
@@ -10,8 +11,10 @@ module.exports = async (req, res) => {
     const appList = await getApp({ all: true });
     const user = await getUser({ userId });
     const app = await getApp({ appName });
-    // console.log("app :>> ", app.store);
-    res.status(200).json({ user, app, appList }).end();
+    const store = await getStore({ storeId: app.store.storeId });
+    // if(app.store.storeId)
+    console.log("app :>> ", store);
+    res.status(200).json({ user, app, appList, store }).end();
   } catch (error) {
     useGenericErrors(res, error, "error occurred sending client data");
   }

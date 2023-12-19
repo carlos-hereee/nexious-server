@@ -15,6 +15,7 @@ const editMerch = require("./editMerch");
 const editStore = require("./editStore");
 const getCustomers = require("./getCustomers");
 const checkoutSession = require("./checkoutSession");
+const getCartMerch = require("./getCartMerch");
 
 const adminWare = [requireUser, validateAdmin, getAppWithAppId, requireApp];
 const heroWare = [...adminWare, uploadSingle("hero"), saveAsset];
@@ -23,7 +24,7 @@ const storeWare = [...adminWare, getStoreWithAppId, requireStore, ...heroWare];
 router.get("/customers", getCustomers);
 // stripe payments
 router.post("/request-secret", requestSecret);
-router.post("/create-checkout-session", checkoutSession);
+router.post("/create-checkout-session", getCartMerch, checkoutSession);
 // add to store
 router.post("/build-store/:appId", heroWare, addStore, minAppData);
 router.post("/add-merch/:appId", storeWare, addMerch, minAppData);
