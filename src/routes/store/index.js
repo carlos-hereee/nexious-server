@@ -14,6 +14,7 @@ const requestSecret = require("./requestSecret");
 const editMerch = require("./editMerch");
 const editStore = require("./editStore");
 const getCustomers = require("./getCustomers");
+const checkoutSession = require("./checkoutSession");
 
 const adminWare = [requireUser, validateAdmin, getAppWithAppId, requireApp];
 const heroWare = [...adminWare, uploadSingle("hero"), saveAsset];
@@ -24,6 +25,7 @@ router.get("/customers", getCustomers);
 router.post("/build-store/:appId", heroWare, addStore, minAppData);
 router.post("/add-merch/:appId", storeWare, addMerch, minAppData);
 router.post("/request-secret", requestSecret);
+router.post("/create-checkout-session", checkoutSession);
 // router.post("/complete-checkout", requestSecret);
 // update store
 // router.put("/update-store/:appId", heroWare, editStore, minAppData);
