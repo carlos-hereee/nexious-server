@@ -18,7 +18,7 @@ const storeSchema = new Schema(
       {
         hero: { type: String, default: "" },
         name: { type: String, default: "" },
-        quantity: { type: Number, default: 0 },
+        inStock: { type: Number, default: 1 },
         cost: { type: Number, default: 0 },
         body: { type: String },
         uid: { type: String, default: v4 },
