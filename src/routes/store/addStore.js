@@ -7,12 +7,12 @@ module.exports = async (req, res, next) => {
     // key variables
     const { name, title, body, pageName } = req.body;
     const appId = req.app.appId;
-    const userId = req.user.userId;
+    const ownerId = req.user.userId;
     const hero = req.asset || "";
     const menuData = formatMenuPageData(name);
 
     // save store data
-    const store = await createStore({ userId, appId, hero, title, body, pageName });
+    const store = await createStore({ ownerId, appId, hero, title, body, pageName });
     // connect store to app
     req.app.store = store._id;
     req.app.menu.push({ ...menuData, isStore: true });

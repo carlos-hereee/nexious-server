@@ -3,7 +3,7 @@ const useGenericErrors = require("../../utils/auth/useGenericErrors");
 
 module.exports = async (req, res, next) => {
   try {
-    req.store = await getStore({ appId: req.app.appId, userId: req.user.userId });
+    req.store = await getStore({ appId: req.app.appId });
     next();
   } catch (error) {
     useGenericErrors(res, error, "error occured getting store");

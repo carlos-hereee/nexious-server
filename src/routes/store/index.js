@@ -21,11 +21,12 @@ const heroWare = [...adminWare, uploadSingle("hero"), saveAsset];
 const storeWare = [...adminWare, getStoreWithAppId, requireStore, ...heroWare];
 // view store dataz
 router.get("/customers", getCustomers);
+// stripe payments
+router.post("/request-secret", requestSecret);
+router.post("/create-checkout-session", checkoutSession);
 // add to store
 router.post("/build-store/:appId", heroWare, addStore, minAppData);
 router.post("/add-merch/:appId", storeWare, addMerch, minAppData);
-router.post("/request-secret", requestSecret);
-router.post("/create-checkout-session", checkoutSession);
 // router.post("/complete-checkout", requestSecret);
 // update store
 // router.put("/update-store/:appId", heroWare, editStore, minAppData);
