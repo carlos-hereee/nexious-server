@@ -31,5 +31,6 @@ module.exports = {
   // stripe
   stripeAccessKey: process.env.STRIPE_ACCESS_KEY,
   stripeSecretKey: process.env.STRIPE_SECRET_KEY,
+  stripeEndpointSecret: process.env.STRIPE_ENDPOINT_SECRET,
   appEmail: process.env.APP_EMAIL,
 };

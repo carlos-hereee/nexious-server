@@ -1,13 +1,13 @@
 const useGenericErrors = require("../../utils/auth/useGenericErrors");
 const getStripeCustomer = require("../../utils/stripe/customers/getStripeCustomer");
-const confirmIntent = require("../../utils/stripe/payments/confirmIntent");
+const getSessionWithId = require("../../utils/stripe/payments/getSessionWithId");
 const getCheckoutItems = require("../../utils/stripe/payments/getCheckoutItems");
 
 module.exports = async (req, res, next) => {
   try {
     const sessionId = req.query.session_id;
     // console.log("sessionId :>> ", sessionId);
-    const session = await confirmIntent({ id: sessionId });
+    const session = await getSessionWithId({ id: sessionId });
     const items = await getCheckoutItems({ id: sessionId });
     // console.log("session :>> ", session);
     const sessionDetails = {
