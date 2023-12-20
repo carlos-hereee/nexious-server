@@ -10,12 +10,13 @@ const uploadSingle = require("../../utils/multer/uploadSingle");
 const minAppData = require("../app/getApp/minAppData");
 const addMerch = require("./addMerch");
 const addStore = require("./addStore");
-const requestSecret = require("./requestSecret");
+// const requestSecret = require("./requestSecret");
 const editMerch = require("./editMerch");
 const editStore = require("./editStore");
 const getCustomers = require("./getCustomers");
 const checkoutSession = require("./checkoutSession");
 const getCartMerch = require("./getCartMerch");
+const getConfirmation = require("./getConfirmation");
 
 const adminWare = [requireUser, validateAdmin, getAppWithAppId, requireApp];
 const heroWare = [...adminWare, uploadSingle("hero"), saveAsset];
@@ -23,7 +24,8 @@ const storeWare = [...adminWare, getStoreWithAppId, requireStore, ...heroWare];
 // view store dataz
 router.get("/customers", getCustomers);
 // stripe payments
-router.post("/request-secret", requestSecret);
+router.get("/confirm-intent", getConfirmation);
+// router.post("/request-secret", requestSecret);
 router.post("/create-checkout-session", getCartMerch, checkoutSession);
 // add to store
 router.post("/build-store/:appId", heroWare, addStore, minAppData);

@@ -17,6 +17,7 @@ module.exports = async (req, res, next) => {
           currency: m?.currency || "usd",
           product_data: { name: m.name },
           unit_amount: m.cost,
+          // metadata: { storeId: cart[cartIdx].storeId, merchId: m.merchId },
         },
         quantity: cart[cartIdx].quantity || 1,
       };
