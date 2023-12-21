@@ -21,6 +21,7 @@ const getConfirmation = require("./getConfirmation");
 const stripeWebhook = require("./stripeWebhook");
 const initHook = require("../../utils/stripe/webhook/initHook");
 const removeStore = require("./removeStore");
+const getStoreMerch = require("./getStoreMerch");
 
 const bodyParse = bodyParser.raw({ type: "application/json" });
 const adminWare = [requireUser, validateAdmin, getAppWithAppId, requireApp];
@@ -31,6 +32,7 @@ const removalWare = [...adminWare, getStoreWithAppId, requireStore];
 router.get("/customers", getCustomers);
 // stripe payments
 router.get("/confirm-intent", getConfirmation);
+router.get("/inventory/:storeId", getStoreMerch);
 // router.post("/request-secret", requestSecret);
 router.post("/create-checkout-session", getCartMerch, checkoutSession);
 // add to store
