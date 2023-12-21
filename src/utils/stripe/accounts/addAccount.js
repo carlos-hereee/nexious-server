@@ -1,6 +1,7 @@
 const stripe = require("../connection");
 
 module.exports = async ({ country, email }) => {
+  if (!email) email = "example@email.com";
   return await stripe.accounts.create({
     country,
     email,

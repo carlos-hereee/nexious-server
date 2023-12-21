@@ -7,6 +7,8 @@ const appSchema = new Schema(
     appId: { type: String, require: true, default: v4 },
     appName: { type: String, unique: true },
     locale: { type: String },
+    country: { type: String, default: "US" },
+    email: { type: String, default: "" },
     appUrl: { type: String },
     // logo: {
     //   url: { type: String, default: "" },

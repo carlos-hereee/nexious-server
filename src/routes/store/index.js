@@ -20,11 +20,13 @@ const getCartMerch = require("./getCartMerch");
 const getConfirmation = require("./getConfirmation");
 const stripeWebhook = require("./stripeWebhook");
 const initHook = require("../../utils/stripe/webhook/initHook");
+const removeStore = require("./removeStore");
 
 const bodyParse = bodyParser.raw({ type: "application/json" });
 const adminWare = [requireUser, validateAdmin, getAppWithAppId, requireApp];
 const heroWare = [...adminWare, uploadSingle("hero"), saveAsset];
 const storeWare = [...adminWare, getStoreWithAppId, requireStore, ...heroWare];
+const removalWare = [...adminWare, getStoreWithAppId, requireStore];
 // view store dataz
 router.get("/customers", getCustomers);
 // stripe payments
@@ -40,5 +42,7 @@ router.post("/webhook", bodyParse, initHook, stripeWebhook);
 // router.put("/update-store/:appId", heroWare, editStore, minAppData);
 router.put("/update-store/:appId", storeWare, editStore, minAppData);
 router.put("/update-merch/:appId/:merchId", storeWare, editMerch, minAppData);
+// remove store
+router.delete("/remove-store/:appId", removalWare, removeStore, minAppData);
 
 module.exports = router;
