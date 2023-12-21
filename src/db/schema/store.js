@@ -9,6 +9,7 @@ const storeSchema = new Schema(
     storeId: { type: String, default: v4, require: true, unique: true },
     // account id populated by stripe
     accountId: { type: String },
+    currency: { type: String, default: "usd" },
     name: { type: String, default: "" },
     pageName: { type: String, default: "" },
     title: { type: String, default: "" },
