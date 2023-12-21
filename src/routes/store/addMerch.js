@@ -12,9 +12,10 @@ module.exports = async (req, res, next) => {
     const productInfo = { name, description, images: [hero], stripeAccount: accountId };
     // add to stripe
     const product = await addProduct(productInfo);
+    payload.productId = product.id;
+
     // add merch to db
     const merch = await createMerch(payload);
-    payload.merchId = product.id;
     // create ref to merch on store inventory
     req.store.inventory.push(merch._id);
     // console.log("product :>> ", product);

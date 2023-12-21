@@ -6,8 +6,9 @@ const merchSchema = new Schema(
   {
     storeId: { type: String, require: true },
     uid: { type: String, default: v4 },
-    // merchId: populated by stripe's generated id
-    merchId: { type: String },
+    merchId: { type: String, default: v4 },
+    // productId: populated by stripe's generated id
+    productId: { type: String },
     hero: { type: String, default: "" },
     name: { type: String, default: "" },
     description: { type: String, default: "" },
