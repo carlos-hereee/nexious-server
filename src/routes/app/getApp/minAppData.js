@@ -13,7 +13,7 @@ module.exports = async (req, res) => {
     const app = await getApp({ appName });
     const store = await getStore({ storeId: app.store.storeId });
     // if(app.store.storeId)
-    console.log("app :>> ", store);
+    // console.log("app :>> ", store);
     res.status(200).json({ user, app, appList, store }).end();
   } catch (error) {
     useGenericErrors(res, error, "error occurred sending client data");
