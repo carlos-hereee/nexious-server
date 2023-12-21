@@ -11,7 +11,6 @@ const uploadSingle = require("../../utils/multer/uploadSingle");
 const minAppData = require("../app/getApp/minAppData");
 const addMerch = require("./addMerch");
 const addStore = require("./addStore");
-// const requestSecret = require("./requestSecret");
 const editMerch = require("./editMerch");
 const editStore = require("./editStore");
 const getCustomers = require("./getCustomers");

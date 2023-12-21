@@ -9,19 +9,8 @@ module.exports = async (req, res, next) => {
     // const appId = req.app.appId;
     const storeId = req.store.storeId;
     await removeStore({ storeId });
+    // TODO: REMOVE MERCH ON STRIPE
 
-    // console.log("req.app :>> ", req.app.store);
-    // const storeId = req.app.store.storeId;
-    // remove store from db
-    // console.log("store :>> ", store);
-    // const del = await removeStore({ storeId });
-    // console.log("appId :>> ", appId);
-    // console.log("appId :>> ", del);
-    // remove merch from db
-    // await removeMerch({ storeId, appId });
-    // remove store from app
-    // req.app.store = {};
-    // await req.app.save();
     next();
   } catch (error) {
     useGenericErrors(res, error, "unable to remove store");
