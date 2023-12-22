@@ -3,6 +3,7 @@ const createCheckoutSession = require("../../utils/stripe/payments/createCheckou
 
 module.exports = async (req, res) => {
   try {
+    console.log("req.cart :>> ", req.cart);
     const session = await createCheckoutSession({ cartData: req.cart, mode: "payment" });
     res.status(200).json(session.url);
   } catch (error) {

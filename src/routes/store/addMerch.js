@@ -10,12 +10,14 @@ module.exports = async (req, res, next) => {
     const { storeId, accountId, currency } = req.store;
     const hero = req.asset || h || "";
     const payload = { hero, name, description, inStock, cost, storeId };
-    const productInfo = { name, description, images: [hero], stripeAccount: accountId };
+    const productInfo = { name, description, stripeAccount: accountId };
+    if (hero) productInfo.images = [hero];
     // add to stripe
     const product = await addProduct(productInfo);
     payload.productId = product.id;
+    // console.log("product :>> ", product);
     // add price to product
-    const price = await addPrice({ id: product.id, cost, currency });
+    const price = await addPrice({ id: product.id, cost, currency, stripeAccount: accountId });
     payload.priceId = price.id;
     // add merch to db
     const merch = await createMerch(payload);
@@ -24,6 +26,6 @@ module.exports = async (req, res, next) => {
     await req.store.save();
     next();
   } catch (error) {
-    useGenericErrors(res, error, "unable to add store");
+    useGenericErrors(res, error, "unable to add merch");
   }
 };

@@ -10,7 +10,6 @@ module.exports = async (req, res, next) => {
     // const cartIdx = cart.findIndex((c) => c.merchId === m.uid);
     // const merch = await getMerch({ merchIds: merchIds });
     // // add quantities
-
     req.cart = cart.map((m) => {
       return {
         // price_data: {
