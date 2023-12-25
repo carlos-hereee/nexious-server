@@ -1,15 +1,16 @@
 const stripe = require("../connection");
 
-module.exports = async ({ country, email }) => {
+module.exports = async ({ country, email, type }) => {
   if (!email) email = "example@email.com";
+  if (!type) type = "custom";
   return await stripe.accounts.create({
     country,
     email,
-    type: "custom",
+    type,
     // required for type = custom
-    capabilities: {
-      card_payments: { requested: true },
-      transfers: { requested: true },
-    },
+    // capabilities: {
+    //   card_payments: { requested: true },
+    //   transfers: { requested: true },
+    // },
   });
 };

@@ -12,6 +12,7 @@
   "notVerfifed": "could not verify",
   "payloadExpired": "Payload is expired",
   "missingCredentials": "Missing one or more credentials",
+  "emailRequired": "Email is required ",
   "serverIsDown": "Server is down, try again later.",
   "adminRequired": "Permission not met/granted",
   "calendarNotFound": "Not found: Calendar for this app has not been created",

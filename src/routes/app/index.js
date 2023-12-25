@@ -29,6 +29,7 @@ const subscribe = require("./updateApp/subscribe");
 const unsubscribe = require("./updateApp/unsubscribe");
 const userData = require("../../middleware/auth/userData");
 const saveFieldAssets = require("../../middleware/app/saveFieldAssets");
+const updateAppDetails = require("./updateApp/updateAppDetails");
 
 // one liner
 const logoWare = [requireUser, validateAdmin, getAppWithAppId, uploadSingle("logo"), saveAsset];
@@ -54,6 +55,7 @@ router.post("/update-medias/:appId", heroWare, saveAsset, updateMedias, minAppDa
 router.post("/update-landing-page/:appId", multiHeroWare, updateLandingPage, minAppData);
 router.post("/update-app-name/:appId", logoWare, updateAppLogo, minAppData);
 router.post("/update-page/:appId/page/:pageId", multiHeroWare, requirePage, updatePage, minAppData);
+router.put("/update-app-details/:appId", logoWare, updateAppDetails, minAppData);
 // building pages
 router.post("/add-page/:appId", multiHeroWare, addPage, minAppData);
 router.post("/add-media/:appId", adminWare, addMedia, minAppData);

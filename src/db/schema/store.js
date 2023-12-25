@@ -14,7 +14,10 @@ const storeSchema = new Schema(
     pageName: { type: String, default: "" },
     title: { type: String, default: "" },
     body: { type: String, default: "" },
+    email: { type: String, default: "" },
     hero: { type: String, default: "" },
+    isRegistered: { type: String, default: false },
+    termsOfService: { type: String, default: false },
     inventory: [{ type: Schema.Types.ObjectId, ref: "Merch" }],
   },
   { timestamps: true }

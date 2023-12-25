@@ -9,7 +9,7 @@ module.exports = async (req, res, next) => {
     // remove store from app menu
     req.app.menu = req.app.menu.filter((m) => m.name !== req.store.name);
     // remove stripe account
-    await removeAccount({ id: req.store.accoundId });
+    if (req.store.accoundId) await removeAccount({ id: req.store.accoundId });
     // remove store and store items
     await removeStore({ storeId: req.store.storeId });
     await req.app.save();

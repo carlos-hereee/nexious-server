@@ -10,7 +10,7 @@ module.exports = async (req, res, next) => {
     // const cartIdx = cart.findIndex((c) => c.merchId === m.uid);
     // const merch = await getMerch({ merchIds: merchIds });
     // // add quantities
-    req.cart = cart.map((m) => {
+    req.cart = cart.merch.map((m) => {
       return {
         // price_data: {
         //   // todo: add preferred currency to products
@@ -19,7 +19,7 @@ module.exports = async (req, res, next) => {
         //   unit_amount: m.cost,
         //   // metadata: { storeId: cart[cartIdx].storeId, merchId: m.merchId },
         // },
-        price: m.priceId,
+        price: m.productId,
         quantity: m.quantity || 1,
       };
     });
