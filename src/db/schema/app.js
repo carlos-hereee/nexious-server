@@ -7,6 +7,8 @@ const appSchema = new Schema(
     appId: { type: String, require: true, default: v4 },
     appName: { type: String, unique: true },
     locale: { type: String },
+    country: { type: String, default: "US" },
+    email: { type: String, default: "" },
     appUrl: { type: String },
     // logo: {
     //   url: { type: String, default: "" },
@@ -66,8 +68,8 @@ const appSchema = new Schema(
       sections: [
         {
           title: { type: String },
-          hero: { type: String },
           body: { type: String },
+          sectionHero: { type: String },
           uid: { type: String, default: v4 },
         },
       ],
@@ -101,6 +103,7 @@ const appSchema = new Schema(
         isToggle: { type: Boolean, default: false },
         isPrivate: { type: Boolean, default: false },
         isPage: { type: Boolean, default: false },
+        isStore: { type: Boolean, default: false },
         name: { type: String },
         value: { type: String },
         link: { type: String },
@@ -111,6 +114,7 @@ const appSchema = new Schema(
     ],
     calendar: { type: Schema.Types.ObjectId, ref: "Calendar" },
     pages: [{ type: Schema.Types.ObjectId, ref: "Pages" }],
+    store: { type: Schema.Types.ObjectId, ref: "Store" },
   },
   { timestamps: true }
 );

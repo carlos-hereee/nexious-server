@@ -1,32 +1,32 @@
 const formatFormData = require("../../../utils/app/format/formatFormData");
 const useGenericErrors = require("../../../utils/auth/useGenericErrors");
-const { awsImageUrl } = require("../../../../config.env");
-const { generateParamFile } = require("../../../utils/aws/awsParams");
-const { addFile } = require("../../../utils/aws");
 
 module.exports = async (req, res, next) => {
   try {
     let { pageData, refs } = formatFormData(req.body);
-    req.app.landing = pageData;
-    if (req.files) {
-      if (req.files.hero) {
-        const pageHero = req.files.hero[0];
-        const params = generateParamFile(pageHero);
-        await addFile(params);
-        req.app.landing.hero = awsImageUrl + params.Key;
-      }
-      if (refs.hasSections) {
-        let sections = [];
+
+    // update landing
+    req.app.landing.title = pageData.title;
+    req.app.landing.tagline = pageData.tagline;
+    req.app.landing.body = pageData.body;
+    req.app.landing.hasCta = pageData.hasCta;
+    req.app.landing.hasSections = pageData.hasSections;
+    if (refs.hasCta) req.app.landing.cta = refs.hasCta;
+    // update asset data
+    if (req.asset.hero) req.app.landing.hero = req.asset.hero;
+
+    if (req.asset.sectionHero.length > 0 && refs.hasSections?.length > 0) {
+      // TODO:  match asset data to section data
+      if (req.asset.sectionHero.length === refs.hasSections.length) {
+        const sections = [];
         for (let item = 0; item < refs.hasSections.length; item++) {
-          const sectionHero = req.files.sectionHero[item];
-          const current = refs.hasSections[item];
-          const params = generateParamFile(sectionHero);
-          await addFile(params);
-          sections.push({ ...current, sectionHero: awsImageUrl + params.Key });
+          const element = refs.hasSections[item];
+          sections.push({ ...element, sectionHero: req.asset.sectionHero[item] });
         }
         req.app.landing.sections = sections;
       }
     }
+
     await req.app.save();
     next();
   } catch (error) {

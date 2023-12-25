@@ -1,0 +1,4 @@
+{
+  "merch": [{ "id": 1, "price": 3000, "imgName": "", "name": "" }],
+  "services": [{ "id": 1, "price": 2000, "imgName": "", "name": "" }]
+}

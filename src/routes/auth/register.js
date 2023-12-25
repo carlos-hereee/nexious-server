@@ -16,8 +16,8 @@ module.exports = async (req, res, next) => {
     const password = generateHash(salt, req.body.password);
     const sessionId = generateHash(salt, userId);
     const auth = { salt, password, sessionId, passwordHistory: [password] };
-    req.user = auth;
     await saveUser({ userId, email, username, auth, phone });
+    req.user.auth = auth;
     next();
   } catch (error) {
     useGenericErrors(res, error, "error registering user");

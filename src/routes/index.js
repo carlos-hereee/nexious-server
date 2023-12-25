@@ -2,6 +2,7 @@ const { port } = require("../../config.env");
 const authRoute = require("./auth");
 const appRoute = require("./app");
 const calendarRoute = require("./calendar");
+const storeRoute = require("./store");
 
 // // assets route
 // const publicRoute = require("./public");
@@ -20,4 +21,5 @@ module.exports = (app) => {
   // app data
   app.use("/app/", appRoute);
   app.use("/calendar/", calendarRoute);
+  app.use("/store/", storeRoute);
 };

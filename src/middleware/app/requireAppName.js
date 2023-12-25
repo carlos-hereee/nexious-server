@@ -1,3 +1,5 @@
+const message = require("../../db/data/error.message.json");
+
 module.exports = (req, res, next) => {
   const appName = req.body.appName || req.params.appName;
   // appName must exists
