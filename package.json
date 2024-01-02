@@ -5,10 +5,12 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
+    "renameTs": "bash scripts/rename_ext.sh src 'js' 'ts'",
+    "renameImport": "nodemon scripts/renameImports.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon main",
     "stripe-listen": "stripe listen --forward-to localhost:4937/store/webhook",
-    "run-checkout-complete": "stripe trigger checkout.session.completed"
+    "stripe-checkout": "stripe trigger checkout.session.completed"
   },
   "repository": {
     "type": "git",
