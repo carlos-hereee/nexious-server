@@ -1,4 +1,4 @@
-const { baseUrl } = require("../../../../config.env");
+import { baseUrl }  from "../../../../config.env";
 
 module.exports = (file, data) => {
   if (!file) return;

@@ -1,8 +1,8 @@
-const router = require("express").Router();
-const requireUser = require("../../middleware/auth/requireUser");
-const { getCalendar } = require("../../middleware/calendar");
-const addEvent = require("./addEvent");
-const fetchCalendar = require("./fetchCalendar");
+import router  from "express".Router();
+import requireUser  from "../../middleware/auth/requireUser";
+import { getCalendar }  from "../../middleware/calendar";
+import addEvent  from "./addEvent";
+import fetchCalendar  from "./fetchCalendar";
 
 const authenticateCalendar = [requireUser, getCalendar];
 

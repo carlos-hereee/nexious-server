@@ -1,5 +1,5 @@
-const { accessTokenName, refreshTokenName } = require("../../../config.env");
-const cookieCongig = require("./cookieCongig");
+import { accessTokenName, refreshTokenName }  from "../../../config.env";
+import cookieCongig  from "./cookieCongig";
 module.exports = (res) => {
   const tokenConfig = cookieCongig(0);
 

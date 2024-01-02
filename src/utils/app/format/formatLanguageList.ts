@@ -1,6 +1,6 @@
-const languageList = require("../../../db/data/app/languageList.json");
-// const translate = require("google-translate-api");
-// const translateString = require("../../translator/translateString");
+import languageList  from "../../../db/data/app/languageList.json";
+// import translate  from "google-translate-api";
+// import translateString  from "../../translator/translateString";
 
 module.exports = (props) => {
   const { language } = props;

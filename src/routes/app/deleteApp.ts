@@ -1,5 +1,5 @@
-const removeApp = require("../../db/models/app/removeApp");
-const useGenericErrors = require("../../utils/auth/useGenericErrors");
+import removeApp  from "../../db/models/app/removeApp";
+import useGenericErrors  from "../../utils/auth/useGenericErrors";
 
 module.exports = async (req, res, next) => {
   try {

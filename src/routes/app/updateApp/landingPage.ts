@@ -1,5 +1,5 @@
-const formatFormData = require("../../../utils/app/format/formatFormData");
-const useGenericErrors = require("../../../utils/auth/useGenericErrors");
+import formatFormData  from "../../../utils/app/format/formatFormData";
+import useGenericErrors  from "../../../utils/auth/useGenericErrors";
 
 module.exports = async (req, res, next) => {
   try {

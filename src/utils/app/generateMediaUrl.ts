@@ -1,4 +1,4 @@
-const mediaList = require("../../db/data/app/mediaList.json");
+import mediaList  from "../../db/data/app/mediaList.json";
 
 module.exports = (media, link) => {
   // if(meidamedia)

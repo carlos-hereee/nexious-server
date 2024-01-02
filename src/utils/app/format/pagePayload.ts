@@ -1,4 +1,4 @@
-const { v4 } = require("uuid");
+import { v4 }  from "uuid";
 
 module.exports = (appId, languageId, reqBody, heroId) => {
   const { title, name, cta, sections, body } = reqBody;

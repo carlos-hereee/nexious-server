@@ -1,13 +1,13 @@
-const { S3 } = require("@aws-sdk/client-s3");
-const { awsRegion, awsAccessKey, awsSecretKey } = require("../../../config.env");
-const createBucket = require("./bucket/createBucket");
-const listBuckets = require("./bucket/listBuckets");
-const uploadFile = require("./file/uploadFile");
-const listBucketItems = require("./bucket/listBucketItems");
-const deleteBucket = require("./bucket/deleteBucket");
-const listBucket = require("./bucket/listBucket");
-const deleteFile = require("./file/deleteFile");
-const uploadFiles = require("./file/uploadFiles");
+import { S3 }  from "@aws-sdk/client-s3";
+import { awsRegion, awsAccessKey, awsSecretKey }  from "../../../config.env";
+import createBucket  from "./bucket/createBucket";
+import listBuckets  from "./bucket/listBuckets";
+import uploadFile  from "./file/uploadFile";
+import listBucketItems  from "./bucket/listBucketItems";
+import deleteBucket  from "./bucket/deleteBucket";
+import listBucket  from "./bucket/listBucket";
+import deleteFile  from "./file/deleteFile";
+import uploadFiles  from "./file/uploadFiles";
 
 // Create S3 service object
 const s3 = new S3({

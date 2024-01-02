@@ -1,8 +1,8 @@
-const createStore = require("../../db/models/store/createStore");
-const formatMenuPageData = require("../../utils/app/format/formatMenuPageData");
-const useGenericErrors = require("../../utils/auth/useGenericErrors");
-const addAccount = require("../../utils/stripe/accounts/addAccount");
-const message = require("../../db/data/error.message.json");
+import createStore  from "../../db/models/store/createStore";
+import formatMenuPageData  from "../../utils/app/format/formatMenuPageData";
+import useGenericErrors  from "../../utils/auth/useGenericErrors";
+import addAccount  from "../../utils/stripe/accounts/addAccount";
+import message  from "../../db/data/error.message.json";
 module.exports = async (req, res, next) => {
   try {
     // key variables

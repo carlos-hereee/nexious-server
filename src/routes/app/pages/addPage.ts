@@ -1,10 +1,10 @@
-const { awsImageUrl } = require("../../../../config.env");
-const createPage = require("../../../db/models/page/createPage");
-const formatFormData = require("../../../utils/app/format/formatFormData");
-const formatMenuPageData = require("../../../utils/app/format/formatMenuPageData");
-const useGenericErrors = require("../../../utils/auth/useGenericErrors");
-const { addFile } = require("../../../utils/aws");
-const { generateParamFile } = require("../../../utils/aws/awsParams");
+import { awsImageUrl }  from "../../../../config.env";
+import createPage  from "../../../db/models/page/createPage";
+import formatFormData  from "../../../utils/app/format/formatFormData";
+import formatMenuPageData  from "../../../utils/app/format/formatMenuPageData";
+import useGenericErrors  from "../../../utils/auth/useGenericErrors";
+import { addFile }  from "../../../utils/aws";
+import { generateParamFile }  from "../../../utils/aws/awsParams";
 
 module.exports = async (req, res, next) => {
   try {

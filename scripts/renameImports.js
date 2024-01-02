@@ -1,34 +1,26 @@
 const readDir = require("./helpers/node/readDir");
-const readFile = require("./helpers/node/readFile");
+const renameImport = require("./helpers/node/renameImport");
+const updateFile = require("./helpers/node/updateFile");
 
-// # KEY VARIABLES
-const targetString = new RegExp(`= require("*")`);
 const excludedDirectories = ["data"];
 
-const renameImport = async (filePath) => {
-  const file = await readFile(filePath);
-  //  let re = new RegExp("^.*" + searchString + ".*$", "gm");
-  if (file) {
-    // console.log("file:>> ", file);
-    file.forEach((line) => {
-      if (line.match(targetString)) console.log("line :>> ", line);
-    });
-  }
-  return;
-};
 // recursively rename imports
 const renameImports = async (sourcePath) => {
   const dir = await readDir(sourcePath);
-  console.log("\n\tSeaching folder :>> ", sourcePath);
+  // console.log("\n\tSeaching folder :>> ", sourcePath);
   if (dir) {
     for (let file of dir) {
       // skip exludedDirectories
       if (excludedDirectories.includes(file)) return;
       const targetPath = `${sourcePath}/${file}`;
-      if (file.includes(".ts")) renameImport(targetPath);
+      // if its a ts file
+      if (file.includes(".ts")) await updateFile(targetPath, renameImport);
+      // if (file.includes("server.ts")) await updateFile(targetPath, renameImport);
+      else if (file.includes(".ts")) return;
       else renameImports(targetPath);
     }
-  }
+  } else console.log("\n:>> No such folder exists :>> ");
 };
-console.log("\nStarting script");
+
+console.log("\n:>>> Starting script\n");
 renameImports("./src");

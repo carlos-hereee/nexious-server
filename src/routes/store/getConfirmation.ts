@@ -1,7 +1,7 @@
-const useGenericErrors = require("../../utils/auth/useGenericErrors");
-const getStripeCustomer = require("../../utils/stripe/customers/getStripeCustomer");
-const getSessionWithId = require("../../utils/stripe/payments/getSessionWithId");
-const getCheckoutItems = require("../../utils/stripe/payments/getCheckoutItems");
+import useGenericErrors  from "../../utils/auth/useGenericErrors";
+import getStripeCustomer  from "../../utils/stripe/customers/getStripeCustomer";
+import getSessionWithId  from "../../utils/stripe/payments/getSessionWithId";
+import getCheckoutItems  from "../../utils/stripe/payments/getCheckoutItems";
 
 module.exports = async (req, res, next) => {
   try {

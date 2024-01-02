@@ -1,9 +1,9 @@
-const deserializeUser = require("./deserializeUser");
-const requireUser = require("./requireUser");
-const validatePassword = require("./authenticatePassword");
-const validateUser = require("./validateUser");
-const authenticateUser = require("./authenticateUser");
-const addPassHistory = require("./addPassHistory");
+import deserializeUser  from "./deserializeUser";
+import requireUser  from "./requireUser";
+import validatePassword  from "./authenticatePassword";
+import validateUser  from "./validateUser";
+import authenticateUser  from "./authenticateUser";
+import addPassHistory  from "./addPassHistory";
 
 module.exports = {
   deserializeUser,

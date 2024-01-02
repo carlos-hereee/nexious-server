@@ -1,4 +1,4 @@
-const stripe = require("../connection");
+import stripe  from "../connection";
 
 module.exports = async ({ id, type }) => {
   if (!type) return await stripe.accounts.listCapabilities(id);

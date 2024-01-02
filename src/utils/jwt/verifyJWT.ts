@@ -1,6 +1,6 @@
-const jwt = require("jsonwebtoken");
-const { jwtPrivateKey } = require("../../../config.env");
-const msg = require("../../db/data/error.message.json");
+import jwt  from "jsonwebtoken";
+import { jwtPrivateKey }  from "../../../config.env";
+import msg  from "../../db/data/error.message.json";
 
 module.exports = (token) => {
   return jwt.verify(token, jwtPrivateKey, (err, decoded) => {

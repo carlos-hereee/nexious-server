@@ -1,4 +1,4 @@
-const stripe = require("../connection");
+import stripe  from "../connection";
 
 module.exports = async ({ id, apiKey, stripeAccount }) => {
   if (stripeAccount) {

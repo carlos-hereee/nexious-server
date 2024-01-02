@@ -1,6 +1,6 @@
-const generateHash = require("../../utils/auth/generateHash");
-const makeSession = require("../../utils/auth/makeSession");
-const useGenericErrors = require("../../utils/auth/useGenericErrors");
+import generateHash  from "../../utils/auth/generateHash";
+import makeSession  from "../../utils/auth/makeSession";
+import useGenericErrors  from "../../utils/auth/useGenericErrors";
 
 module.exports = async (req, res, next) => {
   try {

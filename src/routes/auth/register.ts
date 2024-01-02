@@ -1,8 +1,8 @@
-const saveUser = require("../../db/models/users/saveUser");
-const random = require("../../utils/auth/random");
-const generateHash = require("../../utils/auth/generateHash");
-const { v4 } = require("uuid");
-const useGenericErrors = require("../../utils/auth/useGenericErrors");
+import saveUser  from "../../db/models/users/saveUser";
+import random  from "../../utils/auth/random";
+import generateHash  from "../../utils/auth/generateHash";
+import { v4 }  from "uuid";
+import useGenericErrors  from "../../utils/auth/useGenericErrors";
 
 module.exports = async (req, res, next) => {
   try {

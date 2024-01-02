@@ -1,4 +1,4 @@
-const stripe = require("../connection");
+import stripe  from "../connection";
 
 module.exports = async ({ id, limit }) => {
   if (!id) return await stripe.reviews.list({ limit: limit || 30 });

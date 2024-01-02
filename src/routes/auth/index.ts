@@ -1,19 +1,19 @@
-const router = require("express").Router();
+import router  from "express".Router();
 // routes
-const register = require("./register");
-const userRoute = require("./userRoute");
-const getWithUsername = require("./getWithUsername");
-const refreshToken = require("./refreshToken");
-const login = require("./login");
-const logout = require("./logout");
-const changePassword = require("./changePassword");
+import register  from "./register";
+import userRoute  from "./userRoute";
+import getWithUsername  from "./getWithUsername";
+import refreshToken  from "./refreshToken";
+import login  from "./login";
+import logout  from "./logout";
+import changePassword  from "./changePassword";
 // custom middleware
-const { validateUser, requireUser, authenticateUser } = require("../../middleware/auth");
-const { addPassHistory } = require("../../middleware/auth");
-const updatePassword = require("../../middleware/auth/updatePassword");
-const sendToken = require("./login");
-const authenticatePassword = require("../../middleware/auth/authenticatePassword");
-const getAccessData = require("./getAccessData");
+import { validateUser, requireUser, authenticateUser }  from "../../middleware/auth";
+import { addPassHistory }  from "../../middleware/auth";
+import updatePassword  from "../../middleware/auth/updatePassword";
+import sendToken  from "./login";
+import authenticatePassword  from "../../middleware/auth/authenticatePassword";
+import getAccessData  from "./getAccessData";
 // one liners
 const validateWare = [validateUser, requireUser, authenticatePassword];
 const userWare = [validateUser, requireUser];

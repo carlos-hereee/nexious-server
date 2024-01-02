@@ -1,4 +1,4 @@
-const { awsBucketName } = require("../../../config.env");
+import { awsBucketName }  from "../../../config.env";
 
 const generateParamFile = (file) => {
   if (!file) return null;

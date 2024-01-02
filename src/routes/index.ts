@@ -1,12 +1,12 @@
-const { port } = require("../../config.env");
-const authRoute = require("./auth");
-const appRoute = require("./app");
-const calendarRoute = require("./calendar");
-const storeRoute = require("./store");
+import { port }  from "../../config.env";
+import authRoute  from "./auth";
+import appRoute  from "./app";
+import calendarRoute  from "./calendar";
+import storeRoute  from "./store";
 
 // // assets route
-// const publicRoute = require("./public");
-// const heroRoute = require("./hero");
+// import publicRoute  from "./public";
+// import heroRoute  from "./hero";
 // app.use("/public", publicRoute);
 // app.use("/hero/", heroRoute);
 

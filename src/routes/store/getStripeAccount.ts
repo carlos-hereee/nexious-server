@@ -1,5 +1,5 @@
-const useGenericErrors = require("../../utils/auth/useGenericErrors");
-const getAccount = require("../../utils/stripe/accounts/getAccount");
+import useGenericErrors  from "../../utils/auth/useGenericErrors";
+import getAccount  from "../../utils/stripe/accounts/getAccount";
 
 module.exports = async (req, res) => {
   try {

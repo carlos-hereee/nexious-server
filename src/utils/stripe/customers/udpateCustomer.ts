@@ -1,4 +1,4 @@
-const stripe = require("../connection");
+import stripe  from "../connection";
 
 module.exports = async ({ email, name, id, invoiceSettings }) => {
   // preferred_locale: ["en", "es"]

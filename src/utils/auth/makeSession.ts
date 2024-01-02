@@ -1,5 +1,5 @@
-const generateHash = require("../../utils/auth/generateHash");
-const random = require("../../utils/auth/random");
+import generateHash  from "../../utils/auth/generateHash";
+import random  from "../../utils/auth/random";
 
 module.exports = (payload) => {
   const salt = random();

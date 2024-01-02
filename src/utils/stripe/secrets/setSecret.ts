@@ -1,4 +1,4 @@
-const stripe = require("../connection");
+import stripe  from "../connection";
 
 module.exports = async ({ name, payload, scope }) => {
   if (!scope) scope = { type: "account" };

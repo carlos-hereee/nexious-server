@@ -1,8 +1,8 @@
-const { awsImageUrl } = require("../../../config.env");
-const saveFile = require("../../utils/app/saveFile");
-const useGenericErrors = require("../../utils/auth/useGenericErrors");
-const { addFile } = require("../../utils/aws");
-const { generateParamFiles } = require("../../utils/aws/awsParams");
+import { awsImageUrl }  from "../../../config.env";
+import saveFile  from "../../utils/app/saveFile";
+import useGenericErrors  from "../../utils/auth/useGenericErrors";
+import { addFile }  from "../../utils/aws";
+import { generateParamFiles }  from "../../utils/aws/awsParams";
 
 module.exports = async (req, res, next) => {
   try {

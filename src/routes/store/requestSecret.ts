@@ -1,6 +1,6 @@
-const formatTotal = require("../../utils/app/format/formatTotal");
-const useGenericErrors = require("../../utils/auth/useGenericErrors");
-const paymentInitent = require("../../utils/stripe/payments/paymentInitent");
+import formatTotal  from "../../utils/app/format/formatTotal";
+import useGenericErrors  from "../../utils/auth/useGenericErrors";
+import paymentInitent  from "../../utils/stripe/payments/paymentInitent";
 
 module.exports = async (req, res) => {
   try {

@@ -1,5 +1,5 @@
-const getSessionWithId = require("../../utils/stripe/payments/getSessionWithId");
-const fulfillOrder = require("../../utils/stripe/webhook/fulfillOrder");
+import getSessionWithId  from "../../utils/stripe/payments/getSessionWithId";
+import fulfillOrder  from "../../utils/stripe/webhook/fulfillOrder";
 
 module.exports = async (req, res) => {
   const { event } = req;

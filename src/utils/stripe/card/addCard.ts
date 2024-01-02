@@ -1,4 +1,4 @@
-const stripe = require("../connection");
+import stripe  from "../connection";
 
 // https://stripe.com/docs/api/external_account_cards/create
 module.exports = async ({ id, cardDetails }) => {

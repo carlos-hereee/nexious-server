@@ -1,5 +1,5 @@
-const useGenericErrors = require("../../utils/auth/useGenericErrors");
-const storeCookies = require("../../utils/cookies/storeCookies");
+import useGenericErrors  from "../../utils/auth/useGenericErrors";
+import storeCookies  from "../../utils/cookies/storeCookies";
 
 module.exports = async (req, res) => {
   try {

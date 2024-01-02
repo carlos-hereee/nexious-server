@@ -1,6 +1,6 @@
-const formatLanguageList = require("../../../utils/app/format/formatLanguageList");
-const formatThemeList = require("../../../utils/app/format/formatThemeList");
-const useGenericErrors = require("../../../utils/auth/useGenericErrors");
+import formatLanguageList  from "../../../utils/app/format/formatLanguageList";
+import formatThemeList  from "../../../utils/app/format/formatThemeList";
+import useGenericErrors  from "../../../utils/auth/useGenericErrors";
 
 module.exports = async (req, res) => {
   try {

@@ -1,5 +1,5 @@
-const useGenericErrors = require("../../utils/auth/useGenericErrors");
-const listCustomers = require("../../utils/stripe/customers/listCustomers");
+import useGenericErrors  from "../../utils/auth/useGenericErrors";
+import listCustomers  from "../../utils/stripe/customers/listCustomers";
 
 module.exports = async (req, res, next) => {
   try {

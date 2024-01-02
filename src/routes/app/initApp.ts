@@ -1,8 +1,8 @@
-const useGenericErrors = require("../../utils/auth/useGenericErrors");
-const createApp = require("../../db/models/app/createApp");
-// const formatThemeList = require("../../utils/app/format/formatThemeList");
-// const formatLanguageList = require("../../utils/app/format/formatLanguageList");
-const themeList = require("../../db/data/app/themeList.json");
+import useGenericErrors  from "../../utils/auth/useGenericErrors";
+import createApp  from "../../db/models/app/createApp";
+// import formatThemeList  from "../../utils/app/format/formatThemeList";
+// import formatLanguageList  from "../../utils/app/format/formatLanguageList";
+import themeList  from "../../db/data/app/themeList.json";
 
 module.exports = async (req, res, next) => {
   try {

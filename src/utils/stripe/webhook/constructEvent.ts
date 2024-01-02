@@ -1,5 +1,5 @@
-const { stripeEndpointSecret, isDev } = require("../../../../config.env");
-const stripe = require("../connection");
+import { stripeEndpointSecret, isDev }  from "../../../../config.env";
+import stripe  from "../connection";
 
 module.exports = ({ sig, payload }) => {
   // console.log("enpointSecret :>> ", sig);

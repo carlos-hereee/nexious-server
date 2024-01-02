@@ -1,6 +1,6 @@
-const multer = require("multer");
-// const storage = require("./storage");
-const storage = require("./memoryStorage");
+import multer  from "multer";
+// import storage  from "./storage";
+import storage  from "./memoryStorage";
 
 const fileFilter = (req, file, cb) => {
   const { mimetype } = file;

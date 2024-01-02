@@ -1,4 +1,4 @@
-const { baseUrl } = require("../../../../config.env");
+import { baseUrl }  from "../../../../config.env";
 
 module.exports = (appName, file) => {
   const path = file.path?.replace(/\/\//gi, "/") || "";

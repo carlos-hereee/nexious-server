@@ -1,7 +1,7 @@
-// const getUser = require("../../db/models/users/getUser");
-const makeSession = require("../../utils/auth/makeSession");
-const useGenericErrors = require("../../utils/auth/useGenericErrors");
-const storeCookies = require("../../utils/cookies/storeCookies");
+// import getUser  from "../../db/models/users/getUser";
+import makeSession  from "../../utils/auth/makeSession";
+import useGenericErrors  from "../../utils/auth/useGenericErrors";
+import storeCookies  from "../../utils/cookies/storeCookies";
 
 module.exports = async (req, res) => {
   try {

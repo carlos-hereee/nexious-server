@@ -1,5 +1,5 @@
-const generateMediaUrl = require("../../../utils/app/generateMediaUrl");
-const useGenericErrors = require("../../../utils/auth/useGenericErrors");
+import generateMediaUrl  from "../../../utils/app/generateMediaUrl";
+import useGenericErrors  from "../../../utils/auth/useGenericErrors";
 
 module.exports = async (req, res, next) => {
   try {

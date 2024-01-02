@@ -1,6 +1,6 @@
-const { awsImageUrl, isDev } = require("../../../config.env");
-const { addFile } = require("../aws");
-const { generateParamFile } = require("../aws/awsParams");
+import { awsImageUrl, isDev }  from "../../../config.env";
+import { addFile }  from "../aws";
+import { generateParamFile }  from "../aws/awsParams";
 
 module.exports = async (file, heroData, key) => {
   try {

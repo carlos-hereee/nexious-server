@@ -1,5 +1,5 @@
-// const useGenericErrors = require("../../utils/auth/useGenericErrors");
-// const { allBuckets } = require("../../utils/aws/index");
+// import useGenericErrors  from "../../utils/auth/useGenericErrors";
+// import { allBuckets }  from "../../utils/aws/index";
 
 // module.exports = async (req, res) => {
 //   try {

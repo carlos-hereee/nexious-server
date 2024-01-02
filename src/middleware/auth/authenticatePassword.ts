@@ -1,5 +1,5 @@
-const msg = require("../../db/data/error.message.json");
-const generateHash = require("../../utils/auth/generateHash");
+import msg  from "../../db/data/error.message.json";
+import generateHash  from "../../utils/auth/generateHash";
 
 module.exports = async (req, res, next) => {
   // key variable

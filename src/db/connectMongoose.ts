@@ -1,5 +1,5 @@
-const { mongoose } = require("mongoose");
-const { port, uri, isDev } = require("../../config.env");
+import { mongoose }  from "mongoose";
+import { port, uri, isDev }  from "../../config.env";
 
 const dbOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 

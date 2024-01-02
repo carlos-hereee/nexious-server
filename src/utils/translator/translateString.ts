@@ -1,5 +1,5 @@
-// const translate = require("google-translate-api");
-// // const { translatorKey } = require("../../../config.env");
+// import translate  from "google-translate-api";
+// // import { translatorKey }  from "../../../config.env";
 
 // module.exports = async (textToTranslate, targetLanguage) => {
 //   return await translate({ text: textToTranslate, to: targetLanguage }, (err, translation) => {

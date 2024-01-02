@@ -1,4 +1,4 @@
-const constructEvent = require("./constructEvent");
+import constructEvent  from "./constructEvent";
 
 module.exports = async (req, res, next) => {
   try {

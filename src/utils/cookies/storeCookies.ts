@@ -1,6 +1,6 @@
-const { accessTokenName, refreshTokenName } = require("../../../config.env");
-const signJWT = require("../jwt/signJWT");
-const cookieCongig = require("./cookieCongig");
+import { accessTokenName, refreshTokenName }  from "../../../config.env";
+import signJWT  from "../jwt/signJWT";
+import cookieCongig  from "./cookieCongig";
 
 module.exports = (res, username, sessionId) => {
   const accessConfig = cookieCongig(24);

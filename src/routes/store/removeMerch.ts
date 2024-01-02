@@ -1,5 +1,5 @@
-const removeMerch = require("../../db/models/merch/removeMerch");
-const useGenericErrors = require("../../utils/auth/useGenericErrors");
+import removeMerch  from "../../db/models/merch/removeMerch";
+import useGenericErrors  from "../../utils/auth/useGenericErrors";
 
 module.exports = async (req, res, next) => {
   try {

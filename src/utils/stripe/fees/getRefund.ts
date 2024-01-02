@@ -1,4 +1,4 @@
-const stripe = require("../connection");
+import stripe  from "../connection";
 
 module.exports = async ({ id, refundId, limit }) => {
   if (!refundId) await stripe.applicationFees.listRefunds(id, { limit: limit || 30 });

@@ -1,4 +1,4 @@
-const { v4 } = require("uuid");
+import { v4 }  from "uuid";
 
 module.exports = (req, res) => {
   const { appId, userId, role } = req.user;

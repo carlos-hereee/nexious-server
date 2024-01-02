@@ -1,5 +1,5 @@
-const useGenericErrors = require("../../utils/auth/useGenericErrors");
-const createCheckoutSession = require("../../utils/stripe/payments/createCheckoutSession");
+import useGenericErrors  from "../../utils/auth/useGenericErrors";
+import createCheckoutSession  from "../../utils/stripe/payments/createCheckoutSession";
 
 module.exports = async (req, res) => {
   try {

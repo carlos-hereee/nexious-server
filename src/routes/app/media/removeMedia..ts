@@ -1,4 +1,4 @@
-const useGenericErrors = require("../../../utils/auth/useGenericErrors");
+import useGenericErrors  from "../../../utils/auth/useGenericErrors";
 
 module.exports = async (req, res, next) => {
   try {

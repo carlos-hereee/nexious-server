@@ -1,4 +1,4 @@
-const stripe = require("../connection");
+import stripe  from "../connection";
 
 module.exports = async ({ id, refreshUrl, returnUrl, type }) => {
   if (!type) type = "account_onboarding";

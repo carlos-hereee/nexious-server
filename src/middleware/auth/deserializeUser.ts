@@ -1,7 +1,7 @@
-const { isDev, accessTokenName, refreshTokenName } = require("../../../config.env");
-const getUserAuth = require("../../db/models/users/getUserAuth");
-const useGenericErrors = require("../../utils/auth/useGenericErrors");
-const verifyJWT = require("../../utils/jwt/verifyJWT");
+import { isDev, accessTokenName, refreshTokenName }  from "../../../config.env";
+import getUserAuth  from "../../db/models/users/getUserAuth";
+import useGenericErrors  from "../../utils/auth/useGenericErrors";
+import verifyJWT  from "../../utils/jwt/verifyJWT";
 
 module.exports = async (req, res, next) => {
   try {

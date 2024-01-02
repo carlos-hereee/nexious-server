@@ -1,6 +1,6 @@
-const { stripeSecretKey } = require("../../../config.env");
+import { stripeSecretKey }  from "../../../config.env";
 
-const Stripe = require("stripe");
+import Stripe  from "stripe";
 const stripe = Stripe(stripeSecretKey);
 
 module.exports = stripe;

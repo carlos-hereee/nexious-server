@@ -1,8 +1,8 @@
-// const removeMerch = require("../../db/models/merch/removeMerch");
-// const getStore = require("../../db/models/store/getStore");
-const removeStore = require("../../db/models/store/removeStore");
-const useGenericErrors = require("../../utils/auth/useGenericErrors");
-const removeAccount = require("../../utils/stripe/accounts/removeAccount");
+// import removeMerch  from "../../db/models/merch/removeMerch";
+// import getStore  from "../../db/models/store/getStore";
+import removeStore  from "../../db/models/store/removeStore";
+import useGenericErrors  from "../../utils/auth/useGenericErrors";
+import removeAccount  from "../../utils/stripe/accounts/removeAccount";
 
 module.exports = async (req, res, next) => {
   try {

@@ -1,5 +1,5 @@
-// const useGenericErrors = require("../../utils/auth/useGenericErrors");
-// const { getBucket } = require("../../utils/aws");
+// import useGenericErrors  from "../../utils/auth/useGenericErrors";
+// import { getBucket }  from "../../utils/aws";
 
 // module.exports = async (req, res) => {
 //   try {

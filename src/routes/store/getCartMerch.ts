@@ -1,5 +1,5 @@
-// const getMerch = require("../../db/models/merch/getMerch");
-const useGenericErrors = require("../../utils/auth/useGenericErrors");
+// import getMerch  from "../../db/models/merch/getMerch";
+import useGenericErrors  from "../../utils/auth/useGenericErrors";
 
 module.exports = async (req, res, next) => {
   try {

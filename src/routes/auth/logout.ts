@@ -1,5 +1,5 @@
-const updateUser = require("../../db/models/users/updateUser");
-const resetCookies = require("../../utils/cookies/resetCookies");
+import updateUser  from "../../db/models/users/updateUser";
+import resetCookies  from "../../utils/cookies/resetCookies";
 
 module.exports = async (req, res) => {
   // invalidate session

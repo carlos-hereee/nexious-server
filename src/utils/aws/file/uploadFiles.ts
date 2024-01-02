@@ -1,4 +1,4 @@
-const uploadFile = require("./uploadFile");
+import uploadFile  from "./uploadFile";
 
 // call S3 to retrieve upload file to specified bucket
 module.exports = async (s3, files) => {

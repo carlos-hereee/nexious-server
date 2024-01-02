@@ -1,4 +1,4 @@
-const stripe = require("../connection");
+import stripe  from "../connection";
 
 module.exports = async ({ amount, currency, paymentMethod }) => {
   if (!currency) currency = "usd";

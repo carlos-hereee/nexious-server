@@ -1,5 +1,5 @@
-const msg = require("../../db/data/error.message.json");
-const getUser = require("../../db/models/users/getUser");
+import msg  from "../../db/data/error.message.json";
+import getUser  from "../../db/models/users/getUser";
 
 module.exports = async (req, res, next) => {
   const username = req.body.username || req.params.username;

@@ -1,6 +1,6 @@
-const useGenericErrors = require("../../utils/auth/useGenericErrors");
-const getPages = require("../../db/models/page/getPages");
-const messages = require("../../db/data/error.message.json");
+import useGenericErrors  from "../../utils/auth/useGenericErrors";
+import getPages  from "../../db/models/page/getPages";
+import messages  from "../../db/data/error.message.json";
 
 module.exports = async (req, res, next) => {
   try {

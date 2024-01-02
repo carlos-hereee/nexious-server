@@ -1,5 +1,5 @@
-const { v4 } = require("uuid");
-const themes = require("../../../db/data/app/themeList.json");
+import { v4 }  from "uuid";
+import themes  from "../../../db/data/app/themeList.json";
 
 module.exports = (theme) => {
   if (!theme) return {};

@@ -1,4 +1,4 @@
-const stripe = require("../connection");
+import stripe  from "../connection";
 
 module.exports = async ({ name, description, images, stripeAccount }) => {
   if (!description) description = "product information: " + name;

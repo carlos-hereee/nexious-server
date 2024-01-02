@@ -1,5 +1,5 @@
-const multer = require("multer");
-const storage = require("./memoryStorage");
+import multer  from "multer";
+import storage  from "./memoryStorage";
 
 const fileFilter = (req, file, cb) => {
   const safeFiles = ["png", "image/svg+xml", "jpg"];

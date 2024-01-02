@@ -1,3 +1,3 @@
-const getCalendar = require("./getCalendar");
+import getCalendar  from "./getCalendar";
 
 module.exports = { getCalendar };

@@ -1,5 +1,5 @@
-const { clientUrl } = require("../../../../config.env");
-const stripe = require("../connection");
+import { clientUrl }  from "../../../../config.env";
+import stripe  from "../connection";
 
 module.exports = async ({ cartData, mode, stripeAccount }) => {
   if (!stripeAccount) {

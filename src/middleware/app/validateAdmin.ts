@@ -1,4 +1,4 @@
-const messages = require("../../db/data/error.message.json");
+import messages  from "../../db/data/error.message.json";
 
 module.exports = async (req, res, next) => {
   // const appId = req.params.appId || req.body.appId;

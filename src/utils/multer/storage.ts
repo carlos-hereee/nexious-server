@@ -1,4 +1,4 @@
-const multer = require("multer");
+import multer  from "multer";
 
 module.exports = multer.diskStorage({
   // where should files be stored on disk

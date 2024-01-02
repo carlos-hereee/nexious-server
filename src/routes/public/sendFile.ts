@@ -1,5 +1,5 @@
-// const getHero = require("../../db/models/hero/getHero");
-// const useGenericErrors = require("../../utils/auth/useGenericErrors");
+// import getHero  from "../../db/models/hero/getHero";
+// import useGenericErrors  from "../../utils/auth/useGenericErrors";
 
 // module.exports = async (req, res) => {
 //   try {

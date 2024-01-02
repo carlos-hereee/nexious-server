@@ -1,5 +1,5 @@
-const getApp = require("../../../db/models/app/getApp");
-const useGenericErrors = require("../../../utils/auth/useGenericErrors");
+import getApp  from "../../../db/models/app/getApp";
+import useGenericErrors  from "../../../utils/auth/useGenericErrors";
 
 module.exports = async (req, res) => {
   try {

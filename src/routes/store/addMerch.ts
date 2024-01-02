@@ -1,7 +1,7 @@
-const createMerch = require("../../db/models/merch/createMerch");
-const useGenericErrors = require("../../utils/auth/useGenericErrors");
-const addPrice = require("../../utils/stripe/merch/addPrice");
-const addProduct = require("../../utils/stripe/merch/addProduct");
+import createMerch  from "../../db/models/merch/createMerch";
+import useGenericErrors  from "../../utils/auth/useGenericErrors";
+import addPrice  from "../../utils/stripe/merch/addPrice";
+import addProduct  from "../../utils/stripe/merch/addProduct";
 
 module.exports = async (req, res, next) => {
   try {

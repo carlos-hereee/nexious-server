@@ -1,4 +1,4 @@
-const stripe = require("../connection");
+import stripe  from "../connection";
 
 // This request accepts only metadata as an argument.
 module.exports = async ({ metadata, id }) => {

@@ -1,12 +1,12 @@
 require("dotenv").config();
-const express = require("express");
-const cors = require("cors");
-const cookieParser = require("cookie-parser");
-const helmet = require("helmet");
-const routes = require("./routes");
-const connectMongoose = require("./db/connectMongoose");
-const { clientUrl, clientUrlAlt, isProduction } = require("../config.env");
-const { deserializeUser } = require("./middleware/auth");
+import express  from "express";
+import cors  from "cors";
+import cookieParser  from "cookie-parser";
+import helmet  from "helmet";
+import routes  from "./routes";
+import connectMongoose  from "./db/connectMongoose";
+import { clientUrl, clientUrlAlt, isProduction }  from "../config.env";
+import { deserializeUser }  from "./middleware/auth";
 
 // create an express app
 const app = express();
