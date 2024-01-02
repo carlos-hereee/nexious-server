@@ -1,6 +1,6 @@
-import { stripeSecretKey }  from "@config";
+import { stripeSecretKey } from "@config";
 
-import Stripe  from "stripe";
-const stripe = Stripe(stripeSecretKey);
+import Stripe from "stripe";
+const stripe = new Stripe(stripeSecretKey);
 
-export  stripe;
+export = stripe;

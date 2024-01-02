@@ -64,4 +64,4 @@ router.delete("/delete-app/:appId", adminWare, deleteApp, minAppData);
 router.delete("/delete-page/:appId/page/:pageId", adminWare, deletePage, minAppData);
 router.delete("/delete-media/:appId/media/:assetId", adminWare, removeMedia, minAppData);
 
-export  router;
+export   =router  

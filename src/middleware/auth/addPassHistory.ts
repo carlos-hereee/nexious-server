@@ -1,6 +1,6 @@
-import messages  from "@data/error.message.json";
+import messages from "@data/error.message.json";
 
-export  (req, res, next) => {
+export = (req, res, next) => {
   // key variables
   const oldPassword = req.user.auth.password;
   // add password to the timeline

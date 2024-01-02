@@ -1,5 +1,5 @@
-import multer  from "multer";
-import storage  from "./memoryStorage";
+import multer from "multer";
+import storage from "./memoryStorage";
 
 const fileFilter = (req, file, cb) => {
   const safeFiles = ["png", "image/svg+xml", "jpg"];
@@ -8,7 +8,7 @@ const fileFilter = (req, file, cb) => {
   !safeFiles.includes(file.mimetype) ? cb(new Error("forbideen file type")) : cb(null, true);
 };
 
-export  () =>
+export = () =>
   multer({ storage: storage, fileFilter }).fields([
     { name: "hero", maxCount: 1 },
     { name: "sectionHero", maxCount: 10 },

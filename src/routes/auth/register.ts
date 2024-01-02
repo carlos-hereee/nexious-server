@@ -4,7 +4,7 @@ import generateHash from "../../utils/auth/generateHash";
 import { v4 } from "uuid";
 import useGenericErrors from "../../utils/auth/useGenericErrors";
 
-export = (req, res, next) => {
+export = async (req, res, next) => {
   try {
     // key variables
     const username = req.body.username;

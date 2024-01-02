@@ -1,6 +1,6 @@
-import multer  from "multer";
+import multer from "multer";
 // import storage  from "./storage";
-import storage  from "./memoryStorage";
+import storage from "./memoryStorage";
 
 const fileFilter = (req, file, cb) => {
   const { mimetype } = file;
@@ -13,4 +13,4 @@ const fileFilter = (req, file, cb) => {
   return cb(new Error("forbiden file type"));
 };
 
-export  (name) => multer({ storage: storage, fileFilter }).single(name);
+export = (name) => multer({ storage: storage, fileFilter }).single(name);

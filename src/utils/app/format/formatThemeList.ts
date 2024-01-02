@@ -1,7 +1,7 @@
-import { v4 }  from "uuid";
-import themes  from "../../../db/data/app/themeList.json";
+import { v4 } from "uuid";
+import themes from "../../../db/data/app/themeList.json";
 
-export  (theme) => {
+export = (theme) => {
   if (!theme) return {};
   const themeList = theme.split(",").filter((item) => item);
 

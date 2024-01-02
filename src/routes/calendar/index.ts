@@ -9,4 +9,4 @@ const authenticateCalendar = [requireUser, getCalendar];
 router.get("/", authenticateCalendar, fetchCalendar);
 router.post("/add-event", authenticateCalendar, addEvent);
 
-export  router;
+export   =router  

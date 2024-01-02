@@ -1,37 +1,39 @@
-import router  from "express".Router();
+import router from "express";
 // routes
-import register  from "./register";
-import userRoute  from "./userRoute";
-import getWithUsername  from "./getWithUsername";
-import refreshToken  from "./refreshToken";
-import login  from "./login";
-import logout  from "./logout";
-import changePassword  from "./changePassword";
+import register from "./register";
+import userRoute from "./userRoute";
+import getWithUsername from "./getWithUsername";
+import refreshToken from "./refreshToken";
+import login from "./login";
+import logout from "./logout";
+import changePassword from "./changePassword";
 // custom middleware
-import { validateUser, requireUser, authenticateUser }  from "../../middleware/auth";
-import { addPassHistory }  from "../../middleware/auth";
-import updatePassword  from "../../middleware/auth/updatePassword";
-import sendToken  from "./login";
-import authenticatePassword  from "../../middleware/auth/authenticatePassword";
-import getAccessData  from "./getAccessData";
+import { validateUser, requireUser, authenticateUser } from "../../middleware/auth";
+import { addPassHistory } from "../../middleware/auth";
+import updatePassword from "../../middleware/auth/updatePassword";
+import sendToken from "./login";
+import authenticatePassword from "../../middleware/auth/authenticatePassword";
+import getAccessData from "./getAccessData";
+
+const route = router.Router();
 // one liners
 const validateWare = [validateUser, requireUser, authenticatePassword];
 const userWare = [validateUser, requireUser];
 const changePasswordWare = [addPassHistory, updatePassword, changePassword];
 
 // get
-router.get("/", requireUser, userRoute);
+route.get("/", requireUser, userRoute);
 // TODO: ADD ADDITIONAL VERFICATION METHODS
-router.get("/user/:username", userWare, getWithUsername);
-router.get("/access-token", requireUser, getAccessData);
+route.get("/user/:username", userWare, getWithUsername);
+route.get("/access-token", requireUser, getAccessData);
 // post
-router.post("/register", validateUser, authenticateUser, register, sendToken);
-router.post("/login", validateWare, login);
-router.post("/refresh-token", requireUser, refreshToken);
-router.post("/change-password", validateWare, changePasswordWare);
+route.post("/register", validateUser, authenticateUser, register, sendToken);
+route.post("/login", validateWare, login);
+route.post("/refresh-token", requireUser, refreshToken);
+route.post("/change-password", validateWare, changePasswordWare);
 // TODO: ADD ADDITIONAL VERFICATION MEDTHODS
-router.post("/forgot-password", userWare, changePasswordWare);
+route.post("/forgot-password", userWare, changePasswordWare);
 // log out
-router.delete("/logout", requireUser, logout);
+route.delete("/logout", requireUser, logout);
 
-export  router;
+export = route;

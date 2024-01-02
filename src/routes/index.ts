@@ -1,8 +1,8 @@
-import { port }  from "../config";
-import authRoute  from "./auth";
-import appRoute  from "./app";
-import calendarRoute  from "./calendar";
-import storeRoute  from "./store";
+import { port } from "../config";
+import authRoute from "./auth";
+import appRoute from "./app";
+import calendarRoute from "./calendar";
+import storeRoute from "./store";
 
 // // assets route
 // import publicRoute  from "./public";
@@ -10,7 +10,7 @@ import storeRoute  from "./store";
 // app.use("/public", publicRoute);
 // app.use("/hero/", heroRoute);
 
-export  (app) => {
+export = (app) => {
   // initial test route
   app.get("/", (req, res) => {
     const message = `api is running on ${port}`;

@@ -1,4 +1,4 @@
-import multer  from "multer";
-import storage  from "./storage";
+import multer from "multer";
+import storage from "./storage";
 
-export  (name, count) => multer({ storage: storage }).array(name, count);
+export = (name, count) => multer({ storage: storage }).array(name, count);
