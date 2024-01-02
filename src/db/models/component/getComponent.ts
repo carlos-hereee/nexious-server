@@ -1,6 +1,6 @@
 const Component = require("../../schema/component");
 
-module.exports = async ({ componentId }) => {
+export = async ({ componentId }) => {
   if (componentId) {
     return await Component.findOne({ componentId });
   }

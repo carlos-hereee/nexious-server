@@ -1,7 +1,7 @@
-import { isDev }  from "../../../config.env";
-import messages  from "../../db/data/error.message.json";
+import { isDev } from "@config";
+import messages from "@data/error.message.json";
 
-module.exports = (res, error, message) => {
+export = (res, error, message) => {
   isDev && console.log("error ", message, error);
   res.status(500).json(messages.serverIsDown).end();
 };

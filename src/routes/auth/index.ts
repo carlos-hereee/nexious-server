@@ -34,4 +34,4 @@ router.post("/forgot-password", userWare, changePasswordWare);
 // log out
 router.delete("/logout", requireUser, logout);
 
-module.exports = router;
+export  router;

@@ -1,9 +1,9 @@
-import useGenericErrors  from "../../utils/auth/useGenericErrors";
-import { addFile }  from "../../utils/aws";
-import { awsImageUrl, isDev }  from "../../../config.env";
-import { generateParamFile }  from "../../utils/aws/awsParams";
+import useGenericErrors from "../../utils/auth/useGenericErrors";
+import { addFile } from "../../utils/aws";
+import { awsImageUrl, isDev } from "@config";
+import { generateParamFile } from "../../utils/aws/awsParams";
 
-module.exports = async (req, res, next) => {
+export = (req, res, next) => {
   try {
     if (req.file) {
       const params = generateParamFile(req.file);

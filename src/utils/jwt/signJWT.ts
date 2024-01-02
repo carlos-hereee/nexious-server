@@ -1,6 +1,6 @@
 import jwt  from "jsonwebtoken";
-import { jwtPrivateKey }  from "../../../config.env";
+import { jwtPrivateKey }  from "@config";
 
-module.exports = (payload, expiresIn) => {
+export  (payload, expiresIn) => {
   return jwt.sign(payload, jwtPrivateKey, { algorithm: "HS256", expiresIn });
 };

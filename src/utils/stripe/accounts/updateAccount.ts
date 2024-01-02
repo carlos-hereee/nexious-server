@@ -1,6 +1,6 @@
-import stripe  from "../connection";
+import stripe from "../connection";
 
-module.exports = async ({ country, email }) => {
+export = async ({ country, email }) => {
   return await stripe.accounts.update({
     country,
     email,

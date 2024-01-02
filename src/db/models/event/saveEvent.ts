@@ -1,6 +1,6 @@
 const Events = require("../schema/events");
 
-module.exports = async (payload) => {
+export = async (payload) => {
   // const page = new Events(payload);
   return await Events.create(payload);
 };

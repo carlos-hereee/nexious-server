@@ -1,4 +1,4 @@
-module.exports = (pageName) => {
+export  (pageName) => {
   return {
     category: "page",
     isPage: true,

@@ -1,5 +1,5 @@
 const App = require("../../schema/app");
 
-module.exports = async ({ appId }, payload) => {
+export = async ({ appId }, payload) => {
   return await App.updateOne({ appId }, { $set: payload });
 };

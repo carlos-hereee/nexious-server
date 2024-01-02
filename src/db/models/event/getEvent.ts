@@ -1,6 +1,6 @@
 const Events = require("../../schema/events");
 
-module.exports = async ({ appId, languageId }) => {
+export = async ({ appId, languageId }) => {
   if (languageId) {
     return await Events.find({ appId, languageId });
   }

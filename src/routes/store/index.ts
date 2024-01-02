@@ -53,4 +53,4 @@ router.put("/update-merch/:appId/:merchId", storeWare, editMerch, minAppData);
 router.delete("/remove-store/:appId", removalWare, removeStore, minAppData);
 router.delete("/remove-merch/:appId/:merchId", merchWare, removeMerch, minAppData);
 
-module.exports = router;
+export  router;

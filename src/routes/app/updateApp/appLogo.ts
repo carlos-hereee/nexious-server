@@ -1,6 +1,6 @@
-import useGenericErrors  from "../../../utils/auth/useGenericErrors";
+import useGenericErrors from "../../../utils/auth/useGenericErrors";
 
-module.exports = async (req, res, next) => {
+export = async (req, res, next) => {
   try {
     // update appname
     req.app.appName = req.body.appName;

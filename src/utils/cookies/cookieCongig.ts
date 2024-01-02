@@ -1,7 +1,7 @@
 // import { isProduction, clientUrl, baseUrl }  from "../../../config.env";
-import { isProduction }  from "../../../config.env";
+import { isProduction }  from "@config";
 
-module.exports = (hour) => {
+export  (hour) => {
   const maxAge = hour === 0 ? 0 : Date.now() + hour * 60 * 60 * 1000;
   return {
     maxAge,

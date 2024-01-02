@@ -1,6 +1,6 @@
-import stripe  from "../connection";
+import stripe from "../connection";
 
 // This request accepts only metadata as an argument.
-module.exports = async ({ metadata, id }) => {
+export = async ({ metadata, id }) => {
   return await stripe.transfers.update(id, { metadata });
 };

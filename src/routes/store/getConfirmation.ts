@@ -1,9 +1,9 @@
-import useGenericErrors  from "../../utils/auth/useGenericErrors";
-import getStripeCustomer  from "../../utils/stripe/customers/getStripeCustomer";
-import getSessionWithId  from "../../utils/stripe/payments/getSessionWithId";
-import getCheckoutItems  from "../../utils/stripe/payments/getCheckoutItems";
+import useGenericErrors from "../../utils/auth/useGenericErrors";
+import getStripeCustomer from "../../utils/stripe/customers/getStripeCustomer";
+import getSessionWithId from "../../utils/stripe/payments/getSessionWithId";
+import getCheckoutItems from "../../utils/stripe/payments/getCheckoutItems";
 
-module.exports = async (req, res, next) => {
+export = (req, res, next) => {
   try {
     const sessionId = req.query.session_id;
     // console.log("sessionId :>> ", sessionId);

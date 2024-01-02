@@ -1,8 +1,8 @@
-import formatLanguageList  from "../../../utils/app/format/formatLanguageList";
-import formatThemeList  from "../../../utils/app/format/formatThemeList";
-import useGenericErrors  from "../../../utils/auth/useGenericErrors";
+import formatLanguageList from "../../../utils/app/format/formatLanguageList";
+import formatThemeList from "../../../utils/app/format/formatThemeList";
+import useGenericErrors from "../../../utils/auth/useGenericErrors";
 
-module.exports = async (req, res) => {
+export = async (req, res) => {
   try {
     // key variables
     const { theme, language, locale, appName, logo, email } = req.body;

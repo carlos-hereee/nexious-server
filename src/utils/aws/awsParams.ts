@@ -1,4 +1,4 @@
-import { awsBucketName }  from "../../../config.env";
+import { awsBucketName } from "@config";
 
 const generateParamFile = (file) => {
   if (!file) return null;
@@ -12,4 +12,4 @@ const generateParamFile = (file) => {
 const generateParamFiles = (files) => {
   return files.map((file) => generateParamFile(file));
 };
-module.exports = { generateParamFiles, generateParamFile };
+export { generateParamFiles, generateParamFile };

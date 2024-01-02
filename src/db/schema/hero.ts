@@ -36,4 +36,4 @@ const heroSchema = new Schema(
   { timestamps: true }
 );
 const Hero = mongoose.model("Hero", heroSchema);
-module.exports = Hero;
+export  Hero;

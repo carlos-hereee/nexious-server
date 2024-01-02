@@ -1,5 +1,5 @@
-import stripe  from "../connection";
+import stripe from "../connection";
 
-module.exports = async ({ id, accountId }) => {
+export = async ({ id, accountId }) => {
   return await stripe.accounts.deleteExternalAccount(id, accountId);
 };

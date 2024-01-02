@@ -1,7 +1,7 @@
-import getUserAuth  from "../../db/models/users/getUserAuth";
-import msg  from "../../db/data/error.message.json";
+import getUserAuth from "@dbModels/users/getUserAuth";
+import msg from "@data/error.message.json";
 
-module.exports = async (req, res, next) => {
+export = (req, res, next) => {
   const username = req.body.username || req.params.username;
   // must have a value
   if (!username) {

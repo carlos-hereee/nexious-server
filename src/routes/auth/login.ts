@@ -1,8 +1,8 @@
-// import getUser  from "../../db/models/users/getUser";
-import useGenericErrors  from "../../utils/auth/useGenericErrors";
-import storeCookies  from "../../utils/cookies/storeCookies";
+// import getUser  from "@dbModels/users/getUser";
+import useGenericErrors from "../../utils/auth/useGenericErrors";
+import storeCookies from "../../utils/cookies/storeCookies";
 
-module.exports = async (req, res) => {
+export = (req, res) => {
   try {
     // made it through the forest, generate session cookie
     const sessionId = req.user.auth.sessionId;

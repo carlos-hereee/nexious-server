@@ -1,7 +1,7 @@
-import getUser  from "../../db/models/users/getUser";
-import useGenericErrors  from "../../utils/auth/useGenericErrors";
+import getUser from "@dbModels/users/getUser";
+import useGenericErrors from "../../utils/auth/useGenericErrors";
 
-module.exports = async (req, res) => {
+export = (req, res) => {
   try {
     const userId = req.user.userId;
     const user = await getUser({ userId });

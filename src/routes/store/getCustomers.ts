@@ -1,7 +1,7 @@
-import useGenericErrors  from "../../utils/auth/useGenericErrors";
-import listCustomers  from "../../utils/stripe/customers/listCustomers";
+import useGenericErrors from "../../utils/auth/useGenericErrors";
+import listCustomers from "../../utils/stripe/customers/listCustomers";
 
-module.exports = async (req, res, next) => {
+export = (req, res, next) => {
   try {
     const customers = await listCustomers();
     console.log("customers :>> ", customers);

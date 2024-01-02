@@ -1,7 +1,7 @@
-import { clientUrl }  from "../../../../config.env";
-import stripe  from "../connection";
+import { clientUrl } from "../../../config";
+import stripe from "../connection";
 
-module.exports = async ({ cartData, mode, stripeAccount }) => {
+export = async ({ cartData, mode, stripeAccount }) => {
   if (!stripeAccount) {
     return await stripe.checkout.sessions.create({
       line_items: cartData,

@@ -1,4 +1,4 @@
-module.exports = (data) => {
+export  (data) => {
   if (!data) return;
   const canSkip = ["hero", "sectionHero"];
   let pageData = {};

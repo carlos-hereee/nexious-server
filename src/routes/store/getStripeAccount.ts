@@ -1,7 +1,7 @@
-import useGenericErrors  from "../../utils/auth/useGenericErrors";
-import getAccount  from "../../utils/stripe/accounts/getAccount";
+import useGenericErrors from "../../utils/auth/useGenericErrors";
+import getAccount from "../../utils/stripe/accounts/getAccount";
 
-module.exports = async (req, res) => {
+export = (req, res) => {
   try {
     // console.log("req.params :>> ", req.params);
     const { accountId } = req.params;

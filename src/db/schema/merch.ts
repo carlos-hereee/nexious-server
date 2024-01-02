@@ -22,4 +22,4 @@ const merchSchema = new Schema(
   { timestamps: true }
 );
 const Merch = mongoose.model("Merch", merchSchema);
-module.exports = Merch;
+export  Merch;

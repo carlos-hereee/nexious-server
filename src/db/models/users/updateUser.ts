@@ -1,5 +1,5 @@
-const { Users } = require("../../schema/users");
+import Users from "@dbSchema/users";
 
-module.exports = async ({ userId }, payload) => {
+export = async ({ userId }, payload) => {
   return await Users.updateOne({ userId }, { $set: payload });
 };

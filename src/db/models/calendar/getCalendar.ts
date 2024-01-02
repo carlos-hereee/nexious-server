@@ -1,6 +1,6 @@
 const Calendar = require("../../schema/calendar");
 
-module.exports = async ({ appId, calendarId, adminIds }) => {
+export = async ({ appId, calendarId, adminIds }) => {
   if (adminIds) {
     return await Calendar.find({ adminIds });
   }

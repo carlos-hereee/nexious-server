@@ -1,6 +1,6 @@
 import { v4 }  from "uuid";
 
-module.exports = (req, res) => {
+export  (req, res) => {
   const { appId, userId, role } = req.user;
   const { date } = req.body;
   const eventId = v4();

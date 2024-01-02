@@ -1,6 +1,6 @@
-import stripe  from "../connection";
+import stripe from "../connection";
 
-module.exports = async ({ id, personId, limit }) => {
+export = async ({ id, personId, limit }) => {
   if (!personId)
     return await stripe.accounts.listPersons(id, {
       limit: limit || 30,

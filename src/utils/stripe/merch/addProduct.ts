@@ -1,6 +1,6 @@
-import stripe  from "../connection";
+import stripe from "../connection";
 
-module.exports = async ({ name, description, images, stripeAccount }) => {
+export = async ({ name, description, images, stripeAccount }) => {
   if (!description) description = "product information: " + name;
   if (!images) images = undefined;
   if (stripeAccount) {

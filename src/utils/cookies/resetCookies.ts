@@ -1,6 +1,6 @@
-import { accessTokenName, refreshTokenName }  from "../../../config.env";
+import { accessTokenName, refreshTokenName }  from "@config";
 import cookieCongig  from "./cookieCongig";
-module.exports = (res) => {
+export  (res) => {
   const tokenConfig = cookieCongig(0);
 
   res.cookie(accessTokenName, "", tokenConfig);

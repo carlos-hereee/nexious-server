@@ -1,12 +1,12 @@
-import { awsImageUrl }  from "../../../../config.env";
-import createPage  from "../../../db/models/page/createPage";
-import formatFormData  from "../../../utils/app/format/formatFormData";
-import formatMenuPageData  from "../../../utils/app/format/formatMenuPageData";
-import useGenericErrors  from "../../../utils/auth/useGenericErrors";
-import { addFile }  from "../../../utils/aws";
-import { generateParamFile }  from "../../../utils/aws/awsParams";
+import { awsImageUrl } from "../../../config";
+import createPage from "../../../db/models/page/createPage";
+import formatFormData from "../../../utils/app/format/formatFormData";
+import formatMenuPageData from "../../../utils/app/format/formatMenuPageData";
+import useGenericErrors from "../../../utils/auth/useGenericErrors";
+import { addFile } from "../../../utils/aws";
+import { generateParamFile } from "../../../utils/aws/awsParams";
 
-module.exports = async (req, res, next) => {
+export = async (req, res, next) => {
   try {
     let { pageData, refs } = formatFormData(req.body);
     if (req.files) {

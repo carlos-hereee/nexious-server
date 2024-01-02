@@ -1,5 +1,5 @@
-const { Users } = require("../../schema/user");
+import Users = require("../../schema/user");
 
-module.exports = async ({ userId }) => {
+export = async ({ userId }) => {
   return await Users.findOneAndDelete({ userId });
 };

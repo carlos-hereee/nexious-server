@@ -1,9 +1,9 @@
-import { isDev, accessTokenName, refreshTokenName }  from "../../../config.env";
-import getUserAuth  from "../../db/models/users/getUserAuth";
-import useGenericErrors  from "../../utils/auth/useGenericErrors";
-import verifyJWT  from "../../utils/jwt/verifyJWT";
+import { isDev, accessTokenName, refreshTokenName } from "@config";
+import getUserAuth from "@dbModels/users/getUserAuth";
+import useGenericErrors from "../../utils/auth/useGenericErrors";
+import verifyJWT from "../../utils/jwt/verifyJWT";
 
-module.exports = async (req, res, next) => {
+export = (req, res, next) => {
   try {
     // key variables
     const accessToken = req.cookies[accessTokenName];

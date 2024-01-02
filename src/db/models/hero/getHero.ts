@@ -1,6 +1,6 @@
 const Hero = require("../../schema/hero");
 
-module.exports = async ({ heroId, filename }) => {
+export = async ({ heroId, filename }) => {
   if (filename) {
     return await Hero.findOne({ filename });
   }

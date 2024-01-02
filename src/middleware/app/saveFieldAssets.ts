@@ -1,10 +1,10 @@
-import { awsImageUrl }  from "../../../config.env";
-import saveFile  from "../../utils/app/saveFile";
-import useGenericErrors  from "../../utils/auth/useGenericErrors";
-import { addFile }  from "../../utils/aws";
-import { generateParamFiles }  from "../../utils/aws/awsParams";
+import { awsImageUrl } from "@config";
+import saveFile from "../../utils/app/saveFile";
+import useGenericErrors from "../../utils/auth/useGenericErrors";
+import { addFile } from "../../utils/aws";
+import { generateParamFiles } from "../../utils/aws/awsParams";
 
-module.exports = async (req, res, next) => {
+export = (req, res, next) => {
   try {
     req.asset = { hero: "", sectionHero: [] };
     // check if files exists

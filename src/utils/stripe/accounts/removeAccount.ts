@@ -1,3 +1,3 @@
-import stripe  from "../connection";
+import stripe from "../connection";
 
-module.exports = async ({ id }) => await stripe.accounts.del(id);
+export = async ({ id }) => await stripe.accounts.del(id);

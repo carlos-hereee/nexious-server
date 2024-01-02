@@ -40,4 +40,4 @@
 //   { timestamps: true }
 // );
 // const Component = mongoose.model("Component", componentSchema);
-// module.exports = Component;
+// export  Component;

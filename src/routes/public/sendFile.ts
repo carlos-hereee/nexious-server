@@ -1,7 +1,7 @@
-// import getHero  from "../../db/models/hero/getHero";
+// import getHero  from "@dbModels/hero/getHero";
 // import useGenericErrors  from "../../utils/auth/useGenericErrors";
 
-// module.exports = async (req, res) => {
+// export =(req, res) => {
 //   try {
 //     // const filePath = path.resolve() + `/public/${req.params.assetId}`;
 //     // set propper content type else drowser will download file

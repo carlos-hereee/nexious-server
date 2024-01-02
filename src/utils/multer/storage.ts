@@ -1,6 +1,6 @@
 import multer  from "multer";
 
-module.exports = multer.diskStorage({
+export  multer.diskStorage({
   // where should files be stored on disk
   destination: (req, file, cb) => cb(null, "public"),
   filename: (req, file, cb) => {

@@ -1,5 +1,5 @@
 const Events = require("../../schema/events");
 
-module.exports = async ({ pageId }) => {
+export = async ({ pageId }) => {
   return await Events.findOneAndDelete({ pageId });
 };

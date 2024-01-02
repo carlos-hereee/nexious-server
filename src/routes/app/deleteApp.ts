@@ -1,7 +1,7 @@
-import removeApp  from "../../db/models/app/removeApp";
-import useGenericErrors  from "../../utils/auth/useGenericErrors";
+import removeApp from "@dbModels/app/removeApp";
+import useGenericErrors from "../../utils/auth/useGenericErrors";
 
-module.exports = async (req, res, next) => {
+export = (req, res, next) => {
   try {
     const appId = req.params.appId;
     // if match remove from owned app

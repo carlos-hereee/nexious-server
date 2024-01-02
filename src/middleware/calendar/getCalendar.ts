@@ -1,6 +1,6 @@
-import msg  from "../../db/data/error.message.json";
+import msg from "@data/error.message.json";
 
-module.exports = async (req, res, next) => {
+export = (req, res, next) => {
   const { appId } = req.user;
   req.calendar = await getCalendar({ appId });
   if (req.calendar.length) next();

@@ -1,6 +1,6 @@
-import { stripeSecretKey }  from "../../../config.env";
+import { stripeSecretKey }  from "@config";
 
 import Stripe  from "stripe";
 const stripe = Stripe(stripeSecretKey);
 
-module.exports = stripe;
+export  stripe;

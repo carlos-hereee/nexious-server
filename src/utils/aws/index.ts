@@ -1,5 +1,5 @@
 import { S3 }  from "@aws-sdk/client-s3";
-import { awsRegion, awsAccessKey, awsSecretKey }  from "../../../config.env";
+import { awsRegion, awsAccessKey, awsSecretKey }  from "@config";
 import createBucket  from "./bucket/createBucket";
 import listBuckets  from "./bucket/listBuckets";
 import uploadFile  from "./file/uploadFile";
@@ -15,7 +15,7 @@ const s3 = new S3({
   credentials: { accessKeyId: awsAccessKey, secretAccessKey: awsSecretKey },
 });
 
-module.exports = {
+export  {
   allBuckets: () => listBuckets(s3),
   getBucket: (bucketName) => listBucket(bucketName),
   makeBucket: (bucketName) => createBucket(s3, bucketName),

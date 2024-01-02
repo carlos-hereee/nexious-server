@@ -1,1 +1,1 @@
-module.exports = (str) => str.toLowerCase();
+export  (str) => str.toLowerCase();

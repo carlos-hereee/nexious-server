@@ -1,5 +1,5 @@
 const Component = require("../../schema/component");
 
-module.exports = async ({ componentId }) => {
+export = async ({ componentId }) => {
   return await Component.findOneAndDelete({ componentId });
 };

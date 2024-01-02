@@ -1,7 +1,7 @@
 // import useGenericErrors  from "../../utils/auth/useGenericErrors";
 // import { allBuckets }  from "../../utils/aws/index";
 
-// module.exports = async (req, res) => {
+// export =(req, res) => {
 //   try {
 //     const data = await allBuckets();
 //     console.log("data :>> ", data);

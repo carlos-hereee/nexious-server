@@ -1,6 +1,6 @@
-import stripe  from "../connection";
+import stripe from "../connection";
 
-module.exports = async ({ id, refreshUrl, returnUrl, type }) => {
+export = async ({ id, refreshUrl, returnUrl, type }) => {
   if (!type) type = "account_onboarding";
   return await stripe.accountLinks.create({
     account: id,

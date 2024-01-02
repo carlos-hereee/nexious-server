@@ -1,6 +1,6 @@
-import constructEvent  from "./constructEvent";
+import constructEvent from "./constructEvent";
 
-module.exports = async (req, res, next) => {
+export = async (req, res, next) => {
   try {
     const payload = req.body;
     const sig = req.headers["stripe-signature"];

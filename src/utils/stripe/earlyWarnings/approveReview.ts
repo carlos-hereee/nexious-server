@@ -1,3 +1,3 @@
-import stripe  from "../connection";
+import stripe from "../connection";
 
-module.exports = async ({ id }) => await stripe.reviews.approve(id);
+export = async ({ id }) => await stripe.reviews.approve(id);

@@ -119,4 +119,4 @@ const appSchema = new Schema(
   { timestamps: true }
 );
 const App = mongoose.model("App", appSchema);
-module.exports = App;
+export  App;

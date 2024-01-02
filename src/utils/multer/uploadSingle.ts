@@ -13,4 +13,4 @@ const fileFilter = (req, file, cb) => {
   return cb(new Error("forbiden file type"));
 };
 
-module.exports = (name) => multer({ storage: storage, fileFilter }).single(name);
+export  (name) => multer({ storage: storage, fileFilter }).single(name);

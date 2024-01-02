@@ -1,3 +1,3 @@
-module.exports = async (req, res) => {
+export = (req, res) => {
   res.status(200).json(req.user).end();
 };

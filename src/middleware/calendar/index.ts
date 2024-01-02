@@ -1,3 +1,3 @@
-import getCalendar  from "./getCalendar";
+import getCalendar from "./getCalendar";
 
-module.exports = { getCalendar };
+export { getCalendar };

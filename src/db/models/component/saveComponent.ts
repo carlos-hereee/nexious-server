@@ -1,6 +1,6 @@
 const Component = require("../../schema/component");
 
-module.exports = async (payload) => {
+export = async (payload) => {
   // const component = new Component(payload);
   return await Component.create(payload);
 };

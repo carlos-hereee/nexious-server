@@ -8,7 +8,7 @@ const fileFilter = (req, file, cb) => {
   !safeFiles.includes(file.mimetype) ? cb(new Error("forbideen file type")) : cb(null, true);
 };
 
-module.exports = () =>
+export  () =>
   multer({ storage: storage, fileFilter }).fields([
     { name: "hero", maxCount: 1 },
     { name: "sectionHero", maxCount: 10 },

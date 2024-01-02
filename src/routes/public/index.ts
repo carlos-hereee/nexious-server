@@ -10,4 +10,4 @@
 // router.get("/bucket/:bucketName/:assetId", sendFile);
 // // router.get("/svg/:assetId", sendSVG);
 
-// module.exports = router;
+// export  router;

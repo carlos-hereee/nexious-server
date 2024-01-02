@@ -35,4 +35,4 @@ const pageSchema = new Schema(
   { timestamps: true }
 );
 const Page = mongoose.model("Pages", pageSchema);
-module.exports = Page;
+export  Page;

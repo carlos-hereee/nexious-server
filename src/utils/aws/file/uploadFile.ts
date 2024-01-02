@@ -1,5 +1,5 @@
 // call S3 to retrieve upload file to specified bucket
-module.exports = (s3, params) =>
+export  (s3, params) =>
   s3.putObject(params, (err, data) => {
     if (err) {
       throw Error("unable to upload file", err);

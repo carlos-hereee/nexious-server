@@ -1,6 +1,6 @@
-import stripe  from "../connection";
+import stripe from "../connection";
 
-module.exports = async ({ id }) => {
+export = async ({ id }) => {
   return await stripe.accountSessions.create({
     account: id,
     components: {

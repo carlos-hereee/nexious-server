@@ -1,11 +1,11 @@
-import { v4 }  from "uuid";
-import updateHero  from "../../../db/models/hero/updateHero";
-import formatAssetData  from "../../../utils/app/format/formatAssetData";
-import formatFormData  from "../../../utils/app/format/formatFormData";
-import updateApp  from "../../../db/models/app/updateApp";
-import getApp  from "../../../db/models/app/getApp";
+import { v4 } from "uuid";
+import updateHero from "../../../db/models/hero/updateHero";
+import formatAssetData from "../../../utils/app/format/formatAssetData";
+import formatFormData from "../../../utils/app/format/formatFormData";
+import updateApp from "../../../db/models/app/updateApp";
+import getApp from "../../../db/models/app/getApp";
 
-module.exports = async (req, res) => {
+export = async (req, res) => {
   const hero = req.file;
   // format app landing page data
   const formData = formatFormData(req.body);

@@ -1,5 +1,5 @@
-import stripe  from "../connection";
+import stripe from "../connection";
 
-module.exports = async ({ amount, destination }) => {
+export = async ({ amount, destination }) => {
   return await stripe.transfers.createReversal({ amount, destination });
 };

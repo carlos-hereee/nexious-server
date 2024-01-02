@@ -1,7 +1,7 @@
-import getApp  from "../../../db/models/app/getApp";
-import useGenericErrors  from "../../../utils/auth/useGenericErrors";
+import getApp from "../../../db/models/app/getApp";
+import useGenericErrors from "../../../utils/auth/useGenericErrors";
 
-module.exports = async (req, res) => {
+export = async (req, res) => {
   try {
     const appName = req.params.appName;
     const locale = req.params.locale;

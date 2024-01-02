@@ -1,8 +1,8 @@
-import generateHash  from "../../utils/auth/generateHash";
-import makeSession  from "../../utils/auth/makeSession";
-import useGenericErrors  from "../../utils/auth/useGenericErrors";
+import generateHash from "../../utils/auth/generateHash";
+import makeSession from "../../utils/auth/makeSession";
+import useGenericErrors from "../../utils/auth/useGenericErrors";
 
-module.exports = async (req, res, next) => {
+export = (req, res, next) => {
   try {
     // update password and genereate new sessionId (should log everyone out)
     const sessionId = makeSession(req.user.userId);

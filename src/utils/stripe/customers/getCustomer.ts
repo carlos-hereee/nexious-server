@@ -1,6 +1,6 @@
-import stripe  from "../connection";
+import stripe from "../connection";
 
-module.exports = async ({ id, apiKey, stripeAccount }) => {
+export = async ({ id, apiKey, stripeAccount }) => {
   if (stripeAccount) {
     return await stripe.customers.retrieve(id, { stripeAccount });
   }

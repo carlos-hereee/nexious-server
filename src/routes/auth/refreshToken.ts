@@ -1,9 +1,9 @@
-// import getUser  from "../../db/models/users/getUser";
-import makeSession  from "../../utils/auth/makeSession";
-import useGenericErrors  from "../../utils/auth/useGenericErrors";
-import storeCookies  from "../../utils/cookies/storeCookies";
+// import getUser  from "@dbModels/users/getUser";
+import makeSession from "../../utils/auth/makeSession";
+import useGenericErrors from "../../utils/auth/useGenericErrors";
+import storeCookies from "../../utils/cookies/storeCookies";
 
-module.exports = async (req, res) => {
+export = (req, res) => {
   try {
     // access granted: generate new sessionId
     const sessionId = makeSession(req.user.userId);

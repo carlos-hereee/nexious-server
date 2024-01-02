@@ -1,7 +1,7 @@
 // import path  from "path";
 // import fs  from "fs";
 
-// module.exports = (req, res) => {
+// export  (req, res) => {
 //   const filePath = path.resolve() + `/public/${req.params.assetId}`;
 //   const file = fs.readFileSync(filePath);
 

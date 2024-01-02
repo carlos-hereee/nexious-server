@@ -1,9 +1,9 @@
-import createMerch  from "../../db/models/merch/createMerch";
-import useGenericErrors  from "../../utils/auth/useGenericErrors";
-import addPrice  from "../../utils/stripe/merch/addPrice";
-import addProduct  from "../../utils/stripe/merch/addProduct";
+import createMerch from "@dbModels/merch/createMerch";
+import useGenericErrors from "../../utils/auth/useGenericErrors";
+import addPrice from "../../utils/stripe/merch/addPrice";
+import addProduct from "../../utils/stripe/merch/addProduct";
 
-module.exports = async (req, res, next) => {
+export = (req, res, next) => {
   try {
     // key variables
     const { name, description, inStock, cost, hero: h } = req.body;

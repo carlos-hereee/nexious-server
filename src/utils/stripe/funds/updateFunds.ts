@@ -1,5 +1,5 @@
-import stripe  from "../connection";
+import stripe from "../connection";
 
-module.exports = async ({ id, metadata }) => {
+export = async ({ id, metadata }) => {
   return await stripe.topups.update(id, { metadata });
 };

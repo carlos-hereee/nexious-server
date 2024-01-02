@@ -1,6 +1,6 @@
-const { Users } = require("../../schema/users");
+import Users from "@dbSchema/users";
 
-module.exports = async ({ username, sessionId }) => {
+export = async ({ username, sessionId }) => {
   const selectOption = "+auth.salt +auth.password +auth.sessionId +auth.passwordHistory";
   if (username) {
     return await Users.findOne({ username }).select(selectOption).populate({

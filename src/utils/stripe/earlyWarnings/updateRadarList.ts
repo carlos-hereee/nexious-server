@@ -1,5 +1,5 @@
-import stripe  from "../connection";
+import stripe from "../connection";
 
-module.exports = async ({ id, name }) => {
+export = async ({ id, name }) => {
   return await stripe.radar.valueLists.update(id, { name });
 };

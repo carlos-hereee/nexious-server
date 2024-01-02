@@ -1,6 +1,6 @@
-import { baseUrl }  from "../../../../config.env";
+import { baseUrl }  from "../../../config";
 
-module.exports = (file, data) => {
+export  (file, data) => {
   if (!file) return;
   const path = file?.path?.replace(/\/\//gi, "/") || "";
   return {

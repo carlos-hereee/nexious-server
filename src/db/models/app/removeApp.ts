@@ -1,5 +1,5 @@
 const App = require("../../schema/app");
 
-module.exports = async ({ appId }) => {
+export = async ({ appId }) => {
   return await App.findOneAndDelete({ appId });
 };

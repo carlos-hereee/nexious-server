@@ -1,7 +1,7 @@
 // import useGenericErrors  from "../../utils/auth/useGenericErrors";
 // import { getBucket }  from "../../utils/aws";
 
-// module.exports = async (req, res) => {
+// export =(req, res) => {
 //   try {
 //     const bucketName = req.params.bucketName;
 //     const data = await getBucket(bucketName);

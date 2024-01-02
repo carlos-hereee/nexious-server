@@ -1,6 +1,6 @@
-import stripe  from "../connection";
+import stripe from "../connection";
 
-module.exports = async ({ id, type }) => {
+export = async ({ id, type }) => {
   if (!type) return await stripe.accounts.listCapabilities(id);
   return await stripe.accounts.retrieveCapability(id, type);
 };

@@ -1,6 +1,6 @@
 const App = require("../../schema/app");
 
-module.exports = async ({ appId, appName, appIds, ownerId, all, locale }) => {
+export = async ({ appId, appName, appIds, ownerId, all, locale }) => {
   const includeData = "owner pages store calendar";
 
   if (all) {

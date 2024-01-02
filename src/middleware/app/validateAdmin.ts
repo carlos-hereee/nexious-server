@@ -1,6 +1,6 @@
-import messages  from "../../db/data/error.message.json";
+import messages from "@data/error.message.json";
 
-module.exports = async (req, res, next) => {
+export = (req, res, next) => {
   // const appId = req.params.appId || req.body.appId;
   const appId = req.params.appId;
   const isMatch = req.user.ownedApps.filter((data) => data.appId === appId);

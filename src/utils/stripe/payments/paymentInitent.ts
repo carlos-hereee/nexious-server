@@ -1,6 +1,6 @@
-import stripe  from "../connection";
+import stripe from "../connection";
 
-module.exports = async ({ amount, currency, paymentMethod }) => {
+export = async ({ amount, currency, paymentMethod }) => {
   if (!currency) currency = "usd";
   if (!paymentMethod) paymentMethod = ["card"];
   return await stripe.paymentIntents.create({

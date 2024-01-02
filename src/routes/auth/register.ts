@@ -1,10 +1,10 @@
-import saveUser  from "../../db/models/users/saveUser";
-import random  from "../../utils/auth/random";
-import generateHash  from "../../utils/auth/generateHash";
-import { v4 }  from "uuid";
-import useGenericErrors  from "../../utils/auth/useGenericErrors";
+import saveUser from "@dbModels/users/saveUser";
+import random from "../../utils/auth/random";
+import generateHash from "../../utils/auth/generateHash";
+import { v4 } from "uuid";
+import useGenericErrors from "../../utils/auth/useGenericErrors";
 
-module.exports = async (req, res, next) => {
+export = (req, res, next) => {
   try {
     // key variables
     const username = req.body.username;

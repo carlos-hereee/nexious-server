@@ -2,7 +2,7 @@ import languageList  from "../../../db/data/app/languageList.json";
 // import translate  from "google-translate-api";
 // import translateString  from "../../translator/translateString";
 
-module.exports = (props) => {
+export  (props) => {
   const { language } = props;
   if (!language) return [""];
   const localeList = language.split(",").filter((item) => item);

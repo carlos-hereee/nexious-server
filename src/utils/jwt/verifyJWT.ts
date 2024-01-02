@@ -1,18 +1,20 @@
-import jwt  from "jsonwebtoken";
-import { jwtPrivateKey }  from "../../../config.env";
-import msg  from "../../db/data/error.message.json";
+import jwt from "jsonwebtoken";
+import { jwtPrivateKey } from "@config";
+import message from "@data/error.message.json";
+import type { JWTDecodedProps, JWTPayloadProps, JWTVerifyErrors } from "server-auth-types";
 
-module.exports = (token) => {
-  return jwt.verify(token, jwtPrivateKey, (err, decoded) => {
+export = (token: string) => {
+  return jwt.verify(token, jwtPrivateKey, (err: JWTVerifyErrors, decoded: JWTPayloadProps) => {
+    const code = decoded as JWTDecodedProps;
     const isExpired = err ? err.message.includes("jwt expired") : false;
     return {
-      username: decoded?.username ? decoded.username : "",
-      sessionId: decoded?.sessionId ? decoded.sessionId : "",
+      username: code?.username || "",
+      sessionId: code?.sessionId || "",
       error: {
         err,
         expired: isExpired,
         status: isExpired ? 401 : 403,
-        message: isExpired ? msg.payloadExpired : msg.notVerfifed,
+        message: isExpired ? message.payloadExpired : message.notVerfifed,
       },
     };
   });

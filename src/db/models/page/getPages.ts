@@ -1,6 +1,6 @@
 const Page = require("../../schema/page");
 
-module.exports = async ({ appId, languageId, pageId }) => {
+export = async ({ appId, languageId, pageId }) => {
   if (languageId) {
     return await Page.find({ appId, languageId });
   }

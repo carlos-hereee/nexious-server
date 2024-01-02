@@ -1,10 +1,10 @@
-import useGenericErrors  from "../../utils/auth/useGenericErrors";
-import createApp  from "../../db/models/app/createApp";
+import useGenericErrors from "../../utils/auth/useGenericErrors";
+import createApp from "@dbModels/app/createApp";
 // import formatThemeList  from "../../utils/app/format/formatThemeList";
 // import formatLanguageList  from "../../utils/app/format/formatLanguageList";
-import themeList  from "../../db/data/app/themeList.json";
+import themeList from "@dataapp/themeList.json";
 
-module.exports = async (req, res, next) => {
+export = (req, res, next) => {
   try {
     // key variables
     const appName = req.body.appName;

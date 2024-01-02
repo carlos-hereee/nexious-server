@@ -1,6 +1,6 @@
-const { Users } = require("../../schema/users");
+import Users from "@dbSchema/users";
 
-module.exports = async ({ username, email, userId, all, appId }) => {
+export = async ({ username, email, userId, all, appId }) => {
   if (username) {
     return await Users.findOne({ username });
   }

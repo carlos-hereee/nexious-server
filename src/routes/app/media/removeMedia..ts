@@ -1,6 +1,6 @@
-import useGenericErrors  from "../../../utils/auth/useGenericErrors";
+import useGenericErrors from "../../../utils/auth/useGenericErrors";
 
-module.exports = async (req, res, next) => {
+export = async (req, res, next) => {
   try {
     const { assetId } = req.params;
     req.app.media.medias = req.app.media.medias.filter((m) => m.uid !== assetId);

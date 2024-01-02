@@ -1,3 +1,3 @@
 import multer  from "multer";
 
-module.exports = multer.memoryStorage();
+export  multer.memoryStorage();

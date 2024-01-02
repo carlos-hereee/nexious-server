@@ -1,6 +1,6 @@
 import { v4 }  from "uuid";
 
-module.exports = (appId, languageId, reqBody, heroId) => {
+export  (appId, languageId, reqBody, heroId) => {
   const { title, name, cta, sections, body } = reqBody;
   return {
     appId,

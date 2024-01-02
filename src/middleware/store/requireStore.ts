@@ -1,7 +1,7 @@
-import useGenericErrors  from "../../utils/auth/useGenericErrors";
-import message  from "../../db/data/error.message.json";
+import useGenericErrors from "../../utils/auth/useGenericErrors";
+import message from "@data/error.message.json";
 
-module.exports = async (req, res, next) => {
+export = (req, res, next) => {
   try {
     req.store ? next() : res.status(404).json(message.storeNotFound);
   } catch (error) {

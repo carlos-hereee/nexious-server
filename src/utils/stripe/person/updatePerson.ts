@@ -1,6 +1,6 @@
-import stripe  from "../connection";
+import stripe from "../connection";
 
-module.exports = async ({ id, personId, metadata }) => {
+export = async ({ id, personId, metadata }) => {
   return await stripe.accounts.updatePerson(id, personId, {
     metadata,
   });

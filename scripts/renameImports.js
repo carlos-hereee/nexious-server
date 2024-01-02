@@ -14,7 +14,7 @@ const renameImports = async (sourcePath) => {
       if (excludedDirectories.includes(file)) return;
       const targetPath = `${sourcePath}/${file}`;
       // if its a ts file
-      if (file.includes(".ts")) await updateFile(targetPath, renameImport);
+      if (file.includes(".ts")) await updateFile(targetPath, "= require(.*)", renameImport);
       // if (file.includes("server.ts")) await updateFile(targetPath, renameImport);
       else if (file.includes(".ts")) return;
       else renameImports(targetPath);

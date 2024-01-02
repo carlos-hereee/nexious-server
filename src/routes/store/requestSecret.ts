@@ -1,8 +1,8 @@
-import formatTotal  from "../../utils/app/format/formatTotal";
-import useGenericErrors  from "../../utils/auth/useGenericErrors";
-import paymentInitent  from "../../utils/stripe/payments/paymentInitent";
+import formatTotal from "../../utils/app/format/formatTotal";
+import useGenericErrors from "../../utils/auth/useGenericErrors";
+import paymentInitent from "../../utils/stripe/payments/paymentInitent";
 
-module.exports = async (req, res) => {
+export = (req, res) => {
   try {
     const { cart } = req.body;
     const total = formatTotal(cart);

@@ -1,6 +1,6 @@
-import stripe  from "../connection";
+import stripe from "../connection";
 
-module.exports = async (stripeAccount) => {
+export = async (stripeAccount) => {
   if (stripeAccount) {
     return stripe.customers.list({}, { stripeAccount });
   }

@@ -1,6 +1,6 @@
-import mediaList  from "../../db/data/app/mediaList.json";
+import mediaList  from "@dataapp/mediaList.json";
 
-module.exports = (media, link) => {
+export  (media, link) => {
   // if(meidamedia)
   return mediaList.links[media] + link || media;
 };

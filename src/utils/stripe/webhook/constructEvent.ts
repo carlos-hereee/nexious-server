@@ -1,7 +1,7 @@
-import { stripeEndpointSecret, isDev }  from "../../../../config.env";
+import { stripeEndpointSecret, isDev }  from "../../../config";
 import stripe  from "../connection";
 
-module.exports = ({ sig, payload }) => {
+export  ({ sig, payload }) => {
   // console.log("enpointSecret :>> ", sig);
   const payloadString = JSON.stringify(payload, null, 2);
   if (isDev) {

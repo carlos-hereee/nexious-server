@@ -1,9 +1,9 @@
-import { mongoose }  from "mongoose";
-import { port, uri, isDev }  from "../../config.env";
+import { mongoose } from "mongoose";
+import { port, uri, isDev } from "../config";
 
 const dbOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 
-module.exports = async (app) => {
+export = (app) => {
   try {
     await mongoose.connect(uri, dbOptions);
     app.listen(port, () => {

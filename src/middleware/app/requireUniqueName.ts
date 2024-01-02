@@ -1,8 +1,8 @@
-import useGenericErrors  from "../../utils/auth/useGenericErrors";
-import message  from "../../db/data/error.message.json";
-import getApp  from "../../db/models/app/getApp";
+import useGenericErrors from "../../utils/auth/useGenericErrors";
+import message from "@data/error.message.json";
+import getApp from "@dbModels/app/getApp";
 
-module.exports = async (req, res, next) => {
+export = (req, res, next) => {
   try {
     const appName = req.body.appName || req.params.appName;
     const app = await getApp({ appName });

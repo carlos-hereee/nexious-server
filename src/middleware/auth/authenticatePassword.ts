@@ -1,7 +1,7 @@
-import msg  from "../../db/data/error.message.json";
-import generateHash  from "../../utils/auth/generateHash";
+import msg from "@data/error.message.json";
+import generateHash from "../../utils/auth/generateHash";
 
-module.exports = async (req, res, next) => {
+export = (req, res, next) => {
   // key variable
   const password = req.body.password || req.body.oldPassword;
   // use previous salt with password regenerate hash password

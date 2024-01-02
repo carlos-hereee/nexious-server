@@ -1,6 +1,6 @@
-import useGenericErrors  from "../../utils/auth/useGenericErrors";
+import useGenericErrors from "../../utils/auth/useGenericErrors";
 
-module.exports = async (req, res, next) => {
+export = (req, res, next) => {
   try {
     const { name, title, body } = req.body;
     const hero = req.asset || "";

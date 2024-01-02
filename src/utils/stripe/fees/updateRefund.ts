@@ -1,5 +1,5 @@
-import stripe  from "../connection";
+import stripe from "../connection";
 
-module.exports = async ({ id, refundId, metadata }) => {
+export = async ({ id, refundId, metadata }) => {
   return await stripe.applicationFees.updateRefund(id, refundId, { metadata });
 };

@@ -1,4 +1,4 @@
-import getOwnedApp  from "./getOwnedApps";
-import requireApp  from "./requireApp";
+import getOwnedApp from "./getOwnedApps";
+import requireApp from "./requireApp";
 
-module.exports = { getOwnedApp, requireApp };
+export { getOwnedApp, requireApp };

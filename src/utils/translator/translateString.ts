@@ -1,7 +1,7 @@
 // import translate  from "google-translate-api";
 // // import { translatorKey }  from "../../../config.env";
 
-// module.exports = async (textToTranslate, targetLanguage) => {
+// export   = async(textToTranslate, targetLanguage) => {
 //   return await translate({ text: textToTranslate, to: targetLanguage }, (err, translation) => {
 //     if (err) {
 //       console.error(err);
