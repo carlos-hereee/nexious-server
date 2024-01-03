@@ -1,9 +1,9 @@
 import createStore from "@dbModels/store/createStore";
 import formatMenuPageData from "../../utils/app/format/formatMenuPageData";
-import useGenericErrors from "../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "../../utils/auth/useGenericErrors";
 import addAccount from "../../utils/stripe/accounts/addAccount";
 import message from "@data/error.message.json";
-export = (req, res, next) => {
+export const addStore = (req, res, next) => {
   try {
     // key variables
     const { name, title, body, pageName } = req.body;

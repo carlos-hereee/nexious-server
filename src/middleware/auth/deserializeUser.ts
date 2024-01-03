@@ -1,9 +1,9 @@
 import { isDev, accessTokenName, refreshTokenName } from "@config";
 import getUserAuth from "@dbModels/users/getUserAuth";
-import useGenericErrors from "../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "../../utils/auth/useGenericErrors";
 import verifyJWT from "../../utils/jwt/verifyJWT";
 
-export = (req, res, next) => {
+export const deserializeUser = (req, res, next) => {
   try {
     // key variables
     const accessToken = req.cookies[accessTokenName];

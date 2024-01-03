@@ -1,7 +1,7 @@
 import removeApp from "@dbModels/app/removeApp";
-import useGenericErrors from "../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "../../utils/auth/useGenericErrors";
 
-export = (req, res, next) => {
+export const deleteApp = (req, res, next) => {
   try {
     const appId = req.params.appId;
     // if match remove from owned app

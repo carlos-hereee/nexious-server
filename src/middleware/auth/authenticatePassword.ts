@@ -1,7 +1,7 @@
 import msg from "@data/error.message.json";
 import generateHash from "../../utils/auth/generateHash";
 
-export = (req, res, next) => {
+export const authenticatePassword = (req, res, next) => {
   // key variable
   const password = req.body.password || req.body.oldPassword;
   // use previous salt with password regenerate hash password

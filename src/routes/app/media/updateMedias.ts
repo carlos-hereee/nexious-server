@@ -1,7 +1,7 @@
 import formatFormData from "../../../utils/app/format/formatFormData";
-import useGenericErrors from "../../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "../../../utils/auth/useGenericErrors";
 
-export = async (req, res, next) => {
+export const updateMedias = async (req, res, next) => {
   try {
     let { pageData, refs } = formatFormData(req.body);
     req.app.media = { ...pageData, medias: refs.hasMedias || [], hero: req.asset };

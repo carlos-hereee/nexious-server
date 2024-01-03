@@ -1,7 +1,7 @@
 // import getMerch  from "@dbModels/merch/getMerch";
-import useGenericErrors from "../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "../../utils/auth/useGenericErrors";
 
-export = (req, res, next) => {
+export const getCartMerch = (req, res, next) => {
   try {
     const { cart } = req.body;
     // get list of ids

@@ -1,9 +1,9 @@
-import useGenericErrors from "../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "../../utils/auth/useGenericErrors";
 import getStripeCustomer from "../../utils/stripe/customers/getStripeCustomer";
 import getSessionWithId from "../../utils/stripe/payments/getSessionWithId";
 import getCheckoutItems from "../../utils/stripe/payments/getCheckoutItems";
 
-export = (req, res, next) => {
+export const getConfirmation = (req, res, next) => {
   try {
     const sessionId = req.query.session_id;
     // console.log("sessionId :>> ", sessionId);

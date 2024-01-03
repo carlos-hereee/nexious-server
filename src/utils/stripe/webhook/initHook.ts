@@ -1,6 +1,6 @@
 import constructEvent from "./constructEvent";
 
-export = async (req, res, next) => {
+export const initHook = async (req, res, next) => {
   try {
     const payload = req.body;
     const sig = req.headers["stripe-signature"];

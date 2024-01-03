@@ -2,11 +2,11 @@ import { awsImageUrl } from "../../../config";
 import updatePage from "../../../db/models/page/updatePage";
 import formatFormData from "../../../utils/app/format/formatFormData";
 import formatMenuPageData from "../../../utils/app/format/formatMenuPageData";
-import useGenericErrors from "../../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "../../../utils/auth/useGenericErrors";
 import { addFile } from "../../../utils/aws";
 import { generateParamFile } from "../../../utils/aws/awsParams";
 
-export = async (req, res, next) => {
+export const updatePage = async (req, res, next) => {
   try {
     const pageId = req.params.pageId;
     let { pageData, refs } = formatFormData(req.body);

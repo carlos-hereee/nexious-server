@@ -1,7 +1,7 @@
 import removePage from "../../../db/models/page/removePage";
-import useGenericErrors from "../../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "../../../utils/auth/useGenericErrors";
 
-export = async (req, res, next) => {
+export const deletePage = async (req, res, next) => {
   try {
     const { appId, pageId } = req.params;
     // find page

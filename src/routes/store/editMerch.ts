@@ -1,6 +1,6 @@
-import useGenericErrors from "../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "../../utils/auth/useGenericErrors";
 
-export = (req, res, next) => {
+export const editMerch = (req, res, next) => {
   try {
     const { name, quantity, cost, body, hero: h } = req.body;
     const merchIdx = req.store.inventory.findIndex((item) => item.uid === req.params.merchId);

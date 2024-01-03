@@ -1,5 +1,5 @@
 import formatTotal from "../../utils/app/format/formatTotal";
-import useGenericErrors from "../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "../../utils/auth/useGenericErrors";
 import paymentInitent from "../../utils/stripe/payments/paymentInitent";
 
 export = (req, res) => {

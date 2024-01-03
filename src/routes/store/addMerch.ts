@@ -1,9 +1,9 @@
 import createMerch from "@dbModels/merch/createMerch";
-import useGenericErrors from "../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "../../utils/auth/useGenericErrors";
 import addPrice from "../../utils/stripe/merch/addPrice";
 import addProduct from "../../utils/stripe/merch/addProduct";
 
-export = (req, res, next) => {
+export const addMerch = (req, res, next) => {
   try {
     // key variables
     const { name, description, inStock, cost, hero: h } = req.body;

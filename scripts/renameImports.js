@@ -14,11 +14,9 @@ const renameImports = async (sourcePath) => {
       if (excludedDirectories.includes(file)) return;
       const filePath = `${sourcePath}/${file}`;
       // if its a ts file
-      if (file.includes(".ts"))
+      if (file.includes(".ts")) {
         await updateFile({ filePath, target, cb: (e) => renameImport((e, file)) });
-      // if (file.includes("server.ts")) await updateFile(targetPath, renameImport);
-      // else if (file.includes(".ts")) return;
-      else renameImports(filePath);
+      } else renameImports(filePath);
     }
   } else console.log("\n:>> No such folder exists :>> ");
 };

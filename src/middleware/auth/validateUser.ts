@@ -1,7 +1,7 @@
 import getUserAuth from "@dbModels/users/getUserAuth";
 import msg from "@data/error.message.json";
 
-export = (req, res, next) => {
+export const validateUser = (req, res, next) => {
   const username = req.body.username || req.params.username;
   // must have a value
   if (!username) {

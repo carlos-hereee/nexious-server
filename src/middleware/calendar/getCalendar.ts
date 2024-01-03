@@ -1,6 +1,6 @@
 import msg from "@data/error.message.json";
 
-export = (req, res, next) => {
+export const getCalendar = (req, res, next) => {
   const { appId } = req.user;
   req.calendar = await getCalendar({ appId });
   if (req.calendar.length) next();

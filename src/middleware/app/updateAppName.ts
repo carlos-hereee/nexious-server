@@ -1,6 +1,6 @@
-import useGenericErrors from "../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "../../utils/auth/useGenericErrors";
 
-export = (req, res, next) => {
+export const updateAppName = (req, res, next) => {
   try {
     const appName = req.body.appName || req.params.appName;
     // update appname if they dont match

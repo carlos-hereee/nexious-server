@@ -2,9 +2,9 @@ import saveUser from "@dbModels/users/saveUser";
 import random from "../../utils/auth/random";
 import generateHash from "../../utils/auth/generateHash";
 import { v4 } from "uuid";
-import useGenericErrors from "../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "../../utils/auth/useGenericErrors";
 
-export = async (req, res, next) => {
+export const register = async (req, res, next) => {
   try {
     // key variables
     const username = req.body.username;

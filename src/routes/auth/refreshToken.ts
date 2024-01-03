@@ -1,6 +1,6 @@
 // import getUser  from "@dbModels/users/getUser";
 import makeSession from "../../utils/auth/makeSession";
-import useGenericErrors from "../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "../../utils/auth/useGenericErrors";
 import storeCookies from "../../utils/cookies/storeCookies";
 
 export = (req, res) => {

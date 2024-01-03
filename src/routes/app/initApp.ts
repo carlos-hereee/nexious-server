@@ -1,10 +1,10 @@
-import useGenericErrors from "../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "../../utils/auth/useGenericErrors";
 import createApp from "@dbModels/app/createApp";
 // import formatThemeList  from "../../utils/app/format/formatThemeList";
 // import formatLanguageList  from "../../utils/app/format/formatLanguageList";
 import themeList from "@dataapp/themeList.json";
 
-export = (req, res, next) => {
+export const initApp = (req, res, next) => {
   try {
     // key variables
     const appName = req.body.appName;

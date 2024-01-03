@@ -1,9 +1,9 @@
-import useGenericErrors from "../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "../../utils/auth/useGenericErrors";
 import { addFile } from "../../utils/aws";
 import { awsImageUrl, isDev } from "@config";
 import { generateParamFile } from "../../utils/aws/awsParams";
 
-export = (req, res, next) => {
+export const saveAsset = (req, res, next) => {
   try {
     if (req.file) {
       const params = generateParamFile(req.file);

@@ -1,5 +1,5 @@
 import getApp from "../../../db/models/app/getApp";
-import useGenericErrors from "../../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "../../../utils/auth/useGenericErrors";
 
 export = async (req, res) => {
   try {

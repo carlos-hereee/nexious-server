@@ -1,6 +1,7 @@
 module.exports = (str, fileName) => {
-  console.log("fileName :>> ", fileName);
   if (typeof str === "string") {
-    // return str.replace("export", "import").replace("= require(", " from ").replace(")", "");
+    const componentName = fileName.split(".ts")[0];
+    console.log("made chagnes to :>> ", fileName);
+    return str.replace("export", `export const ${componentName}`);
   }
 };

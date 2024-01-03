@@ -1,4 +1,4 @@
-import useGenericErrors from "../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "../../utils/auth/useGenericErrors";
 import storeCookies from "../../utils/cookies/storeCookies";
 
 export = (req, res) => {

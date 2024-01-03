@@ -1,7 +1,7 @@
-import useGenericErrors from "../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "../../utils/auth/useGenericErrors";
 import createCheckoutSession from "../../utils/stripe/payments/createCheckoutSession";
 
-export = (req, res) => {
+export = async (req, res) => {
   try {
     const { accountId } = req.body.cart;
     // console.log("req.cart :>> ", req.cart);

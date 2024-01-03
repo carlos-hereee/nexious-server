@@ -1,6 +1,6 @@
-import useGenericErrors from "../../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "../../../utils/auth/useGenericErrors";
 
-export = async (req, res, next) => {
+export const subscribe = async (req, res, next) => {
   try {
     req.user.subscriptions.push(req.app._id);
     await req.user.save();

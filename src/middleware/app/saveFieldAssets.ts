@@ -1,10 +1,10 @@
 import { awsImageUrl } from "@config";
 import saveFile from "../../utils/app/saveFile";
-import useGenericErrors from "../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "../../utils/auth/useGenericErrors";
 import { addFile } from "../../utils/aws";
 import { generateParamFiles } from "../../utils/aws/awsParams";
 
-export = (req, res, next) => {
+export const saveFieldAssets = (req, res, next) => {
   try {
     req.asset = { hero: "", sectionHero: [] };
     // check if files exists

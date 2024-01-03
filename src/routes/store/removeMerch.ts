@@ -1,7 +1,7 @@
 import removeMerch from "@dbModels/merch/removeMerch";
-import useGenericErrors from "../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "../../utils/auth/useGenericErrors";
 
-export = (req, res, next) => {
+export const removeMerch = (req, res, next) => {
   try {
     const merchId = req.params.merchId;
     await removeMerch({ merchId });

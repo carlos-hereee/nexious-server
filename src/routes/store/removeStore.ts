@@ -1,10 +1,10 @@
 // import removeMerch  from "@dbModels/merch/removeMerch";
 // import getStore  from "@dbModels/store/getStore";
 import removeStore from "@dbModels/store/removeStore";
-import useGenericErrors from "../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "../../utils/auth/useGenericErrors";
 import removeAccount from "../../utils/stripe/accounts/removeAccount";
 
-export = (req, res, next) => {
+export const removeStore = (req, res, next) => {
   try {
     // remove store from app menu
     req.app.menu = req.app.menu.filter((m) => m.name !== req.store.name);

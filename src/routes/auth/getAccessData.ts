@@ -1,6 +1,6 @@
 import getApp from "@dbModels/app/getApp";
 import getUser from "@dbModels/users/getUser";
-import useGenericErrors from "../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "../../utils/auth/useGenericErrors";
 
 export = (req, res) => {
   try {

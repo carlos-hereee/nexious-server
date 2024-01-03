@@ -1,8 +1,8 @@
-import useGenericErrors from "../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "../../utils/auth/useGenericErrors";
 import getPages from "@dbModels/page/getPages";
 import messages from "@data/error.message.json";
 
-export = (req, res, next) => {
+export const requirePage = (req, res, next) => {
   try {
     const pageId = req.params.pageId;
     if (pageId) {
