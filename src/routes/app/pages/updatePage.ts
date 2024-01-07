@@ -1,11 +1,12 @@
 import { awsImageUrl } from "../../../config";
 // import updatePage from  "@dbModels/page/updatePage";
-import formatFormData from "@appUtils/format/formatFormData";
+import { formatFormData } from "@appUtils/format/formatFormData";
 import formatMenuPageData from "@appUtils/format/formatMenuPageData";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { addFile } from "@aws/index";
 import { generateParamFile } from "@aws/awsParams";
 import { getPages } from "@dbModels/page/getPages";
+import type { MiddlewareProps } from "@app/db";
 
 export const updatePage: MiddlewareProps = async (req, res, next) => {
   try {

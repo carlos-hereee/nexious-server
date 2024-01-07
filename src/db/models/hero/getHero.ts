@@ -1,6 +1,6 @@
-const Hero = require("../../schema/hero");
+import Hero from "@dbSchema/hero";
 
-export = async ({ heroId, filename }) => {
+export const getHero = async ({ heroId, filename }) => {
   if (filename) {
     return await Hero.findOne({ filename });
   }

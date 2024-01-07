@@ -1,3 +1,4 @@
+import type { MiddlewareProps } from "@app/db";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 
 export const editMerch: MiddlewareProps = async (req, res, next) => {
@@ -6,11 +7,12 @@ export const editMerch: MiddlewareProps = async (req, res, next) => {
     const merchIdx = req.store.inventory.findIndex((item) => item.uid === req.params.merchId);
 
     const hero = req.asset || h || "";
-    req.store.inventory[merchIdx].name = name;
-    req.store.inventory[merchIdx].quantity = quantity;
-    req.store.inventory[merchIdx].cost = cost;
-    req.store.inventory[merchIdx].body = body;
-    req.store.inventory[merchIdx].hero = hero;
+    // todo: update inventory in bulk
+    // req.store.inventory[merchIdx].name = name;
+    // req.store.inventory[merchIdx].quantity = quantity;
+    // req.store.inventory[merchIdx].cost = cost;
+    // req.store.inventory[merchIdx].body = body;
+    // req.store.inventory[merchIdx].hero = hero;
 
     await req.store.save();
 

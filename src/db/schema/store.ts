@@ -1,8 +1,9 @@
+import type { IStoreSchema } from "@app/store";
 import mongoose from "mongoose";
 import { v4 } from "uuid";
 const Schema = mongoose.Schema;
 
-const storeSchema = new Schema(
+const storeSchema = new Schema<IStoreSchema>(
   {
     ownerId: { type: String, require: true },
     appId: { type: String, require: true },
@@ -16,8 +17,8 @@ const storeSchema = new Schema(
     body: { type: String, default: "" },
     email: { type: String, default: "" },
     hero: { type: String, default: "" },
-    isRegistered: { type: String, default: false },
-    termsOfService: { type: String, default: false },
+    isRegistered: { type: Boolean, default: false },
+    termsOfService: { type: Boolean, default: false },
     inventory: [{ type: Schema.Types.ObjectId, ref: "Merch" }],
   },
   { timestamps: true }

@@ -1,5 +1,5 @@
 import App from "@dbSchema/app";
 
-export = async ({ appId }) => {
+export const removeApp = async ({ appId }) => {
   return await App.findOneAndDelete({ appId });
 };

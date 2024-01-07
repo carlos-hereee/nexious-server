@@ -1,13 +1,8 @@
 import type { Express, Response, Request, NextFunction } from "express";
-import type { IAppSchema, ICta, IMediaItem, IPage, ISection, IUserSchema } from "./db";
-
-export interface AppRequest extends Request {
-  user: IUserSchema;
-  app: IAppSchema;
-  asset: string | null;
-}
-export type ExpressApp = Express;
-export type GenericErrorProps = (res: Response, error: unknown, message: string) => void;
+import type { ObjectId } from "./db";
+import type { IStoreSchema } from "./store";
+import type { Page } from "./page";
+import type { Document } from "mongoose";
 
 export interface GetAppProps {
   appId?: string;
@@ -30,18 +25,83 @@ export interface GetCalendarProps {
   adminIds?: string[];
 }
 
-export type RouterProps = (req: AppRequest, res: Response) => void;
-export type MiddlewareProps = (req: AppRequest, res: Response, next: NextFunction) => void;
-
-export type RefsProps = {
-  hasMedias?: IMediaItem[];
-  hasCta?: ICta[];
-  hasSections?: ISection[];
-};
-export interface PageDataProps extends IPage {
+// app
+export interface ILanguageList {
+  name: string;
+  label: string;
+  value: string;
+  url: string;
+  locale: string;
+  uid?: string;
+}
+export interface IColor {
+  primary: string;
+  altPrimary: string;
+  secondary: string;
+  altSecondary: string;
+}
+export interface IThemeList {
+  themeId?: string;
+  uid?: string;
+  name: string;
+  value: string;
+  label: string;
+  colors: IColor;
+  backgroundColors: IColor;
+}
+export interface INewsletter {
+  title: string;
+  subtitle: string;
+  details: string;
+  hero: string;
+}
+export interface IMediaItem {
+  media: string;
+  link: string;
+  url: string;
+  sharedKey?: string;
+  uid?: string;
+}
+export interface IMedia {
+  title: string;
   subtitle: string;
   hasMedias: boolean;
-  hero?: string;
-  cta?: ICta;
-  sections?: ISection;
+  hero: string;
+  medias: IMediaItem[];
+}
+export interface IMenu {
+  menuId: string;
+  uid: string;
+  name: string;
+  value: string;
+  link: string;
+  label: string;
+  icon: string;
+  hero: string;
+  category: string;
+  isToggle: boolean;
+  isPrivate: boolean;
+  isPage: boolean;
+  isStore: boolean;
+}
+export interface IAppSchema extends Document {
+  // _id: string;
+  appId: string;
+  appName: string;
+  locale: string;
+  country: string;
+  email: string;
+  appUrl: string;
+  logo: string;
+  owner: ObjectId;
+  adminIds: { userId: string; role: string }[];
+  languageList: ILanguageList[];
+  themeList: IThemeList[];
+  landing: ILandingPage;
+  newsletter: INewsletter;
+  media: IMedia;
+  menu: IMenu[];
+  calendar: ObjectId;
+  store: ObjectId;
+  pages: ObjectId[];
 }

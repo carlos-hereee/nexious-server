@@ -1,6 +1,6 @@
 import removePage from "@dbModels/page/removePage";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import type { MiddlewareProps } from "@app/app";
+import type { MiddlewareProps } from "@app/db";
 
 export const deletePage: MiddlewareProps = async (req, res, next) => {
   try {

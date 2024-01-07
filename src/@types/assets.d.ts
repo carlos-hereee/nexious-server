@@ -8,10 +8,3 @@ export type IFile = {
 };
 
 export type AssetProps = (file: IFile, heroData?: { [key: string]: string }, key?: string) => void;
-// declare global {
-//   namespace Express {
-//     type Request = {
-//       files: IFile;
-//     };
-//   }
-// }

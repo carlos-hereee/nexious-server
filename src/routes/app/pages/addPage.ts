@@ -5,7 +5,7 @@ import formatMenuPageData from "@appUtils/format/formatMenuPageData";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { addFile } from "@aws/index";
 import { generateParamFile } from "@aws/awsParams";
-import type { MiddlewareProps } from "@app/app";
+import type { MiddlewareProps } from "@app/db";
 
 export const addPage: MiddlewareProps = async (req, res, next) => {
   try {

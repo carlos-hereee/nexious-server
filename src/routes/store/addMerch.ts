@@ -1,16 +1,24 @@
-import createMerch from "@dbModels/merch/createMerch";
+import { createMerch } from "@dbModels/merch/createMerch";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import addPrice from "@stripe/merch/addPrice";
-import addProduct from "@stripe/merch/addProduct";
+import { addPrice } from "@stripe/merch/addPrice";
+import { addProduct } from "@stripe/merch/addProduct";
+import type { MiddlewareProps } from "@app/db";
 
+type MerchBodyProps = {
+  name: string;
+  description: string;
+  inStock: number;
+  cost: number;
+  hero: string;
+};
 export const addMerch: MiddlewareProps = async (req, res, next) => {
   try {
     // key variables
-    const { name, description, inStock, cost, hero: h } = req.body;
+    const { name, description, inStock, cost, hero: h }: MerchBodyProps = req.body;
     const { storeId, accountId, currency } = req.store;
-    const hero = req.asset || h || "";
-    const payload = { hero, name, description, inStock, cost, storeId };
-    const productInfo = { name, description, stripeAccount: accountId };
+    const hero: string = req.asset || h || "";
+    const payload = { hero, name, description, inStock, cost, storeId, productId: "", priceId: "" };
+    const productInfo = { name, description, stripeAccount: accountId, images: [""] };
     if (hero) productInfo.images = [hero];
     // add to stripe
     const product = await addProduct(productInfo);
@@ -22,7 +30,8 @@ export const addMerch: MiddlewareProps = async (req, res, next) => {
     // add merch to db
     const merch = await createMerch(payload);
     // create ref to merch on store inventory
-    req.store.inventory.push(merch._id);
+    const refId = merch._id as string;
+    req.store.inventory.push(refId);
     await req.store.save();
     next();
   } catch (error) {

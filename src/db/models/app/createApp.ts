@@ -1,5 +1,5 @@
 import App from "@dbSchema/app";
 
-export = async (payload) => {
+export const createApp = async (payload) => {
   return await App.create(payload);
 };

@@ -1,3 +1,4 @@
+import type { MiddlewareProps } from "@app/db";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 
 export const unsubscribe: MiddlewareProps = async (req, res, next) => {

@@ -1,9 +1,10 @@
+import type { MiddlewareProps } from "@app/db";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { getCalendar } from "@dbModels/calendar/getCalendar";
 
 export const requireCalendar: MiddlewareProps = async (req, res, next) => {
   try {
-    const { appId } = req.user;
+    const { appId } = req.params;
     req.calendar = await getCalendar({ appId });
     if (req.calendar.length) next();
   } catch (error) {

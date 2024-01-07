@@ -3,7 +3,7 @@ import createApp from "@dbModels/app/createApp";
 // import formatThemeList  from "@authUtils/app/format/formatThemeList";
 // import formatLanguageList  from "@authUtils/app/format/formatLanguageList";
 import themeList from "@data/app/themeList.json";
-import type { MiddlewareProps } from "@app/app";
+import type { MiddlewareProps } from "@app/db";
 
 export const initApp: MiddlewareProps = async (req, res, next) => {
   try {

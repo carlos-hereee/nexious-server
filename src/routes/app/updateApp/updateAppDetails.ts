@@ -1,4 +1,4 @@
-import type { MiddlewareProps } from "@app/app";
+import type { MiddlewareProps } from "@app/db";
 import { formatLanguageList } from "@appUtils/format/formatLanguageList";
 import { formatThemeList } from "@appUtils/format/formatThemeList";
 import { useGenericErrors } from "@authUtils/useGenericErrors";

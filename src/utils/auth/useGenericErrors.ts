@@ -1,4 +1,4 @@
-import type { GenericErrorProps } from "@app/app";
+import type { GenericErrorProps } from "@app/db";
 import { isDev } from "@config";
 import messages from "@data/error.message.json";
 

@@ -1,5 +1,6 @@
-import getMerch from "@dbModels/merch/getMerch";
+import { getMerch } from "@dbModels/merch/getMerch";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
+import type { RouterProps } from "@app/app";
 
 export const getStoreMerch: RouterProps = async (req, res) => {
   try {

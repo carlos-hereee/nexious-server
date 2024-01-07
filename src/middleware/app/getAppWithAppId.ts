@@ -1,6 +1,6 @@
 import { getApp } from "@dbModels/app/getApp";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import type { MiddlewareProps } from "@app/app";
+import type { MiddlewareProps } from "@app/db";
 
 export const getAppWithAppId: MiddlewareProps = async (req, res, next) => {
   try {

@@ -1,5 +1,5 @@
 import type { PageDataProps, RefsProps } from "@app/app";
-import type { IPage } from "@app/db";
+import type { IPage } from "@app/page";
 
 export const formatFormData = (data: IPage) => {
   if (!data) return null;

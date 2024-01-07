@@ -3,7 +3,7 @@ import random from "@authUtils/random";
 import generateHash from "@authUtils/generateHash";
 import { v4 } from "uuid";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import type { MiddlewareProps } from "@app/app";
+import type { MiddlewareProps } from "@app/db";
 
 export const register: MiddlewareProps = async (req, res, next) => {
   try {

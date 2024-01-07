@@ -1,4 +1,4 @@
-import type { MiddlewareProps } from "@app/app";
+import type { MiddlewareProps } from "@app/db";
 import { formatFormData } from "@appUtils/format/formatFormData";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 

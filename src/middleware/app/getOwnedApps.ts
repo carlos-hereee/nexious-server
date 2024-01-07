@@ -1,5 +1,5 @@
 import { getApp } from "@dbModels/app/getApp";
-import type { MiddlewareProps } from "@app/app";
+import type { MiddlewareProps } from "@app/db";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 
 export const getOwnedApps: MiddlewareProps = async (req, res, next) => {

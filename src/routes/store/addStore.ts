@@ -1,9 +1,11 @@
 import createStore from "@dbModels/store/createStore";
-import formatMenuPageData from "@authUtils/app/format/formatMenuPageData";
+import formatMenuPageData from "@appUtils/format/formatMenuPageData";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import addAccount from "@stripe/accounts/addAccount";
+import { addAccount } from "@stripe/accounts/addAccount";
 import message from "@data/error.message.json";
-export const addStore = (req, res, next) => {
+import type { MiddlewareProps } from "@app/db";
+
+export const addStore: MiddlewareProps = async (req, res, next) => {
   try {
     // key variables
     const { name, title, body, pageName } = req.body;
@@ -13,7 +15,7 @@ export const addStore = (req, res, next) => {
     const email = req.body.email || req.app.email;
     if (!email) return res.status(400).json(message.emailRequired).end();
     const menuData = formatMenuPageData(name);
-    const payload = { ownerId, appId, hero, title, body, pageName, name };
+    const payload = { ownerId, appId, hero, title, body, pageName, name, accountId: "" };
 
     // create stripe account with app data
     const account = await addAccount({ country, email, type: "standard" });

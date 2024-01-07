@@ -1,4 +1,6 @@
-import formatFormData from "@appUtils/format/formatFormData";
+import type { MiddlewareProps } from "@app/db";
+import { formatFormData } from "@appUtils/format/formatFormData";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
 
 export const updateNewsletter: MiddlewareProps = async (req, res, next) => {
   try {

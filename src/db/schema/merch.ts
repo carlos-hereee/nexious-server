@@ -1,8 +1,9 @@
+import type { IMerchSchema } from "@app/store";
 import mongoose from "mongoose";
 import { v4 } from "uuid";
 const Schema = mongoose.Schema;
 
-const merchSchema = new Schema(
+const merchSchema = new Schema<IMerchSchema>(
   {
     storeId: { type: String, require: true },
     // universal id

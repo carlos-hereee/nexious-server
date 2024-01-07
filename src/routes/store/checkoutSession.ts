@@ -1,3 +1,4 @@
+import type { RouterProps } from "@app/app";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { createCheckoutSession } from "@stripe/payments/createCheckoutSession";
 

@@ -1,6 +1,5 @@
-const Hero = require("../../schema/hero");
+import Hero from "@dbSchema/hero";
 
-export = async (payload) => {
-  const hero = await Hero.create(payload);
-  return hero._id;
+export const saveHero = async (payload) => {
+  return await Hero.create(payload);
 };

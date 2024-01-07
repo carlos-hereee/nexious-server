@@ -1,6 +1,6 @@
 import { stripeErrorHandling } from "@stripe/errors";
-import constructEvent from "./constructEvent";
-import type { MiddlewareProps } from "@app/app";
+import { constructEvent } from "./constructEvent";
+import type { MiddlewareProps } from "@app/db";
 
 export const initHook: MiddlewareProps = async (req, res, next) => {
   try {
