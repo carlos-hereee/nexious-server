@@ -1,5 +1,5 @@
-import generateHash from "../../utils/auth/generateHash";
-import random from "../../utils/auth/random";
+import generateHash from "@authUtils/generateHash";
+import random from "@authUtils/random";
 
 export = (payload) => {
   const salt = random();

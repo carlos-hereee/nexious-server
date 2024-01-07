@@ -2,18 +2,21 @@ import router from "express";
 // routes
 import { register } from "./register";
 import userRoute from "./userRoute";
-import getWithUsername from "./getWithUsername";
+import { getWithUsername } from "./getWithUsername";
 import refreshToken from "./refreshToken";
-import login from "./login";
 import logout from "./logout";
 import changePassword from "./changePassword";
-// custom middleware
-import { validateUser, requireUser, authenticateUser } from "../../middleware/auth";
-import { addPassHistory } from "../../middleware/auth";
-import { updatePassword } from "@authWare/updatePassword";
-import sendToken from "./login";
-import { authenticatePassword } from "@authWare/authenticatePassword";
+import sendToken from "./sendToken";
 import getAccessData from "./getAccessData";
+// custom middleware
+import {
+  validateUser,
+  requireUser,
+  authenticateUser,
+  addPassHistory,
+  updatePassword,
+  authenticatePassword,
+} from "@authWare/index";
 
 const route = router.Router();
 // one liners
@@ -28,7 +31,7 @@ route.get("/user/:username", userWare, getWithUsername);
 route.get("/access-token", requireUser, getAccessData);
 // post
 route.post("/register", validateUser, authenticateUser, register, sendToken);
-route.post("/login", validateWare, login);
+route.post("/login", validateWare, sendToken);
 route.post("/refresh-token", requireUser, refreshToken);
 route.post("/change-password", validateWare, changePasswordWare);
 // TODO: ADD ADDITIONAL VERFICATION MEDTHODS

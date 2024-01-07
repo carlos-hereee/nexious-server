@@ -1,5 +1,5 @@
 import getApp from "@dbModels/app/getApp";
-import { useGenericErrors } from "../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
 
 export const getAppWithAppId = (req, res, next) => {
   try {

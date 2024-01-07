@@ -1,6 +1,8 @@
 import Users from "@dbSchema/users";
+import type { UserSchemaProps } from "db-user";
 
-export = async ({ username, sessionId }) => {
+export = async (props: UserSchemaProps) => {
+  const { username, sessionId } = props;
   const selectOption = "+auth.salt +auth.password +auth.sessionId +auth.passwordHistory";
   if (username) {
     return await Users.findOne({ username }).select(selectOption).populate({

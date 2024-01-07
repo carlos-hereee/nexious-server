@@ -42,6 +42,9 @@
       "@authWare/*": [
         "./middleware/auth/*"
       ],
+      "@authUtils/*": [
+        "./utils/auth/*"
+      ],
       "@config": [
         "./config.ts"
       ],

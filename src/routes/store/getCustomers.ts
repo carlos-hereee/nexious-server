@@ -1,4 +1,4 @@
-import { useGenericErrors } from "../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
 import listCustomers from "@stripe/customers/listCustomers";
 
 export const getCustomers = (req, res, next) => {

@@ -1,5 +1,5 @@
 import msg from "@data/error.message.json";
-import generateHash from "../../utils/auth/generateHash";
+import generateHash from "@authUtils/generateHash";
 
 export const authenticatePassword = (req, res, next) => {
   // key variable

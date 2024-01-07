@@ -1,4 +1,4 @@
-import { useGenericErrors } from "../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
 import getStripeCustomer from "@stripe/customers/getStripeCustomer";
 import getSessionWithId from "@stripe/payments/getSessionWithId";
 import getCheckoutItems from "@stripe/payments/getCheckoutItems";

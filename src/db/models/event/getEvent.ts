@@ -1,5 +1,4 @@
-const Events = require("../../schema/events");
-
+import Events from "@dbSchema/events";
 export = async ({ appId, languageId }) => {
   if (languageId) {
     return await Events.find({ appId, languageId });

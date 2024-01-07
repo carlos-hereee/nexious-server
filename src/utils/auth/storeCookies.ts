@@ -1,5 +1,5 @@
 import { accessTokenName, refreshTokenName } from "@config";
-import signJWT from "../jwt/signJWT";
+import signJWT from "./signJWT";
 import cookieCongig from "./cookieCongig";
 
 export = (res, username, sessionId) => {

@@ -1,7 +1,7 @@
-import { useGenericErrors } from "../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
 import createApp from "@dbModels/app/createApp";
-// import formatThemeList  from "../../utils/app/format/formatThemeList";
-// import formatLanguageList  from "../../utils/app/format/formatLanguageList";
+// import formatThemeList  from "@authUtils/app/format/formatThemeList";
+// import formatLanguageList  from "@authUtils/app/format/formatLanguageList";
 import themeList from "@dataapp/themeList.json";
 
 export const initApp = (req, res, next) => {

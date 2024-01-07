@@ -1,8 +1,8 @@
-import generateHash from "../../utils/auth/generateHash";
-import makeSession from "../../utils/auth/makeSession";
-import { useGenericErrors } from "../../utils/auth/useGenericErrors";
+import generateHash from "@authUtils/generateHash";
+import makeSession from "@authUtils/makeSession";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
 
-export const updatePassword = (req, res, next) => {
+export const updatePassword = async (req, res, next) => {
   try {
     // update password and genereate new sessionId (should log everyone out)
     const sessionId = makeSession(req.user.userId);
@@ -12,6 +12,6 @@ export const updatePassword = (req, res, next) => {
     await req.user.save();
     next();
   } catch (error) {
-    useGenericErrors(res, error);
+    useGenericErrors(res, error, "unable to update password");
   }
 };

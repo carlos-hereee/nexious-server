@@ -5,4 +5,13 @@ declare module "server-auth-types" {
     username?: string;
     sessionId?: string;
   }
+  export interface JWTVerifyPayload {
+    username: string;
+    sessionId: string;
+    error: {
+      expired: boolean;
+      status: number;
+      message: string;
+    };
+  }
 }

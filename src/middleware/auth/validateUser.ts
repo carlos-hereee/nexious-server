@@ -1,11 +1,11 @@
 import getUserAuth from "@dbModels/users/getUserAuth";
-import msg from "@data/error.message.json";
+import message from "@data/error.message.json";
 
-export const validateUser = (req, res, next) => {
+export const validateUser = async (req, res, next) => {
   const username = req.body.username || req.params.username;
   // must have a value
   if (!username) {
-    return res.status(400).json(msg.missingCredentials).end();
+    return res.status(400).json(message.missingCredentials).end();
   }
   req.user = await getUserAuth({ username });
   next();

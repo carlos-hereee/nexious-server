@@ -1,6 +1,7 @@
 import Users from "@dbSchema/users";
+import { UserSchemaProps } from "db-user";
 
-export = async ({ username, email, userId, all, appId }) => {
+export = async ({ username, email, userId, all, appId }: UserSchemaProps) => {
   if (username) {
     return await Users.findOne({ username });
   }

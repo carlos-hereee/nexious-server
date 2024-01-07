@@ -1,5 +1,5 @@
 import updateUser from "@dbModels/users/updateUser";
-import resetCookies from "../../utils/cookies/resetCookies";
+import resetCookies from "@authUtils/resetCookies";
 
 export = (req, res) => {
   // invalidate session

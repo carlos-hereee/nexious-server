@@ -1,8 +1,8 @@
 import { awsImageUrl } from "@config";
-import saveFile from "../../utils/app/saveFile";
-import { useGenericErrors } from "../../utils/auth/useGenericErrors";
-import { addFile } from "../../utils/aws";
-import { generateParamFiles } from "../../utils/aws/awsParams";
+import saveFile from "@authUtils/app/saveFile";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
+import { addFile } from "@authUtils/aws";
+import { generateParamFiles } from "@authUtils/aws/awsParams";
 
 export const saveFieldAssets = (req, res, next) => {
   try {

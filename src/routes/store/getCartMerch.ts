@@ -1,5 +1,5 @@
 // import getMerch  from "@dbModels/merch/getMerch";
-import { useGenericErrors } from "../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
 
 export const getCartMerch = (req, res, next) => {
   try {

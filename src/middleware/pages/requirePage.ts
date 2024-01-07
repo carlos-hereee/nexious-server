@@ -1,4 +1,4 @@
-import { useGenericErrors } from "../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
 import getPages from "@dbModels/page/getPages";
 import messages from "@data/error.message.json";
 

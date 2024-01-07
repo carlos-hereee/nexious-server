@@ -1,4 +1,4 @@
-const Page = require("../../schema/page");
+import Page from "@dbSchema/page";
 
 export = async ({ appId, languageId, pageId }) => {
   if (languageId) {

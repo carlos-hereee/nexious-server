@@ -1,4 +1,4 @@
-import { useGenericErrors } from "../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
 import message from "@data/error.message.json";
 
 export const requireStore = (req, res, next) => {

@@ -1,8 +1,8 @@
 import saveUser from "@dbModels/users/saveUser";
-import random from "../../utils/auth/random";
-import generateHash from "../../utils/auth/generateHash";
+import random from "@authUtils/random";
+import generateHash from "@authUtils/generateHash";
 import { v4 } from "uuid";
-import { useGenericErrors } from "../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
 
 export const register = async (req, res, next) => {
   try {

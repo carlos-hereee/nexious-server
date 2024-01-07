@@ -1,4 +1,4 @@
-const Calendar = require("../../schema/calendar");
+import Calendar from "@dbSchema/calendar";
 
 export = async (payload) => {
   // const page = new Calendar(payload);

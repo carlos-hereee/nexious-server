@@ -7,7 +7,7 @@ import { validateAdmin } from "../../middleware/app/validateAdmin";
 import { requireUser } from "../../middleware/auth";
 import { getStoreWithAppId } from "../../middleware/store/getStoreWithAppId";
 import { requireStore } from "../../middleware/store/requireStore";
-import uploadSingle from "../../utils/multer/uploadSingle";
+import uploadSingle from "@authUtils/multer/uploadSingle";
 import { minAppData } from "../app/getApp/minAppData";
 import { addMerch } from "./addMerch";
 import { addStore } from "./addStore";

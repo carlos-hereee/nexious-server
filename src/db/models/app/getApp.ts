@@ -1,4 +1,4 @@
-const App = require("../../schema/app");
+import App from "@dbSchema/app";
 
 export = async ({ appId, appName, appIds, ownerId, all, locale }) => {
   const includeData = "owner pages store calendar";

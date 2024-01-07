@@ -1,7 +1,6 @@
-import msg from "@data/error.message.json";
+import message from "@data/error.message.json";
 
 export const requireUser = (req, res, next) => {
   // check if user was found
-  const message = msg.userNotFound;
-  return req.user ? next() : res.status(404).json(message).end();
+  return req.user ? next() : res.status(404).json(message.userNotFound).end();
 };

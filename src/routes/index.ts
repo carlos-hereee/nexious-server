@@ -1,4 +1,4 @@
-import { port } from "../config";
+import { port } from "@config";
 import authRoute from "./auth";
 import appRoute from "./app";
 import calendarRoute from "./calendar";
@@ -14,8 +14,7 @@ import type { ExpressApp } from "app-types";
 export = (app: ExpressApp) => {
   // initial test route
   app.get("/", (req, res) => {
-    const message = `api is running on ${port}`;
-    res.status(200).json(message).end();
+    res.status(200).json(`api is running on ${port}`).end();
   });
   // authentication route for login and access/refresh tokens
   app.use("/auth/", authRoute);

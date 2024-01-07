@@ -1,4 +1,4 @@
-import { useGenericErrors } from "../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
 
 export const updateAppName = (req, res, next) => {
   try {

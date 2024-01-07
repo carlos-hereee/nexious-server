@@ -1,4 +1,4 @@
-const Page = require("../../schema/page");
+import Page from "@dbSchema/page";
 
 export = async (payload) => {
   // const page = new Page(payload);

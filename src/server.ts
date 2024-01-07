@@ -5,7 +5,7 @@ import cookieParser from "cookie-parser";
 import helmet from "helmet";
 import routes from "./routes";
 import { connectMongoose } from "./db/connectMongoose";
-import { clientUrl, clientUrlAlt, allowedMethods } from "./config";
+import { clientUrl, clientUrlAlt, allowedMethods } from "@config";
 import { deserializeUser } from "./middleware/auth";
 
 // create an express app

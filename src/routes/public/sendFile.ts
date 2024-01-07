@@ -1,5 +1,5 @@
 // import getHero  from "@dbModels/hero/getHero";
-// import useGenericErrors  from "../../utils/auth/useGenericErrors";
+// import useGenericErrors  from "@authUtils/useGenericErrors";
 
 // export =(req, res) => {
 //   try {

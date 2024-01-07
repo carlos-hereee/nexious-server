@@ -1,5 +1,5 @@
 import createMerch from "@dbModels/merch/createMerch";
-import { useGenericErrors } from "../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
 import addPrice from "@stripe/merch/addPrice";
 import addProduct from "@stripe/merch/addProduct";
 

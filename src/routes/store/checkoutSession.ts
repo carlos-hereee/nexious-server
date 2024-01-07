@@ -1,4 +1,4 @@
-import { useGenericErrors } from "../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { createCheckoutSession } from "@stripe/payments/createCheckoutSession";
 
 export const checkoutSession = async (req, res) => {

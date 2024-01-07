@@ -1,4 +1,4 @@
-const Calendar = require("../../schema/calendar");
+import Calendar from "@dbSchema/calendar";
 
 export = async ({ appId, calendarId, adminIds }) => {
   if (adminIds) {

@@ -1,5 +1,5 @@
 import { deleteStore } from "@dbModels/store/deleteStore";
-import { useGenericErrors } from "../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { removeAccount } from "@stripe/accounts/removeAccount";
 
 export const removeStore = async (req, res, next) => {

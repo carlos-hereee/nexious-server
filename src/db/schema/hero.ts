@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import toLower from "../../utils/app/lowerCase";
+import toLower from "@authUtils/app/lowerCase";
 import { v4 } from "uuid";
 
 const Schema = mongoose.Schema;

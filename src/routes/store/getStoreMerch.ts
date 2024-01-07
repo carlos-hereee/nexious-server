@@ -1,10 +1,9 @@
 import getMerch from "@dbModels/merch/getMerch";
-import { useGenericErrors } from "../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
 
-export = async (req, res) => {
+export const getStoreMerch = async (req, res) => {
   try {
     const { storeId } = req.params;
-
     const merch = await getMerch({ storeId });
     // console.log("merch :>> ", merch);
     res.status(200).json(merch).end();

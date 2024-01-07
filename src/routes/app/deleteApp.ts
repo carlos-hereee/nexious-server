@@ -1,5 +1,5 @@
 import removeApp from "@dbModels/app/removeApp";
-import { useGenericErrors } from "../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
 
 export const deleteApp = (req, res, next) => {
   try {
