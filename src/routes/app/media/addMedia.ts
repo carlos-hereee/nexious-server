@@ -1,5 +1,5 @@
 import generateMediaUrl from "../../../utils/app/generateMediaUrl";
-import { useGenericErrors } from "../../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
 
 export const addMedia = async (req, res, next) => {
   try {

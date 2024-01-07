@@ -1,5 +1,5 @@
 import formatFormData from "../../../utils/app/format/formatFormData";
-import { useGenericErrors } from "../../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
 
 export const updateMedias = async (req, res, next) => {
   try {

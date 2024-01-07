@@ -1,7 +1,7 @@
-import getApp from "../../../db/models/app/getApp";
-import { useGenericErrors } from "../../../utils/auth/useGenericErrors";
+import { getApp } from "@dbModels/app/getApp";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
 
-export const appList = async (req, res) => {
+export const getAppList = async (req, res) => {
   try {
     const apps = await getApp({ all: true });
     return apps ? res.status(200).json(apps).end() : res.status(200).json([]).end();

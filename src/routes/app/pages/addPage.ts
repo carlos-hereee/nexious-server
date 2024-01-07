@@ -2,7 +2,7 @@ import { awsImageUrl } from "../../../config";
 import createPage from "../../../db/models/page/createPage";
 import formatFormData from "../../../utils/app/format/formatFormData";
 import formatMenuPageData from "../../../utils/app/format/formatMenuPageData";
-import { useGenericErrors } from "../../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { addFile } from "../../../utils/aws";
 import { generateParamFile } from "../../../utils/aws/awsParams";
 

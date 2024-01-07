@@ -1,5 +1,5 @@
 import removePage from "../../../db/models/page/removePage";
-import { useGenericErrors } from "../../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
 
 export const deletePage = async (req, res, next) => {
   try {

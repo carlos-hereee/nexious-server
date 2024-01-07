@@ -1,6 +1,6 @@
 import formatLanguageList from "../../../utils/app/format/formatLanguageList";
 import formatThemeList from "../../../utils/app/format/formatThemeList";
-import { useGenericErrors } from "../../../utils/auth/useGenericErrors";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
 
 export const updateAppDetails = async (req, res) => {
   try {

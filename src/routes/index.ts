@@ -1,19 +1,13 @@
-import { port } from "@config";
 import authRoute from "./auth";
 import appRoute from "./app";
 import calendarRoute from "./calendar";
 import storeRoute from "./store";
-import type { ExpressApp } from "app-types";
+import type { ExpressApp } from "@app/app";
+import { port } from "@config";
 
-// // assets route
-// import publicRoute  from "./public";
-// import heroRoute  from "./hero";
-// app.use("/public", publicRoute);
-// app.use("/hero/", heroRoute);
-
-export = (app: ExpressApp) => {
+export default (app: ExpressApp) => {
   // initial test route
-  app.get("/", (req, res) => {
+  app.get("/", (_req, res) => {
     res.status(200).json(`api is running on ${port}`).end();
   });
   // authentication route for login and access/refresh tokens
@@ -23,3 +17,8 @@ export = (app: ExpressApp) => {
   app.use("/calendar/", calendarRoute);
   app.use("/store/", storeRoute);
 };
+// // assets route
+// import publicRoute  from "./public";
+// import heroRoute  from "./hero";
+// app.use("/public", publicRoute);
+// app.use("/hero/", heroRoute);

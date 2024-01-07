@@ -3,7 +3,7 @@ import updateHero from "../../../db/models/hero/updateHero";
 import formatAssetData from "../../../utils/app/format/formatAssetData";
 import formatFormData from "../../../utils/app/format/formatFormData";
 import updateApp from "../../../db/models/app/updateApp";
-import getApp from "../../../db/models/app/getApp";
+import getApp from "@dbModels/app/getApp";
 
 export const landingPageWithSection = async (req, res) => {
   const hero = req.file;

@@ -1,5 +1,5 @@
-import getApp from "../../../db/models/app/getApp";
-import { useGenericErrors } from "../../../utils/auth/useGenericErrors";
+import getApp from "@dbModels/app/getApp";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
 
 export const getOwnedApps = async (req, res) => {
   try {
