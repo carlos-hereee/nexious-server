@@ -1,9 +1,10 @@
+import type { MiddlewareProps } from "@app/app";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 
 export const updateAppLogo: MiddlewareProps = async (req, res, next) => {
   try {
-    // update appname
-    req.app.appName = req.body.appName;
+    // // update appname
+    // req.app.appName = req.body.appName;
     // req.asset middleware yields asset url
     req.app.logo = req.asset;
     await req.app.save();

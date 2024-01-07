@@ -1,5 +1,5 @@
 import type { MiddlewareProps } from "@app/app";
-import { formatFormData } from "../../../utils/app/format/formatFormData";
+import { formatFormData } from "@appUtils/format/formatFormData";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 
 export const updateMedias: MiddlewareProps = async (req, res, next) => {

@@ -1,3 +1,4 @@
+import type { MiddlewareProps } from "@app/app";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 
 export const removeMedia: MiddlewareProps = async (req, res, next) => {

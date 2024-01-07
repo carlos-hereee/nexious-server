@@ -1,6 +1,6 @@
 import { getApp } from "@dbModels/app/getApp";
-// import getStore  from "../../../db/models/store/getStore";
-import getUser from "../../../db/models/users/getUser";
+// import getStore  from  "@dbModels/store/getStore";
+import getUser from "@dbModels/users/getUser";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 
 export const minAppData = async (req, res) => {

@@ -1,5 +1,6 @@
-import formatLanguageList from "../../../utils/app/format/formatLanguageList";
-import formatThemeList from "../../../utils/app/format/formatThemeList";
+import type { MiddlewareProps } from "@app/app";
+import formatLanguageList from "@appUtils/format/formatLanguageList";
+import { formatThemeList } from "@appUtils/format/formatThemeList";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 
 export const updateAppDetails: MiddlewareProps = async (req, res, next) => {

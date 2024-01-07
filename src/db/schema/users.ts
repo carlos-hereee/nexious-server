@@ -1,18 +1,20 @@
 import mongoose from "mongoose";
 import toLower from "@appUtils/lowerCase";
 import { v4 } from "uuid";
+import type { IUserSchema } from "@app/db";
 
 const Schema = mongoose.Schema;
-const userSchema = new Schema(
+const userSchema = new Schema<IUserSchema>(
   {
     userId: { type: String, require: true, unique: true, default: v4 },
     username: { type: String, require: true, unique: true },
     email: { type: String, set: toLower },
     nickname: { type: String },
-    phone: { type: String },
+    phone: { type: Number },
     locale: { type: String },
     theme: { type: String },
-    hero: { type: Schema.Types.ObjectId, ref: "Hero" },
+    avatar: { type: String },
+    // hero: { type: Schema.Types.ObjectId, ref: "Hero" },
     permissions: [
       { appId: { type: Schema.Types.ObjectId, ref: "App", require: true }, role: { type: String } },
     ],

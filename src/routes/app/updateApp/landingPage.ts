@@ -1,4 +1,4 @@
-import formatFormData from "../../../utils/app/format/formatFormData";
+import formatFormData from "@appUtils/format/formatFormData";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 
 export const updateLandingPage: MiddlewareProps = async (req, res, next) => {

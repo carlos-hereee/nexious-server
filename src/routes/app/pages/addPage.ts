@@ -1,10 +1,10 @@
-import { awsImageUrl } from "../../../config";
-import createPage from "../../../db/models/page/createPage";
-import { formatFormData } from "../../../utils/app/format/formatFormData";
-import formatMenuPageData from "../../../utils/app/format/formatMenuPageData";
+import { awsImageUrl } from "@config";
+import createPage from "@dbModels/page/createPage";
+import { formatFormData } from "@appUtils/format/formatFormData";
+import formatMenuPageData from "@appUtils/format/formatMenuPageData";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import { addFile } from "../../../utils/aws";
-import { generateParamFile } from "../../../utils/aws/awsParams";
+import { addFile } from "@aws/index";
+import { generateParamFile } from "@aws/awsParams";
 import type { MiddlewareProps } from "@app/app";
 
 export const addPage: MiddlewareProps = async (req, res, next) => {

@@ -1,10 +1,10 @@
-// import themes from "@data/app/themeList.json";
+import themes from "@data/app/themeList.json";
 
-// export = (theme) => {
-//   if (!theme) return {};
-//   const themeList = theme.split(",").filter((item) => item);
+export const formatThemeList = (theme: string) => {
+  if (!theme) return themes;
+  const themeList = theme.split(",").filter((item) => item);
 
-//   return themeList.map((tl) => {
-//     return { ...themes[tl] };
-//   });
-// };
+  return themeList.map((tl) => {
+    return { ...themes[tl] };
+  });
+};

@@ -1,4 +1,4 @@
-import formatFormData from "../../../utils/app/format/formatFormData";
+import formatFormData from "@appUtils/format/formatFormData";
 
 export const updateNewsletter: MiddlewareProps = async (req, res, next) => {
   try {

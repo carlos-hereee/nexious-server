@@ -1,4 +1,4 @@
-import removePage from "../../../db/models/page/removePage";
+import removePage from "@dbModels/page/removePage";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import type { MiddlewareProps } from "@app/app";
 
