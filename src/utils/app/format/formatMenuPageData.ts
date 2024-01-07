@@ -1,4 +1,6 @@
-export = (pageName) => {
+import type { IMenu } from "@app/app";
+
+export const formatMenuPageData = (pageName: string): IMenu => {
   return {
     category: "page",
     isPage: true,

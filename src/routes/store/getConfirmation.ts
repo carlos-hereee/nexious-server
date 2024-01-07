@@ -3,7 +3,7 @@ import getStripeCustomer from "@stripe/customers/getStripeCustomer";
 import getSessionWithId from "@stripe/payments/getSessionWithId";
 import getCheckoutItems from "@stripe/payments/getCheckoutItems";
 
-export const getConfirmation = (req, res, next) => {
+export const getConfirmation: MiddlewareProps = (req, res, next) => {
   try {
     const sessionId = req.query.session_id;
     // console.log("sessionId :>> ", sessionId);

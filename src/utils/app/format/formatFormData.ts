@@ -1,8 +1,6 @@
-import type { PageDataProps, RefsProps } from "@app/app";
-import type { IPage } from "@app/page";
+import type { IPage, PageDataProps, RefsProps } from "@app/page";
 
 export const formatFormData = (data: IPage) => {
-  if (!data) return null;
   const canSkip = ["hero", "sectionHero"];
   let pageData: PageDataProps = {
     title: "",

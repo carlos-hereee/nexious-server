@@ -1,11 +1,12 @@
-import removeApp from "@dbModels/app/removeApp";
+import { removeApp } from "@dbModels/app/removeApp";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
+import type { MiddlewareProps } from "@app/db";
 
-export const deleteApp = (req, res, next) => {
+export const deleteApp: MiddlewareProps = async (req, res, next) => {
   try {
     const appId = req.params.appId;
     // if match remove from owned app
-    const removeFromOwned = req.user.ownedApps.filter((data) => data.appId !== appId);
+    const removeFromOwned = req.user.ownedApps.filter((data) => data !== appId);
     req.user.ownedApps = removeFromOwned;
     await req.user.save();
     await removeApp({ appId });

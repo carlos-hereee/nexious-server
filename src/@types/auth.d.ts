@@ -1,6 +1,8 @@
+import jwt from "jsonwebtoken";
+
 export type JWTPayloadProps = string | jwt.JwtPayload;
 export type JWTVerifyErrors = jwt.VerifyErrors;
-export interface JWTDecodedProps extends JWTPayloadProps {
+export interface JWTDecodedProps {
   username?: string;
   sessionId?: string;
 }

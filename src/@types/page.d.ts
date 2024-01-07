@@ -1,4 +1,5 @@
 import type { Document } from "mongoose";
+import type { IMediaItem } from "./app";
 
 // pages
 export interface ICta {
@@ -45,10 +46,14 @@ export interface IPage extends Document {
 export interface ILandingPage extends IPage {
   tagline: string;
 }
-export interface PageDataProps extends Page {
-  subtitle: string;
-  hasMedias: boolean;
+export interface PageDataProps {
+  title?: string;
+  body?: string;
   hero?: string;
-  cta?: ICta;
-  sections?: ISection;
+  subtitle?: string;
+  hasMedias?: boolean;
+  hasCta?: boolean;
+  hasSections?: boolean;
+  cta?: ICta[];
+  sections?: ISection[];
 }

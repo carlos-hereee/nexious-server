@@ -1,4 +1,4 @@
-import { clientUrl } from "../../../config";
+import { clientUrl } from "@config";
 import stripe from "../connection";
 
 export const createCheckoutSession = async ({ cartData, mode, stripeAccount }) => {

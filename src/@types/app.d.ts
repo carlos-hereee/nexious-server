@@ -1,7 +1,7 @@
 import type { Express, Response, Request, NextFunction } from "express";
 import type { ObjectId } from "./db";
 import type { IStoreSchema } from "./store";
-import type { Page } from "./page";
+import type { ILandingPage, Page } from "./page";
 import type { Document } from "mongoose";
 
 export interface GetAppProps {
@@ -70,19 +70,19 @@ export interface IMedia {
   medias: IMediaItem[];
 }
 export interface IMenu {
-  menuId: string;
-  uid: string;
   name: string;
   value: string;
   link: string;
   label: string;
-  icon: string;
-  hero: string;
   category: string;
-  isToggle: boolean;
-  isPrivate: boolean;
-  isPage: boolean;
-  isStore: boolean;
+  icon?: string;
+  hero?: string;
+  menuId?: string;
+  uid?: string;
+  isToggle?: boolean;
+  isPrivate?: boolean;
+  isPage?: boolean;
+  isStore?: boolean;
 }
 export interface IAppSchema extends Document {
   // _id: string;

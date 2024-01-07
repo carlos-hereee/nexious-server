@@ -2,7 +2,7 @@ import { useGenericErrors } from "@authUtils/useGenericErrors";
 import message from "@data/error.message.json";
 import { getApp } from "@dbModels/app/getApp";
 
-export const requireUniqueName = (req, res, next) => {
+export const requireUniqueName: MiddlewareProps = (req, res, next) => {
   try {
     const appName = req.body.appName || req.params.appName;
     const app = await getApp({ appName });

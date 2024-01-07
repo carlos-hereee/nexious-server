@@ -3,6 +3,7 @@ import { addFile } from "@aws/index";
 import { awsImageUrl, isDev } from "@config";
 import { generateParamFile } from "@aws/awsParams";
 import type { MiddlewareProps } from "@app/db";
+
 export const saveAsset: MiddlewareProps = async (req, res, next) => {
   try {
     if (req.file) {

@@ -1,4 +1,4 @@
-import { baseUrl } from "../../../config";
+import { baseUrl } from "@config";
 
 export = (appName, file) => {
   const path = file.path?.replace(/\/\//gi, "/") || "";

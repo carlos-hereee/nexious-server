@@ -1,11 +1,12 @@
 import { awsImageUrl } from "@config";
-import createPage from "@dbModels/page/createPage";
+import { createPage } from "@dbModels/page/createPage";
 import { formatFormData } from "@appUtils/format/formatFormData";
-import formatMenuPageData from "@appUtils/format/formatMenuPageData";
+import { formatMenuPageData } from "@appUtils/format/formatMenuPageData";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { addFile } from "@aws/index";
 import { generateParamFile } from "@aws/awsParams";
 import type { MiddlewareProps } from "@app/db";
+import type { ISection } from "@app/page";
 
 export const addPage: MiddlewareProps = async (req, res, next) => {
   try {
@@ -20,7 +21,7 @@ export const addPage: MiddlewareProps = async (req, res, next) => {
         }
       }
       if (refs.hasSections) {
-        let sections = [];
+        let sections: ISection[] = [];
         for (let item = 0; item < refs.hasSections.length; item++) {
           const sectionHero = req.files.sectionHero[item];
           const current = refs.hasSections[item];

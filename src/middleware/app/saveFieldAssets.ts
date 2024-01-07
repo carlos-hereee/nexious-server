@@ -7,7 +7,7 @@ import type { MiddlewareProps } from "@app/db";
 
 export const saveFieldAssets: MiddlewareProps = async (req, res, next) => {
   try {
-    req.asset = { hero: "", sectionHero: [] };
+    req.assets = { hero: "", sectionHero: [] };
     // check if files exists
     if (req.files) {
       // save landing hero if exists

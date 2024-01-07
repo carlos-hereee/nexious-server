@@ -1,7 +1,7 @@
 import getStore from "@dbModels/store/getStore";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 
-export const getStoreWithAppId = (req, res, next) => {
+export const getStoreWithAppId: MiddlewareProps = (req, res, next) => {
   try {
     req.store = await getStore({ appId: req.app.appId });
     next();

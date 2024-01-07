@@ -5,7 +5,7 @@ import { useGenericErrors } from "@authUtils/useGenericErrors";
 export const updateNewsletter: MiddlewareProps = async (req, res, next) => {
   try {
     let { pageData } = formatFormData(req.body);
-    req.app.newsletter = { ...pageData, hero: req.asset };
+    req.app.newsletter = { ...pageData, hero: req.asset || "" };
     await req.app.save();
     next();
   } catch (error) {

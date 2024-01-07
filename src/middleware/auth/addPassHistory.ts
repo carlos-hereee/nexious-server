@@ -1,6 +1,6 @@
 import messages from "@data/error.message.json";
 
-export const addPassHistory = (req, res, next) => {
+export const addPassHistory: MiddlewareProps = (req, res, next) => {
   // key variables
   const oldPassword = req.user.auth.password;
   // add password to the timeline

@@ -1,7 +1,7 @@
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import listCustomers from "@stripe/customers/listCustomers";
 
-export const getCustomers = (req, res, next) => {
+export const getCustomers: MiddlewareProps = (req, res, next) => {
   try {
     const customers = await listCustomers();
     console.log("customers :>> ", customers);

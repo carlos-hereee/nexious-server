@@ -1,6 +1,6 @@
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 
-export const updateAppName = (req, res, next) => {
+export const updateAppName: MiddlewareProps = (req, res, next) => {
   try {
     const appName = req.body.appName || req.params.appName;
     // update appname if they dont match
