@@ -1,5 +1,5 @@
 import stripe from "../connection";
 
-export = async ({ id, metadata, description }) => {
+export const updateProduct = async ({ id, metadata, description }) => {
   return await stripe.products.update(id, { metadata, description });
 };

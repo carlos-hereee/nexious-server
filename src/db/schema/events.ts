@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
-const { v4 } = require("uuid");
-const Schema = mongoose.Schema;
+import mongoose from "mongoose";
+import { v4 } from "uuid";
 
+const Schema = mongoose.Schema;
 const eventSchema = new Schema(
   {
     eventId: { type: String, require: true, unique: true, default: v4 },
@@ -31,4 +31,4 @@ const eventSchema = new Schema(
   { timestamps: true }
 );
 const Events = mongoose.model("Events", eventSchema);
-export  Events;
+export = Events;

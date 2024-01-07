@@ -3,6 +3,7 @@ import authRoute from "./auth";
 import appRoute from "./app";
 import calendarRoute from "./calendar";
 import storeRoute from "./store";
+import type { ExpressApp } from "app-types";
 
 // // assets route
 // import publicRoute  from "./public";
@@ -10,7 +11,7 @@ import storeRoute from "./store";
 // app.use("/public", publicRoute);
 // app.use("/hero/", heroRoute);
 
-export = (app) => {
+export = (app: ExpressApp) => {
   // initial test route
   app.get("/", (req, res) => {
     const message = `api is running on ${port}`;

@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
+import { v4 } from "uuid";
 const Schema = mongoose.Schema;
-const { v4 } = require("uuid");
 
 const storeSchema = new Schema(
   {
@@ -23,4 +23,4 @@ const storeSchema = new Schema(
   { timestamps: true }
 );
 const Store = mongoose.model("Store", storeSchema);
-export  Store;
+export = Store;

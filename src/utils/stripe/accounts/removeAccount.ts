@@ -1,3 +1,3 @@
 import stripe from "../connection";
 
-export = async ({ id }) => await stripe.accounts.del(id);
+export const removeAccount = async ({ id }) => await stripe.accounts.del(id);

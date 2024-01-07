@@ -1,6 +1,6 @@
 import router from "express";
 // routes
-import register from "./register";
+import { register } from "./register";
 import userRoute from "./userRoute";
 import getWithUsername from "./getWithUsername";
 import refreshToken from "./refreshToken";
@@ -10,9 +10,9 @@ import changePassword from "./changePassword";
 // custom middleware
 import { validateUser, requireUser, authenticateUser } from "../../middleware/auth";
 import { addPassHistory } from "../../middleware/auth";
-import updatePassword from "../../middleware/auth/updatePassword";
+import { updatePassword } from "@authWare/updatePassword";
 import sendToken from "./login";
-import authenticatePassword from "../../middleware/auth/authenticatePassword";
+import { authenticatePassword } from "@authWare/authenticatePassword";
 import getAccessData from "./getAccessData";
 
 const route = router.Router();

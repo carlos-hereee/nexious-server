@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
+import { v4 } from "uuid";
 const Schema = mongoose.Schema;
-const { v4 } = require("uuid");
 
 const merchSchema = new Schema(
   {
@@ -22,4 +22,4 @@ const merchSchema = new Schema(
   { timestamps: true }
 );
 const Merch = mongoose.model("Merch", merchSchema);
-export  Merch;
+export = Merch;

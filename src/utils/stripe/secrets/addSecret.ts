@@ -1,6 +1,6 @@
 import stripe from "../connection";
 
-export = async ({ scope }) => {
+export const addSecret = async ({ scope }) => {
   if (!scope) scope = { type: "account" };
   return await stripe.apps.secrets.list({ scope });
 };

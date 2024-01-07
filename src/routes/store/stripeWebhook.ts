@@ -1,7 +1,7 @@
-import getSessionWithId from "../../utils/stripe/payments/getSessionWithId";
-import fulfillOrder from "../../utils/stripe/webhook/fulfillOrder";
+import { getSessionWithId } from "@stripe/payments/getSessionWithId";
+import fulfillOrder from "@stripe/webhook/fulfillOrder";
 
-export = (req, res) => {
+export const stripeWebhook = async (req, res) => {
   const { event } = req;
   // Handle the event
   switch (event.type) {

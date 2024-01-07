@@ -3,7 +3,7 @@ import getApp from "../../../db/models/app/getApp";
 import getUser from "../../../db/models/users/getUser";
 import { useGenericErrors } from "../../../utils/auth/useGenericErrors";
 
-export = async (req, res) => {
+export const minAppData = async (req, res) => {
   try {
     // key varialbles
     const userId = req.user.userId;

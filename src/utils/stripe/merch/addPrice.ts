@@ -1,6 +1,6 @@
 import stripe from "../connection";
 
-export = async ({ id, cost, currency, stripeAccount }) => {
+export const addPrice = async ({ id, cost, currency, stripeAccount }) => {
   if (stripeAccount) {
     return await stripe.prices.create(
       { product: id, unit_amount: cost, currency },

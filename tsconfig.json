@@ -36,6 +36,12 @@
       "@data/*": [
         "./db/data/*"
       ],
+      "@stripe/*": [
+        "./utils/stripe/*"
+      ],
+      "@authWare/*": [
+        "./middleware/auth/*"
+      ],
       "@config": [
         "./config.ts"
       ],

@@ -1,7 +1,7 @@
 import { clientUrl } from "../../../config";
 import stripe from "../connection";
 
-export = async ({ cartData, mode, stripeAccount }) => {
+export const createCheckoutSession = async ({ cartData, mode, stripeAccount }) => {
   if (!stripeAccount) {
     return await stripe.checkout.sessions.create({
       line_items: cartData,

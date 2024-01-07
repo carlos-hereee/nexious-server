@@ -1,6 +1,6 @@
 import stripe from "../connection";
 
-export = async ({ country, email, type }) => {
+export const addAccount = async ({ country, email, type }) => {
   if (!email) email = "example@email.com";
   if (!type) type = "custom";
   return await stripe.accounts.create({

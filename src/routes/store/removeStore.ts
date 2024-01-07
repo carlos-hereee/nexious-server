@@ -1,17 +1,15 @@
-// import removeMerch  from "@dbModels/merch/removeMerch";
-// import getStore  from "@dbModels/store/getStore";
-import removeStore from "@dbModels/store/removeStore";
+import { deleteStore } from "@dbModels/store/deleteStore";
 import { useGenericErrors } from "../../utils/auth/useGenericErrors";
-import removeAccount from "../../utils/stripe/accounts/removeAccount";
+import { removeAccount } from "@stripe/accounts/removeAccount";
 
-export const removeStore = (req, res, next) => {
+export const removeStore = async (req, res, next) => {
   try {
     // remove store from app menu
     req.app.menu = req.app.menu.filter((m) => m.name !== req.store.name);
     // remove stripe account
     if (req.store.accoundId) await removeAccount({ id: req.store.accoundId });
     // remove store and store items
-    await removeStore({ storeId: req.store.storeId });
+    await deleteStore({ storeId: req.store.storeId });
     await req.app.save();
     // TODO: REMOVE MERCH ON STRIPE
 

@@ -1,6 +1,6 @@
 import stripe from "../connection";
 
-export = async ({ country, email }) => {
+export const updateAccount = async ({ country, email }) => {
   return await stripe.accounts.update({
     country,
     email,

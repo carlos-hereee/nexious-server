@@ -1,8 +1,7 @@
-const Merch = require("../../schema/merch");
-const Store = require("../../schema/store");
+import Merch from "@dbSchema/merch";
+import Store from "@dbSchema/store";
 
-// export   = async({ storeId, appId }) => {
-export = async ({ storeId }) => {
+export const deleteStore = async ({ storeId }) => {
   // if (appId) return await Store.findOneAndDelete({ appId });
   const store = await Store.findOneAndDelete({ storeId });
   if (store) {

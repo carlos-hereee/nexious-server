@@ -1,6 +1,6 @@
 import stripe from "../connection";
 
-export = async ({ amount, description, descriptor, currency }) => {
+export const addFunds = async ({ amount, description, descriptor, currency }) => {
   if (!currency) currency = "usd";
   if (!descriptor) descriptor = "Top-up";
 

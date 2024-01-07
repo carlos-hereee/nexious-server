@@ -1,6 +1,6 @@
 import stripe from "../connection";
 
-export = async ({ email, name, stripeAccount }) => {
+export const createCustomer = async ({ email, name, stripeAccount }) => {
   // preferred_locale: ["en", "es"]
   if (email && name) return await stripe.customers.create({ email, name }, { stripeAccount });
   return await stripe.customers.create();

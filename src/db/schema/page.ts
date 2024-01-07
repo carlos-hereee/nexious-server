@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
+import { v4 } from "uuid";
 const Schema = mongoose.Schema;
-const { v4 } = require("uuid");
 
 const pageSchema = new Schema(
   {
@@ -35,4 +35,4 @@ const pageSchema = new Schema(
   { timestamps: true }
 );
 const Page = mongoose.model("Pages", pageSchema);
-export  Page;
+export = Page;

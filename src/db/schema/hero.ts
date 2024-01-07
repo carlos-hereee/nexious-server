@@ -1,8 +1,8 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
-const toLower = require("../../utils/app/lowerCase");
-const { v4 } = require("uuid");
+import mongoose from "mongoose";
+import toLower from "../../utils/app/lowerCase";
+import { v4 } from "uuid";
 
+const Schema = mongoose.Schema;
 const heroSchema = new Schema(
   {
     // key variables
@@ -36,4 +36,4 @@ const heroSchema = new Schema(
   { timestamps: true }
 );
 const Hero = mongoose.model("Hero", heroSchema);
-export  Hero;
+export = Hero;

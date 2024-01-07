@@ -1,5 +1,5 @@
 import stripe from "../connection";
 
-export = async ({ id, cardId }) => {
+export const getCard = async ({ id, cardId }) => {
   return await stripe.accounts.retrieveExternalAccount(id, cardId);
 };

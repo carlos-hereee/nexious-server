@@ -1,5 +1,5 @@
 import stripe from "../connection";
 
-export = async ({ id, accountId }) => {
+export const deleteBank = async ({ id, accountId }) => {
   return await stripe.accounts.deleteExternalAccount(id, accountId);
 };

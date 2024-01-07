@@ -1,6 +1,6 @@
 import stripe from "../connection";
 
-export = async (stripeAccount) => {
+export const listCustomers = async (stripeAccount) => {
   if (stripeAccount) {
     return stripe.customers.list({}, { stripeAccount });
   }

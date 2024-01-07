@@ -1,5 +1,5 @@
 import stripe from "../connection";
 
-export = async ({ id, metadata }) => {
+export const updateFunds = async ({ id, metadata }) => {
   return await stripe.topups.update(id, { metadata });
 };

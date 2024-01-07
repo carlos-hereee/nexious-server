@@ -1,6 +1,6 @@
 import stripe from "../connection";
 
-export = async ({ id }) => {
+export const accountSession = async ({ id }) => {
   return await stripe.accountSessions.create({
     account: id,
     components: {

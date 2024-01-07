@@ -2,7 +2,7 @@ import getApp from "../../../db/models/app/getApp";
 // import getStore  from "../../../db/models/store/getStore";
 import { useGenericErrors } from "../../../utils/auth/useGenericErrors";
 
-export = async (req, res) => {
+export const getAppWithName = async (req, res) => {
   try {
     const appName = req.params.appName.split("+").join(" ");
     const app = await getApp({ appName });

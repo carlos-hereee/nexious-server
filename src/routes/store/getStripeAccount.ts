@@ -1,5 +1,5 @@
 import { useGenericErrors } from "../../utils/auth/useGenericErrors";
-import getAccount from "../../utils/stripe/accounts/getAccount";
+import getAccount from "@stripe/accounts/getAccount";
 
 export = (req, res) => {
   try {

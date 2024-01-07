@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
-const { v4 } = require("uuid");
-const Schema = mongoose.Schema;
+import mongoose from "mongoose";
+import { v4 } from "uuid";
 
+const Schema = mongoose.Schema;
 const calendarSchema = new Schema(
   {
     calendarId: { type: String, require: true, unique: true, default: v4 },
@@ -20,4 +20,4 @@ const calendarSchema = new Schema(
   { timestamps: true }
 );
 const Calendar = mongoose.model("Calendar", calendarSchema);
-export  Calendar;
+export = Calendar;

@@ -1,5 +1,5 @@
 import stripe from "../connection";
 
-export = async ({ id }) => {
+export const removeRadarListItem = async ({ id }) => {
   return await stripe.radar.valueListItems.del(id);
 };

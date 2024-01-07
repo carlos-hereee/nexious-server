@@ -1,5 +1,5 @@
 import stripe from "../connection";
 
-export = async ({ id }) => {
+export const cancelFunds = async ({ id }) => {
   return await stripe.topups.cancel(id);
 };

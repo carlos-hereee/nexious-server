@@ -1,4 +1,4 @@
-const Merch = require("../../schema/merch");
+import Merch from "@dbSchema/merch";
 
 export = async ({ appId, storeId, merchId, merchIds }) => {
   if (storeId) return await Merch.find({ storeId });

@@ -1,5 +1,5 @@
 import stripe from "../connection";
 
-export = async ({ customer }) => {
+export const getStripeCustomer = async ({ customer }) => {
   return await stripe.customers.retrieve(customer);
 };

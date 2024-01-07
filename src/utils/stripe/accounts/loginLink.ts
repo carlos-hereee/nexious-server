@@ -1,3 +1,3 @@
 import stripe from "../connection";
 
-export = async ({ id }) => await stripe.accounts.createLoginLink(id);
+export const loginLink = async ({ id }) => await stripe.accounts.createLoginLink(id);

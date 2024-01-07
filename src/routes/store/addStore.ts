@@ -1,7 +1,7 @@
 import createStore from "@dbModels/store/createStore";
 import formatMenuPageData from "../../utils/app/format/formatMenuPageData";
 import { useGenericErrors } from "../../utils/auth/useGenericErrors";
-import addAccount from "../../utils/stripe/accounts/addAccount";
+import addAccount from "@stripe/accounts/addAccount";
 import message from "@data/error.message.json";
 export const addStore = (req, res, next) => {
   try {

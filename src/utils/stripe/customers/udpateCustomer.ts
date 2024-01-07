@@ -1,6 +1,6 @@
 import stripe from "../connection";
 
-export = async ({ email, name, id, invoiceSettings }) => {
+export const udpateCustomer = async ({ email, name, id, invoiceSettings }) => {
   // preferred_locale: ["en", "es"]
   if (email && name) return await stripe.customers.update(id, { email, name });
   else if (email) return await stripe.customers.update(id, { email });

@@ -1,5 +1,5 @@
 import stripe from "../connection";
 
-export = async ({ id }) => {
+export const invoices = async ({ id }) => {
   return await stripe.invoices.listLineItems(id);
 };

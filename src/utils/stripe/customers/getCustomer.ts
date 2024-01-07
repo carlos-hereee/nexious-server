@@ -1,6 +1,6 @@
 import stripe from "../connection";
 
-export = async ({ id, apiKey, stripeAccount }) => {
+export const getCustomer = async ({ id, apiKey, stripeAccount }) => {
   if (stripeAccount) {
     return await stripe.customers.retrieve(id, { stripeAccount });
   }

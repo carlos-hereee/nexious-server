@@ -3,7 +3,7 @@ const renameExport = require("./helpers/node/renameExport");
 const updateFile = require("./helpers/node/updateFile");
 
 const excludedDirectories = ["data"];
-const target = `export = \\(req, res, next\\)`;
+const target = `export = async`;
 
 // recursively rename imports
 const renameExports = async (sourcePath) => {

@@ -1,7 +1,7 @@
 import getMerch from "@dbModels/merch/getMerch";
 import { useGenericErrors } from "../../utils/auth/useGenericErrors";
 
-export = (req, res) => {
+export = async (req, res) => {
   try {
     const { storeId } = req.params;
 

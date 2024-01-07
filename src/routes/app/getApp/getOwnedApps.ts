@@ -1,7 +1,7 @@
 import getApp from "../../../db/models/app/getApp";
 import { useGenericErrors } from "../../../utils/auth/useGenericErrors";
 
-export = async (req, res) => {
+export const getOwnedApps = async (req, res) => {
   try {
     // send owned apps
     const apps = await getApp({ ownerId: req.user._id });

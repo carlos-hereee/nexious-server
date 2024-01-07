@@ -5,7 +5,7 @@ import formatFormData from "../../../utils/app/format/formatFormData";
 import updateApp from "../../../db/models/app/updateApp";
 import getApp from "../../../db/models/app/getApp";
 
-export = async (req, res) => {
+export const landingPageWithSection = async (req, res) => {
   const hero = req.file;
   // format app landing page data
   const formData = formatFormData(req.body);

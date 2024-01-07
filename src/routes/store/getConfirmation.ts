@@ -1,7 +1,7 @@
 import { useGenericErrors } from "../../utils/auth/useGenericErrors";
-import getStripeCustomer from "../../utils/stripe/customers/getStripeCustomer";
-import getSessionWithId from "../../utils/stripe/payments/getSessionWithId";
-import getCheckoutItems from "../../utils/stripe/payments/getCheckoutItems";
+import getStripeCustomer from "@stripe/customers/getStripeCustomer";
+import getSessionWithId from "@stripe/payments/getSessionWithId";
+import getCheckoutItems from "@stripe/payments/getCheckoutItems";
 
 export const getConfirmation = (req, res, next) => {
   try {

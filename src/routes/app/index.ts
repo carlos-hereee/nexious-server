@@ -7,7 +7,7 @@ import deleteApp  from "./deleteApp";
 import initApp  from "./initApp";
 import getAppWithName  from "./getApp/getAppWithName";
 import updateLandingPage  from "./updateApp/landingPage";
-import validateAdmin  from "../../middleware/app/validateAdmin";
+import {validateAdmin}   from "../../middleware/app/validateAdmin";
 import uploadSingle  from "../../utils/multer/uploadSingle";
 import updateAppLogo  from "./updateApp/appLogo";
 import requireUniqueName  from "../../middleware/app/requireUniqueName";
@@ -27,7 +27,7 @@ import addMedia  from "./media/addMedia";
 import removeMedia  from "./media/removeMedia.";
 import subscribe  from "./updateApp/subscribe";
 import unsubscribe  from "./updateApp/unsubscribe";
-import userData  from "../../middleware/auth/userData";
+import userData  from "@authWare/userData";
 import saveFieldAssets  from "../../middleware/app/saveFieldAssets";
 import updateAppDetails  from "./updateApp/updateAppDetails";
 

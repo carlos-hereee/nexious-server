@@ -1,4 +1,4 @@
-const Store = require("../../schema/store");
+import Store from "@dbSchema/store";
 
 export = async ({ appId, storeId }) => {
   if (appId) return await Store.findOne({ appId });

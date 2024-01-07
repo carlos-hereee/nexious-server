@@ -1,5 +1,5 @@
 import stripe from "../connection";
 
-export = async ({ id }) => {
+export const addPerson = async ({ id }) => {
   return await stripe.accounts.createPerson(id);
 };

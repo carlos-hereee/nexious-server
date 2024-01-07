@@ -1,6 +1,6 @@
 import stripe from "../connection";
 
-export = async ({ id, limit }) => {
+export const getFraudWarning = async ({ id, limit }) => {
   if (!id) {
     return await stripe.radar.earlyFraudWarnings.list({ limit: limit || 30 });
   }

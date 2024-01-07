@@ -1,6 +1,6 @@
 import stripe from "../connection";
 
-export = async ({ name, description, images, stripeAccount }) => {
+export const addProduct = async ({ name, description, images, stripeAccount }) => {
   if (!description) description = "product information: " + name;
   if (!images) images = undefined;
   if (stripeAccount) {

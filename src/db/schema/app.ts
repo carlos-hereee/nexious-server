@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
-const { v4 } = require("uuid");
-const Schema = mongoose.Schema;
+import mongoose from "mongoose";
+import { v4 } from "uuid";
 
+const Schema = mongoose.Schema;
 const appSchema = new Schema(
   {
     appId: { type: String, require: true, default: v4 },
@@ -119,4 +119,4 @@ const appSchema = new Schema(
   { timestamps: true }
 );
 const App = mongoose.model("App", appSchema);
-export  App;
+export = App;

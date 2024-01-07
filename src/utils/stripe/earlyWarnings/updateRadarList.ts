@@ -1,5 +1,5 @@
 import stripe from "../connection";
 
-export = async ({ id, name }) => {
+export const updateRadarList = async ({ id, name }) => {
   return await stripe.radar.valueLists.update(id, { name });
 };
