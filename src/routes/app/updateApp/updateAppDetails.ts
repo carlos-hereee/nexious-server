@@ -1,5 +1,5 @@
 import type { MiddlewareProps } from "@app/app";
-import formatLanguageList from "@appUtils/format/formatLanguageList";
+import { formatLanguageList } from "@appUtils/format/formatLanguageList";
 import { formatThemeList } from "@appUtils/format/formatThemeList";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 
@@ -14,7 +14,7 @@ export const updateAppDetails: MiddlewareProps = async (req, res, next) => {
     req.app.locale = locale;
     req.app.email = email;
     req.app.themeList = formatThemeList(theme);
-    req.app.languageList = formatLanguageList(language, locale);
+    req.app.languageList = formatLanguageList(language);
     await req.app.save();
     next();
   } catch (error) {

@@ -1,7 +1,8 @@
 import { getApp } from "@dbModels/app/getApp";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
+import type { RouterProps } from "@app/app";
 
-export const getOwnedApps = async (req, res) => {
+export const getOwnedApps: RouterProps = async (req, res) => {
   try {
     // send owned apps
     const apps = await getApp({ ownerId: req.user._id });

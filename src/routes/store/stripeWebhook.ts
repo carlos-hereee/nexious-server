@@ -1,7 +1,8 @@
+import type { RouterProps } from "@app/app";
 import { getSessionWithId } from "@stripe/payments/getSessionWithId";
 import fulfillOrder from "@stripe/webhook/fulfillOrder";
 
-export const stripeWebhook = async (req, res) => {
+export const stripeWebhook: RouterProps = async (req, res) => {
   const { event } = req;
   // Handle the event
   switch (event.type) {

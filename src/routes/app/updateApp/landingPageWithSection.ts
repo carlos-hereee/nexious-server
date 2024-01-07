@@ -3,8 +3,9 @@ import formatAssetData from "@appUtils/format/formatAssetData";
 import { formatFormData } from "@appUtils/format/formatFormData";
 import updateApp from "@dbModels/app/updateApp";
 import { getApp } from "@dbModels/app/getApp";
+import type { RouterProps } from "@app/app";
 
-export const landingPageWithSection = async (req, res) => {
+export const landingPageWithSection: RouterProps = async (req, res) => {
   const hero = req.file;
   // format app landing page data
   const formData = formatFormData(req.body);

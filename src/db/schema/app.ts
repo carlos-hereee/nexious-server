@@ -1,8 +1,9 @@
+import type { IAppSchema } from "@app/db";
 import mongoose from "mongoose";
 import { v4 } from "uuid";
 
 const Schema = mongoose.Schema;
-const appSchema = new Schema(
+const appSchema = new Schema<IAppSchema>(
   {
     appId: { type: String, require: true, default: v4 },
     appName: { type: String, unique: true },

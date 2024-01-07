@@ -1,8 +1,9 @@
 import { getApp } from "@dbModels/app/getApp";
 // import getStore  from  "@dbModels/store/getStore";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
+import type { RouterProps } from "@app/app";
 
-export const getAppWithName = async (req, res) => {
+export const getAppWithName: RouterProps = async (req, res) => {
   try {
     const appName = req.params.appName.split("+").join(" ");
     const app = await getApp({ appName });

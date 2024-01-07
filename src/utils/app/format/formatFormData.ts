@@ -1,8 +1,18 @@
-export const formatFormData = (data) => {
+import type { PageDataProps, RefsProps } from "@app/app";
+import type { IPage } from "@app/db";
+
+export const formatFormData = (data: IPage) => {
   if (!data) return null;
   const canSkip = ["hero", "sectionHero"];
-  let pageData = {};
-  let refs = {};
+  let pageData: PageDataProps = {
+    title: "",
+    body: "",
+    hasCta: false,
+    hasSections: false,
+    subtitle: "",
+    hasMedias: false,
+  };
+  let refs: RefsProps = {};
   Object.keys(data).forEach((key) => {
     if (!canSkip.includes(key)) {
       // key variables

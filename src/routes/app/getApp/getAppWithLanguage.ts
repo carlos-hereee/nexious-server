@@ -1,7 +1,8 @@
 import { getApp } from "@dbModels/app/getApp";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
+import type { RouterProps } from "@app/app";
 
-export const getAppWithLanguage = async (req, res) => {
+export const getAppWithLanguage: RouterProps = async (req, res) => {
   try {
     const appName = req.params.appName;
     const locale = req.params.locale;

@@ -1,7 +1,7 @@
 import getMerch from "@dbModels/merch/getMerch";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 
-export const getStoreMerch = async (req, res) => {
+export const getStoreMerch: RouterProps = async (req, res) => {
   try {
     const { storeId } = req.params;
     const merch = await getMerch({ storeId });
