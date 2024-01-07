@@ -3,7 +3,7 @@ import { useGenericErrors } from "@authUtils/useGenericErrors";
 import addPrice from "@stripe/merch/addPrice";
 import addProduct from "@stripe/merch/addProduct";
 
-export const addMerch = async (req, res, next) => {
+export const addMerch: MiddlewareProps = async (req, res, next) => {
   try {
     // key variables
     const { name, description, inStock, cost, hero: h } = req.body;

@@ -1,6 +1,7 @@
+import type { GetPagesProps } from "@app/app";
 import Page from "@dbSchema/page";
 
-export = async ({ appId, languageId, pageId }) => {
+export const getPages = async ({ appId, languageId, pageId }: GetPagesProps) => {
   if (languageId) {
     return await Page.find({ appId, languageId });
   }

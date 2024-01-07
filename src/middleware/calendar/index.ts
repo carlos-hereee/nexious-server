@@ -1,3 +1,3 @@
-import getCalendar from "./getCalendar";
+import { requireCalendar } from "./requireCalendar";
 
-export { getCalendar };
+export { requireCalendar };

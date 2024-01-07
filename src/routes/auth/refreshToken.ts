@@ -2,8 +2,9 @@
 import makeSession from "@authUtils/makeSession";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import storeCookies from "@authUtils/storeCookies";
+import type { RouterProps } from "@app/app";
 
-export = (req, res) => {
+export const refreshToken: RouterProps = async (req, res) => {
   try {
     // access granted: generate new sessionId
     const sessionId = makeSession(req.user.userId);

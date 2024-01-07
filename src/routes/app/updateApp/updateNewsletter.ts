@@ -1,6 +1,6 @@
 import formatFormData from "../../../utils/app/format/formatFormData";
 
-export const updateNewsletter = async (req, res, next) => {
+export const updateNewsletter: MiddlewareProps = async (req, res, next) => {
   try {
     let { pageData } = formatFormData(req.body);
     req.app.newsletter = { ...pageData, hero: req.asset };

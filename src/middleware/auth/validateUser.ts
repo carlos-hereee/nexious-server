@@ -1,7 +1,7 @@
 import getUserAuth from "@dbModels/users/getUserAuth";
 import message from "@data/error.message.json";
 
-export const validateUser = async (req, res, next) => {
+export const validateUser: MiddlewareProps = async (req, res, next) => {
   const username = req.body.username || req.params.username;
   // must have a value
   if (!username) {

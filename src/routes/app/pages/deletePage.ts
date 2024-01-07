@@ -1,7 +1,8 @@
 import removePage from "../../../db/models/page/removePage";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
+import type { MiddlewareProps } from "@app/app";
 
-export const deletePage = async (req, res, next) => {
+export const deletePage: MiddlewareProps = async (req, res, next) => {
   try {
     const { appId, pageId } = req.params;
     // find page
@@ -10,7 +11,7 @@ export const deletePage = async (req, res, next) => {
     req.app.pages = req.app.pages.filter((page) => page.pageId !== pageId);
     // remove page from menu if found
     const pageName = req.app.pages[pageIdx].name;
-    if (pageName) req.app.menu = rea.app.menu.filter((m) => m.name !== pageName);
+    if (pageName) req.app.menu = req.app.menu.filter((m) => m.name !== pageName);
 
     await req.app.save();
     // finally remove page

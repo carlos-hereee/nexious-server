@@ -1,6 +1,6 @@
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 
-export const unsubscribe = async (req, res, next) => {
+export const unsubscribe: MiddlewareProps = async (req, res, next) => {
   try {
     req.user.subscriptions = req.user.subscriptions.filter((sub) => sub !== req.app._id);
     await req.user.save();

@@ -1,4 +1,4 @@
-import getApp from "@dbModels/app/getApp";
+import { getApp } from "@dbModels/app/getApp";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 
 export const getOwnedApps = async (req, res) => {
@@ -7,6 +7,6 @@ export const getOwnedApps = async (req, res) => {
     const apps = await getApp({ ownerId: req.user._id });
     res.status(202).json(apps).end();
   } catch (error) {
-    useGenericErrors(res, error);
+    useGenericErrors(res, error, "unable to get ownedApps");
   }
 };

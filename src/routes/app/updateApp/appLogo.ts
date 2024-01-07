@@ -1,6 +1,6 @@
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 
-export const updateAppLogo = async (req, res, next) => {
+export const updateAppLogo: MiddlewareProps = async (req, res, next) => {
   try {
     // update appname
     req.app.appName = req.body.appName;

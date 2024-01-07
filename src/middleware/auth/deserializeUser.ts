@@ -3,7 +3,7 @@ import getUserAuth from "@dbModels/users/getUserAuth";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import verifyJWT from "@authUtils/verifyJWT";
 
-export const deserializeUser = async (req, res, next) => {
+export const deserializeUser: MiddlewareProps = async (req, res, next) => {
   try {
     // key variables
     const accessToken = req.cookies[accessTokenName];

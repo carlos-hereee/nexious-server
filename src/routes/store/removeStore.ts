@@ -2,7 +2,7 @@ import { deleteStore } from "@dbModels/store/deleteStore";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { removeAccount } from "@stripe/accounts/removeAccount";
 
-export const removeStore = async (req, res, next) => {
+export const removeStore: MiddlewareProps = async (req, res, next) => {
   try {
     // remove store from app menu
     req.app.menu = req.app.menu.filter((m) => m.name !== req.store.name);

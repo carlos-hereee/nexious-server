@@ -1,6 +1,6 @@
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 
-export const editStore = async (req, res, next) => {
+export const editStore: MiddlewareProps = async (req, res, next) => {
   try {
     const { name, title, body } = req.body;
     const hero = req.asset || "";

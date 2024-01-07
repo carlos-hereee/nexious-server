@@ -2,7 +2,7 @@ import formatLanguageList from "../../../utils/app/format/formatLanguageList";
 import formatThemeList from "../../../utils/app/format/formatThemeList";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 
-export const updateAppDetails = async (req, res) => {
+export const updateAppDetails: MiddlewareProps = async (req, res, next) => {
   try {
     // key variables
     const { theme, language, locale, appName, logo, email } = req.body;

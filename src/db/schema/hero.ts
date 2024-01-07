@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import toLower from "@authUtils/app/lowerCase";
+import toLower from "@appUtils/lowerCase";
 import { v4 } from "uuid";
 
 const Schema = mongoose.Schema;
@@ -36,4 +36,4 @@ const heroSchema = new Schema(
   { timestamps: true }
 );
 const Hero = mongoose.model("Hero", heroSchema);
-export = Hero;
+export default Hero;

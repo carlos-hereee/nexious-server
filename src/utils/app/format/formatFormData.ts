@@ -1,5 +1,5 @@
-export = (data) => {
-  if (!data) return;
+export const formatFormData = (data) => {
+  if (!data) return null;
   const canSkip = ["hero", "sectionHero"];
   let pageData = {};
   let refs = {};

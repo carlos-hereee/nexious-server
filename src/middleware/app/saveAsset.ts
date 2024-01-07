@@ -1,15 +1,17 @@
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import { addFile } from "@authUtils/aws";
+import { addFile } from "@aws/index";
 import { awsImageUrl, isDev } from "@config";
-import { generateParamFile } from "@authUtils/aws/awsParams";
-
-export const saveAsset = (req, res, next) => {
+import { generateParamFile } from "@aws/awsParams";
+import type { MiddlewareProps } from "@app/app";
+export const saveAsset: MiddlewareProps = async (req, res, next) => {
   try {
     if (req.file) {
       const params = generateParamFile(req.file);
-      if (!isDev) await addFile(params);
-      await addFile(params);
-      req.asset = awsImageUrl + params.Key;
+      if (params) {
+        if (!isDev) await addFile(params);
+        await addFile(params);
+        req.asset = awsImageUrl + params.Key;
+      }
     }
     next();
   } catch (error) {

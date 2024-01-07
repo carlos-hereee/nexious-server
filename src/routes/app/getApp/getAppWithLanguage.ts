@@ -1,4 +1,4 @@
-import getApp from "@dbModels/app/getApp";
+import { getApp } from "@dbModels/app/getApp";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 
 export const getAppWithLanguage = async (req, res) => {

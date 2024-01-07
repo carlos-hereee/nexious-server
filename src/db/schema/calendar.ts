@@ -20,4 +20,4 @@ const calendarSchema = new Schema(
   { timestamps: true }
 );
 const Calendar = mongoose.model("Calendar", calendarSchema);
-export = Calendar;
+export default Calendar;

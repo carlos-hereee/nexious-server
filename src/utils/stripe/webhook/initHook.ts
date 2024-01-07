@@ -1,13 +1,13 @@
+import { stripeErrorHandling } from "@stripe/errors";
 import constructEvent from "./constructEvent";
 
-export const initHook = async (req, res, next) => {
+export const initHook: MiddlewareProps = async (req, res, next) => {
   try {
     const payload = req.body;
     const sig = req.headers["stripe-signature"];
     req.event = constructEvent({ sig, payload });
     next();
   } catch (err) {
-    // console.log("err :>> ", err);
-    return res.status(400).send(`Webhook Error: ${err.message}`);
+    stripeErrorHandling(res, err, "webhook error: ");
   }
 };

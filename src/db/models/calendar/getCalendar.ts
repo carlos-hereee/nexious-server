@@ -1,6 +1,7 @@
 import Calendar from "@dbSchema/calendar";
 
-export = async ({ appId, calendarId, adminIds }) => {
+export const getCalendar = async (props) => {
+  const { appId, calendarId, adminIds } = props;
   if (adminIds) {
     return await Calendar.find({ adminIds });
   }
@@ -8,6 +9,6 @@ export = async ({ appId, calendarId, adminIds }) => {
     return await Calendar.find({ calendarId });
   }
   if (appId) {
-    return await Calendar.find({ appId });
+    return await Calendar.findOne({ appId });
   }
 };

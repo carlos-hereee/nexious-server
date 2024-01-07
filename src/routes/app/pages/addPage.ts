@@ -1,20 +1,23 @@
 import { awsImageUrl } from "../../../config";
 import createPage from "../../../db/models/page/createPage";
-import formatFormData from "../../../utils/app/format/formatFormData";
+import { formatFormData } from "../../../utils/app/format/formatFormData";
 import formatMenuPageData from "../../../utils/app/format/formatMenuPageData";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { addFile } from "../../../utils/aws";
 import { generateParamFile } from "../../../utils/aws/awsParams";
+import type { MiddlewareProps } from "@app/app";
 
-export const addPage = async (req, res, next) => {
+export const addPage: MiddlewareProps = async (req, res, next) => {
   try {
     let { pageData, refs } = formatFormData(req.body);
     if (req.files) {
       if (req.files.hero) {
         const pageHero = req.files.hero[0];
         const params = generateParamFile(pageHero);
-        await addFile(params);
-        pageData.hero = awsImageUrl + params.Key;
+        if (params) {
+          await addFile(params);
+          pageData.hero = awsImageUrl + params.Key;
+        }
       }
       if (refs.hasSections) {
         let sections = [];

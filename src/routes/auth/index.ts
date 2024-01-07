@@ -39,4 +39,4 @@ route.post("/forgot-password", userWare, changePasswordWare);
 // log out
 route.delete("/logout", requireUser, logout);
 
-export = route;
+export default route;

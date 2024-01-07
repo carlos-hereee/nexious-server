@@ -23,4 +23,4 @@ const storeSchema = new Schema(
   { timestamps: true }
 );
 const Store = mongoose.model("Store", storeSchema);
-export = Store;
+export default Store;

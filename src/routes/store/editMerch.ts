@@ -1,6 +1,6 @@
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 
-export const editMerch = async (req, res, next) => {
+export const editMerch: MiddlewareProps = async (req, res, next) => {
   try {
     const { name, quantity, cost, body, hero: h } = req.body;
     const merchIdx = req.store.inventory.findIndex((item) => item.uid === req.params.merchId);

@@ -1,4 +1,4 @@
-import getApp from "@dbModels/app/getApp";
+import { getApp } from "@dbModels/app/getApp";
 import getStore from "@dbModels/store/getStore";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 

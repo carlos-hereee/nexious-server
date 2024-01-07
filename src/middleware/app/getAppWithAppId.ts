@@ -1,10 +1,11 @@
-import getApp from "@dbModels/app/getApp";
+import { getApp } from "@dbModels/app/getApp";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
+import type { MiddlewareProps } from "@app/app";
 
-export const getAppWithAppId = (req, res, next) => {
+export const getAppWithAppId: MiddlewareProps = async (req, res, next) => {
   try {
     const { appId } = req.params;
-    req.app = await getApp({ appId });
+    if (appId) req.app = await getApp({ appId });
     next();
   } catch (error) {
     useGenericErrors(res, error, "unable to find app with app id ");

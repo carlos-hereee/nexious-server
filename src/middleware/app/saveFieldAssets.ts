@@ -1,17 +1,18 @@
 import { awsImageUrl } from "@config";
-import saveFile from "@authUtils/app/saveFile";
+import { saveFile } from "middleware/app/saveFile";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import { addFile } from "@authUtils/aws";
-import { generateParamFiles } from "@authUtils/aws/awsParams";
+import { addFile } from "@aws/index";
+import { generateParamFiles } from "@aws/awsParams";
+import type { MiddlewareProps } from "@app/app";
 
-export const saveFieldAssets = (req, res, next) => {
+export const saveFieldAssets: MiddlewareProps = async (req, res, next) => {
   try {
     req.asset = { hero: "", sectionHero: [] };
     // check if files exists
     if (req.files) {
       // save landing hero if exists
       if (req.files.hero?.length > 0) {
-        const url = await saveFile(req.files.hero[0]);
+        const url = saveFile(req.files.hero[0]);
         req.asset.hero = url;
       }
       // save sectionHero if exists

@@ -1,5 +1,5 @@
 import Users from "@dbSchema/users";
 
-export = async (payload) => {
+export const saveUser = async (payload) => {
   return await Users.create(payload);
 };
