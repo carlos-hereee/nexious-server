@@ -1,11 +1,8 @@
+import type { AWSFileProps } from "@app/assets";
+import { fileError } from "./fileError";
+
 // call S3 to retrieve upload file to specified bucket
-export = (s3, { bucketName, filename, content }) =>
-  s3.deleteObject({ Bucket: bucketName, Key: filename, Body: content }, (err, data) => {
-    if (err) {
-      console.log("Error", err);
-    }
-    return data;
-    // if (data) {
-    //   console.log("Upload Success", data.Location);
-    // }
-  });
+export const deleteFile = ({ s3, params }: AWSFileProps) => {
+  // const { bucketName, filename, content } = params ;
+  return s3.deleteObject(params, fileError);
+};

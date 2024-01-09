@@ -17,7 +17,7 @@ export const initApp: MiddlewareProps = async (req, res, next) => {
     // const themeLis
     const app = await createApp({ appName, logo, owner, adminIds, themeList, appUrl });
     // add user permissions
-    req.app = app;
+    req.apps = app;
     req.user.ownedApps.push(app._id);
     req.user.permissions.push({ appId: app._id, role: "owner" });
     await req.user.save();

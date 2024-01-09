@@ -1,6 +1,6 @@
 import getUser from "@dbModels/users/getUser";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import type { RouterProps } from "@app/app";
+import type { RouterProps } from "@app/db";
 
 export const userData: RouterProps = async (req, res) => {
   try {

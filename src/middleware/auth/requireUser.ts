@@ -1,7 +1,7 @@
-import type { MiddlewareProps } from "@app/db";
+import type { UserRequestware } from "@app/db";
 import message from "@data/error.message.json";
 
-export const requireUser: MiddlewareProps = (req, res, next) => {
+export const requireUser: UserRequestware = (req, res, next) => {
   // check if user was found
   if (req.user) next();
   else {

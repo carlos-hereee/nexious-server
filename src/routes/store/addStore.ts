@@ -9,10 +9,10 @@ export const addStore: MiddlewareProps = async (req, res, next) => {
   try {
     // key variables
     const { name, title, body, pageName } = req.body;
-    const { country, appId } = req.app;
+    const { country, appId } = req.apps;
     const ownerId = req.user.userId;
     const hero = req.asset || "";
-    const email = req.body.email || req.app.email;
+    const email = req.body.email || req.apps.email;
     if (!email) return res.status(400).json(message.emailRequired).end();
     const menuData = formatMenuPageData(name);
     const payload = { ownerId, appId, hero, title, body, pageName, name, accountId: "" };
@@ -24,9 +24,9 @@ export const addStore: MiddlewareProps = async (req, res, next) => {
     // // save store data
     const store = await createStore(payload);
     // // connect store to app
-    req.app.store = store._id;
-    req.app.menu.push({ ...menuData, isStore: true });
-    await req.app.save();
+    req.apps.store = store._id;
+    req.apps.menu.push({ ...menuData, isStore: true });
+    await req.apps.save();
     next();
   } catch (error) {
     useGenericErrors(res, error, "unable to add store");

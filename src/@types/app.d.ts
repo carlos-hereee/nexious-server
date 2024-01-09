@@ -1,7 +1,5 @@
-import type { Express, Response, Request, NextFunction } from "express";
 import type { ObjectId } from "./db";
-import type { IStoreSchema } from "./store";
-import type { ILandingPage, Page } from "./page";
+import type { ILandingPage } from "./page";
 import type { Document } from "mongoose";
 
 export interface GetAppProps {
@@ -11,12 +9,6 @@ export interface GetAppProps {
   ownerId?: string;
   all?: boolean;
   locale?: string;
-}
-
-export interface GetPagesProps {
-  appId?: string;
-  languageId?: string;
-  pageId?: string;
 }
 
 export interface GetCalendarProps {
@@ -85,7 +77,6 @@ export interface IMenu {
   isStore?: boolean;
 }
 export interface IAppSchema extends Document {
-  // _id: string;
   appId: string;
   appName: string;
   locale: string;

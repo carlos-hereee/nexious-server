@@ -3,7 +3,7 @@ import { useGenericErrors } from "@authUtils/useGenericErrors";
 
 export const subscribe: MiddlewareProps = async (req, res, next) => {
   try {
-    req.user.subscriptions.push(req.app._id);
+    req.user.subscriptions.push(req.apps._id);
     await req.user.save();
     next();
   } catch (error) {

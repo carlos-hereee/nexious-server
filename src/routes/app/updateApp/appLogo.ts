@@ -4,10 +4,10 @@ import { useGenericErrors } from "@authUtils/useGenericErrors";
 export const updateAppLogo: MiddlewareProps = async (req, res, next) => {
   try {
     // // update appname
-    // req.app.appName = req.body.appName;
+    // req.apps.appName = req.body.appName;
     // req.asset middleware yields asset url
-    req.app.logo = req.asset;
-    await req.app.save();
+    req.apps.logo = req.asset;
+    await req.apps.save();
     next();
   } catch (error) {
     useGenericErrors(res, error, "error occurred updating app resources");

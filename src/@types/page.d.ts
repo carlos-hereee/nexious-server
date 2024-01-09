@@ -2,6 +2,12 @@ import type { Document } from "mongoose";
 import type { IMediaItem } from "./app";
 
 // pages
+export interface GetPagesProps {
+  appId?: string;
+  languageId?: string;
+  pageId?: string;
+}
+
 export interface ICta {
   label: string;
   link: string;
@@ -14,11 +20,11 @@ export interface ISection {
   sectionHero: string;
   uid: string;
 }
-export type RefsProps = {
+export interface RefsProps {
   hasMedias?: IMediaItem[];
   hasCta?: ICta[];
   hasSections?: ISection[];
-};
+}
 
 export interface Page {
   title: string;

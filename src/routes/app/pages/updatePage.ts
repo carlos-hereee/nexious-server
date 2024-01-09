@@ -43,11 +43,11 @@ export const updatePage: MiddlewareProps = async (req, res, next) => {
       // if (refs.hasCta) page.cta = refs.hasCta;
       // // update page name on menu
       // const pageName = pageData.name;
-      // const pageIdx = req.app.menu.findIndex((m) => m.isPage && m.name === pageName);
+      // const pageIdx = req.apps.menu.findIndex((m) => m.isPage && m.name === pageName);
       // if (pageIdx >= 0) {
       //   const menuData = formatMenuPageData(pageName);
-      //   req.app.menu[pageIdx] = menuData;
-      //   await req.app.save();
+      //   req.apps.menu[pageIdx] = menuData;
+      //   await req.apps.save();
       // }
 
       // await page.save();

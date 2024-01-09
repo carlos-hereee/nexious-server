@@ -10,17 +10,17 @@ export interface GetMerchProps {
 }
 export interface MerchSchema {
   storeId: string;
+  description: string;
+  name: string;
+  cost: number;
+  inStock: number;
   uid?: string;
   merchId?: string;
   productId?: string;
   priceId?: string;
   hero?: string;
-  name: string;
-  description: string;
-  inStock: number;
-  cost: number;
 }
-export interface IMerchSchema extends Document {
+export interface IMerchSchema extends MerchSchema, Document {
   storeId: string;
   uid?: string;
   merchId?: string;
@@ -48,9 +48,4 @@ export interface IStoreSchema extends Document {
   termsOfService: boolean;
   // inventory: IMerchSchema[];
   inventory: string[];
-}
-
-export interface GetStripeStoreProps {
-  id?: string;
-  limit?: number;
 }

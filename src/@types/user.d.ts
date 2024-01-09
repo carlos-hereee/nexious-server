@@ -1,7 +1,7 @@
 import type { Document } from "mongoose";
 
 // user
-export interface UserSchemaProps {
+export interface GetUserProps {
   username?: string;
   sessionId?: string;
   email?: string;

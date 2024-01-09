@@ -4,6 +4,7 @@ const fileFilter = (_req, file, cb) => {
   // no mimetype detected
   if (!file.mimetype) return cb(new Error("no file mimetype detected"));
   const safeFiles = ["png", "image/svg+xml", "jpg"];
+  // TODO: add additional image verifications
   // check if is image
   // const isImage = file.mimetype.split("/")[0] === "image";
   // if (isImage) return cb(null, true);

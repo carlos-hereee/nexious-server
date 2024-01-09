@@ -1,6 +1,6 @@
 import { getApp } from "@dbModels/app/getApp";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import type { RouterProps } from "@app/app";
+import type { RouterProps } from "@app/db";
 
 export const getOwnedApps: RouterProps = async (req, res) => {
   try {

@@ -8,15 +8,15 @@ export const updateLandingPage: MiddlewareProps = async (req, res, next) => {
     let { pageData, refs } = formatFormData(req.body);
 
     // update landing
-    req.app.landing.title = pageData.title;
-    req.app.landing.tagline = pageData.tagline;
-    req.app.landing.body = pageData.body;
-    req.app.landing.hasCta = pageData.hasCta;
-    req.app.landing.hasSections = pageData.hasSections;
-    if (refs.hasCta) req.app.landing.cta = refs.hasCta;
+    req.apps.landing.title = pageData.title;
+    req.apps.landing.tagline = pageData.tagline;
+    req.apps.landing.body = pageData.body;
+    req.apps.landing.hasCta = pageData.hasCta;
+    req.apps.landing.hasSections = pageData.hasSections;
+    if (refs.hasCta) req.apps.landing.cta = refs.hasCta;
     if (req.assets) {
       // update asset data
-      if (req.assets.hero) req.app.landing.hero = req.assets.hero;
+      if (req.assets.hero) req.apps.landing.hero = req.assets.hero;
       if (refs.hasSections) {
         if (req.assets.sectionHero.length > 0 && refs.hasSections?.length > 0) {
           // TODO:  match asset data to section data
@@ -26,12 +26,12 @@ export const updateLandingPage: MiddlewareProps = async (req, res, next) => {
               const element = refs.hasSections[item];
               sections.push({ ...element, sectionHero: req.assets.sectionHero[item] });
             }
-            req.app.landing.sections = sections;
+            req.apps.landing.sections = sections;
           }
         }
       }
     }
-    await req.app.save();
+    await req.apps.save();
     next();
   } catch (error) {
     useGenericErrors(res, error, "error occured updating lading page");

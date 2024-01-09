@@ -3,7 +3,7 @@ import { useGenericErrors } from "@authUtils/useGenericErrors";
 
 export const unsubscribe: MiddlewareProps = async (req, res, next) => {
   try {
-    req.user.subscriptions = req.user.subscriptions.filter((sub) => sub !== req.app._id);
+    req.user.subscriptions = req.user.subscriptions.filter((sub) => sub !== req.apps._id);
     await req.user.save();
     next();
   } catch (error) {

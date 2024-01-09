@@ -1,4 +1,4 @@
-import type { RouterProps } from "@app/app";
+import type { RouterProps } from "@app/db";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { getAccount } from "@stripe/accounts/getAccount";
 

@@ -1,6 +1,7 @@
+import type { StripeRequestOptions } from "@app/stripe";
 import stripe from "../connection";
 
-export const updateAccount = async ({ country, email }) => {
+export const updateAccount = async ({ country, email }: StripeRequestOptions) => {
   return await stripe.accounts.update({
     country,
     email,

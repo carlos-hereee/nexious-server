@@ -6,12 +6,12 @@ import type { MiddlewareProps } from "@app/db";
 export const removeStore: MiddlewareProps = async (req, res, next) => {
   try {
     // remove store from app menu
-    req.app.menu = req.app.menu.filter((m) => m.name !== req.store.name);
+    req.apps.menu = req.apps.menu.filter((m) => m.name !== req.store.name);
     // remove stripe account
     if (req.store.accountId) await removeAccount({ id: req.store.accountId });
     // remove store and store items
     await deleteStore({ storeId: req.store.storeId });
-    await req.app.save();
+    await req.apps.save();
     // TODO: REMOVE MERCH ON STRIPE
 
     next();

@@ -1,9 +1,8 @@
-import type { RouterProps } from "@app/app";
+import type { RouterProps } from "@app/db";
 import { getSessionWithId } from "@stripe/payments/getSessionWithId";
-import fulfillOrder from "@stripe/webhook/fulfillOrder";
 
 export const stripeWebhook: RouterProps = async (req, res) => {
-  const { event } = req;
+  const event = req.stripeEvent;
   // Handle the event
   switch (event.type) {
     case "payment_intent.succeeded":
@@ -37,7 +36,6 @@ export const stripeWebhook: RouterProps = async (req, res) => {
       // Unexpected event type
       console.log(`Unhandled event type ${event.type}.`);
   }
-  // // console.log("event :>> ", req.event);
   // if (event.type === "checkout.session.completed") {
   // Handle the checkout.session.completed event
   // const sessionComplete = event.data.object;

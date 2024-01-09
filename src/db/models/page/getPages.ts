@@ -1,4 +1,4 @@
-import type { GetPagesProps } from "@app/app";
+import type { GetPagesProps } from "@app/page";
 import Page from "@dbSchema/page";
 
 export const getPages = async ({ appId, languageId, pageId }: GetPagesProps) => {

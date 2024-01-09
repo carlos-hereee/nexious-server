@@ -37,9 +37,9 @@ export const addPage: MiddlewareProps = async (req, res, next) => {
     const page = await createPage(pageData);
     const menuData = formatMenuPageData(page.name);
 
-    req.app.pages.push(page._id);
-    req.app.menu.push(menuData);
-    await req.app.save();
+    req.apps.pages.push(page._id);
+    req.apps.menu.push(menuData);
+    await req.apps.save();
     next();
   } catch (error) {
     useGenericErrors(res, error, "unable to add page ");

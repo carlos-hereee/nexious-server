@@ -2,13 +2,13 @@ import { getApp } from "@dbModels/app/getApp";
 // import getStore  from  "@dbModels/store/getStore";
 import getUser from "@dbModels/users/getUser";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import type { RouterProps } from "@app/app";
+import type { RouterProps } from "@app/db";
 
 export const minAppData: RouterProps = async (req, res) => {
   try {
     // key varialbles
     const userId = req.user.userId;
-    const appName = req.app.appName;
+    const appName = req.apps.appName;
 
     const appList = await getApp({ all: true });
     const user = await getUser({ userId });

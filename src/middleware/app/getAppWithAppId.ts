@@ -4,8 +4,9 @@ import type { MiddlewareProps } from "@app/db";
 
 export const getAppWithAppId: MiddlewareProps = async (req, res, next) => {
   try {
-    const { appId } = req.params;
-    if (appId) req.app = await getApp({ appId });
+    const app = await getApp({ appId: req.params.appId });
+    // if (app) req.apps = { ...req.apps, ...app };
+    if (app) req.apps = app;
     next();
   } catch (error) {
     useGenericErrors(res, error, "unable to find app with app id ");

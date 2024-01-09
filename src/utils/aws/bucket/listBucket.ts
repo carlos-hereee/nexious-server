@@ -1,9 +1,12 @@
+import type { AWSBucketProps } from "@app/assets";
+
 // Call S3 to list the buckets
-export = (s3, bucketName) =>
-  s3.listBucket({ Bucket: bucketName }, (err, data) => {
+export const listBucket = ({ s3, bucketName }: AWSBucketProps) => {
+  return s3.listBuckets({ Bucket: bucketName }, (err, data) => {
     if (err) {
       console.log("Error", err);
     } else {
       console.log("Success", data.Buckets);
     }
   });
+};

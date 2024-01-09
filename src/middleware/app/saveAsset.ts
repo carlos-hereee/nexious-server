@@ -9,7 +9,7 @@ export const saveAsset: MiddlewareProps = async (req, res, next) => {
     if (req.file) {
       const params = generateParamFile(req.file);
       if (params) {
-        if (!isDev) await addFile(params);
+        // if (!isDev) await addFile(params);
         await addFile(params);
         req.asset = awsImageUrl + params.Key;
       }

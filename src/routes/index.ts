@@ -1,9 +1,9 @@
 import authRoute from "./auth";
 import appRoute from "./app";
-import calendarRoute from "./calendar";
+// import calendarRoute from "./calendar";
 import storeRoute from "./store";
-import type { ExpressApp } from "@app/app";
 import { port } from "@config";
+import type { ExpressApp } from "@app/db";
 
 export default (app: ExpressApp) => {
   // initial test route
@@ -14,7 +14,7 @@ export default (app: ExpressApp) => {
   app.use("/auth/", authRoute);
   // app data
   app.use("/app/", appRoute);
-  app.use("/calendar/", calendarRoute);
+  // app.use("/calendar/", calendarRoute);
   app.use("/store/", storeRoute);
 };
 // // assets route

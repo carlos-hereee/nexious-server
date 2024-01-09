@@ -7,12 +7,12 @@ export const updateMedias: MiddlewareProps = async (req, res, next) => {
     const payload = formatFormData(req.body);
     if (payload) {
       const { pageData, refs } = payload;
-      req.app.media.title = pageData.title;
-      req.app.media.subtitle = pageData.subtitle;
-      req.app.media.hasMedias = pageData.hasMedias;
-      req.app.media.hero = req.asset || "";
-      if (refs.hasMedias) req.app.media.medias = refs.hasMedias;
-      await req.app.save();
+      req.apps.media.title = pageData.title;
+      req.apps.media.subtitle = pageData.subtitle;
+      req.apps.media.hasMedias = pageData.hasMedias;
+      req.apps.media.hero = req.asset || "";
+      if (refs.hasMedias) req.apps.media.medias = refs.hasMedias;
+      await req.apps.save();
     }
     next();
   } catch (error) {

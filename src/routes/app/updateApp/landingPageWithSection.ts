@@ -20,8 +20,8 @@
 //     cta: ctaHero.upsertedId,
 //     sections: sectionHero.upsertedId,
 //   };
-//   await updateApp({ appId: req.app.appId }, { landing: appPayload });
+//   await updateApp({ appId: req.apps.appId }, { landing: appPayload });
 //   // finally send app data
-//   const app = await getApp({ appId: req.app.appId });
+//   const app = await getApp({ appId: req.apps.appId });
 //   res.status(200).json(app).end();
 // };

@@ -1,7 +1,7 @@
+import type { GetUserProps } from "@app/user";
 import Users from "@dbSchema/users";
-import type { UserSchemaProps } from "db-user";
 
-export = async (props: UserSchemaProps) => {
+export const getUserAuth = async (props: GetUserProps) => {
   const { username, sessionId } = props;
   const selectOption = "+auth.salt +auth.password +auth.sessionId +auth.passwordHistory";
   if (username) {
