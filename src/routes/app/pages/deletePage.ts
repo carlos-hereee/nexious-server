@@ -1,8 +1,8 @@
 import { removePage } from "@dbModels/page/removePage";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import type { MiddlewareProps } from "@app/db";
+import type { AppRequestware } from "@app/db";
 
-export const deletePage: MiddlewareProps = async (req, res, next) => {
+export const deletePage: AppRequestware = async (req, res, next) => {
   try {
     const { appId, pageId } = req.params;
     // find page

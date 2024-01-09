@@ -9,6 +9,9 @@ export const formatFormData = (data: IPage) => {
     hasSections: false,
     subtitle: "",
     hasMedias: false,
+    hero: "",
+    cta: [],
+    sections: [],
   };
   let refs: RefsProps = {};
   Object.keys(data).forEach((key) => {

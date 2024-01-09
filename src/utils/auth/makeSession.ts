@@ -1,7 +1,7 @@
-import generateHash from "@authUtils/generateHash";
-import random from "@authUtils/random";
+import { generateHash } from "@authUtils/generateHash";
+import { random } from "@authUtils/random";
 
-export = (payload) => {
+export const makeSession = (payload) => {
   const salt = random();
   return generateHash(salt, payload);
 };

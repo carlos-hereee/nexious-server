@@ -1,16 +1,13 @@
-import { v4 } from "uuid";
-
-export = (appId, languageId, reqBody, heroId) => {
+export const pagePayload = (appId, languageId, reqBody, heroId) => {
   const { title, name, cta, sections, body } = reqBody;
   return {
     appId,
     languageId,
-    pageId: v4(),
     heroId,
     title,
     name,
     body,
-    cta: cta ? cta : [{}],
-    sections: sections ? sections : [{}],
+    cta: cta || [],
+    sections: sections || [],
   };
 };

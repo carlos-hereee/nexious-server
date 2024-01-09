@@ -1,11 +1,11 @@
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import createApp from "@dbModels/app/createApp";
+import { createApp } from "@dbModels/app/createApp";
 // import formatThemeList  from "@authUtils/app/format/formatThemeList";
 // import formatLanguageList  from "@authUtils/app/format/formatLanguageList";
 import themeList from "@data/app/themeList.json";
-import type { MiddlewareProps } from "@app/db";
+import type { AppRequestware } from "@app/db";
 
-export const initApp: MiddlewareProps = async (req, res, next) => {
+export const initApp: AppRequestware = async (req, res, next) => {
   try {
     // key variables
     const appName = req.body.appName;

@@ -1,4 +1,10 @@
-import type { DeleteObjectCommandInput, PutObjectCommandInput, S3 } from "@aws-sdk/client-s3";
+import type {
+  DeleteObjectCommandInput,
+  DeleteObjectCommandOutput,
+  PutObjectCommandInput,
+  PutObjectCommandOutput,
+  S3,
+} from "@aws-sdk/client-s3";
 
 export interface IFile {
   fieldname: string;
@@ -38,5 +44,5 @@ export interface AWSMultiFileUploadProps {
 }
 export type AWSFileError = (
   err: ErrorOptions,
-  data: PutObjectCommandInput | DeleteObjectCommandInput
+  data?: PutObjectCommandOutput | DeleteObjectCommandOutput
 ) => void;

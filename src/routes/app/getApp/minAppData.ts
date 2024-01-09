@@ -1,10 +1,10 @@
 import { getApp } from "@dbModels/app/getApp";
 // import getStore  from  "@dbModels/store/getStore";
-import getUser from "@dbModels/users/getUser";
+import { getUser } from "@dbModels/users/getUser";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import type { RouterProps } from "@app/db";
+import type { AppRequestware } from "@app/db";
 
-export const minAppData: RouterProps = async (req, res) => {
+export const minAppData: AppRequestware = async (req, res) => {
   try {
     // key varialbles
     const userId = req.user.userId;

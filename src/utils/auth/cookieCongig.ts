@@ -1,11 +1,13 @@
+import type { CookieConfigProps } from "@app/auth";
 import { isProduction } from "@config";
 
-export = (hour: number) => {
+export const cookieCongig: CookieConfigProps = (hour) => {
   const maxAge = hour === 0 ? 0 : Date.now() + hour * 60 * 60 * 1000;
+  // TODO: research cookie configs
   return {
     maxAge,
     httpOnly: true,
-    secure: isProduction,
-    sameSite: isProduction ? "None" : false,
+    secure: isProduction || undefined,
+    sameSite: isProduction ? "none" : undefined,
   };
 };

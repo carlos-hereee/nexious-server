@@ -1,3 +1,4 @@
+import type { CookieOptions, Response } from "express";
 import type { JwtPayload, VerifyErrors } from "jsonwebtoken";
 
 export type JWTPayload = JwtPayload;
@@ -15,3 +16,15 @@ export interface JWTVerifyPayload {
     message: string;
   };
 }
+export type StoreCookiesProps = (
+  res: Response,
+  username: string,
+  sessionId: string
+) => { accessToken: string };
+
+export type SignJWTProps = (
+  payload: { username?: string; sessionId: string },
+  expiresIn: string
+) => string;
+export type CookieConfigProps = (hour: number) => CookieOptions;
+export type ResetCookieConfigProps = (res: Response) => void;

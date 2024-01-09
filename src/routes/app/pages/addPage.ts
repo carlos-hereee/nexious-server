@@ -5,10 +5,10 @@ import { formatMenuPageData } from "@appUtils/format/formatMenuPageData";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { addFile } from "@aws/index";
 import { generateParamFile } from "@aws/awsParams";
-import type { MiddlewareProps } from "@app/db";
+import type { AppRequestware } from "@app/db";
 import type { ISection } from "@app/page";
 
-export const addPage: MiddlewareProps = async (req, res, next) => {
+export const addPage: AppRequestware = async (req, res, next) => {
   try {
     let { pageData, refs } = formatFormData(req.body);
     if (req.files) {

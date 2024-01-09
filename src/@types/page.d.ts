@@ -53,13 +53,13 @@ export interface ILandingPage extends IPage {
   tagline: string;
 }
 export interface PageDataProps {
-  title?: string;
-  body?: string;
-  hero?: string;
-  subtitle?: string;
-  hasMedias?: boolean;
-  hasCta?: boolean;
-  hasSections?: boolean;
-  cta?: ICta[];
-  sections?: ISection[];
+  title: string;
+  body: string;
+  hero: string;
+  subtitle: string;
+  hasMedias: boolean;
+  hasCta: boolean;
+  hasSections: boolean;
+  cta: ICta[];
+  sections: ISection[];
 }

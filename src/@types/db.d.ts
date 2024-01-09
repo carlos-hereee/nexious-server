@@ -9,6 +9,31 @@ import type { IPage } from "./page";
 export type ObjectId = Schema.Types.ObjectId;
 export type ExpressApp = Express;
 
+// declare global {
+//   namespace Express {
+//     interface Request {
+//       // params cannot be initialy undefined
+//       params: {
+//         appId: string;
+//         appName: string;
+//         username: string;
+//         pageId: string;
+//         assetId: string;
+//       };
+//       // undefined properties because they have yet to be included
+//       page?: IPage;
+//       stripeEvent?: Stripe.Event;
+//       user?: IUserSchema;
+//       cart?: any;
+//       apps?: IAppSchema;
+//       asset?: string;
+//       file?: IFile;
+//       calendar?: any;
+//       assets?: { hero: string; sectionHero: string[] };
+//       files?: { hero: IFile; sectionHero: IFile[] };
+//     }
+//   }
+// }
 // define initial custom properties
 export interface MiddlewareRequest extends Request {
   // params cannot be initialy undefined
@@ -42,6 +67,8 @@ export interface StripeRequest extends Request {
 export interface AppRequest extends Request {
   apps: IAppSchema;
   asset: string;
+  user: IUserSchema;
+  files: { hero: IFile; sectionHero: IFile[] };
 }
 // custom middleware error handling
 export type GenericErrorProps = (res: Response, error: unknown, message: string) => void;

@@ -1,5 +1,6 @@
 import type { RouterProps } from "@app/db";
 import { getSessionWithId } from "@stripe/payments/getSessionWithId";
+import { fulFillOrder } from "@stripe/webhook/fulfillOrder";
 
 export const stripeWebhook: RouterProps = async (req, res) => {
   const event = req.stripeEvent;
@@ -29,7 +30,7 @@ export const stripeWebhook: RouterProps = async (req, res) => {
       const lineItems = sessionWithLineItems.line_items;
 
       // Fulfill the purchase...
-      fulfillOrder(lineItems);
+      fulFillOrder(lineItems);
 
       break;
     default:

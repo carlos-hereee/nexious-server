@@ -16,3 +16,7 @@ export interface StripeRequestOptions {
   options?: Stripe.RequestOptions;
   account?: Stripe.AccountUpdateParams;
 }
+export interface StripeAccountRequest {
+  id: string;
+  account: Stripe.AccountUpdateParams;
+}
