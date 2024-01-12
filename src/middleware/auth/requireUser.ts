@@ -1,8 +1,8 @@
-// import type { MiddlewareProps } from "@app/express";
+import type { MiddlewareProps } from "@app/express";
 import message from "@data/error.message.json";
-import type { RequestHandler } from "express";
+// import type { RequestHandler } from "express";
 
-export const requireUser: RequestHandler = (req, res, next) => {
+export const requireUser: MiddlewareProps = (req, res, next) => {
   // check if user was found
   if (req.user) next();
   else {

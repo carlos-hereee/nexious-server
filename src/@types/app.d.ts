@@ -1,6 +1,8 @@
 import type { ObjectId } from "./db";
 import type { ILandingPage } from "./page";
 import type { Document } from "mongoose";
+import type { IUserSchema } from "./user";
+import type { Request } from "express";
 
 export interface GetAppProps {
   appId?: string;
@@ -111,4 +113,28 @@ export interface AppReqBody {
   locale: string;
   logo: string;
   email: string;
+}
+export interface UpdateAppRequest extends Request {
+  myApp: IAppSchema;
+}
+export interface AppDataRequest extends Request {
+  user: IUserSchema;
+  myApp: IAppSchema;
+}
+export interface AppRequest extends Request {
+  params: { appId: string; appName: string };
+  myApp: IAppSchema;
+  user: IUserSchema;
+  asset: string;
+  body: AppReqBody;
+}
+export interface InitAppRequest extends Request {
+  user: IUserSchema;
+  myApp?: IAppSchema;
+  asset: string;
+  body: AppReqBody;
+}
+export interface AppIdRequest {
+  params: { appId: string };
+  myApp?: IAppSchema;
 }

@@ -27,4 +27,5 @@ export const getApp = async (props: GetAppProps) => {
   if (appName) {
     return await App.findOne({ appName }).populate(includeData);
   }
+  return null;
 };

@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { port, uri, isDev } from "../config";
-import type { ExpressApp } from "app-types";
 import { MongoError } from "mongodb";
+import type { ExpressApp } from "@app/db";
 
 // mongoose no longer requires these options
 // const dbOptions = { useNewUrlParser: true, useUnifiedTopology: true };

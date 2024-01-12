@@ -6,7 +6,7 @@ import { getWithUsername } from "./getWithUsername";
 import { refreshToken } from "./refreshToken";
 import { logout } from "./logout";
 import changePassword from "./changePassword";
-import sendToken from "./sendToken";
+import { sendToken } from "./sendToken";
 import { getAccessData } from "./getAccessData";
 // custom middleware
 import {

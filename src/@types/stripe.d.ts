@@ -21,11 +21,11 @@ export interface StripeAccountRequest {
 }
 
 export interface StoreRequest {
-  store: IStoreSchema;
   myApp: IAppSchema;
   user: IUserSchema;
   body: StoreBody;
   asset: string;
+  store?: IStoreSchema;
 }
 export interface MerchRequest {
   store: IStoreSchema;

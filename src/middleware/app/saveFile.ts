@@ -1,10 +1,12 @@
-import { awsImageUrl, isDev } from "@config";
+import { awsImageUrl } from "@config";
+// import { awsImageUrl, isDev } from "@config";
 import { addFile } from "@aws/index";
 import { generateParamFile } from "@aws/awsParams";
-import type { AssetProps, IFile } from "@app/assets";
+// import type { AssetProps, IFile } from "@app/assets";
+import type { IFile } from "@app/assets";
 
 // export const saveFile: AssetProps = (file, heroData, key): string => {
-export const saveFile = (file: IFile, heroData?, key?): string => {
+export const saveFile = (file: IFile): string => {
   // try {
   //   const params = generateParamFile(file);
   //   if (params) {

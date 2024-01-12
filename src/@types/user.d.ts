@@ -30,3 +30,17 @@ export interface IUserSchema extends Document {
   ownedApps: string[];
   subscriptions: string[];
 }
+export interface InitUser {
+  username: string;
+  // password: string;
+  userId: string;
+  auth: IUserAuth;
+  email?: string;
+  phone?: number;
+}
+export interface AuthBody {
+  username: string;
+  password: string;
+  email?: string;
+  phone?: number;
+}

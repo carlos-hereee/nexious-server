@@ -1,5 +1,5 @@
 import Calendar from "@dbSchema/calendar";
 
-export = async ({ pageId }) => {
+export const removeCalendar = async ({ pageId }) => {
   return await Calendar.findOneAndDelete({ pageId });
 };

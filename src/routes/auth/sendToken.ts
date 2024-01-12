@@ -1,7 +1,7 @@
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import storeCookies from "@authUtils/storeCookies";
+import { storeCookies } from "@authUtils/storeCookies";
 
-export = (req, res) => {
+export const sendToken = (req, res) => {
   try {
     // made it through the forest, generate session cookie
     const sessionId = req.user.auth.sessionId;
