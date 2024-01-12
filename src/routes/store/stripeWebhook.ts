@@ -1,8 +1,8 @@
-import type { RouterProps } from "@app/db";
+import type { StripeRequestware } from "@app/express";
 import { getSessionWithId } from "@stripe/payments/getSessionWithId";
 import { fulFillOrder } from "@stripe/webhook/fulfillOrder";
 
-export const stripeWebhook: RouterProps = async (req, res) => {
+export const stripeWebhook: StripeRequestware = async (req, res) => {
   const event = req.stripeEvent;
   // Handle the event
   switch (event.type) {
@@ -13,7 +13,7 @@ export const stripeWebhook: RouterProps = async (req, res) => {
       // handlePaymentIntentSucceeded(paymentIntent);
       break;
     case "payment_method.attached":
-      const paymentMethod = event.data.object;
+      // const paymentMethod = event.data.object;
       // Then define and call a method to handle the successful attachment of a PaymentMethod.
       // handlePaymentMethodAttached(paymentMethod);
       break;

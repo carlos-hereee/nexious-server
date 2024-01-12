@@ -1,8 +1,8 @@
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { addFile } from "@aws/index";
-import { awsImageUrl, isDev } from "@config";
+import { awsImageUrl } from "@config";
 import { generateParamFile } from "@aws/awsParams";
-import type { MiddlewareProps } from "@app/db";
+import type { MiddlewareProps } from "@app/express";
 
 export const saveAsset: MiddlewareProps = async (req, res, next) => {
   try {

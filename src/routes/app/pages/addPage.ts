@@ -5,10 +5,10 @@ import { formatMenuPageData } from "@appUtils/format/formatMenuPageData";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { addFile } from "@aws/index";
 import { generateParamFile } from "@aws/awsParams";
-import type { AppRequestware } from "@app/db";
+import type { PageRequestware } from "@app/express";
 import type { ISection } from "@app/page";
 
-export const addPage: AppRequestware = async (req, res, next) => {
+export const addPage: PageRequestware = async (req, res, next) => {
   try {
     let { pageData, refs } = formatFormData(req.body);
     if (req.files) {
@@ -25,10 +25,12 @@ export const addPage: AppRequestware = async (req, res, next) => {
         for (let item = 0; item < refs.hasSections.length; item++) {
           const sectionHero = req.files.sectionHero[item];
           const current = refs.hasSections[item];
-          const params = generateParamFile(sectionHero);
-          if (params) {
-            await addFile(params);
-            sections.push({ ...current, sectionHero: awsImageUrl + params.Key });
+          if (sectionHero && current) {
+            const params = generateParamFile(sectionHero);
+            if (params) {
+              await addFile(params);
+              sections.push({ ...current, sectionHero: awsImageUrl + params.Key });
+            }
           }
         }
         pageData.sections = sections;
@@ -37,9 +39,9 @@ export const addPage: AppRequestware = async (req, res, next) => {
     const page = await createPage(pageData);
     const menuData = formatMenuPageData(page.name);
 
-    req.apps.pages.push(page._id);
-    req.apps.menu.push(menuData);
-    await req.apps.save();
+    req.myApp.pages.push(page._id);
+    req.myApp.menu.push(menuData);
+    await req.myApp.save();
     next();
   } catch (error) {
     useGenericErrors(res, error, "unable to add page ");

@@ -96,3 +96,14 @@ export interface IAppSchema extends Document {
   store: ObjectId;
   pages: ObjectId[];
 }
+export interface AppPayload {
+  appName: string;
+  logo: string;
+  owner: ObjectId;
+  adminIds: { userId: ObjectId; role: string }[];
+  themeList: IThemeList[];
+  appUrl: string;
+}
+export interface AppReqBody {
+  appName: string;
+}

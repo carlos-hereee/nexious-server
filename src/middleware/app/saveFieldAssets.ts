@@ -3,7 +3,7 @@ import { saveFile } from "middleware/app/saveFile";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { addFile } from "@aws/index";
 import { generateParamFiles } from "@aws/awsParams";
-import type { MiddlewareProps } from "@app/db";
+import type { MiddlewareProps } from "@app/express";
 
 export const saveFieldAssets: MiddlewareProps = async (req, res, next) => {
   try {

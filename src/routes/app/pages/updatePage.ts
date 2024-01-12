@@ -5,7 +5,7 @@ import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { addFile } from "@aws/index";
 import { generateParamFile } from "@aws/awsParams";
 import { getPages } from "@dbModels/page/getPages";
-import type { MiddlewareProps } from "@app/db";
+import type { MiddlewareProps } from "@app/express";
 import type { ISection } from "@app/page";
 
 export const updatePage: MiddlewareProps = async (req, res, next) => {
@@ -43,11 +43,11 @@ export const updatePage: MiddlewareProps = async (req, res, next) => {
       // if (refs.hasCta) page.cta = refs.hasCta;
       // // update page name on menu
       // const pageName = pageData.name;
-      // const pageIdx = req.apps.menu.findIndex((m) => m.isPage && m.name === pageName);
+      // const pageIdx = req.myApp.menu.findIndex((m) => m.isPage && m.name === pageName);
       // if (pageIdx >= 0) {
       //   const menuData = formatMenuPageData(pageName);
-      //   req.apps.menu[pageIdx] = menuData;
-      //   await req.apps.save();
+      //   req.myApp.menu[pageIdx] = menuData;
+      //   await req.myApp.save();
       // }
 
       // await page.save();

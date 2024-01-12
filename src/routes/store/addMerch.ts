@@ -2,7 +2,7 @@ import { createMerch } from "@dbModels/merch/createMerch";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { addPrice } from "@stripe/merch/addPrice";
 import { addProduct } from "@stripe/merch/addProduct";
-import type { MiddlewareProps } from "@app/db";
+import type { MiddlewareProps } from "@app/express";
 
 type MerchBodyProps = {
   name: string;

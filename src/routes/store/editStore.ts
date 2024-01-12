@@ -1,4 +1,4 @@
-import type { MiddlewareProps } from "@app/db";
+import type { MiddlewareProps } from "@app/express";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 
 export const editStore: MiddlewareProps = async (req, res, next) => {

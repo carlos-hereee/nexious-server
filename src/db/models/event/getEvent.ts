@@ -1,5 +1,6 @@
 import Events from "@dbSchema/events";
-export = async ({ appId, languageId }) => {
+
+export const getEvents = async ({ appId, languageId }) => {
   if (languageId) {
     return await Events.find({ appId, languageId });
   }

@@ -1,11 +1,11 @@
 import { saveUser } from "@dbModels/users/saveUser";
-import random from "@authUtils/random";
-import generateHash from "@authUtils/generateHash";
+import { random } from "@authUtils/random";
+import { generateHash } from "@authUtils/generateHash";
 import { v4 } from "uuid";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import type { MiddlewareProps } from "@app/db";
+import type { UserRequestware } from "@app/express";
 
-export const register: MiddlewareProps = async (req, res, next) => {
+export const register: UserRequestware = async (req, res, next) => {
   try {
     // key variables
     const username = req.body.username;

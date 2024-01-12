@@ -7,7 +7,6 @@ import { validateAdmin } from "../../middleware/app/validateAdmin";
 import { requireUser } from "../../middleware/auth";
 import { getStoreWithAppId } from "../../middleware/store/getStoreWithAppId";
 import { requireStore } from "../../middleware/store/requireStore";
-import uploadSingle from "@authUtils/multer/uploadSingle";
 import { minAppData } from "../app/getApp/minAppData";
 import { addMerch } from "./addMerch";
 import { addStore } from "./addStore";
@@ -20,10 +19,11 @@ import { getConfirmation } from "./getConfirmation";
 import { stripeWebhook } from "./stripeWebhook";
 import { initHook } from "@stripe/webhook/initHook";
 import { removeStore } from "./removeStore";
-import getStoreMerch from "./getStoreMerch";
+import { getStoreMerch } from "./getStoreMerch";
 import { removeMerchendise } from "./removeMerch";
 import { getStoreWithName } from "./getStoreWithName";
-import getStripeAccount from "./getStripeAccount";
+import { getStripeAccount } from "./getStripeAccount";
+import { uploadSingle } from "@aws/multer";
 
 const route = router.Router();
 
@@ -55,4 +55,4 @@ route.put("/update-merch/:appId/:merchId", storeWare, editMerch, minAppData);
 route.delete("/remove-store/:appId", removalWare, removeStore, minAppData);
 route.delete("/remove-merch/:appId/:merchId", merchWare, removeMerchendise, minAppData);
 
-export = route;
+export default route;

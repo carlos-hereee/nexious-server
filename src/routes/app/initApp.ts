@@ -3,9 +3,9 @@ import { createApp } from "@dbModels/app/createApp";
 // import formatThemeList  from "@authUtils/app/format/formatThemeList";
 // import formatLanguageList  from "@authUtils/app/format/formatLanguageList";
 import themeList from "@data/app/themeList.json";
-import type { AppRequestware } from "@app/db";
+import type { InitAppRequestware } from "@app/express";
 
-export const initApp: AppRequestware = async (req, res, next) => {
+export const initApp: InitAppRequestware = async (req, res, next) => {
   try {
     // key variables
     const appName = req.body.appName;
@@ -17,7 +17,7 @@ export const initApp: AppRequestware = async (req, res, next) => {
     // const themeLis
     const app = await createApp({ appName, logo, owner, adminIds, themeList, appUrl });
     // add user permissions
-    req.apps = app;
+    req.myApp = app;
     req.user.ownedApps.push(app._id);
     req.user.permissions.push({ appId: app._id, role: "owner" });
     await req.user.save();

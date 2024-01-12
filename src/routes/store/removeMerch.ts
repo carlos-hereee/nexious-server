@@ -1,6 +1,6 @@
 import { removeMerch } from "@dbModels/merch/removeMerch";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import type { MiddlewareProps } from "@app/db";
+import type { MiddlewareProps } from "@app/express";
 
 export const removeMerchendise: MiddlewareProps = async (req, res, next) => {
   try {

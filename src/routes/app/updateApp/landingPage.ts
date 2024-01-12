@@ -1,4 +1,4 @@
-import type { MiddlewareProps } from "@app/db";
+import type { MiddlewareProps } from "@app/express";
 import type { ISection } from "@app/page";
 import { formatFormData } from "@appUtils/format/formatFormData";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
@@ -8,15 +8,15 @@ export const updateLandingPage: MiddlewareProps = async (req, res, next) => {
     let { pageData, refs } = formatFormData(req.body);
 
     // update landing
-    req.apps.landing.title = pageData.title;
-    req.apps.landing.tagline = pageData.tagline;
-    req.apps.landing.body = pageData.body;
-    req.apps.landing.hasCta = pageData.hasCta;
-    req.apps.landing.hasSections = pageData.hasSections;
-    if (refs.hasCta) req.apps.landing.cta = refs.hasCta;
+    req.myApp.landing.title = pageData.title;
+    req.myApp.landing.tagline = pageData.tagline;
+    req.myApp.landing.body = pageData.body;
+    req.myApp.landing.hasCta = pageData.hasCta;
+    req.myApp.landing.hasSections = pageData.hasSections;
+    if (refs.hasCta) req.myApp.landing.cta = refs.hasCta;
     if (req.assets) {
       // update asset data
-      if (req.assets.hero) req.apps.landing.hero = req.assets.hero;
+      if (req.assets.hero) req.myApp.landing.hero = req.assets.hero;
       if (refs.hasSections) {
         if (req.assets.sectionHero.length > 0 && refs.hasSections?.length > 0) {
           // TODO:  match asset data to section data
@@ -26,12 +26,12 @@ export const updateLandingPage: MiddlewareProps = async (req, res, next) => {
               const element = refs.hasSections[item];
               sections.push({ ...element, sectionHero: req.assets.sectionHero[item] });
             }
-            req.apps.landing.sections = sections;
+            req.myApp.landing.sections = sections;
           }
         }
       }
     }
-    await req.apps.save();
+    await req.myApp.save();
     next();
   } catch (error) {
     useGenericErrors(res, error, "error occured updating lading page");

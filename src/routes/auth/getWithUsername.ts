@@ -1,6 +1,6 @@
 import getUserAuth from "@dbModels/users/getUserAuth";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import type { RouterProps } from "@app/db";
+import type { RouterProps } from "@app/express";
 
 export const getWithUsername: RouterProps = async (req, res) => {
   try {

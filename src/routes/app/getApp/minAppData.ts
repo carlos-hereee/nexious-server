@@ -2,13 +2,12 @@ import { getApp } from "@dbModels/app/getApp";
 // import getStore  from  "@dbModels/store/getStore";
 import { getUser } from "@dbModels/users/getUser";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import type { AppRequestware } from "@app/db";
-
+import type { AppRequestware } from "@app/express";
 export const minAppData: AppRequestware = async (req, res) => {
   try {
     // key varialbles
     const userId = req.user.userId;
-    const appName = req.apps.appName;
+    const appName = req.myApp.appName;
 
     const appList = await getApp({ all: true });
     const user = await getUser({ userId });

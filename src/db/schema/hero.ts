@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import toLower from "@appUtils/lowerCase";
+import { toLowerCase } from "@appUtils/lowerCase";
 import { v4 } from "uuid";
 
 const Schema = mongoose.Schema;
@@ -13,7 +13,7 @@ const heroSchema = new Schema(
     url: { type: String },
     alt: { type: String },
     link: { type: String },
-    icon: { type: String, set: toLower },
+    icon: { type: String, set: toLowerCase },
     name: { type: String },
     label: { type: String },
     ping: { type: Number },

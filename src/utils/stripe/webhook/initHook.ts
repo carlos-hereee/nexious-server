@@ -1,6 +1,6 @@
 import { stripeErrorHandling } from "@stripe/errors";
 import { constructEvent } from "./constructEvent";
-import type { StripeRequestware } from "@app/db";
+import type { StripeRequestware } from "@app/express";
 
 export const initHook: StripeRequestware = async (req, res, next) => {
   try {

@@ -4,9 +4,9 @@ import { awsBucketName } from "@config";
 const generateParamFile = (file: IFile): AWSAssetParams => {
   return {
     Bucket: awsBucketName,
-    Key: Date.now() + "-" + file?.originalname,
-    Body: file?.buffer,
-    ContentType: file?.mimetype,
+    Key: Date.now() + "-" + file.originalname,
+    Body: file.buffer,
+    ContentType: file.mimetype,
   };
 };
 const generateParamFiles = (files: IFile[]) => {

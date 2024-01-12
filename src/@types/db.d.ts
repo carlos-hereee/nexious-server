@@ -1,8 +1,8 @@
 import type { Schema } from "mongoose";
-import type { Express, NextFunction, Request, Response } from "express";
+import type { Express, Request } from "express";
 import type Stripe from "stripe";
 import type { IUserSchema } from "./user";
-import type { IAppSchema } from "./app";
+import type { AppReqBody, IAppSchema } from "./app";
 import type { IFile } from "./assets";
 import type { IPage } from "./page";
 
@@ -47,9 +47,9 @@ export interface MiddlewareRequest extends Request {
   // undefined properties because they have yet to be included
   page?: IPage;
   stripeEvent?: Stripe.Event;
-  user?: IUserSchema;
+  user?: IUserSchema | null;
   cart?: any;
-  apps?: IAppSchema;
+  myApp?: IAppSchema;
   asset?: string;
   file?: IFile;
   calendar?: any;
@@ -65,20 +65,21 @@ export interface StripeRequest extends Request {
   stripeEvent: Stripe.Event;
 }
 export interface AppRequest extends Request {
-  apps: IAppSchema;
-  asset: string;
+  params: { appId: string };
+  myApp: IAppSchema;
   user: IUserSchema;
+  asset: string;
+  body: AppReqBody;
+}
+export interface InitAppRequest extends Request {
+  myApp?: IAppSchema;
+  user: IUserSchema;
+  asset: string;
+  body: AppReqBody;
+}
+export interface PageRequest extends Request {
+  asset: string;
+  params: { appId: string; pageId: string };
+  myApp: IAppSchema;
   files: { hero: IFile; sectionHero: IFile[] };
 }
-// custom middleware error handling
-export type GenericErrorProps = (res: Response, error: unknown, message: string) => void;
-// generic express props
-export type RouterProps = (req: Request, res: Response) => void;
-// initial middleware props
-export type MiddlewareProps = (req: MiddlewareRequest, res: Response, next: NextFunction) => void;
-// after successful user middleware
-export type UserRequestware = (req: UserRequest, res: Response, next: NextFunction) => void;
-// after successful stripe middleware
-export type StripeRequestware = (req: StripeRequest, res: Response, next: NextFunction) => void;
-// after successful app middleware
-export type AppRequestware = (req: AppRequest, res: Response, next: NextFunction) => void;

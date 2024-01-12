@@ -3,7 +3,7 @@
 // import { formatFormData } from "@appUtils/format/formatFormData";
 // // import updateApp from "@dbModels/app/updateApp";
 // import { getApp } from "@dbModels/app/getApp";
-// import type { RouterProps } from "@app/db";
+// import type { RouterProps } from "@app/express";
 
 // export const landingPageWithSection: RouterProps = async (req, res) => {
 //   const hero = req.file;
@@ -20,8 +20,8 @@
 //     cta: ctaHero.upsertedId,
 //     sections: sectionHero.upsertedId,
 //   };
-//   await updateApp({ appId: req.apps.appId }, { landing: appPayload });
+//   await updateApp({ appId: req.myApp.appId }, { landing: appPayload });
 //   // finally send app data
-//   const app = await getApp({ appId: req.apps.appId });
+//   const app = await getApp({ appId: req.myApp.appId });
 //   res.status(200).json(app).end();
 // };

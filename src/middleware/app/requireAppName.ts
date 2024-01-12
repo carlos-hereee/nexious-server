@@ -1,4 +1,4 @@
-import type { MiddlewareProps } from "@app/db";
+import type { MiddlewareProps } from "@app/express";
 import message from "@data/error.message.json";
 
 export const requireAppName: MiddlewareProps = (req, res, next) => {

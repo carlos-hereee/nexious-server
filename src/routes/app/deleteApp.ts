@@ -1,6 +1,6 @@
 import { removeApp } from "@dbModels/app/removeApp";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import type { MiddlewareProps } from "@app/db";
+import type { MiddlewareProps } from "@app/express";
 
 export const deleteApp: MiddlewareProps = async (req, res, next) => {
   try {

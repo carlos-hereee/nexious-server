@@ -1,7 +1,7 @@
 import { getApp } from "@dbModels/app/getApp";
 import { getStore } from "@dbModels/store/getStore";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import type { RouterProps } from "@app/db";
+import type { RouterProps } from "@app/express";
 // import type { IAppSchema } from "@app/db";
 
 export const getStoreWithName: RouterProps = async (req, res) => {

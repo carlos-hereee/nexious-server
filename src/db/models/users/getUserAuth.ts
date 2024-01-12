@@ -16,4 +16,5 @@ export const getUserAuth = async (props: GetUserProps) => {
       select: "appId appName owner adminIds logo themeList",
     });
   }
+  return null;
 };

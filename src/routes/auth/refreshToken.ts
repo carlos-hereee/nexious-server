@@ -1,10 +1,10 @@
 // import getUser  from "@dbModels/users/getUser";
-import makeSession from "@authUtils/makeSession";
+import { makeSession } from "@authUtils/makeSession";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import storeCookies from "@authUtils/storeCookies";
-import type { RouterProps } from "@app/db";
+import { storeCookies } from "@authUtils/storeCookies";
+import type { UserRequestware } from "@app/express";
 
-export const refreshToken: RouterProps = async (req, res) => {
+export const refreshToken: UserRequestware = async (req, res) => {
   try {
     // access granted: generate new sessionId
     const sessionId = makeSession(req.user.userId);

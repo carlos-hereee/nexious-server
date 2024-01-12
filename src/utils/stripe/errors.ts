@@ -1,4 +1,4 @@
-import type { GenericErrorProps } from "@app/db";
+import type { GenericErrorProps } from "@app/express";
 import { isDev } from "@config";
 import stripe from "stripe";
 

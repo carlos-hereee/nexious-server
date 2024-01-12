@@ -1,5 +1,5 @@
 import { updateUser } from "@dbModels/users/updateUser";
-import type { RouterProps } from "@app/db";
+import type { RouterProps } from "@app/express";
 import resetCookies from "@authUtils/resetCookies";
 
 export const logout: RouterProps = async (req, res) => {

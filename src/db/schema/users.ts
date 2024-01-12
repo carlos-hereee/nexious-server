@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import toLower from "@appUtils/lowerCase";
+import { toLowerCase } from "@appUtils/lowerCase";
 import { v4 } from "uuid";
 import type { IUserSchema } from "@app/user";
 
@@ -8,7 +8,7 @@ const userSchema = new Schema<IUserSchema>(
   {
     userId: { type: String, require: true, unique: true, default: v4 },
     username: { type: String, require: true, unique: true },
-    email: { type: String, set: toLower },
+    email: { type: String, set: toLowerCase },
     nickname: { type: String },
     phone: { type: Number },
     locale: { type: String },
