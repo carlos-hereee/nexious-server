@@ -1,9 +1,9 @@
-import type { MiddlewareProps } from "@app/express";
+import type { UpdateAppRequestware } from "@app/express";
 import type { ISection } from "@app/page";
 import { formatFormData } from "@appUtils/format/formatFormData";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 
-export const updateLandingPage: MiddlewareProps = async (req, res, next) => {
+export const updateLandingPage: UpdateAppRequestware = async (req, res, next) => {
   try {
     let { pageData, refs } = formatFormData(req.body);
 
@@ -24,7 +24,9 @@ export const updateLandingPage: MiddlewareProps = async (req, res, next) => {
             const sections: ISection[] = [];
             for (let item = 0; item < refs.hasSections.length; item++) {
               const element = refs.hasSections[item];
-              sections.push({ ...element, sectionHero: req.assets.sectionHero[item] });
+              if (element && typeof req.assets.sectionHero[item] === "string") {
+                sections.push({ ...element, sectionHero: req.assets.sectionHero[item] || "" });
+              }
             }
             req.myApp.landing.sections = sections;
           }

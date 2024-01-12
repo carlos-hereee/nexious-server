@@ -1,4 +1,4 @@
-import getUserAuth from "@dbModels/users/getUserAuth";
+import { getUserAuth } from "@dbModels/users/getUserAuth";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import type { RouterProps } from "@app/express";
 

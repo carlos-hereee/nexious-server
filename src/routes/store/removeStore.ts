@@ -1,9 +1,9 @@
 import { deleteStore } from "@dbModels/store/deleteStore";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { removeAccount } from "@stripe/accounts/removeAccount";
-import type { AppRequestware } from "@app/express";
+import type { StoreRequestWare } from "@app/express";
 
-export const removeStore: AppRequestware = async (req, res, next) => {
+export const removeStore: StoreRequestWare = async (req, res, next) => {
   try {
     // remove store from app menu
     req.myApp.menu = req.myApp.menu.filter((m) => m.name !== req.store.name);

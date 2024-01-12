@@ -5,45 +5,40 @@ import type { IUserSchema } from "./user";
 import type { AppReqBody, IAppSchema } from "./app";
 import type { IFile } from "./assets";
 import type { IPage } from "./page";
+import type { IStoreSchema } from "./store";
 
 export type ObjectId = Schema.Types.ObjectId;
 export type ExpressApp = Express;
 
-// declare global {
-//   namespace Express {
-//     interface Request {
-//       // params cannot be initialy undefined
-//       params: {
-//         appId: string;
-//         appName: string;
-//         username: string;
-//         pageId: string;
-//         assetId: string;
-//       };
-//       // undefined properties because they have yet to be included
-//       page?: IPage;
-//       stripeEvent?: Stripe.Event;
-//       user?: IUserSchema;
-//       cart?: any;
-//       apps?: IAppSchema;
-//       asset?: string;
-//       file?: IFile;
-//       calendar?: any;
-//       assets?: { hero: string; sectionHero: string[] };
-//       files?: { hero: IFile; sectionHero: IFile[] };
-//     }
-//   }
-// }
+export {};
+declare global {
+  namespace Express {
+    interface Request {
+      // params cannot be initialy undefined
+      params: {
+        appId: string;
+        appName: string;
+        username: string;
+        pageId: string;
+        assetId: string;
+      };
+      // undefined properties because they have yet to be included
+      page?: IPage;
+      stripeEvent?: Stripe.Event;
+      user?: IUserSchema | null;
+      store?: IStoreSchema | null;
+      cart?: any;
+      myApp?: IAppSchema | null;
+      asset?: string;
+      file?: IFile;
+      calendar?: any;
+      assets?: { hero: string; sectionHero: string[] };
+      files?: { hero: IFile; sectionHero: IFile[] };
+    }
+  }
+}
 // define initial custom properties
 export interface MiddlewareRequest extends Request {
-  // params cannot be initialy undefined
-  params: {
-    appId: string;
-    appName: string;
-    username: string;
-    pageId: string;
-    assetId: string;
-  };
   // undefined properties because they have yet to be included
   page?: IPage;
   stripeEvent?: Stripe.Event;
@@ -53,6 +48,7 @@ export interface MiddlewareRequest extends Request {
   asset?: string;
   file?: IFile;
   calendar?: any;
+  store?: IStoreSchema | null;
   assets?: { hero: string; sectionHero: string[] };
   files?: { hero: IFile; sectionHero: IFile[] };
 }
@@ -64,17 +60,24 @@ export interface UserRequest extends Request {
 export interface StripeRequest extends Request {
   stripeEvent: Stripe.Event;
 }
+export interface UpdateAppRequest extends Request {
+  myApp: IAppSchema;
+}
+export interface AppDataRequest extends Request {
+  user: IUserSchema;
+  myApp: IAppSchema;
+}
 export interface AppRequest extends Request {
-  params: { appId: string };
+  params: { appId: string; appName: string };
   myApp: IAppSchema;
   user: IUserSchema;
   asset: string;
   body: AppReqBody;
 }
 export interface InitAppRequest extends Request {
-  myApp?: IAppSchema;
-  user: IUserSchema;
-  asset: string;
+  user?: IUserSchema | null;
+  myApp?: IAppSchema | null;
+  asset?: string;
   body: AppReqBody;
 }
 export interface PageRequest extends Request {

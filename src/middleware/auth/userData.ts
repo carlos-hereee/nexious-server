@@ -1,8 +1,8 @@
-import getUser from "@dbModels/users/getUser";
+import { getUser } from "@dbModels/users/getUser";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import type { RouterProps } from "@app/express";
+import type { UserRequestware } from "@app/express";
 
-export const userData: RouterProps = async (req, res) => {
+export const userData: UserRequestware = async (req, res) => {
   try {
     const userId = req.user.userId;
     const user = await getUser({ userId });

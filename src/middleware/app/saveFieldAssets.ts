@@ -7,22 +7,22 @@ import type { MiddlewareProps } from "@app/express";
 
 export const saveFieldAssets: MiddlewareProps = async (req, res, next) => {
   try {
-    req.assets = { hero: "", sectionHero: [] };
     // check if files exists
     if (req.files) {
+      req.assets = { hero: "", sectionHero: [] };
       // save landing hero if exists
-      if (req.files.hero?.length > 0) {
+      if (req.files.hero) {
         const url = saveFile(req.files.hero[0]);
-        req.asset.hero = url;
+        req.assets.hero = url;
       }
       // save sectionHero if exists
       if (req.files.sectionHero?.length > 0) {
         // generate params first
         const params = generateParamFiles(req.files.sectionHero);
         // save file
-        params.forEach(async (param) => await addFile(param));
+        params.forEach((param) => addFile(param));
         // while files are being added to bucket format urls
-        req.asset.sectionHero = params.map((p) => awsImageUrl + p.Key);
+        req.assets.sectionHero = params.map((p) => awsImageUrl + p.Key);
       }
     }
     next();

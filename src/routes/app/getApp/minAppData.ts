@@ -1,9 +1,9 @@
 import { getApp } from "@dbModels/app/getApp";
-// import getStore  from  "@dbModels/store/getStore";
 import { getUser } from "@dbModels/users/getUser";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import type { AppRequestware } from "@app/express";
-export const minAppData: AppRequestware = async (req, res) => {
+import type { MinAppDataRequest } from "@app/express";
+
+export const minAppData: MinAppDataRequest = async (req, res) => {
   try {
     // key varialbles
     const userId = req.user.userId;

@@ -5,6 +5,7 @@ import type {
   PutObjectCommandOutput,
   S3,
 } from "@aws-sdk/client-s3";
+import type { Request } from "express";
 
 export interface IFile {
   fieldname: string;
@@ -38,6 +39,11 @@ export interface AWSFileProps {
   params: PutObjectCommandInput | DeleteObjectCommandInput;
   // bucketName: string;
 }
+export type MulterFileFilter = (
+  req: Request,
+  file: IFile,
+  cb: (key: Error | null, pass?: boolean) => void
+) => void;
 export interface AWSMultiFileUploadProps {
   s3: S3;
   files: AWSAssetParams[];

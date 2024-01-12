@@ -1,6 +1,7 @@
+import type { MulterFileFilter } from "@app/assets";
 import multer from "multer";
 
-const fileFilter = (_req, file, cb) => {
+const fileFilter: MulterFileFilter = (_req, file, cb) => {
   // no mimetype detected
   if (!file.mimetype) return cb(new Error("no file mimetype detected"));
   const safeFiles = ["png", "image/svg+xml", "jpg"];

@@ -1,4 +1,5 @@
 // import getMerch  from "@dbModels/merch/getMerch";
+import type { MiddlewareProps } from "@app/express";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 
 export const getCartMerch: MiddlewareProps = (req, res, next) => {

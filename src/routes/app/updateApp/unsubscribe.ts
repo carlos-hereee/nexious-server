@@ -1,7 +1,7 @@
-import type { MiddlewareProps } from "@app/express";
+import type { AppRequestware } from "@app/express";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 
-export const unsubscribe: MiddlewareProps = async (req, res, next) => {
+export const unsubscribe: AppRequestware = async (req, res, next) => {
   try {
     req.user.subscriptions = req.user.subscriptions.filter((sub) => sub !== req.myApp._id);
     await req.user.save();

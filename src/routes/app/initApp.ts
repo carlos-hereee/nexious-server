@@ -11,7 +11,7 @@ export const initApp: InitAppRequestware = async (req, res, next) => {
     const appName = req.body.appName;
     const owner = req.user._id;
     const appUrl = "app/" + appName.split(" ").join("+");
-    const logo = req.asset;
+    const logo = req.asset || "";
     // const logo = { url: req.asset, alt: appName + " industry brand", link: appUrl };
     const adminIds = [{ userId: owner, role: "owner" }];
     // const themeLis

@@ -2,9 +2,9 @@ import { isDev, accessTokenName, refreshTokenName } from "@config";
 import { getUserAuth } from "@dbModels/users/getUserAuth";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { verifyJWT } from "@authUtils/verifyJWT";
-import type { MiddlewareProps } from "@app/express";
+import type { RequestHandler } from "express";
 
-export const deserializeUser: MiddlewareProps = async (req, res, next) => {
+export const deserializeUser: RequestHandler = async (req, res, next) => {
   try {
     // key variables
     const accessToken = req.cookies[accessTokenName];

@@ -1,3 +1,4 @@
+import type { MiddlewareProps } from "@app/express";
 import msg from "@data/error.message.json";
 
 export const authenticateUser: MiddlewareProps = (req, res, next) => {

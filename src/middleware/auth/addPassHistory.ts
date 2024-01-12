@@ -1,3 +1,4 @@
+import type { MiddlewareProps } from "@app/express";
 import messages from "@data/error.message.json";
 
 export const addPassHistory: MiddlewareProps = (req, res, next) => {

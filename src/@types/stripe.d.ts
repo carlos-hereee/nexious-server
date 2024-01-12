@@ -1,9 +1,8 @@
-import type { IStoreSchema } from "./store";
+import type { IAppSchema } from "./app";
+import type { IStoreSchema, MerchBody, StoreBody } from "./store";
 import type Stripe from "stripe";
+import type { IUserSchema } from "./user";
 
-export interface StoreRequest {
-  store: IStoreSchema;
-}
 export interface StripeTransferRequest {
   id: string;
   amount: number;
@@ -19,4 +18,19 @@ export interface StripeRequestOptions {
 export interface StripeAccountRequest {
   id: string;
   account: Stripe.AccountUpdateParams;
+}
+
+export interface StoreRequest {
+  store: IStoreSchema;
+  myApp: IAppSchema;
+  user: IUserSchema;
+  body: StoreBody;
+  asset: string;
+}
+export interface MerchRequest {
+  store: IStoreSchema;
+  myApp: IAppSchema;
+  user: IUserSchema;
+  body: MerchBody;
+  asset: string;
 }

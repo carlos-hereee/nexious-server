@@ -106,4 +106,9 @@ export interface AppPayload {
 }
 export interface AppReqBody {
   appName: string;
+  theme: string;
+  language: string;
+  locale: string;
+  logo: string;
+  email: string;
 }

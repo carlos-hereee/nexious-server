@@ -49,3 +49,17 @@ export interface IStoreSchema extends Document {
   // inventory: IMerchSchema[];
   inventory: string[];
 }
+export interface MerchBody {
+  name: string;
+  description: string;
+  inStock: number;
+  cost: number;
+  hero: string;
+}
+export interface StoreBody {
+  name: string;
+  email: string;
+  title: string;
+  body: string;
+  pageName: string;
+}

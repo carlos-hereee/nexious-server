@@ -1,8 +1,8 @@
 import { removeApp } from "@dbModels/app/removeApp";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import type { MiddlewareProps } from "@app/express";
+import type { UserRequestware } from "@app/express";
 
-export const deleteApp: MiddlewareProps = async (req, res, next) => {
+export const deleteApp: UserRequestware = async (req, res, next) => {
   try {
     const appId = req.params.appId;
     // if match remove from owned app

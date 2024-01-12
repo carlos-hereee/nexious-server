@@ -1,11 +1,11 @@
-import createStore from "@dbModels/store/createStore";
-import formatMenuPageData from "@appUtils/format/formatMenuPageData";
+import { createStore } from "@dbModels/store/createStore";
+import { formatMenuPageData } from "@appUtils/format/formatMenuPageData";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { addAccount } from "@stripe/accounts/addAccount";
 import message from "@data/error.message.json";
-import type { MiddlewareProps } from "@app/express";
+import type { StoreRequestWare } from "@app/express";
 
-export const addStore: MiddlewareProps = async (req, res, next) => {
+export const addStore: StoreRequestWare = async (req, res, next) => {
   try {
     // key variables
     const { name, title, body, pageName } = req.body;
