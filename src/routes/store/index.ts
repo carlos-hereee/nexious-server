@@ -4,7 +4,7 @@ import bodyParser from "body-parser";
 import { getAppWithAppId } from "../../middleware/app/getAppWithAppId";
 import { saveAsset } from "../../middleware/app/saveAsset";
 import { validateAdmin } from "../../middleware/app/validateAdmin";
-import { requireUser } from "../../middleware/auth";
+import { requireUser } from "../.@authWare";
 import { getStoreWithAppId } from "../../middleware/store/getStoreWithAppId";
 import { requireStore } from "../../middleware/store/requireStore";
 import { minAppData } from "../app/getApp/minAppData";

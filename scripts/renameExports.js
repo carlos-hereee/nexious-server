@@ -2,11 +2,10 @@ const readDir = require("./helpers/node/readDir");
 const renameExport = require("./helpers/node/renameExport");
 const updateFile = require("./helpers/node/updateFile");
 
-const excludedDirectories = ["data"];
 const target = `export = async`;
 
 // recursively rename imports
-const renameExports = async (sourcePath) => {
+const renameExports = async (sourcePath, excludedDirectories) => {
   const dir = await readDir(sourcePath);
   if (dir) {
     for (let file of dir) {
@@ -23,4 +22,4 @@ const renameExports = async (sourcePath) => {
 };
 
 console.log("\n:>>> Starting script\n");
-renameExports("./src");
+await renameExports("./src", ["data"]);

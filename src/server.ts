@@ -3,10 +3,10 @@ import cors from "cors";
 import dotenv from "dotenv";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
-import routes from "./routes";
-import { connectMongoose } from "./db/connectMongoose";
+import routes from "@routes/index.js";
+import { connectMongoose } from "@db/connectMongoose.js";
 import { clientUrl, clientUrlAlt, allowedMethods } from "@config";
-import { deserializeUser } from "./middleware/auth";
+import { deserializeUser } from "@authWare/index.js";
 
 // configure envs
 dotenv.config();

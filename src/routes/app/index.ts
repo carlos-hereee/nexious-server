@@ -1,7 +1,7 @@
 import router from "express";
 import { requireApp } from "../../middleware/app";
 import { saveAsset } from "../../middleware/app/saveAsset";
-import { requireUser } from "../../middleware/auth";
+import { requireUser } from "../.@authWare";
 import { validateAdmin } from "../../middleware/app/validateAdmin";
 import { addPage } from "./pages/addPage";
 import { deleteApp } from "./deleteApp";

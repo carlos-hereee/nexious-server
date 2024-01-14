@@ -1,13 +1,13 @@
+import type { Request, Express, Response } from "express";
 import authRoute from "./auth";
 import appRoute from "./app";
 // import calendarRoute from "./calendar";
 import storeRoute from "./store";
 import { port } from "@config";
-import type { ExpressApp } from "@app/db";
 
-export default (app: ExpressApp) => {
+export default (app: Express) => {
   // initial test route
-  app.get("/", (_req, res) => {
+  app.get("/", (_req: Request, res: Response) => {
     res.status(200).json(`api is running on ${port}`).end();
   });
   // authentication route for login and access/refresh tokens
