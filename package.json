@@ -9,6 +9,7 @@
     "renameTs": "bash scripts/rename_ext.sh src 'js' 'ts'",
     "renameImport": "node scripts/renameImports.js",
     "renameExport": "node scripts/renameExports.js",
+    "addJsExt": "node scripts/addJsExt.js",
     "ts-lint": "tsc",
     "ts-watch": "tsc -w",
     "dev": "nodemon src/server.ts",

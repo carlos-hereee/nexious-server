@@ -1,4 +1,4 @@
-const fs = require("fs/promises");
+import fs from "fs/promises";
 const matchString = require("./matchString");
 
 module.exports = async ({ filePath, pattern, cb }) => {

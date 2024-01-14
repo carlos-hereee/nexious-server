@@ -1,7 +1,10 @@
-const authorsPen = require("./helpers/node/authorsPen");
+import { authorsPen } from "./helpers/node/authorsPen.js";
 // const readDir = require("./helpers/node/readDir");
 
-const addJsExt = async (filePath, pattern) => {
+const addJsExt = (filePath, pattern) => {
+  const path = filePath.split("/");
+  const fileName = path[path.length - 1];
+
   //   // log results
   //   const results = {};
   //   // read files and directories in path
@@ -22,22 +25,19 @@ const addJsExt = async (filePath, pattern) => {
   //     }
   //   }
   //   return results;
+  // console.log("fileName :>> ", fileName);
+  // return `Made file changes to ${fileName}`;
 };
 const main = async () => {
   const sourcePaths = ["src"];
-  const excludeFiles = ["server", "config"];
+  const excludedFiles = ["server", "config", "data", "@types"];
   const target = ".ts";
-  // const pattern = "";
-  const logger = {};
-
+  let logger = {};
   // search each desired directory
   for (let num = 0; num < sourcePaths.length; num++) {
     const currentPath = sourcePaths[num];
     console.log("starting search on :>> ", currentPath);
-    const result = await authorsPen({ currentPath, excludeFiles, target, cb: (e) => addJsExt(e) });
-    // add results to logger
-    if (!logger[currentPath]) logger[currentPath] = { 0: result };
-    else logger[currentPath][logger.current.length] = result;
+    await authorsPen({ excludedFiles, currentPath, target, logger, cb: (e) => addJsExt(e) });
   }
   console.log("Changes made :>> ", logger);
 };

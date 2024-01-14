@@ -1,6 +1,6 @@
-const fs = require("fs/promises");
+import fs from "fs/promises";
 
-module.exports = async (directoryPath) => {
+export const readDir = async (directoryPath) => {
   try {
     return await fs.readdir(directoryPath);
   } catch (error) {
