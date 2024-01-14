@@ -1,7 +1,7 @@
 import type { GetUserProps } from "@app/user";
 import Users from "@dbSchema/users";
 
-export const getUser = async ({ username, email, userId, all, appId }: GetUserProps) => {
+export const getUser = async ({ username, email, userId }: GetUserProps) => {
   if (username) {
     return await Users.findOne({ username });
   }
@@ -16,6 +16,10 @@ export const getUser = async ({ username, email, userId, all, appId }: GetUserPr
   if (email) {
     return await Users.findOne({ email });
   }
+
+  // return null;
+};
+export const getAllUsers = async ({ all, appId }: GetUserProps) => {
   if (appId) {
     return await Users.find({ appId });
   }

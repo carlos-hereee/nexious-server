@@ -13,6 +13,7 @@ export const formatFormData = (data: IPage) => {
     cta: [],
     sections: [],
     tagline: "",
+    details: "",
   };
   let refs: RefsProps = {};
   Object.keys(data).forEach((key) => {

@@ -58,6 +58,7 @@ export interface PageDataProps {
   hero: string;
   tagline: string;
   subtitle: string;
+  details: string;
   hasMedias: boolean;
   hasCta: boolean;
   hasSections: boolean;

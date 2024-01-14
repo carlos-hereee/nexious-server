@@ -1,8 +1,8 @@
 import message from "@data/error.message.json";
 import { generateHash } from "@authUtils/generateHash";
-import type { MiddlewareProps } from "@app/express";
+import type { RequestHandler } from "express";
 
-export const authenticatePassword: MiddlewareProps = (req, res, next) => {
+export const authenticatePassword: RequestHandler = (req, res, next) => {
   // key variable
   const password = req.body.password || req.body.oldPassword;
   if (req.user) {

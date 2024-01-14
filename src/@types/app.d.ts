@@ -2,7 +2,7 @@ import type { ObjectId } from "./db";
 import type { ILandingPage } from "./page";
 import type { Document } from "mongoose";
 import type { IUserSchema } from "./user";
-import type { Request } from "express";
+import type { Request, NextFunction, Response } from "express";
 
 export interface GetAppProps {
   appId?: string;
@@ -122,7 +122,7 @@ export interface AppDataRequest extends Request {
   myApp: IAppSchema;
 }
 export interface AppRequest extends Request {
-  params: { appId: string; appName: string };
+  params: { appId: string; appName: string; assetId: string };
   myApp: IAppSchema;
   user: IUserSchema;
   asset: string;
@@ -138,3 +138,4 @@ export interface AppIdRequest {
   params: { appId: string };
   myApp?: IAppSchema;
 }
+export type AppRequestware = (req: AppRequest, res: Response, next: NextFunction) => void;

@@ -1,11 +1,11 @@
 import router from "express";
 // routes
 import { register } from "./register";
-import userRoute from "./userRoute";
+import { userRoute } from "./userRoute";
 import { getWithUsername } from "./getWithUsername";
 import { refreshToken } from "./refreshToken";
 import { logout } from "./logout";
-import changePassword from "./changePassword";
+import { changePassword } from "./changePassword";
 import { sendToken } from "./sendToken";
 import { getAccessData } from "./getAccessData";
 // custom middleware

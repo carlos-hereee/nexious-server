@@ -2,9 +2,9 @@ import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { addFile } from "@aws/index";
 import { awsImageUrl } from "@config";
 import { generateParamFile } from "@aws/awsParams";
-import type { MiddlewareProps } from "@app/express";
+import type { RequestHandler } from "express";
 
-export const saveAsset: MiddlewareProps = async (req, res, next) => {
+export const saveAsset: RequestHandler = async (req, res, next) => {
   try {
     if (req.file) {
       const params = generateParamFile(req.file);

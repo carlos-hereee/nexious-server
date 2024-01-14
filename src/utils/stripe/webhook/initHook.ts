@@ -1,8 +1,8 @@
 import { stripeErrorHandling } from "@stripe/errors";
 import { constructEvent } from "./constructEvent";
-import type { StripeRequestware } from "@app/express";
+import type { RequestHandler } from "express";
 
-export const initHook: StripeRequestware = async (req, res, next) => {
+export const initHook: RequestHandler = async (req, res, next) => {
   try {
     const payload = req.body;
     const sig = req.headers["stripe-signature"];

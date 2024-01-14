@@ -1,8 +1,8 @@
-import type { RouterProps } from "@app/express";
+import type { RequestHandler } from "express";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { createCheckoutSession } from "@stripe/payments/createCheckoutSession";
 
-export const checkoutSession: RouterProps = async (req, res) => {
+export const checkoutSession: RequestHandler = async (req, res) => {
   try {
     const { accountId } = req.body.cart;
     // console.log("req.cart :>> ", req.cart);

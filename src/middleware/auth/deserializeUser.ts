@@ -3,6 +3,8 @@ import { getUserAuth } from "@dbModels/users/getUserAuth";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { verifyJWT } from "@authUtils/verifyJWT";
 import type { RequestHandler } from "express";
+// import type { AuthRequestHandler } from "@app/auth";
+// import type { MiddlewareRequestHandler } from "@app/db";
 
 export const deserializeUser: RequestHandler = async (req, res, next) => {
   try {

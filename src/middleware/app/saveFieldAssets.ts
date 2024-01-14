@@ -3,9 +3,9 @@ import { saveFile } from "middleware/app/saveFile";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { addFile } from "@aws/index";
 import { generateParamFiles } from "@aws/awsParams";
-import type { MiddlewareProps } from "@app/express";
+import type { RequestHandler } from "express";
 
-export const saveFieldAssets: MiddlewareProps = async (req, res, next) => {
+export const saveFieldAssets: RequestHandler = async (req, res, next) => {
   try {
     // check if files exists
     if (req.files) {

@@ -1,15 +1,17 @@
 import { removeApp } from "@dbModels/app/removeApp";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import type { UserRequestware } from "@app/express";
+import type { RequestHandler } from "express";
 
-export const deleteApp: UserRequestware = async (req, res, next) => {
+export const deleteApp: RequestHandler = async (req, res, next) => {
   try {
-    const appId = req.params.appId;
-    // if match remove from owned app
-    const removeFromOwned = req.user.ownedApps.filter((data) => data !== appId);
-    req.user.ownedApps = removeFromOwned;
-    await req.user.save();
-    await removeApp({ appId });
+    if (req.user) {
+      const appId = req.params.appId;
+      // if match remove from owned app
+      const removeFromOwned = req.user.ownedApps.filter((data) => data !== appId);
+      req.user.ownedApps = removeFromOwned;
+      await req.user.save();
+      await removeApp({ appId });
+    }
     next();
     // const appList = await getApp({ all: true });
     // res.status(200).json({ user: req.user, appList }).end();

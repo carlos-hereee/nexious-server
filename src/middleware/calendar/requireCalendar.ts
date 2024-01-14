@@ -1,8 +1,8 @@
-import type { MiddlewareProps } from "@app/express";
+import type { RequestHandler } from "express";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { getCalendar } from "@dbModels/calendar/getCalendar";
 
-export const requireCalendar: MiddlewareProps = async (req, res, next) => {
+export const requireCalendar: RequestHandler = async (req, res, next) => {
   try {
     const { appId } = req.params;
     req.calendar = await getCalendar({ appId });

@@ -1,7 +1,7 @@
-import type { MiddlewareProps } from "@app/express";
+import type { RequestHandler } from "express";
 import message from "@data/error.message.json";
 
-export const requireAppName: MiddlewareProps = (req, res, next) => {
+export const requireAppName: RequestHandler = (req, res, next) => {
   const appName = req.body.appName || req.params.appName;
   // appName must exists
   if (!appName) return res.status(400).json(message.missingCredentials).end();

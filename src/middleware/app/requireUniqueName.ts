@@ -1,9 +1,9 @@
-import type { MiddlewareProps } from "@app/express";
+import type { RequestHandler } from "express";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import message from "@data/error.message.json";
 import { getApp } from "@dbModels/app/getApp";
 
-export const requireUniqueName: MiddlewareProps = async (req, res, next) => {
+export const requireUniqueName: RequestHandler = async (req, res, next) => {
   try {
     const appName = req.body.appName || req.params.appName;
     const app = await getApp({ appName });

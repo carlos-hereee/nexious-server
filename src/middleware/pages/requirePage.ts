@@ -1,12 +1,13 @@
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import { getPages } from "@dbModels/page/getPages";
+import { getPage } from "@dbModels/page/getPages";
 import messages from "@data/error.message.json";
-import type { MiddlewareProps } from "@app/express";
+import type { RequestHandler } from "express";
 
-export const requirePage: MiddlewareProps = async (req, res, next) => {
+export const requirePage: RequestHandler = async (req, res, next) => {
   try {
+    // if(req.p)
     const pageId = req.params.pageId;
-    const page = await getPages({ pageId });
+    const page = await getPage({ pageId });
     if (page) {
       req.page = page;
       next();

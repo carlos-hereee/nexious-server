@@ -1,17 +1,19 @@
-import type { MiddlewareProps } from "@app/express";
+import type { RequestHandler } from "express";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 
-export const editStore: MiddlewareProps = async (req, res, next) => {
+export const editStore: RequestHandler = async (req, res, next) => {
   try {
-    const { name, title, body } = req.body;
-    const hero = req.asset || "";
+    if (req.store) {
+      const { name, title, body } = req.body;
+      const hero = req.asset || "";
 
-    req.store.name = name;
-    req.store.title = title;
-    req.store.body = body;
-    req.store.hero = hero;
+      req.store.name = name;
+      req.store.title = title;
+      req.store.body = body;
+      req.store.hero = hero;
 
-    await req.store.save();
+      await req.store.save();
+    }
 
     next();
   } catch (error) {

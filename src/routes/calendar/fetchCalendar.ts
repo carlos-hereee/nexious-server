@@ -1,5 +1,5 @@
-// import type { RouterProps } from "@app/express";
+// import type { RequestHandler } from "express";
 
-// export const fetchCalendar: RouterProps = (req, res) => {
+// export const fetchCalendar:RequestHandler= (req, res) => {
 //   res.status(202).json(req.calendar);
 // };

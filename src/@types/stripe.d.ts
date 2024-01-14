@@ -34,3 +34,7 @@ export interface MerchRequest {
   body: MerchBody;
   asset: string;
 }
+export interface StripeSession {
+  id: string;
+  options?: Stripe.Checkout.SessionRetrieveParams;
+}

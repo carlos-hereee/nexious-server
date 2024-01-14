@@ -49,6 +49,6 @@ export interface AWSMultiFileUploadProps {
   files: AWSAssetParams[];
 }
 export type AWSFileError = (
-  err: ErrorOptions,
+  err: Error,
   data?: PutObjectCommandOutput | DeleteObjectCommandOutput
 ) => void;

@@ -1,8 +1,8 @@
 import { removeMerch } from "@dbModels/merch/removeMerch";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import type { MiddlewareProps } from "@app/express";
+import type { RequestHandler } from "express";
 
-export const removeMerchendise: MiddlewareProps = async (req, res, next) => {
+export const removeMerchendise: RequestHandler = async (req, res, next) => {
   try {
     const merchId = req.params.merchId;
     await removeMerch({ merchId });

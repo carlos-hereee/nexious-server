@@ -16,9 +16,9 @@ import { minAppData } from "./getApp/minAppData";
 import { getAppWithAppId } from "../../middleware/app/getAppWithAppId";
 import { getAppWithLanguage } from "./getApp/getAppWithLanguage";
 import { updateNewsletter } from "./updateApp/updateNewsletter";
-import { deletePage } from "./pages/deletePage";
-import { updatePage } from "./pages/updatePage";
-import { requirePage } from "../../middleware/pages/requirePage";
+// import { deletePage } from "./pages/deletePage";
+// import { updatePage } from "./pages/updatePage";
+// import { requirePage } from "../../middleware/pages/requirePage";
 // media
 import { updateMedias } from "./media/updateMedias";
 import { addMedia } from "./media/addMedia";
@@ -54,14 +54,14 @@ route.post("/update-newsletter/:appId", heroWare, saveAsset, updateNewsletter, m
 route.post("/update-medias/:appId", heroWare, saveAsset, updateMedias, minAppData);
 route.post("/update-landing-page/:appId", multiHeroWare, updateLandingPage, minAppData);
 route.post("/update-app-name/:appId", logoWare, updateAppLogo, minAppData);
-route.post("/update-page/:appId/page/:pageId", multiHeroWare, requirePage, updatePage, minAppData);
+// route.post("/update-page/:appId/page/:pageId", multiHeroWare, requirePage, updatePage, minAppData);
 route.put("/update-app-details/:appId", logoWare, updateAppDetails, minAppData);
 // building pages
 route.post("/add-page/:appId", multiHeroWare, addPage, minAppData);
 route.post("/add-media/:appId", adminWare, addMedia, minAppData);
 // delete app
 route.delete("/delete-app/:appId", adminWare, deleteApp, minAppData);
-route.delete("/delete-page/:appId/page/:pageId", adminWare, deletePage, minAppData);
+// route.delete("/delete-page/:appId/page/:pageId", adminWare, deletePage, minAppData);
 route.delete("/delete-media/:appId/media/:assetId", adminWare, removeMedia, minAppData);
 
 export default route;

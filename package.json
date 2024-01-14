@@ -10,7 +10,8 @@
     "renameImport": "node scripts/renameImports.js",
     "renameExport": "node scripts/renameExports.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "nodemon",
+    "watch": "tsc -w",
+    "dev": "nodemon src/server.ts",
     "stripe-listen": "stripe listen --forward-to localhost:4937/store/webhook",
     "stripe-checkout": "stripe trigger checkout.session.completed"
   },

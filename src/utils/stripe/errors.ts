@@ -1,8 +1,8 @@
-import type { GenericErrorProps } from "@app/express";
 import { isDev } from "@config";
+import type { Response } from "express";
 import stripe from "stripe";
 
-export const stripeErrorHandling: GenericErrorProps = (res, error: unknown, message) => {
+export const stripeErrorHandling = (res: Response, error: unknown, message?: string) => {
   const err = error as stripe.errors.StripeError;
   // switch (err.type) {
   //   case "StripeCardError":

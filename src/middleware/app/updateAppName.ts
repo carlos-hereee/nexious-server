@@ -1,7 +1,7 @@
-// import type { MiddlewareProps } from "@app/express";
+// import type { RequestHandler } from "express";
 // import { useGenericErrors } from "@authUtils/useGenericErrors";
 
-// export const updateAppName: MiddlewareProps = (req, res, next) => {
+// export const updateAppName: RequestHandler= (req, res, next) => {
 //   try {
 //     const appName = req.body.appName || req.params.appName;
 //     // update appname if they dont match

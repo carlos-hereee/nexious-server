@@ -1,8 +1,8 @@
 // import getMerch  from "@dbModels/merch/getMerch";
-import type { MiddlewareProps } from "@app/express";
+import type { RequestHandler } from "express";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 
-export const getCartMerch: MiddlewareProps = (req, res, next) => {
+export const getCartMerch: RequestHandler = (req, res, next) => {
   try {
     const { cart } = req.body;
     // get list of ids

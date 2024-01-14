@@ -1,8 +1,8 @@
 // import { getApp } from "@dbModels/app/getApp";
-// import type { UserRequestware } from "@app/express";
+// import type { RequestHandler } from "express";
 // import { useGenericErrors } from "@authUtils/useGenericErrors";
 
-// export const getOwnedApps: UserRequestware = async (req, res, next) => {
+// export const getOwnedApps:RequestHandler = async (req, res, next) => {
 //   try {
 //     const appIds = req.user.ownedApps;
 //     const apps = await getApp({ appIds });

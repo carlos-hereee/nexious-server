@@ -1,8 +1,9 @@
-import type { RouterProps } from "@app/express";
+// import type { RequestHandler } from "express";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { getAccount } from "@stripe/accounts/getAccount";
+import type { RequestHandler } from "express";
 
-export const getStripeAccount: RouterProps = async (req, res) => {
+export const getStripeAccount: RequestHandler = async (req, res) => {
   try {
     // console.log("req.params :>> ", req.params);
     const { accountId } = req.params;

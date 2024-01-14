@@ -10,9 +10,9 @@ import { requireStore } from "../../middleware/store/requireStore";
 import { minAppData } from "../app/getApp/minAppData";
 import { addMerch } from "./addMerch";
 import { addStore } from "./addStore";
-import { editMerch } from "./editMerch";
+// import { editMerch } from "./editMerch";
 import { editStore } from "./editStore";
-import { getCustomers } from "./getCustomers";
+// import { getCustomers } from "./getCustomers";
 import { checkoutSession } from "./checkoutSession";
 import { getCartMerch } from "./getCartMerch";
 import { getConfirmation } from "./getConfirmation";
@@ -34,7 +34,7 @@ const storeWare = [...adminWare, getStoreWithAppId, requireStore, ...heroWare];
 const removalWare = [...adminWare, getStoreWithAppId, requireStore];
 const merchWare = [requireUser, validateAdmin];
 // view store dataz
-route.get("/customers", getCustomers);
+// route.get("/customers", getCustomers);
 route.get("/app/:appName", getStoreWithName);
 // stripe payments
 route.get("/confirm-intent", getConfirmation);
@@ -50,7 +50,7 @@ route.post("/webhook", bodyParse, initHook, stripeWebhook);
 // update store
 // route.put("/update-store/:appId", heroWare, editStore, minAppData);
 route.put("/update-store/:appId", storeWare, editStore, minAppData);
-route.put("/update-merch/:appId/:merchId", storeWare, editMerch, minAppData);
+// route.put("/update-merch/:appId/:merchId", storeWare, editMerch, minAppData);
 // remove store
 route.delete("/remove-store/:appId", removalWare, removeStore, minAppData);
 route.delete("/remove-merch/:appId/:merchId", merchWare, removeMerchendise, minAppData);
