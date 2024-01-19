@@ -1,7 +1,7 @@
 import fs from "fs/promises";
-const matchString = require("./matchString");
+import { matchString } from "./matchString.js";
 
-module.exports = async ({ filePath, pattern, cb }) => {
+export const updateFile = async ({ filePath, pattern, cb }) => {
   try {
     // read file
     const file = await fs.readFile(filePath, "utf8");
@@ -14,7 +14,8 @@ module.exports = async ({ filePath, pattern, cb }) => {
     });
     // console.log("updatedFile :>> ", updatedFile);
     // update file
-    await fs.writeFile(filePath, updatedFile.join("\n"));
+
+    // await fs.writeFile(filePath, updatedFile.join("\n"));
   } catch (error) {
     console.log("error :>> ", error);
     return null;
