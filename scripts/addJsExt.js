@@ -2,19 +2,20 @@ import { authorsPen } from "./helpers/node/authorsPen.js";
 import { addJsExt } from "./helpers/node/typography.js";
 import { regexPatern } from "./helpers/regexPatterns.js";
 
-const main = async () => {
+const excludedFiles = { files: ["server", "config"], directory: ["data", "@types"] };
+const reg = regexPatern.localPathExcludeJson;
+const search = ["src"];
+const ext = ".ts";
+
+const main = async ({ searchPaths, exclude, pattern, target }) => {
   // key variables
-  const sourcePaths = ["src"];
-  const excludedFiles = ["server", "config", "data", "@types"];
-  const target = ".ts";
-  const pattern = regexPatern.localPathExcludeJson;
   let logger = {};
   // search each desired directory
-  for (let num = 0; num < sourcePaths.length; num++) {
-    const currentPath = sourcePaths[num];
+  for (let num = 0; num < searchPaths.length; num += 1) {
+    const currentPath = searchPaths[num];
     console.log("starting search on :>> ", currentPath);
-    await authorsPen({ excludedFiles, currentPath, target, pattern, logger, cb: addJsExt });
+    await authorsPen({ exclude, currentPath, target, pattern, logger, cb: addJsExt });
   }
   // console.log("Changes made :>> ", logger);
 };
-main();
+main({ searchPaths: search, exclude: excludedFiles, pattern: reg, target: ext });

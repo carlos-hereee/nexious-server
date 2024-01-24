@@ -1,10 +1,10 @@
 import fs from "fs/promises";
+import { errorMessage } from "../data";
 
 export const readDir = async (directoryPath) => {
   try {
-    return await fs.readdir(directoryPath);
+    return await fs.readdir(directoryPath, { withFileTypes: true });
   } catch (error) {
-    console.log("error :>> ", error);
-    return null;
+    return errorMessage(error, "unable to read directory");
   }
 };

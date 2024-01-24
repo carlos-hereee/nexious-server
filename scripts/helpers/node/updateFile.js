@@ -6,6 +6,8 @@ export const updateFile = async ({ filePath, pattern, cb }) => {
   try {
     // require key variables
     if (!pattern) throw Error(requiredProps.regexPattern);
+    if (!filePath) throw Error(requiredProps.filePath);
+    if (!cb) throw Error(requiredProps.cb);
     // keep track of modified files
     let isModified = false;
     // read file
@@ -19,6 +21,8 @@ export const updateFile = async ({ filePath, pattern, cb }) => {
     });
     // if the file meets conditions
     if (isModified) {
+      console.log("lineByLine :>> ", lineByLine);
+      console.log("updatedFile :>> ", updatedFile);
       // update file
       // await fs.writeFile(filePath, updatedFile.join("\n"));
       // return success status
