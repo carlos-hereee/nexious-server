@@ -13,7 +13,9 @@ export const authorsPen = async ({ currentPath, exclude, target, cb, logger, pat
   else {
     // search for deserired files
     for (let file of directory) {
-      console.log("file :>> ", file);
+      if (file.isDirectory()) {
+        console.log("file :>> ", file);
+      }
       //   skip exludedFiles
       //   const filePath = `${currentPath}/${file}`;
       // const canSkipFile = exclude.files.some((f) => file.includes(f));

@@ -4,6 +4,8 @@ export const message = {
   modified: "Made changes to",
   regexRequired: "A regex expression is required please include it in function param",
   filePath: "filePath is a required prop please include it in function param",
+  searchPaths: "search paths is a required prop please include it in function param",
+  target: "search paths is a required prop please include it in function param",
   cb: "cb(callback) is a required prop please include it in function param",
 };
 
@@ -17,7 +19,9 @@ export const errorMessage = (error, msg) => {
 };
 
 export const requiredProps = {
-  regexPattern: { message: message.regexRequired, status: "missingProps", error: "missing" },
+  pattern: { message: message.regexRequired, status: "missingProps", error: "missing" },
   filePath: { message: message.filePath, status: "missingProps", error: "missing" },
   cb: { message: message.cb, status: "missingProps", error: "missing" },
+  searchPaths: { message: message.searchPaths, status: "missingProps", error: "missing" },
+  target: { message: message.target, status: "missingProps", error: "missing" },
 };

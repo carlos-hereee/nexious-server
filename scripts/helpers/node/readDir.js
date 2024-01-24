@@ -1,5 +1,5 @@
 import fs from "fs/promises";
-import { errorMessage } from "../data";
+import { errorMessage } from "../data.js";
 
 export const readDir = async (directoryPath) => {
   try {
