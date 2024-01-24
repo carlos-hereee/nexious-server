@@ -1,13 +1,13 @@
 import { authorsPen } from "./helpers/node/authorsPen.js";
+import { addJsExt } from "./helpers/node/typography.js";
+import { regexPatern } from "./helpers/regexPatterns.js";
 
-const addJsExt = (string) => {
-  console.log("string,  :>> ", string);
-};
 const main = async () => {
-  const sourcePaths = ["src/middleware/app"];
+  // key variables
+  const sourcePaths = ["src"];
   const excludedFiles = ["server", "config", "data", "@types"];
   const target = ".ts";
-  const pattern = `from ".*/*"`;
+  const pattern = regexPatern.localPathExcludeJson;
   let logger = {};
   // search each desired directory
   for (let num = 0; num < sourcePaths.length; num++) {

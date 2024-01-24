@@ -1,0 +1,18 @@
+// add missing js extension
+export const addJsExt = (string) => {
+  console.log("string :>> ", string);
+  return string.replace(`";`, `.js";`);
+};
+// update exports to esm
+export const exportEsm = (string, fileName) => {
+  if (typeof string === "string") {
+    const componentName = fileName.split(".ts")[0];
+    return string.replace("export", `export const ${componentName}`);
+  }
+};
+// update import esm
+export const importEsm = (string) => {
+  if (typeof string === "string") {
+    return string.replace("const", "import").replace("= require(", " from ").replace(")", "");
+  }
+};

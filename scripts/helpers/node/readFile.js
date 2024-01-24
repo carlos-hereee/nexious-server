@@ -1,6 +1,6 @@
-const fs = require("fs/promises");
+import fs from "fs/promises";
 
-module.exports = async (filePath, cb) => {
+export const readFile = async (filePath, cb) => {
   try {
     // read file
     const file = await fs.readFile(filePath, "utf8");
