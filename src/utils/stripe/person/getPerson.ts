@@ -1,4 +1,4 @@
-import stripe from "../connection";
+import stripe from "../connection.js";
 
 export const getPerson = async ({ id, personId, limit }) => {
   if (!personId)

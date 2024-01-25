@@ -1,5 +1,5 @@
 import message from "@data/error.message.json";
-import { getUser } from "@dbModels/users/getUser";
+import { getUser } from "@dbModels/users/getUser.js";
 import type { RequestHandler } from "express";
 
 export const requireUsername: RequestHandler = async (req, res, next) => {

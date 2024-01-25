@@ -1,7 +1,7 @@
 import { awsImageUrl } from "@config";
 // import { awsImageUrl, isDev } from "@config";
-import { addFile } from "@aws/index";
-import { generateParamFile } from "@aws/awsParams";
+import { addFile } from "@aws/index.js";
+import { generateParamFile } from "@aws/awsParams.js";
 // import type { AssetProps, IFile } from "@app/assets";
 import type { IFile } from "@app/assets";
 

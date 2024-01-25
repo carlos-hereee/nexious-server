@@ -1,8 +1,8 @@
 import { awsImageUrl } from "@config";
-import { saveFile } from "middleware/app/saveFile";
-import { useGenericErrors } from "@authUtils/useGenericErrors";
-import { addFile } from "@aws/index";
-import { generateParamFiles } from "@aws/awsParams";
+import { saveFile } from "middleware/app/saveFile.js";
+import { useGenericErrors } from "@authUtils/useGenericErrors.js";
+import { addFile } from "@aws/index.js";
+import { generateParamFiles } from "@aws/awsParams.js";
 import type { RequestHandler } from "express";
 
 export const saveFieldAssets: RequestHandler = async (req, res, next) => {

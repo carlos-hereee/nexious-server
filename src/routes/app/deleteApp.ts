@@ -1,5 +1,5 @@
-import { removeApp } from "@dbModels/app/removeApp";
-import { useGenericErrors } from "@authUtils/useGenericErrors";
+import { removeApp } from "@dbModels/app/removeApp.js";
+import { useGenericErrors } from "@authUtils/useGenericErrors.js";
 import type { RequestHandler } from "express";
 
 export const deleteApp: RequestHandler = async (req, res, next) => {

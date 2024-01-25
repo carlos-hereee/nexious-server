@@ -1,13 +1,13 @@
-import { addPassHistory } from "./addPassHistory";
-import { authenticatePassword } from "./authenticatePassword";
-import { authenticateUser } from "./authenticateUser";
-import { deserializeUser } from "./deserializeUser";
-import { getUserWithId } from "./getUserWithId";
-import { requireUser } from "./requireUser";
-import { userData } from "./userData";
-import { validateUser } from "./validateUser";
-import { updatePassword } from "./updatePassword";
-import { requireUsername } from "./requireUsername";
+import { addPassHistory } from "./addPassHistory.js";
+import { authenticatePassword } from "./authenticatePassword.js";
+import { authenticateUser } from "./authenticateUser.js";
+import { deserializeUser } from "./deserializeUser.js";
+import { getUserWithId } from "./getUserWithId.js";
+import { requireUser } from "./requireUser.js";
+import { userData } from "./userData.js";
+import { validateUser } from "./validateUser.js";
+import { updatePassword } from "./updatePassword.js";
+import { requireUsername } from "./requireUsername.js";
 
 export {
   deserializeUser,

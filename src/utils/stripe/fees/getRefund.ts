@@ -1,4 +1,4 @@
-import stripe from "../connection";
+import stripe from "../connection.js";
 
 export const getRefund = async ({ id, refundId, limit }) => {
   if (!refundId) await stripe.applicationFees.listRefunds(id, { limit: limit || 30 });

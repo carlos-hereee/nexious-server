@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { toLowerCase } from "@appUtils/lowerCase";
+import { toLowerCase } from "@appUtils/lowerCase.js";
 import { v4 } from "uuid";
 import type { IUserSchema } from "@app/user";
 

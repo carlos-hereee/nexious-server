@@ -1,5 +1,5 @@
 import type { RequestHandler } from "express";
-import { useGenericErrors } from "@authUtils/useGenericErrors";
+import { useGenericErrors } from "@authUtils/useGenericErrors.js";
 
 export const unsubscribe: RequestHandler = async (req, res, next) => {
   try {

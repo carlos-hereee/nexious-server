@@ -1,4 +1,4 @@
-import stripe from "../connection";
+import stripe from "../connection.js";
 
 export const paymentInitent = async ({ amount, currency, paymentMethod }) => {
   if (!currency) currency = "usd";

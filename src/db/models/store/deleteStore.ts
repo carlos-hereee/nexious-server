@@ -1,5 +1,5 @@
-import Merch from "@dbSchema/merch";
-import Store from "@dbSchema/store";
+import Merch from "@dbSchema/merch.js";
+import Store from "@dbSchema/store.js";
 
 export const deleteStore = async ({ storeId }) => {
   // if (appId) return await Store.findOneAndDelete({ appId });

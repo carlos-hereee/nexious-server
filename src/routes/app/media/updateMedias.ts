@@ -1,6 +1,6 @@
 import type { RequestHandler } from "express";
-import { formatFormData } from "@appUtils/format/formatFormData";
-import { useGenericErrors } from "@authUtils/useGenericErrors";
+import { formatFormData } from "@appUtils/format/formatFormData.js";
+import { useGenericErrors } from "@authUtils/useGenericErrors.js";
 
 export const updateMedias: RequestHandler = async (req, res, next) => {
   try {

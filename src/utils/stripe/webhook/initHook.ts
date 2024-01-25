@@ -1,5 +1,5 @@
-import { stripeErrorHandling } from "@stripe/errors";
-import { constructEvent } from "./constructEvent";
+import { stripeErrorHandling } from "@stripe/errors.js";
+import { constructEvent } from "./constructEvent.js";
 import type { RequestHandler } from "express";
 
 export const initHook: RequestHandler = async (req, res, next) => {

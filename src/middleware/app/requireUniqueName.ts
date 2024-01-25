@@ -1,7 +1,7 @@
 import type { RequestHandler } from "express";
-import { useGenericErrors } from "@authUtils/useGenericErrors";
+import { useGenericErrors } from "@authUtils/useGenericErrors.js";
 import message from "@data/error.message.json";
-import { getApp } from "@dbModels/app/getApp";
+import { getApp } from "@dbModels/app/getApp.js";
 
 export const requireUniqueName: RequestHandler = async (req, res, next) => {
   try {

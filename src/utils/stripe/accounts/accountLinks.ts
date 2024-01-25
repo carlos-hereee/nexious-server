@@ -1,4 +1,4 @@
-import stripe from "../connection";
+import stripe from "../connection.js";
 
 export const accountLinks = async ({ id, refreshUrl, returnUrl, type }) => {
   if (!type) type = "account_onboarding";

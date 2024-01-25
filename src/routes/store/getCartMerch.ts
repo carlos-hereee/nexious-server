@@ -1,6 +1,6 @@
 // import getMerch  from "@dbModels/merch/getMerch";
 import type { RequestHandler } from "express";
-import { useGenericErrors } from "@authUtils/useGenericErrors";
+import { useGenericErrors } from "@authUtils/useGenericErrors.js";
 
 export const getCartMerch: RequestHandler = (req, res, next) => {
   try {

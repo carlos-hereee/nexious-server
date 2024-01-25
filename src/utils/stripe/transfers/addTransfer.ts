@@ -1,4 +1,4 @@
-import stripe from "../connection";
+import stripe from "../connection.js";
 
 export const addTransfer = async ({ amount, currency, destination, group }) => {
   if (!currency) currency = "usd";

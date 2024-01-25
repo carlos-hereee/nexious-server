@@ -1,4 +1,4 @@
-import Hero from "@dbSchema/hero";
+import Hero from "@dbSchema/hero.js";
 
 export const getHero = async ({ heroId, filename }) => {
   if (filename) {

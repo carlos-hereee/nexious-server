@@ -1,4 +1,4 @@
-import stripe from "../connection";
+import stripe from "../connection.js";
 
 export const udpateCustomer = async ({ email, name, id, invoiceSettings }) => {
   // preferred_locale: ["en", "es"]

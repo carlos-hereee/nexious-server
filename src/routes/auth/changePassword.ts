@@ -1,5 +1,5 @@
-import { useGenericErrors } from "@authUtils/useGenericErrors";
-import { storeCookies } from "@authUtils/storeCookies";
+import { useGenericErrors } from "@authUtils/useGenericErrors.js";
+import { storeCookies } from "@authUtils/storeCookies.js";
 
 export const changePassword = (req, res) => {
   try {

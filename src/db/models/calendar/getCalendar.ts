@@ -1,4 +1,4 @@
-import Calendar from "@dbSchema/calendar";
+import Calendar from "@dbSchema/calendar.js";
 
 export const getCalendar = async (props) => {
   const { appId, calendarId, adminIds } = props;

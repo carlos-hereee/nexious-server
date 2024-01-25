@@ -1,4 +1,4 @@
-import stripe from "../connection";
+import stripe from "../connection.js";
 
 export const addAccount = async ({ country, email, type }) => {
   if (!email) email = "example@email.com";

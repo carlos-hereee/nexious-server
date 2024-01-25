@@ -1,5 +1,5 @@
 import message from "@data/error.message.json";
-import { generateHash } from "@authUtils/generateHash";
+import { generateHash } from "@authUtils/generateHash.js";
 import type { RequestHandler } from "express";
 
 export const authenticatePassword: RequestHandler = (req, res, next) => {

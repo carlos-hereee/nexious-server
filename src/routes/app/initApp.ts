@@ -1,5 +1,5 @@
-import { useGenericErrors } from "@authUtils/useGenericErrors";
-import { createApp } from "@dbModels/app/createApp";
+import { useGenericErrors } from "@authUtils/useGenericErrors.js";
+import { createApp } from "@dbModels/app/createApp.js";
 // import formatThemeList  from "@authUtils/app/format/formatThemeList";
 // import formatLanguageList  from "@authUtils/app/format/formatLanguageList";
 import themeList from "@data/app/themeList.json";

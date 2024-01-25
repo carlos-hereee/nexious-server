@@ -1,4 +1,4 @@
-import Page from "@dbSchema/page";
+import Page from "@dbSchema/page.js";
 
 export const createPage = async (payload) => {
   // const page = new Page(payload);

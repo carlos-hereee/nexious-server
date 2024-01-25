@@ -1,4 +1,4 @@
-import stripe from "../connection";
+import stripe from "../connection.js";
 
 export const createCustomer = async ({ email, name, stripeAccount }) => {
   // preferred_locale: ["en", "es"]

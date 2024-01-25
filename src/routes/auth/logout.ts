@@ -1,6 +1,6 @@
-import { updateUser } from "@dbModels/users/updateUser";
+import { updateUser } from "@dbModels/users/updateUser.js";
 import type { RequestHandler } from "express";
-import { resetCookies } from "@authUtils/resetCookies";
+import { resetCookies } from "@authUtils/resetCookies.js";
 
 export const logout: RequestHandler = async (req, res) => {
   if (req.user) {

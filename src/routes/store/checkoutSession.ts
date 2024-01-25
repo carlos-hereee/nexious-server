@@ -1,6 +1,6 @@
 import type { RequestHandler } from "express";
-import { useGenericErrors } from "@authUtils/useGenericErrors";
-import { createCheckoutSession } from "@stripe/payments/createCheckoutSession";
+import { useGenericErrors } from "@authUtils/useGenericErrors.js";
+import { createCheckoutSession } from "@stripe/payments/createCheckoutSession.js";
 
 export const checkoutSession: RequestHandler = async (req, res) => {
   try {

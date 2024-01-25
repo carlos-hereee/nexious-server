@@ -1,5 +1,5 @@
 import type { StripeRequestOptions } from "@app/stripe";
-import stripe from "../connection";
+import stripe from "../connection.js";
 
 export const addReversalTranser = async ({ id, options, transfer }: StripeRequestOptions) => {
   if (!id) throw Error("Id is required");

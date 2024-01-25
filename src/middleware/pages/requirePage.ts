@@ -1,5 +1,5 @@
-import { useGenericErrors } from "@authUtils/useGenericErrors";
-import { getPage } from "@dbModels/page/getPages";
+import { useGenericErrors } from "@authUtils/useGenericErrors.js";
+import { getPage } from "@dbModels/page/getPages.js";
 import messages from "@data/error.message.json";
 import type { RequestHandler } from "express";
 

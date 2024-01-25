@@ -1,4 +1,4 @@
-import stripe from "../connection";
+import stripe from "../connection.js";
 
 export const addProduct = async ({ name, description, images, stripeAccount }) => {
   if (!description) description = "product information: " + name;

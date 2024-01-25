@@ -1,5 +1,5 @@
 import type { GetAppProps } from "@app/app";
-import App from "@dbSchema/app";
+import App from "@dbSchema/app.js";
 
 export const getApp = async ({ appId, appName, locale }: GetAppProps) => {
   const includeData = "owner pages store calendar";

@@ -1,4 +1,4 @@
-import stripe from "../connection";
+import stripe from "../connection.js";
 
 export const listCustomers = async (stripeAccount: string) => {
   if (stripeAccount) {

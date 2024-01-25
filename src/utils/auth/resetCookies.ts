@@ -1,5 +1,5 @@
 import { accessTokenName, refreshTokenName } from "@config";
-import { cookieCongig } from "./cookieCongig";
+import { cookieCongig } from "./cookieCongig.js";
 import type { Response } from "express";
 
 export const resetCookies = (res: Response) => {

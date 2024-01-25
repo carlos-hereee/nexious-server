@@ -1,5 +1,5 @@
 import type { GetUserProps } from "@app/user";
-import Users from "@dbSchema/users";
+import Users from "@dbSchema/users.js";
 
 export const getUserAuth = async (props: GetUserProps) => {
   const { username, sessionId } = props;

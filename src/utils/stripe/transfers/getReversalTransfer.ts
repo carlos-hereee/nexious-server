@@ -1,4 +1,4 @@
-import stripe from "../connection";
+import stripe from "../connection.js";
 
 export const getReversalTransfer = async ({ id, reversalId, limit }) => {
   if (!id) return await stripe.transfers.listReversals(id, { limit: limit || 30 });

@@ -1,4 +1,4 @@
-import stripe from "../connection";
+import stripe from "../connection.js";
 
 export const updateCard = async ({ id, cardId, metadata }) => {
   return await stripe.accounts.updateExternalAccount(id, cardId, {

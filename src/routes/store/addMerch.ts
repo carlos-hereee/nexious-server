@@ -1,7 +1,7 @@
-import { createMerch } from "@dbModels/merch/createMerch";
-import { useGenericErrors } from "@authUtils/useGenericErrors";
-import { addPrice } from "@stripe/merch/addPrice";
-import { addProduct } from "@stripe/merch/addProduct";
+import { createMerch } from "@dbModels/merch/createMerch.js";
+import { useGenericErrors } from "@authUtils/useGenericErrors.js";
+import { addPrice } from "@stripe/merch/addPrice.js";
+import { addProduct } from "@stripe/merch/addProduct.js";
 import type { RequestHandler } from "express";
 
 export const addMerch: RequestHandler = async (req, res, next) => {

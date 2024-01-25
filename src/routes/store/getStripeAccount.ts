@@ -1,6 +1,6 @@
 // import type { RequestHandler } from "express";
-import { useGenericErrors } from "@authUtils/useGenericErrors";
-import { getAccount } from "@stripe/accounts/getAccount";
+import { useGenericErrors } from "@authUtils/useGenericErrors.js";
+import { getAccount } from "@stripe/accounts/getAccount.js";
 import type { RequestHandler } from "express";
 
 export const getStripeAccount: RequestHandler = async (req, res) => {

@@ -1,5 +1,5 @@
 import type { AWSFileProps } from "@app/assets";
-import { fileError } from "./fileError";
+import { fileError } from "./fileError.js";
 
 // call S3 to retrieve upload file to specified bucket
 export const deleteFile = ({ s3, params }: AWSFileProps) => {

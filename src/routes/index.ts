@@ -1,8 +1,8 @@
 import type { Request, Express, Response } from "express";
-import authRoute from "./auth";
-import appRoute from "./app";
+import authRoute from "./auth.js";
+import appRoute from "./app.js";
 // import calendarRoute from "./calendar";
-import storeRoute from "./store";
+import storeRoute from "./store.js";
 import { port } from "@config";
 
 export default (app: Express) => {

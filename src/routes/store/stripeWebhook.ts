@@ -1,6 +1,6 @@
 import type { RequestHandler } from "express";
-import { getSessionWithId } from "@stripe/payments/getSessionWithId";
-import { fulFillOrder } from "@stripe/webhook/fulfillOrder";
+import { getSessionWithId } from "@stripe/payments/getSessionWithId.js";
+import { fulFillOrder } from "@stripe/webhook/fulfillOrder.js";
 
 export const stripeWebhook: RequestHandler = async (req, res) => {
   const event = req.stripeEvent;

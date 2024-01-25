@@ -1,5 +1,5 @@
 import type { RequestHandler } from "express";
-import { useGenericErrors } from "@authUtils/useGenericErrors";
+import { useGenericErrors } from "@authUtils/useGenericErrors.js";
 import message from "@data/error.message.json";
 
 export const requireStore: RequestHandler = (req, res, next) => {
