@@ -1,4 +1,4 @@
-import type { AWSFileProps } from "@app/assets";
+import type { AWSFileProps } from "@app/assets.js";
 import { fileError } from "./fileError.js";
 
 // call S3 to retrieve upload file to specified bucket

@@ -1,7 +1,7 @@
-import type { IAppSchema } from "./app";
-import type { IStoreSchema, MerchBody, StoreBody } from "./store";
+import type { IAppSchema } from "./app.js";
+import type { IStoreSchema, MerchBody, StoreBody } from "./store.js";
 import type Stripe from "stripe";
-import type { IUserSchema } from "./user";
+import type { IUserSchema } from "./user.js";
 
 export interface StripeTransferRequest {
   id: string;

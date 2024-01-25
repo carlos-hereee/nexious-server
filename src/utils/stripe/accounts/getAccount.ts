@@ -1,4 +1,4 @@
-import type { StripeRequestOptions } from "@app/stripe";
+import type { StripeRequestOptions } from "@app/stripe.js";
 import stripe from "../connection.js";
 
 export const getAccount = async ({ id, limit }: StripeRequestOptions) => {

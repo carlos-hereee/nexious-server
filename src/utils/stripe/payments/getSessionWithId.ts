@@ -1,4 +1,4 @@
-import type { StripeSession } from "@app/stripe";
+import type { StripeSession } from "@app/stripe.js";
 import stripe from "../connection.js";
 
 export const getSessionWithId = async ({ id, options }: StripeSession) => {

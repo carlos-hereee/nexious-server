@@ -1,4 +1,4 @@
-import type { AWSFileError } from "@app/assets";
+import type { AWSFileError } from "@app/assets.js";
 
 export const fileError: AWSFileError = (err, data) => {
   if (err || !data) {

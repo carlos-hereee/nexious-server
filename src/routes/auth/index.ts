@@ -16,7 +16,7 @@ import {
   addPassHistory,
   updatePassword,
   authenticatePassword,
-} from "@authWare/index";
+} from "@authWare/index.js";
 
 const route = router.Router();
 // one liners

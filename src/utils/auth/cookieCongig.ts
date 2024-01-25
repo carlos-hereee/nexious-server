@@ -1,4 +1,4 @@
-import type { CookieConfigProps } from "@app/auth";
+import type { CookieConfigProps } from "@app/auth.js";
 import { isProduction } from "@config";
 
 export const cookieCongig: CookieConfigProps = (hour) => {

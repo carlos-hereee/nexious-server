@@ -1,4 +1,4 @@
-import type { GetAppProps } from "@app/app";
+import type { GetAppProps } from "@app/app.js";
 import App from "@dbSchema/app.js";
 
 export const getApp = async ({ appId, appName, locale }: GetAppProps) => {

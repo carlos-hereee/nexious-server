@@ -1,4 +1,4 @@
-import type { GetMerchProps } from "@app/store";
+import type { GetMerchProps } from "@app/store.js";
 import Merch from "@dbSchema/merch.js";
 
 export const removeMerch = async ({ storeId, appId, deleteMany, merchId }: GetMerchProps) => {

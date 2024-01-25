@@ -1,7 +1,5 @@
 import router from "express";
-import { requireApp } from "../../middleware/app.js";
 import { saveAsset } from "../../middleware/app/saveAsset.js";
-import { requireUser } from "../.@authWare.js";
 import { validateAdmin } from "../../middleware/app/validateAdmin.js";
 import { addPage } from "./pages/addPage.js";
 import { deleteApp } from "./deleteApp.js";
@@ -29,6 +27,8 @@ import { userData } from "@authWare/userData.js";
 import { saveFieldAssets } from "../../middleware/app/saveFieldAssets.js";
 import { updateAppDetails } from "./updateApp/updateAppDetails.js";
 import { uploadSingle, uploadFields } from "@aws/multer.js";
+import { requireUser } from "@authWare/requireUser.js";
+import { requireApp } from "middleware/app/requireApp.js";
 
 // one liner
 const logoWare = [requireUser, validateAdmin, getAppWithAppId, uploadSingle("logo"), saveAsset];

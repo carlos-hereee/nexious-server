@@ -1,10 +1,9 @@
 import router from "express";
-import { requireApp } from "../../middleware/app.js";
 import bodyParser from "body-parser";
 import { getAppWithAppId } from "../../middleware/app/getAppWithAppId.js";
 import { saveAsset } from "../../middleware/app/saveAsset.js";
 import { validateAdmin } from "../../middleware/app/validateAdmin.js";
-import { requireUser } from "../.@authWare.js";
+import { requireUser } from "@authWare/index.js";
 import { getStoreWithAppId } from "../../middleware/store/getStoreWithAppId.js";
 import { requireStore } from "../../middleware/store/requireStore.js";
 import { minAppData } from "../app/getApp/minAppData.js";
@@ -24,6 +23,7 @@ import { removeMerchendise } from "./removeMerch.js";
 import { getStoreWithName } from "./getStoreWithName.js";
 import { getStripeAccount } from "./getStripeAccount.js";
 import { uploadSingle } from "@aws/multer.js";
+import { requireApp } from "middleware/app/requireApp.js";
 
 const route = router.Router();
 

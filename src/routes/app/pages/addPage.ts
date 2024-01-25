@@ -5,7 +5,7 @@ import { formatMenuPageData } from "@appUtils/format/formatMenuPageData.js";
 import { useGenericErrors } from "@authUtils/useGenericErrors.js";
 import { addFile } from "@aws/index.js";
 import { generateParamFile } from "@aws/awsParams.js";
-import type { ISection } from "@app/page";
+import type { ISection } from "@app/page.js";
 import type { RequestHandler } from "express";
 
 export const addPage: RequestHandler = async (req, res, next) => {

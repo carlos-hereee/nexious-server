@@ -1,10 +1,10 @@
-import type { IAppSchema } from "./app";
-import type { IPage } from "./page";
+import type { IAppSchema } from "./app.js";
+import type { IPage } from "./page.js";
 import type Stripe from "stripe";
-import type { IUserSchema } from "./user";
-import type { IStoreSchema } from "./store";
-import type { IFile } from "./assets";
-import type { IAuth } from "./auth";
+import type { IUserSchema } from "./user.js";
+import type { IStoreSchema } from "./store.js";
+import type { IFile } from "./assets.js";
+import type { IAuth } from "./auth.js";
 
 export {};
 declare global {

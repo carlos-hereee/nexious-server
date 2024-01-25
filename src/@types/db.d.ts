@@ -1,12 +1,12 @@
 import type { Schema } from "mongoose";
 import type { Express, Request, NextFunction, Response } from "express";
 import type Stripe from "stripe";
-import type { IUserSchema } from "./user";
-import type { IAppSchema } from "./app";
-import type { IFile } from "./assets";
-import type { IPage } from "./page";
-import type { IStoreSchema } from "./store";
-import type { AuthBody } from "./auth";
+import type { IUserSchema } from "./user.js";
+import type { IAppSchema } from "./app.js";
+import type { IFile } from "./assets.js";
+import type { IPage } from "./page.js";
+import type { IStoreSchema } from "./store.js";
+import type { AuthBody } from "./auth.js";
 
 export type ObjectId = Schema.Types.ObjectId;
 export type ExpressApp = Express;

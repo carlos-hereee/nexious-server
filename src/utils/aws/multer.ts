@@ -1,4 +1,4 @@
-import type { MulterFileFilter } from "@app/assets";
+import type { MulterFileFilter } from "@app/assets.js";
 import multer from "multer";
 
 const fileFilter: MulterFileFilter = (_req, file, cb) => {

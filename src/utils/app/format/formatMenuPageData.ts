@@ -1,4 +1,4 @@
-import type { IMenu } from "@app/app";
+import type { IMenu } from "@app/app.js";
 
 export const formatMenuPageData = (pageName: string): IMenu => {
   return {

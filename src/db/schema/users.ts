@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { toLowerCase } from "@appUtils/lowerCase.js";
 import { v4 } from "uuid";
-import type { IUserSchema } from "@app/user";
+import type { IUserSchema } from "@app/user.js";
 
 const Schema = mongoose.Schema;
 const userSchema = new Schema<IUserSchema>(

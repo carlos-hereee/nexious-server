@@ -1,4 +1,4 @@
-import type { ISection } from "@app/page";
+import type { ISection } from "@app/page.js";
 import { formatFormData } from "@appUtils/format/formatFormData.js";
 import { useGenericErrors } from "@authUtils/useGenericErrors.js";
 import type { RequestHandler } from "express";

@@ -1,4 +1,4 @@
-import type { AppPayload } from "@app/app";
+import type { AppPayload } from "@app/app.js";
 import App from "@dbSchema/app.js";
 
 export const createApp = async (payload: AppPayload) => {

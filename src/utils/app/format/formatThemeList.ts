@@ -1,4 +1,4 @@
-import type { IThemeList } from "@app/app";
+import type { IThemeList } from "@app/app.js";
 import themes from "@data/app/themeList.json";
 
 export const formatThemeList = (theme: string): IThemeList[] => {

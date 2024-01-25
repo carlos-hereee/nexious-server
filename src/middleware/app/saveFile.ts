@@ -2,8 +2,8 @@ import { awsImageUrl } from "@config";
 // import { awsImageUrl, isDev } from "@config";
 import { addFile } from "@aws/index.js";
 import { generateParamFile } from "@aws/awsParams.js";
-// import type { AssetProps, IFile } from "@app/assets";
-import type { IFile } from "@app/assets";
+// import type { AssetProps, IFile } from "@app/assets.js";
+import type { IFile } from "@app/assets.js";
 
 // export const saveFile: AssetProps = (file, heroData, key): string => {
 export const saveFile = (file: IFile): string => {

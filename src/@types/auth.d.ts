@@ -1,6 +1,6 @@
 import type { CookieOptions, Response, Request, NextFunction } from "express";
 import type { JwtPayload, VerifyErrors } from "jsonwebtoken";
-import type { IUserSchema } from "./user";
+import type { IUserSchema } from "./user.js";
 
 export interface IUserAuth {
   salt: string;

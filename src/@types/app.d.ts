@@ -1,8 +1,8 @@
-import type { ObjectId } from "./db";
-import type { ILandingPage } from "./page";
-import type { Document } from "mongoose";
-import type { IUserSchema } from "./user";
 import type { Request, NextFunction, Response } from "express";
+import type { Document } from "mongoose";
+import type { ObjectId } from "./db.js";
+import type { ILandingPage } from "./page.js";
+import type { IUserSchema } from "./user.js";
 
 export interface GetAppProps {
   appId?: string;

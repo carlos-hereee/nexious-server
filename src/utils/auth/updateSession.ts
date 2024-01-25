@@ -1,4 +1,4 @@
-import type { AuthRequest } from "@app/auth";
+import type { AuthRequest } from "@app/auth.js";
 import { generateHash } from "@authUtils/generateHash.js";
 import { random } from "@authUtils/random.js";
 
