@@ -21,6 +21,7 @@ const main = async ({ searchPaths, exclude, pattern, target }) => {
     console.log("starting search on :>> ", currentPath);
     await authorsPen({ exclude, currentPath, target, pattern, logger, cb: addJsExt });
   }
-  // console.log("Changes made :>> ", logger);
+  // TODO: cleaner log i.e. updated x num of files skipped x num of files ect.
+  console.log("Changes made :>> ", logger);
 };
 main({ searchPaths: search, exclude: excludedFiles, pattern: reg, target: ext });

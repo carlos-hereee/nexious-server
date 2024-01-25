@@ -1,4 +1,4 @@
 export const regexPatern = {
-  localPathExcludeJson: "from (?!.*json)(.*)/",
+  localPathExcludeJson: "^(import (?!type)).* from (?!.*json)(.*)/",
   localPath: "(.*)/",
 };

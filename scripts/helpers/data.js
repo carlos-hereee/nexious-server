@@ -3,7 +3,7 @@ export const message = {
   skipped: "Skipped excluded file",
   notFound: "Skipped unable to find directory",
   skippedDir: "Skipped excluded directory",
-  modified: "Made changes to",
+  modified: "Made changes to file",
   regexRequired: "A regex expression is required please include it in function param",
   filePath: "filePath is a required prop please include it in function param",
   searchPaths: "search paths is a required prop please include it in function param",

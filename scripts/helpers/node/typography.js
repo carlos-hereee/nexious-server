@@ -1,6 +1,5 @@
 // add missing js extension
 export const addJsExt = (string) => {
-  console.log("string :>> ", string);
   return string.replace(`";`, `.js";`);
 };
 // update exports to esm
