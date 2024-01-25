@@ -1,6 +1,8 @@
 export const message = {
   error: "Unable to perform operation",
-  skipped: "Skipped due to",
+  skipped: "Skipped excluded file",
+  notFound: "Skipped unable to find directory",
+  skippedDir: "Skipped excluded directory",
   modified: "Made changes to",
   regexRequired: "A regex expression is required please include it in function param",
   filePath: "filePath is a required prop please include it in function param",
@@ -12,6 +14,8 @@ export const message = {
 export const updateFileMessages = {
   success: { message: message.modified, status: "success", error: null },
   skipped: { message: message.skipped, status: "skipped", error: null },
+  notFound: { message: message.notFound, status: "skipped", error: null },
+  skippedDir: { message: message.skippedDir, status: "skipped", error: null },
 };
 
 export const errorMessage = (error, msg) => {
