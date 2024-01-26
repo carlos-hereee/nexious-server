@@ -1,4 +1,5 @@
 export const regexPatern = {
-  localPathExcludeJson: "from (?!.*json)(.*)/",
-  localPath: "(.*)/",
+  localPathIncludeJson: `from (?!.jsonwebtoken)(.*\.json)`,
+  localPathExcludeJson: `from (?!.*json)(.*)/`,
+  localPath: `(.*)/`,
 };

@@ -15,3 +15,6 @@ export const importEsm = (string) => {
     return string.replace("const", "import").replace("= require(", " from ").replace(")", "");
   }
 };
+export const jsonAssert = (string) => {
+  return string.replace(`;`, ` assert { type: "json" };`);
+};
