@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { jwtPrivateKey } from "@config";
+import { jwtPrivateKey } from "@appUtils/config.js";
 import message from "@data/error.message.json" assert { type: "json" };
 import type { JWTVerifyPayload, JWTDecodedProps } from "@app/auth.js";
 

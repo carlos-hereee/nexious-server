@@ -1,4 +1,4 @@
-import { awsImageUrl } from "@config";
+import { awsImageUrl } from "@appUtils/config.js";
 // import { awsImageUrl, isDev } from "@config";
 import { addFile } from "@aws/index.js";
 import { generateParamFile } from "@aws/awsParams.js";

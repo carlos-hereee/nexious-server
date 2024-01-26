@@ -1,4 +1,4 @@
-import { isDev } from "@config";
+import { isDev } from "@appUtils/config.js";
 import messages from "@data/error.message.json" assert { type: "json" };
 import type { Response } from "express";
 

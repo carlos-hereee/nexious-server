@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { jwtPrivateKey } from "@config";
+import { jwtPrivateKey } from "@appUtils/config.js";
 import type { SignJWTProps } from "@app/auth.js";
 
 export const signJWT: SignJWTProps = (payload, expiresIn) => {

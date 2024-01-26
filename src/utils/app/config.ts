@@ -1,5 +1,4 @@
-// export const config = {
-export const port = process.env.PORT || 4937;
+export const port = process.env.PORT || "4937";
 export const uri = process.env.MONGOOSE_URI || "";
 export const clientUrl = process.env.CLIENT_URL || "";
 export const clientUrlAlt = process.env.CLIENT_URL_ALT || "";
@@ -22,7 +21,7 @@ export const cookieDomain = process.env.COOKIE_DOMAIN || "";
 // aws
 export const awsBucketName = process.env.AWS_BUCKET_NAME || "";
 export const awsImageUrl = process.env.AWS_IMAGE_URL || "";
-export const awsRegion = process.env.AWS_REGION || "";
+export const awsRegion = process.env.AWS_REGION || "us-east-1";
 export const awsConsoleLogin = process.env.AWS_CONSOLE_LOGIN || "";
 export const awsUsername = process.env.AWS_USERNAME || "";
 export const awsPassword = process.env.AWS_PASSWORD || "";
@@ -36,4 +35,3 @@ export const stripeEndpointSecret = process.env.STRIPE_ENDPOINT_SECRET || "";
 export const appEmail = process.env.APP_EMAIL || "";
 // express
 export const allowedMethods = ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"];
-// };

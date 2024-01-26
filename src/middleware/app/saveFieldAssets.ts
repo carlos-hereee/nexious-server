@@ -1,4 +1,4 @@
-import { awsImageUrl } from "@config";
+import { awsImageUrl } from "@appUtils/config.js";
 import { saveFile } from "middleware/app/saveFile.js";
 import { useGenericErrors } from "@authUtils/useGenericErrors.js";
 import { addFile } from "@aws/index.js";

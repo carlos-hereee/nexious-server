@@ -1,4 +1,4 @@
-import { stripeSecretKey } from "@config";
+import { stripeSecretKey } from "@appUtils/config.js";
 
 import Stripe from "stripe";
 const stripe = new Stripe(stripeSecretKey);

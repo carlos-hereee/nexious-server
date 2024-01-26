@@ -1,4 +1,4 @@
-import { isDev } from "@config";
+import { isDev } from "@appUtils/config.js";
 import type { Response } from "express";
 import stripe from "stripe";
 

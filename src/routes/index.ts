@@ -3,7 +3,7 @@ import authRoute from "./auth/index.js";
 import appRoute from "./app/index.js";
 // import calendarRoute from "./calendar";
 import storeRoute from "./store/index.js";
-import { port } from "@config";
+import { port } from "@appUtils/config.js";
 
 export default (app: Express) => {
   // initial test route

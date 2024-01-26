@@ -1,5 +1,5 @@
 import crypto from "crypto";
-import { appSecret } from "@config";
+import { appSecret } from "@appUtils/config.js";
 
 export const generateHash = (salt: string, secret?: string) => {
   const payload = [salt, secret].join("/");

@@ -1,4 +1,4 @@
-import { isDev, accessTokenName, refreshTokenName } from "@config";
+import { isDev, accessTokenName, refreshTokenName } from "@appUtils/config.js";
 import { getUserAuth } from "@dbModels/users/getUserAuth.js";
 import { useGenericErrors } from "@authUtils/useGenericErrors.js";
 import { verifyJWT } from "@authUtils/verifyJWT.js";

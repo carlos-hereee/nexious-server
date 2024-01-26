@@ -5,14 +5,14 @@ import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import routes from "@routes/index.js";
 import { connectMongoose } from "@db/connectMongoose.js";
-import { clientUrl, clientUrlAlt, allowedMethods } from "@config";
+import { clientUrl, clientUrlAlt, allowedMethods } from "@appUtils/config.js";
 import { deserializeUser } from "@authWare/index.js";
 
 // configure envs
 dotenv.config();
 // create an express app
 const app = express();
-
+// console.log("awsReagion :>> ", awsRegion);
 app.use(helmet({ crossOriginResourcePolicy: false }));
 app.use(cookieParser());
 app.use(express.json());

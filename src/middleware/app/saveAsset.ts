@@ -1,6 +1,6 @@
 import { useGenericErrors } from "@authUtils/useGenericErrors.js";
 import { addFile } from "@aws/index.js";
-import { awsImageUrl } from "@config";
+import { awsImageUrl } from "@appUtils/config.js";
 import { generateParamFile } from "@aws/awsParams.js";
 import type { RequestHandler } from "express";
 

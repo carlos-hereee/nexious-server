@@ -1,4 +1,4 @@
-import { awsImageUrl } from "@config";
+import { awsImageUrl } from "@appUtils/config.js";
 import { createPage } from "@dbModels/page/createPage.js";
 import { formatFormData } from "@appUtils/format/formatFormData.js";
 import { formatMenuPageData } from "@appUtils/format/formatMenuPageData.js";
