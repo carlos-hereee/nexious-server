@@ -1,5 +1,5 @@
 import type { IThemeList } from "@app/app.js";
-import themes from "@data/app/themeList.json";
+import themes from "@data/app/themeList.json" assert { type: "json" };
 
 export const formatThemeList = (theme: string): IThemeList[] => {
   if (!theme) return themes;

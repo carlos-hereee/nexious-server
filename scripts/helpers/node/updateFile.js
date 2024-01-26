@@ -28,8 +28,8 @@ export const updateFile = async ({ filePath, pattern, cb }) => {
     // if the file meets conditions
     if (isModified) {
       // update file
-      console.log("updatedFile :>> ", updatedFile);
-      // await fs.writeFile(filePath, updatedFile.join("\n"));
+      // console.log("updatedFile :>> ", updatedFile);
+      await fs.writeFile(filePath, updatedFile.join("\n"));
       return updateFileMessages.success;
     }
     // otherwise skip update and return status

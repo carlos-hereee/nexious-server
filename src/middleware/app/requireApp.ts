@@ -1,4 +1,4 @@
-import message from "@data/error.message.json";
+import message from "@data/error.message.json" assert { type: "json" };
 import type { RequestHandler } from "express";
 
 export const requireApp: RequestHandler = (req, res, next) => {

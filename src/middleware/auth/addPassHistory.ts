@@ -1,5 +1,5 @@
 import type { RequestHandler } from "express";
-import messages from "@data/error.message.json";
+import messages from "@data/error.message.json" assert { type: "json" };
 
 export const addPassHistory: RequestHandler = (req, res, next) => {
   if (req.user) {

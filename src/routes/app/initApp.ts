@@ -2,7 +2,7 @@ import { useGenericErrors } from "@authUtils/useGenericErrors.js";
 import { createApp } from "@dbModels/app/createApp.js";
 // import formatThemeList  from "@authUtils/app/format/formatThemeList";
 // import formatLanguageList  from "@authUtils/app/format/formatLanguageList";
-import themeList from "@data/app/themeList.json";
+import themeList from "@data/app/themeList.json" assert { type: "json" };
 import type { RequestHandler } from "express";
 
 export const initApp: RequestHandler = async (req, res, next) => {

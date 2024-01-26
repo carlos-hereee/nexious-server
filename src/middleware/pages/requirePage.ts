@@ -1,6 +1,6 @@
 import { useGenericErrors } from "@authUtils/useGenericErrors.js";
 import { getPage } from "@dbModels/page/getPages.js";
-import messages from "@data/error.message.json";
+import messages from "@data/error.message.json" assert { type: "json" };
 import type { RequestHandler } from "express";
 
 export const requirePage: RequestHandler = async (req, res, next) => {

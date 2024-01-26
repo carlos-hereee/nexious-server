@@ -2,7 +2,7 @@ import { createStore } from "@dbModels/store/createStore.js";
 import { formatMenuPageData } from "@appUtils/format/formatMenuPageData.js";
 import { useGenericErrors } from "@authUtils/useGenericErrors.js";
 import { addAccount } from "@stripe/accounts/addAccount.js";
-import message from "@data/error.message.json";
+import message from "@data/error.message.json" assert { type: "json" };
 import type { RequestHandler } from "express";
 
 export const addStore: RequestHandler = async (req, res, next) => {
