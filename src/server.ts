@@ -12,7 +12,7 @@ import { deserializeUser } from "@authWare/index.js";
 dotenv.config();
 // create an express app
 const app = express();
-// console.log("awsReagion :>> ", awsRegion);
+
 app.use(helmet({ crossOriginResourcePolicy: false }));
 app.use(cookieParser());
 app.use(express.json());
@@ -26,6 +26,7 @@ app.use(cors({ credentials: true, origin: [clientUrl, clientUrlAlt], methods: al
 app.use(deserializeUser);
 
 const main = () => {
+  console.log("awsReagion :>> ", clientUrl);
   connectMongoose(app);
   routes(app);
 };
