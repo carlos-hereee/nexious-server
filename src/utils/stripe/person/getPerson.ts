@@ -1,9 +1,11 @@
+import { StripePersonEventParams } from "@app/stripe";
 import stripe from "../connection";
 
-export const getPerson = async ({ id, personId, limit }) => {
-  if (!personId)
-    return await stripe.accounts.listPersons(id, {
-      limit: limit || 30,
-    });
-  return await stripe.accounts.retrievePerson(id, personId);
+export const getPerson = async (params: StripePersonEventParams) => {
+  const { id, accountId, listLimit, personOptions } = params;
+  if (!id) throw Error("id is required");
+  if (!accountId) {
+    return await stripe.accounts.listPersons(id, { limit: listLimit || 30 });
+  }
+  return await stripe.accounts.retrievePerson(id, accountId, personOptions);
 };

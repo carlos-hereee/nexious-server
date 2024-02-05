@@ -3,6 +3,13 @@ import type { IStoreSchema, MerchBody, StoreBody } from "./store";
 import type Stripe from "stripe";
 import type { IUserSchema } from "./user";
 
+export interface StripePersonEventParams {
+  id?: string;
+  accountId?: string;
+  listLimit?: number;
+  personOptions?: Stripe.PersonRetrieveParams;
+  addOptions?: Stripe.PersonCreateParams;
+}
 export interface StripeTransferEventParams {
   id?: string;
   transferId?: string;

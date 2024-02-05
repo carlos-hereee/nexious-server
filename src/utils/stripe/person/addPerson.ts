@@ -1,5 +1,7 @@
+import { StripePersonEventParams } from "@app/stripe";
 import stripe from "../connection";
 
-export const addPerson = async ({ id }) => {
-  return await stripe.accounts.createPerson(id);
+export const addPerson = async ({ id, addOptions }: StripePersonEventParams) => {
+  if (!id) throw Error("id is required");
+  return await stripe.accounts.createPerson(id, addOptions);
 };
