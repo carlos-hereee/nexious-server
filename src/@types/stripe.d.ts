@@ -3,11 +3,37 @@ import type { IStoreSchema, MerchBody, StoreBody } from "./store";
 import type Stripe from "stripe";
 import type { IUserSchema } from "./user";
 
+export interface StripeFundParams {
+  id?: string;
+  fundOptions?: Stripe.TopupUpdateParams;
+  stripeAccount?: Stripe.RequestOptions;
+  updateFunds?: Stripe.TopupCreateParams;
+  listLimit?: number;
+  searchOptions?: Stripe.TopupRetrieveParams;
+  cancelOptions?: Stripe.TopupCancelParams;
+}
+
+export interface StripeProductParams {
+  id?: string;
+  productOptions?: Stripe.ProductUpdateParams;
+  priceOptions?: Stripe.PriceCreateParams;
+  addProductOptions?: Stripe.ProductCreateParams;
+  stripeAccount?: Stripe.RequestOptions;
+}
+export interface StripeSession {
+  id?: string;
+  stripeAccount?: Stripe.RequestOptions;
+  options?: Stripe.Checkout.SessionRetrieveParams;
+  listOptions?: Stripe.Checkout.SessionListLineItemsParams;
+  sessionOptions?: Stripe.Checkout.SessionCreateParams;
+}
+
 export interface StripePaymentIntentParams {
   id?: string;
   accountId?: string;
   listLimit?: number;
   initentOptions?: Stripe.PaymentIntentCreateParams;
+  invoiceOptions?: Stripe.InvoiceLineItemListParams;
 }
 export interface StripePersonParams {
   id?: string;
@@ -52,8 +78,4 @@ export interface MerchRequest {
   user: IUserSchema;
   body: MerchBody;
   asset: string;
-}
-export interface StripeSession {
-  id: string;
-  options?: Stripe.Checkout.SessionRetrieveParams;
 }

@@ -1,11 +1,7 @@
+import { StripeProductParams } from "@app/stripe";
 import stripe from "../connection";
 
-export const addPrice = async ({ id, cost, currency, stripeAccount }) => {
-  if (stripeAccount) {
-    return await stripe.prices.create(
-      { product: id, unit_amount: cost, currency },
-      { stripeAccount }
-    );
-  }
-  return await stripe.prices.create({ product: id, unit_amount: cost, currency });
+export const addPrice = async ({ priceOptions, stripeAccount }: StripeProductParams) => {
+  if (!priceOptions) throw Error("priceOptions is required");
+  return await stripe.prices.create(priceOptions, stripeAccount);
 };
