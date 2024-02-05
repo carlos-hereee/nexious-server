@@ -3,6 +3,12 @@ import type { IStoreSchema, MerchBody, StoreBody } from "./store";
 import type Stripe from "stripe";
 import type { IUserSchema } from "./user";
 
+export interface StripeFeeParams {
+  id?: string;
+  refundId?: string;
+  stripeAccount?: Stripe.RequestOptions;
+}
+
 export interface StripeFundParams {
   id?: string;
   fundOptions?: Stripe.TopupUpdateParams;
