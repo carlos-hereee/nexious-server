@@ -4,7 +4,7 @@
         "es2021": true
     },
     "root": true, //  good ESLint practice to indicate this file is the root-level one used by the project and ESLint should not search beyond this directory for config files.
-    "parser": "@typescript-eslint/parser", //This is required, or else ESLint will throw errors as it tries to parse TypeScript code as if it were regular JavaScript.
+    "parser": "@typescript-eslint/parser", //  This is required, or else ESLint will throw errors as it tries to parse TypeScript code as if it were regular JavaScript.
     "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
@@ -12,11 +12,12 @@
         "plugin:import/errors",
         "plugin:import/warnings",
         "plugin:import/typescript"
-        // "prettier"
+        // "plugin:prettier/recommended"
+        // "prettier",
     ],
     "plugins": [
         "@typescript-eslint",
-        "import",
+        "import"
         // "prettier"
     ],
     "parserOptions": {
@@ -24,11 +25,12 @@
         "sourceType": "module",
         "project": "./tsconfig.json" // path to tsconfig
     },
-    "rules": { // Note: you must disable the base rule as it can report incorrect errors
-        "quotes": "off",
-        "prettier/prettier": "error",
+    "rules": {
+        // Note: you must disable the base rule as it can report incorrect errors
+        // "prettier/prettier": "error",
         "import/extensions": "off",
-        "@typescript-eslint/quotes": "off",
+        "eslint-plugin-import/default": "off",
+        "import/default": "off",
         "semi": "off",
         "@typescript-eslint/semi": "off"
     },
@@ -43,7 +45,7 @@
                 "alwaysTryTypes": true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
                 // Choose from one of the "project" configs below or omit to use <root>/tsconfig.json by default
                 // use <root>/path/to/folder/tsconfig.json
-                "project": "./tsconfig.json",
+                "project": "./tsconfig.json"
                 // // Multiple tsconfigs (Useful for monorepos)
                 // // use a glob pattern
                 // "project": "packages/*/tsconfig.json",

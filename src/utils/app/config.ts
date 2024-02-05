@@ -1,9 +1,8 @@
-export const port = process.env.PORT || "4937";
+export const port = process.env.PORT || "0000";
 export const uri = process.env.MONGOOSE_URI || "";
 export const clientUrl = process.env.CLIENT_URL || "";
 export const clientUrlAlt = process.env.CLIENT_URL_ALT || "";
-export const isDev =
-  process.env.NODE_ENV === "development" || process.env.NODE_ENV === "dev" || false;
+export const isDev = process.env.NODE_ENV === "development" || process.env.NODE_ENV === "dev";
 export const isProduction = process.env.NODE_ENV === "production" || false;
 export const accessTokenSecret = process.env.ACCESS_TOKEN_SECRET || "";
 export const refreshTokenSecret = process.env.REFRESH_TOKEN_SECRET || "";

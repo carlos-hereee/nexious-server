@@ -5,7 +5,7 @@ import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import routes from "@routes/index";
 import { connectMongoose } from "@db/connectMongoose";
-import { clientUrl, clientUrlAlt, allowedMethods } from "@appUtils/config";
+import { clientUrl, clientUrlAlt, allowedMethods, port, isDev } from "@appUtils/config";
 import { deserializeUser } from "@authWare/index";
 
 // configure envs
@@ -25,11 +25,15 @@ app.use(cors({ credentials: true, origin: [clientUrl, clientUrlAlt], methods: al
 // middleware for all functions
 app.use(deserializeUser);
 
-const main = () => {
-  console.log("awsReagion :>> ", clientUrl);
-  connectMongoose(app);
-  routes(app);
-};
-
-// init app
-main();
+connectMongoose().then(({ status }) => {
+  if (status === "success") {
+    // init app
+    app.listen(port, () => {
+      if (isDev) console.log(`\n\n*** Server listening on port: ${port} ***\n\n`);
+      routes(app);
+    });
+  }
+  if (status === "error") {
+    if (isDev) console.log("..Aborting ");
+  }
+});

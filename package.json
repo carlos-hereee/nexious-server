@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node ./dist/server.js",
     "serve": "nodemon",
-    "dev": "ts-node ./src/server.ts",
+    "dev": "ts-node -r dotenv/config ./src/server.ts",
     "tsc": "tsc -p tsconfig.json",
     "lint": "eslint . --ext .ts",
     "ts-watch:1": "tsc -w",

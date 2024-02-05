@@ -145,9 +145,9 @@
       "tsconfig-paths/register"
     ],
     // Tell ts-node CLI to install the --loader automatically, explained below
-    "esm": true,
-    // "files": true,
-    "experimentalSpecifierResolution": "node"
+    // "esm": true,
+    // // "files": true,
+    // "experimentalSpecifierResolution": "node"
   },
   // "extends": "ts-node/node16/tsconfig.json",
   // Or install directly with `npm i -D @tsconfig/node16`
