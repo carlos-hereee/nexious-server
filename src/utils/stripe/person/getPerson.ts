@@ -1,7 +1,7 @@
-import { StripePersonEventParams } from "@app/stripe";
+import { StripePersonParams } from "@app/stripe";
 import stripe from "../connection";
 
-export const getPerson = async (params: StripePersonEventParams) => {
+export const getPerson = async (params: StripePersonParams) => {
   const { id, accountId, listLimit, personOptions } = params;
   if (!id) throw Error("id is required");
   if (!accountId) {

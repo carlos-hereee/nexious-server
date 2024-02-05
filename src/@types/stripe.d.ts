@@ -3,14 +3,20 @@ import type { IStoreSchema, MerchBody, StoreBody } from "./store";
 import type Stripe from "stripe";
 import type { IUserSchema } from "./user";
 
-export interface StripePersonEventParams {
+export interface StripePaymentIntentParams {
+  id?: string;
+  accountId?: string;
+  listLimit?: number;
+  initentOptions?: Stripe.PaymentIntentCreateParams;
+}
+export interface StripePersonParams {
   id?: string;
   accountId?: string;
   listLimit?: number;
   personOptions?: Stripe.PersonRetrieveParams;
   addOptions?: Stripe.PersonCreateParams;
 }
-export interface StripeTransferEventParams {
+export interface StripeTransferParams {
   id?: string;
   transferId?: string;
   listLimit?: number;
@@ -21,7 +27,7 @@ export interface StripeTransferEventParams {
   transferReversalOptions?: Stripe.TransferReversalCreateParams;
 }
 
-export interface StripeSecretEventParams {
+export interface StripeSecretParams {
   listOptions?: Stripe.Apps.SecretListParams;
   findSecretOptions?: Stripe.Apps.SecretFindParams;
   secretOptions?: Stripe.Apps.SecretCreateParams;

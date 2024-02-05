@@ -1,11 +1,7 @@
-import type { StripeTransferEventParams } from "@app/stripe";
+import type { StripeTransferParams } from "@app/stripe";
 import stripe from "../connection";
 
-export const getReversalTransfer = async ({
-  id,
-  transferId,
-  listLimit,
-}: StripeTransferEventParams) => {
+export const getReversalTransfer = async ({ id, transferId, listLimit }: StripeTransferParams) => {
   // require key variables
   if (!id) throw Error("id is required");
   //  optional transfer id
