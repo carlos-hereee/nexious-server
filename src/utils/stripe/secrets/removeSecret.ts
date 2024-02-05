@@ -1,7 +1,7 @@
+import type { StripeSecretEventParams } from "@app/stripe";
 import stripe from "../connection";
 
-export const removeSecret = async ({ name, scope }) => {
-  if (!scope) scope = { type: "account" };
-
-  return await stripe.apps.secrets.deleteWhere({ name, scope });
+export const removeSecret = async ({ removeSecretOptions }: StripeSecretEventParams) => {
+  if (!removeSecretOptions) throw Error("removeSecretOptions is required");
+  return await stripe.apps.secrets.deleteWhere(removeSecretOptions);
 };

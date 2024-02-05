@@ -15,7 +15,10 @@ export interface StripeTransferEventParams {
 }
 
 export interface StripeSecretEventParams {
+  listOptions?: Stripe.Apps.SecretListParams;
+  findSecretOptions?: Stripe.Apps.SecretFindParams;
   secretOptions?: Stripe.Apps.SecretCreateParams;
+  removeSecretOptions?: Stripe.Apps.SecretDeleteWhereParams;
 }
 export interface StripeAccountRequest {
   account?: Stripe.AccountUpdateParams;

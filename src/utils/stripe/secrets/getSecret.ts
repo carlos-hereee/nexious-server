@@ -1,6 +1,7 @@
+import { StripeSecretEventParams } from "@app/stripe";
 import stripe from "../connection";
 
-export const getSecret = async ({ name, scope }) => {
-  if (!scope) scope = { type: "account" };
-  return await stripe.apps.secrets.find({ name, scope });
+export const getSecret = async ({ findSecretOptions }: StripeSecretEventParams) => {
+  if (!findSecretOptions) throw Error("findSecretOptions is required");
+  return await stripe.apps.secrets.find(findSecretOptions);
 };
