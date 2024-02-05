@@ -1,7 +1,7 @@
+import type { StripeTransferEventParams } from "@app/stripe";
 import stripe from "../connection";
 
-export const addTransfer = async ({ amount, currency, destination, group }) => {
-  if (!currency) currency = "usd";
-
-  return await stripe.transfers.create({ amount, currency, destination, transfer_group: group });
+export const addTransfer = async ({ transferOptions }: StripeTransferEventParams) => {
+  if (!transferOptions) throw Error("transferOptions is required");
+  return await stripe.transfers.create(transferOptions);
 };

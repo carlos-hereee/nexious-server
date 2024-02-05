@@ -26,8 +26,8 @@ declare global {
       myApp?: IAppSchema | null;
       asset?: string;
       file?: IFile;
-      calendar?: any;
-      cart?: any;
+      // calendar?: any;
+      // cart?: any;
       assets?: { hero: string; sectionHero: string[] };
       files?: { hero: IFile; sectionHero: IFile[] };
       stripeEvent?: Stripe.Event;
