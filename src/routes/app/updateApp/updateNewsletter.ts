@@ -1,6 +1,6 @@
 import type { RequestHandler } from "express";
-import { formatFormData } from "@appUtils/format/formatFormData.js";
-import { useGenericErrors } from "@authUtils/useGenericErrors.js";
+import { formatFormData } from "@appUtils/format/formatFormData";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
 
 export const updateNewsletter: RequestHandler = async (req, res, next) => {
   try {

@@ -1,4 +1,4 @@
-import stripe from "../connection.js";
+import stripe from "../connection";
 
 // https://stripe.com/docs/api/external_account_bank_accounts/create
 export const addBank = async ({ id, account }) => {

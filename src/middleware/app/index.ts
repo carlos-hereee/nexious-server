@@ -1,4 +1,4 @@
 // import { getOwnedApps } from "./getOwnedApps";
-import { requireApp } from "./requireApp.js";
+import { requireApp } from "./requireApp";
 
 export { requireApp };

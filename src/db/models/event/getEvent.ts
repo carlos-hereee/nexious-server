@@ -1,4 +1,4 @@
-import Events from "@dbSchema/events.js";
+import Events from "@dbSchema/events";
 
 export const getEvents = async ({ appId, languageId }) => {
   if (languageId) {

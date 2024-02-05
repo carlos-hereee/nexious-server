@@ -1,4 +1,4 @@
-import stripe from "../connection.js";
+import stripe from "../connection";
 
 export const getFraudWarning = async ({ id, limit }) => {
   if (!id) {

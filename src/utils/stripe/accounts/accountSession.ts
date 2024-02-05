@@ -1,4 +1,4 @@
-import stripe from "../connection.js";
+import stripe from "../connection";
 
 export const accountSession = async ({ id }) => {
   return await stripe.accountSessions.create({

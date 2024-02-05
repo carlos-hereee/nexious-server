@@ -18,3 +18,6 @@ export const importEsm = (string) => {
 export const jsonAssert = (string) => {
   return string.replace(`;`, ` assert { type: "json" };`);
 };
+export const jsonRevertAssert = (string) => {
+  return string.replace(`assert { type: "json" };`, `;`);
+};

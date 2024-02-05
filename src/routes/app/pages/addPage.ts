@@ -1,11 +1,11 @@
-import { awsImageUrl } from "@appUtils/config.js";
-import { createPage } from "@dbModels/page/createPage.js";
-import { formatFormData } from "@appUtils/format/formatFormData.js";
-import { formatMenuPageData } from "@appUtils/format/formatMenuPageData.js";
-import { useGenericErrors } from "@authUtils/useGenericErrors.js";
-import { addFile } from "@aws/index.js";
-import { generateParamFile } from "@aws/awsParams.js";
-import type { ISection } from "@app/page.js";
+import { awsImageUrl } from "@appUtils/config";
+import { createPage } from "@dbModels/page/createPage";
+import { formatFormData } from "@appUtils/format/formatFormData";
+import { formatMenuPageData } from "@appUtils/format/formatMenuPageData";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
+import { addFile } from "@aws/index";
+import { generateParamFile } from "@aws/awsParams";
+import type { ISection } from "@app/page";
 import type { RequestHandler } from "express";
 
 export const addPage: RequestHandler = async (req, res, next) => {

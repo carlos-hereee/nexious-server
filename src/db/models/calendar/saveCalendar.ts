@@ -1,4 +1,4 @@
-import Calendar from "@dbSchema/calendar.js";
+import Calendar from "@dbSchema/calendar";
 
 export const saveCalendar = async (payload) => {
   // const page = new Calendar(payload);

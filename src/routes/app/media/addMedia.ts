@@ -1,6 +1,6 @@
 import type { RequestHandler } from "express";
-import { generateMediaUrl } from "@appUtils/generateMediaUrl.js";
-import { useGenericErrors } from "@authUtils/useGenericErrors.js";
+import { generateMediaUrl } from "@appUtils/generateMediaUrl";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
 
 export const addMedia: RequestHandler = async (req, res, next) => {
   try {

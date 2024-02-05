@@ -1,5 +1,5 @@
 import type { Document } from "mongoose";
-import type { IMediaItem } from "./app.js";
+import type { IMediaItem } from "./app";
 
 // pages
 export interface GetPagesProps {

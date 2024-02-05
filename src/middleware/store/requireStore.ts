@@ -1,6 +1,6 @@
 import type { RequestHandler } from "express";
-import { useGenericErrors } from "@authUtils/useGenericErrors.js";
-import message from "@data/error.message.json" assert { type: "json" };
+import { useGenericErrors } from "@authUtils/useGenericErrors";
+import message from "@data/error.message.json";
 
 export const requireStore: RequestHandler = (req, res, next) => {
   try {

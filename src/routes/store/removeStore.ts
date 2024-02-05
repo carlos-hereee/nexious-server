@@ -1,6 +1,6 @@
-import { deleteStore } from "@dbModels/store/deleteStore.js";
-import { useGenericErrors } from "@authUtils/useGenericErrors.js";
-import { removeAccount } from "@stripe/accounts/removeAccount.js";
+import { deleteStore } from "@dbModels/store/deleteStore";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
+import { removeAccount } from "@stripe/accounts/removeAccount";
 import type { RequestHandler } from "express";
 
 export const removeStore: RequestHandler = async (req, res, next) => {

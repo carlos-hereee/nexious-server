@@ -1,5 +1,5 @@
 import type { Document } from "mongoose";
-import type { AuthBody, IUserAuth } from "./auth.js";
+import type { AuthBody, IUserAuth } from "./auth";
 import type { Request, NextFunction, Response } from "express";
 
 // user

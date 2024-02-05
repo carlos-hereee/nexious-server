@@ -1,7 +1,7 @@
 import type { RequestHandler } from "express";
-import { formatLanguageList } from "@appUtils/format/formatLanguageList.js";
-import { formatThemeList } from "@appUtils/format/formatThemeList.js";
-import { useGenericErrors } from "@authUtils/useGenericErrors.js";
+import { formatLanguageList } from "@appUtils/format/formatLanguageList";
+import { formatThemeList } from "@appUtils/format/formatThemeList";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
 
 export const updateAppDetails: RequestHandler = async (req, res, next) => {
   try {

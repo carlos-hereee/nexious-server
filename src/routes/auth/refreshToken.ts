@@ -1,7 +1,7 @@
 // import getUser  from "@dbModels/users/getUser";
-import { makeSession } from "@authUtils/makeSession.js";
-import { useGenericErrors } from "@authUtils/useGenericErrors.js";
-import { storeCookies } from "@authUtils/storeCookies.js";
+import { makeSession } from "@authUtils/makeSession";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
+import { storeCookies } from "@authUtils/storeCookies";
 import type { RequestHandler } from "express";
 
 export const refreshToken: RequestHandler = async (req, res) => {

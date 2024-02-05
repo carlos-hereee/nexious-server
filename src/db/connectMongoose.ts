@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { port, uri, isDev } from "@appUtils/config.js";
+import { port, uri, isDev } from "@appUtils/config";
 import type { MongoError } from "mongodb";
 import type { Express } from "express";
 

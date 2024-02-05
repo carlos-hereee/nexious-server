@@ -1,5 +1,5 @@
-import { removeMerch } from "@dbModels/merch/removeMerch.js";
-import { useGenericErrors } from "@authUtils/useGenericErrors.js";
+import { removeMerch } from "@dbModels/merch/removeMerch";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
 import type { RequestHandler } from "express";
 
 export const removeMerchendise: RequestHandler = async (req, res, next) => {

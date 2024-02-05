@@ -1,5 +1,5 @@
-import { accessTokenName, refreshTokenName } from "@appUtils/config.js";
-import { cookieCongig } from "./cookieCongig.js";
+import { accessTokenName, refreshTokenName } from "@appUtils/config";
+import { cookieCongig } from "./cookieCongig";
 import type { Response } from "express";
 
 export const resetCookies = (res: Response) => {

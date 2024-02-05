@@ -1,13 +1,13 @@
 import router from "express";
 // routes
-import { register } from "./register.js";
-import { userRoute } from "./userRoute.js";
-import { getWithUsername } from "./getWithUsername.js";
-import { refreshToken } from "./refreshToken.js";
-import { logout } from "./logout.js";
-import { changePassword } from "./changePassword.js";
-import { sendToken } from "./sendToken.js";
-import { getAccessData } from "./getAccessData.js";
+import { register } from "./register";
+import { userRoute } from "./userRoute";
+import { getWithUsername } from "./getWithUsername";
+import { refreshToken } from "./refreshToken";
+import { logout } from "./logout";
+import { changePassword } from "./changePassword";
+import { sendToken } from "./sendToken";
+import { getAccessData } from "./getAccessData";
 // custom middleware
 import {
   validateUser,
@@ -16,7 +16,7 @@ import {
   addPassHistory,
   updatePassword,
   authenticatePassword,
-} from "@authWare/index.js";
+} from "@authWare/index";
 
 const route = router.Router();
 // one liners

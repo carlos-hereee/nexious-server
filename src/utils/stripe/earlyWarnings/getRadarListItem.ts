@@ -1,4 +1,4 @@
-import stripe from "../connection.js";
+import stripe from "../connection";
 
 export const getRadarListItem = async ({ id, getList }) => {
   if (getList) {

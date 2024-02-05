@@ -1,5 +1,5 @@
-import type { AWSAssetParams, IFile } from "@app/assets.js";
-import { awsBucketName } from "@appUtils/config.js";
+import type { AWSAssetParams, IFile } from "@app/assets";
+import { awsBucketName } from "@appUtils/config";
 
 const generateParamFile = (file: IFile): AWSAssetParams => {
   return {

@@ -1,5 +1,5 @@
-import type { GetUserProps } from "@app/user.js";
-import Users from "@dbSchema/users.js";
+import type { GetUserProps } from "@app/user";
+import Users from "@dbSchema/users";
 
 export const getUser = async ({ username, email, userId }: GetUserProps) => {
   if (username) {

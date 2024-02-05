@@ -1,6 +1,6 @@
-import { getApp } from "@dbModels/app/getApp.js";
+import { getApp } from "@dbModels/app/getApp";
 // import { getStore } from "@dbModels/store/getStore";
-import { useGenericErrors } from "@authUtils/useGenericErrors.js";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
 import type { RequestHandler } from "express";
 // import type { IAppSchema } from "@app/db";
 

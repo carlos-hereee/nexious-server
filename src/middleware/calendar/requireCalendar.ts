@@ -1,6 +1,6 @@
 import type { RequestHandler } from "express";
-import { useGenericErrors } from "@authUtils/useGenericErrors.js";
-import { getCalendar } from "@dbModels/calendar/getCalendar.js";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
+import { getCalendar } from "@dbModels/calendar/getCalendar";
 
 export const requireCalendar: RequestHandler = async (req, res, next) => {
   try {

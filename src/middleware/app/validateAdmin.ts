@@ -1,5 +1,5 @@
 import type { RequestHandler } from "express";
-import messages from "@data/error.message.json" assert { type: "json" };
+import messages from "@data/error.message.json" ;
 
 export const validateAdmin: RequestHandler = (req, res, next) => {
   if (req.user) {

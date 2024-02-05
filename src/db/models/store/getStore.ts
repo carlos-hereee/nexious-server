@@ -1,5 +1,5 @@
-import type { GetMerchProps } from "@app/store.js";
-import Store from "@dbSchema/store.js";
+import type { GetMerchProps } from "@app/store";
+import Store from "@dbSchema/store";
 
 export const getStore = async ({ appId, storeId, id }: GetMerchProps) => {
   if (id) return await Store.findOne({ _id: id });

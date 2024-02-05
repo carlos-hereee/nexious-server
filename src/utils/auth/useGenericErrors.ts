@@ -1,5 +1,5 @@
-import { isDev } from "@appUtils/config.js";
-import messages from "@data/error.message.json" assert { type: "json" };
+import { isDev } from "@appUtils/config";
+import messages from "@data/error.message.json";
 import type { Response } from "express";
 
 export const useGenericErrors = (res: Response, error: unknown, message?: string) => {

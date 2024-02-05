@@ -1,5 +1,5 @@
 import type { RequestHandler } from "express";
-import { useGenericErrors } from "@authUtils/useGenericErrors.js";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
 
 export const editStore: RequestHandler = async (req, res, next) => {
   try {

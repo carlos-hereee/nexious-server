@@ -3,32 +3,35 @@
         "node": true,
         "es2021": true
     },
+    "root": true, //  good ESLint practice to indicate this file is the root-level one used by the project and ESLint should not search beyond this directory for config files.
+    "parser": "@typescript-eslint/parser", //This is required, or else ESLint will throw errors as it tries to parse TypeScript code as if it were regular JavaScript.
     "extends": [
         "eslint:recommended",
-        "standard-with-typescript",
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/recommended-type-checked",
-        "plugin:@typescript-eslint/stylistic-type-checked",
-        "prettier"
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:import/typescript"
+        // "prettier"
     ],
     "plugins": [
         "@typescript-eslint",
         "import",
-        "prettier"
+        // "prettier"
     ],
     "parserOptions": {
         "ecmaVersion": "latest",
         "sourceType": "module",
-        "project": true,
-        "tsconfigRootDir": "./tsconfig.json"
+        "project": "./tsconfig.json" // path to tsconfig
     },
     "rules": { // Note: you must disable the base rule as it can report incorrect errors
         "quotes": "off",
+        "prettier/prettier": "error",
+        "import/extensions": "off",
         "@typescript-eslint/quotes": "off",
         "semi": "off",
         "@typescript-eslint/semi": "off"
     },
-    "root": true,
     "settings": {
         "import/parsers": {
             "@typescript-eslint/parser": [

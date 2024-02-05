@@ -1,4 +1,4 @@
-import type { AWSBucketProps } from "@app/assets.js";
+import type { AWSBucketProps } from "@app/assets";
 
 // Call S3 to delete the bucket
 export const deleteBucket = ({ s3, bucketName }: AWSBucketProps) => {

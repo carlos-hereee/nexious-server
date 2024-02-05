@@ -1,4 +1,4 @@
-import stripe from "../connection.js";
+import stripe from "../connection";
 
 export const getSecret = async ({ name, scope }) => {
   if (!scope) scope = { type: "account" };

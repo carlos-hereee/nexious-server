@@ -1,5 +1,5 @@
 import type { RequestHandler } from "express";
-import message from "@data/error.message.json" assert { type: "json" };
+import message from "@data/error.message.json" ;
 
 export const requireUser: RequestHandler = (req, res, next) => {
   // check if user was found

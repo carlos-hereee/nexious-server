@@ -1,5 +1,5 @@
-import { stripeEndpointSecret, isDev } from "@appUtils/config.js";
-import stripe from "../connection.js";
+import { stripeEndpointSecret, isDev } from "@appUtils/config";
+import stripe from "../connection";
 
 export const constructEvent = ({ sig, payload }) => {
   // console.log("enpointSecret :>> ", sig);

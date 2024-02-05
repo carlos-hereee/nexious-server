@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
-import { jwtPrivateKey } from "@appUtils/config.js";
-import message from "@data/error.message.json" assert { type: "json" };
-import type { JWTVerifyPayload, JWTDecodedProps } from "@app/auth.js";
+import { jwtPrivateKey } from "@appUtils/config";
+import message from "@data/error.message.json";
+import type { JWTVerifyPayload, JWTDecodedProps } from "@app/auth";
 
 export const verifyJWT = (token: string): JWTVerifyPayload => {
   let verification = {

@@ -1,4 +1,4 @@
-import type { IStoreSchema } from "@app/store.js";
+import type { IStoreSchema } from "@app/store";
 import mongoose from "mongoose";
 import { v4 } from "uuid";
 const Schema = mongoose.Schema;

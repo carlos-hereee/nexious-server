@@ -1,3 +1,3 @@
-import stripe from "../connection.js";
+import stripe from "../connection";
 
 export const approveReview = async ({ id }) => await stripe.reviews.approve(id);

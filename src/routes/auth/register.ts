@@ -1,8 +1,8 @@
-import { createUser } from "@dbModels/users/createUser.js";
-import { random } from "@authUtils/random.js";
-import { generateHash } from "@authUtils/generateHash.js";
+import { createUser } from "@dbModels/users/createUser";
+import { random } from "@authUtils/random";
+import { generateHash } from "@authUtils/generateHash";
 import { v4 } from "uuid";
-import { useGenericErrors } from "@authUtils/useGenericErrors.js";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
 import type { RequestHandler } from "express";
 
 export const register: RequestHandler = async (req, res, next) => {

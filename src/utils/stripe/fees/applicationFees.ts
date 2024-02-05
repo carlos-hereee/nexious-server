@@ -1,4 +1,4 @@
-import stripe from "../connection.js";
+import stripe from "../connection";
 
 export const applicationFees = async ({ id, limit }) => {
   if (!id) return await stripe.applicationFees.list({ limit: limit || 30 });

@@ -1,5 +1,5 @@
-import { useGenericErrors } from "@authUtils/useGenericErrors.js";
-import { storeCookies } from "@authUtils/storeCookies.js";
+import { useGenericErrors } from "@authUtils/useGenericErrors";
+import { storeCookies } from "@authUtils/storeCookies";
 
 export const sendToken = (req, res) => {
   try {

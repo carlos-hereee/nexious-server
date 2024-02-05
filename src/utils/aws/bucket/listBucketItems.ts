@@ -1,4 +1,4 @@
-import type { AWSBucketProps } from "@app/assets.js";
+import type { AWSBucketProps } from "@app/assets";
 
 // Call S3 to obtain a list of the objects in the bucket
 export const listBucketItems = ({ s3, bucketName }: AWSBucketProps) => {

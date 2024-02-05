@@ -1,4 +1,4 @@
-import stripe from "../connection.js";
+import stripe from "../connection";
 
 // This request accepts only metadata as an argument.
 export const updateTransfer = async ({ metadata, id }) => {

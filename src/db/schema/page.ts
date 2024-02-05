@@ -1,4 +1,4 @@
-import type { IPage } from "@app/page.js";
+import type { IPage } from "@app/page";
 import mongoose from "mongoose";
 import { v4 } from "uuid";
 const Schema = mongoose.Schema;

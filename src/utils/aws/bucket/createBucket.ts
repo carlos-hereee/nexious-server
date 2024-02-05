@@ -1,4 +1,4 @@
-import type { AWSBucketProps } from "@app/assets.js";
+import type { AWSBucketProps } from "@app/assets";
 
 // call S3 to create the bucket
 export const createBucket = ({ s3, bucketName }: AWSBucketProps) =>

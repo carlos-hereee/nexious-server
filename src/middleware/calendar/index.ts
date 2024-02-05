@@ -1,3 +1,3 @@
-import { requireCalendar } from "./requireCalendar.js";
+import { requireCalendar } from "./requireCalendar";
 
 export { requireCalendar };

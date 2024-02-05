@@ -1,3 +1,4 @@
-import stripe from "../connection.js";
+import stripe from "../connection";
 
-export const deletePerson = async ({ id, personId }) => await stripe.accounts.deletePerson(id, personId);
+export const deletePerson = async ({ id, personId }) =>
+  await stripe.accounts.deletePerson(id, personId);

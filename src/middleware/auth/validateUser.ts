@@ -1,5 +1,5 @@
-import { getUserAuth } from "@dbModels/users/getUserAuth.js";
-import message from "@data/error.message.json" assert { type: "json" };
+import { getUserAuth } from "@dbModels/users/getUserAuth";
+import message from "@data/error.message.json";
 import type { RequestHandler } from "express";
 
 export const validateUser: RequestHandler = async (req, res, next) => {

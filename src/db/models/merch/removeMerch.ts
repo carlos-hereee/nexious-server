@@ -1,5 +1,5 @@
-import type { GetMerchProps } from "@app/store.js";
-import Merch from "@dbSchema/merch.js";
+import type { GetMerchProps } from "@app/store";
+import Merch from "@dbSchema/merch";
 
 export const removeMerch = async ({ storeId, appId, deleteMany, merchId }: GetMerchProps) => {
   if (merchId) return await Merch.findOneAndDelete({ merchId });

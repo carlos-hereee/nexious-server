@@ -1,4 +1,4 @@
-import type { IAppSchema } from "@app/app.js";
+import type { IAppSchema } from "@app/app";
 import mongoose from "mongoose";
 import { v4 } from "uuid";
 

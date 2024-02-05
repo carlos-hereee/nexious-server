@@ -1,14 +1,14 @@
 import { S3 } from "@aws-sdk/client-s3";
-import { awsRegion, awsAccessKey, awsSecretKey } from "@appUtils/config.js";
-import { createBucket } from "./bucket/createBucket.js";
-import { listBuckets } from "./bucket/listBuckets.js";
-import { listBucket } from "./bucket/listBucket.js";
-import { listBucketItems } from "./bucket/listBucketItems.js";
-import { uploadFile } from "./file/uploadFile.js";
-import { deleteBucket } from "./bucket/deleteBucket.js";
-import { deleteFile } from "./file/deleteFile.js";
-import { uploadFiles } from "./file/uploadFiles.js";
-import type { AWSAssetParams } from "@app/assets.js";
+import { awsRegion, awsAccessKey, awsSecretKey } from "@appUtils/config";
+import { createBucket } from "./bucket/createBucket";
+import { listBuckets } from "./bucket/listBuckets";
+import { listBucket } from "./bucket/listBucket";
+import { listBucketItems } from "./bucket/listBucketItems";
+import { uploadFile } from "./file/uploadFile";
+import { deleteBucket } from "./bucket/deleteBucket";
+import { deleteFile } from "./file/deleteFile";
+import { uploadFiles } from "./file/uploadFiles";
+import type { AWSAssetParams } from "@app/assets";
 
 // Create S3 service object
 const s3 = new S3({
