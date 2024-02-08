@@ -5,16 +5,12 @@ import type {
   PutObjectCommandOutput,
   S3,
 } from "@aws-sdk/client-s3";
-import type { Request } from "express";
+import type { Request, Express } from "express";
+import { FileFilterCallback } from "multer";
 
-export interface IFile {
-  fieldname: string;
-  originalname: string;
-  encoding: string;
-  mimetype: string;
-  buffer: Buffer;
-  size: number;
-}
+export type DestinationCallback = (error: Error | null, destination: string) => void;
+export type FileNameCallback = (error: Error | null, filename: string) => void;
+export type IFile = Express.Multer.File;
 
 export interface ReqFiles {
   files: IFile[];
@@ -37,18 +33,18 @@ export interface AWSBucketProps {
 export interface AWSFileProps {
   s3: S3;
   params: PutObjectCommandInput | DeleteObjectCommandInput;
-  // bucketName: string;
 }
-export type MulterFileFilter = (
-  req: Request,
-  file: IFile,
-  cb: (key: Error | null, pass?: boolean) => void
-) => void;
+export type MulterFileFilter = (req: Request, file: IFile, cb: FileFilterCallback) => void;
 export interface AWSMultiFileUploadProps {
   s3: S3;
   files: AWSAssetParams[];
 }
-export type AWSFileError = (
-  err: Error,
-  data?: PutObjectCommandOutput | DeleteObjectCommandOutput
-) => void;
+export type AWSFileError = (err: Error, data?: PutObjectCommandOutput | DeleteObjectCommandOutput) => void;
+export interface MulterUploadList {
+  name: string;
+  count: number;
+}
+export interface MulterUploadField {
+  name: string;
+  maxCount: number;
+}

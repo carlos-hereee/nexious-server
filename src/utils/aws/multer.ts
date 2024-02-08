@@ -1,7 +1,9 @@
-import type { MulterFileFilter } from "@app/assets";
-import multer from "multer";
+import type { MulterFileFilter, MulterUploadField, MulterUploadList } from "@app/assets";
+import multer, { memoryStorage } from "multer";
 
 const fileFilter: MulterFileFilter = (_req, file, cb) => {
+  // no file detected
+  if (!file) return cb(new Error("No file detected"));
   // no mimetype detected
   if (!file.mimetype) return cb(new Error("no file mimetype detected"));
   const safeFiles = ["png", "image/svg+xml", "jpg"];
@@ -14,36 +16,17 @@ const fileFilter: MulterFileFilter = (_req, file, cb) => {
   !safeFiles.includes(file.mimetype) ? cb(new Error("forbideen file type")) : cb(null, true);
 };
 
-// for saving files on the cloud
-export const storage = multer.memoryStorage();
-
 // upload file
-export const upload = () => multer({ storage: storage, fileFilter });
+export const upload = () => multer({ storage: memoryStorage(), fileFilter });
 // upload text only
-export const uploadTextOnly = () => multer({ storage: storage, fileFilter }).none();
+export const uploadTextOnly = () => multer({ storage: memoryStorage(), fileFilter }).none();
 // upload mutiple files
-export const uploadList = (name: string, count: number) =>
-  multer({ storage: storage, fileFilter }).array(name, count);
+export const uploadList = ({ name, count }: MulterUploadList) => {
+  return multer({ storage: memoryStorage(), fileFilter }).array(name, count);
+};
 // upload different types of files
-export const uploadFields = () =>
-  multer({ storage: storage, fileFilter }).fields([
-    { name: "hero", maxCount: 1 },
-    { name: "sectionHero", maxCount: 10 },
-  ]);
+export const uploadFields = (fields: MulterUploadField[]) => {
+  return multer({ storage: memoryStorage(), fileFilter }).fields(fields);
+};
 // upload only one file
-export const uploadSingle = (name: string) => multer({ storage: storage, fileFilter }).single(name);
-// for saving static files on machine
-// export const storage = multer.diskStorage({
-//   // where should files be stored on disk
-//   destination: (req, file, cb) => cb(null, "public"),
-//   filename: (req, file, cb) => {
-//     // console.log("req :>> ", req.body);
-//     // console.log("file :>> ", file);
-//     cb(null, Date.now() + "-" + file.originalname);
-//   },
-//   fileFilter: (req, file, cb) => {
-//     const safeFiles = ["png", "image/svg+xml", "jpg"];
-//     //  reject file that are not safe to pass 'false' or pass an error
-//     !safeFiles.includes(file.minetype) ? cb(new Error("forbideen file type")) : cb(null, true);
-//   },
-// });
+export const uploadSingle = (name: string) => multer({ storage: memoryStorage(), fileFilter }).single(name);
