@@ -1,4 +1,4 @@
-import jwt from "jsonwebtoken";
+import { verify } from "jsonwebtoken";
 import { jwtPrivateKey } from "@appUtils/config";
 import message from "@data/error.message.json";
 import type { JWTVerifyPayload, JWTDecodedProps } from "@app/auth";
@@ -10,7 +10,7 @@ export const verifyJWT = (token: string): JWTVerifyPayload => {
     error: { status: 0, expired: false, message: "" },
   };
 
-  jwt.verify(token, jwtPrivateKey, (err, decoded) => {
+  verify(token, jwtPrivateKey, (err, decoded) => {
     const code = decoded as JWTDecodedProps;
     const isExpired = err ? err.message.includes("jwt expired") : false;
     verification = {

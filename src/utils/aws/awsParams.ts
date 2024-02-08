@@ -1,7 +1,7 @@
 import type { AWSBucket, IFile } from "@app/assets";
 import { awsBucketName } from "@appUtils/config";
 
-const generateParamFile = (file: IFile): AWSBucket => {
+export const generateParamFile = (file: IFile): AWSBucket => {
   return {
     Bucket: awsBucketName,
     Key: Date.now() + "-" + file.originalname,
@@ -9,7 +9,6 @@ const generateParamFile = (file: IFile): AWSBucket => {
     ContentType: file.mimetype,
   };
 };
-const generateParamFiles = (files: IFile[]) => {
+export const generateParamFiles = (files: IFile[]) => {
   return files.map((file) => generateParamFile(file));
 };
-export { generateParamFiles, generateParamFile };
