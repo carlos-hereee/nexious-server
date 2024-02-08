@@ -1,16 +1,6 @@
+import { StripeAccountParams } from "@app/stripe";
 import stripe from "../connection";
 
-export const addAccount = async ({ country, email, type }) => {
-  if (!email) email = "example@email.com";
-  if (!type) type = "custom";
-  return await stripe.accounts.create({
-    country,
-    email,
-    type,
-    // required for type = custom
-    // capabilities: {
-    //   card_payments: { requested: true },
-    //   transfers: { requested: true },
-    // },
-  });
+export const addAccount = async ({ addAccount }: StripeAccountParams) => {
+  return await stripe.accounts.create(addAccount);
 };

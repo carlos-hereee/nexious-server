@@ -1,11 +1,7 @@
+import { StripeAccountParams } from "@app/stripe";
 import stripe from "../connection";
 
-export const accountLinks = async ({ id, refreshUrl, returnUrl, type }) => {
-  if (!type) type = "account_onboarding";
-  return await stripe.accountLinks.create({
-    account: id,
-    refresh_url: refreshUrl,
-    return_url: returnUrl,
-    type,
-  });
+export const accountLinks = async ({ accountLink }: StripeAccountParams) => {
+  if (!accountLink) throw Error("accountLink is required");
+  return await stripe.accountLinks.create(accountLink);
 };

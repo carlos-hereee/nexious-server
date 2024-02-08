@@ -3,6 +3,19 @@ import type { IStoreSchema, MerchBody, StoreBody } from "./store";
 import type Stripe from "stripe";
 import type { IUserSchema } from "./user";
 
+export interface StripeAccountParams {
+  id?: string;
+  accountId?: string;
+  updateAccountCapability?: Stripe.CapabilityUpdateParams;
+  updateAccount?: Stripe.AccountUpdateParams;
+  rejectAccount?: Stripe.AccountRejectParams;
+  accountCapabilityList?: Stripe.CapabilityListParams;
+  accountCapability?: Stripe.CapabilityRetrieveParams;
+  accountList?: Stripe.AccountListParams;
+  addAccount?: Stripe.AccountCreateParams;
+  accountSession?: Stripe.AccountSessionCreateParams;
+  accountLink?: Stripe.AccountLinkCreateParams;
+}
 export interface StripeBankParams {
   id?: string;
   accountId?: string;
@@ -98,11 +111,6 @@ export interface StripeSecretParams {
   findSecretOptions?: Stripe.Apps.SecretFindParams;
   secretOptions?: Stripe.Apps.SecretCreateParams;
   removeSecretOptions?: Stripe.Apps.SecretDeleteWhereParams;
-}
-export interface StripeAccountRequest {
-  account?: Stripe.AccountUpdateParams;
-  id: string;
-  account: Stripe.AccountUpdateParams;
 }
 
 export interface StoreRequest {
