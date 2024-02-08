@@ -1,6 +1,7 @@
+import { StripeRadarParams } from "@app/stripe";
 import stripe from "../connection";
 
-export const getReview = async ({ id, limit }) => {
-  if (!id) return await stripe.reviews.list({ limit: limit || 30 });
-  return await stripe.reviews.retrieve(id);
+export const getReview = async ({ id, reviewList, reviewOptions }: StripeRadarParams) => {
+  if (!id) return await stripe.reviews.list(reviewList);
+  return await stripe.reviews.retrieve(id, reviewOptions);
 };

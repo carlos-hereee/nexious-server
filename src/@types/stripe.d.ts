@@ -3,10 +3,27 @@ import type { IStoreSchema, MerchBody, StoreBody } from "./store";
 import type Stripe from "stripe";
 import type { IUserSchema } from "./user";
 
+export interface StripeRadarParams {
+  id?: string;
+  stripeAccount?: Stripe.RequestOptions;
+  updateRadar?: Stripe.Radar.ValueListUpdateParams;
+  removeRadarItem?: Stripe.Radar.ValueListItemDeleteParams;
+  removeRadarList?: Stripe.Radar.ValueListItemDeleteParams;
+  reviewList?: Stripe.ReviewListParams;
+  reviewOptions?: Stripe.ReviewRetrieveParams;
+  radarList?: Stripe.Radar.ValueListItemListParams;
+  radarListOptions?: Stripe.Radar.ValueListListParams;
+  fruadList?: Stripe.Radar.EarlyFraudWarningListParams;
+  addRadarItemOptions?: Stripe.Radar.ValueListItemCreateParams;
+  addRadarList?: Stripe.Radar.ValueListCreateParams;
+}
 export interface StripeFeeParams {
   id?: string;
   refundId?: string;
   stripeAccount?: Stripe.RequestOptions;
+  refundList?: Stripe.FeeRefundListParams;
+  feeList?: Stripe.ApplicationFeeListParams;
+  feeOptions?: Stripe.ApplicationFeeRetrieveParams;
 }
 
 export interface StripeFundParams {

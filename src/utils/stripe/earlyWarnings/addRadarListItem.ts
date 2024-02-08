@@ -1,5 +1,7 @@
+import { StripeRadarParams } from "@app/stripe";
 import stripe from "../connection";
 
-export const addRadarListItem = async ({ id, value }) => {
-  return await stripe.radar.valueListItems.create({ value_list: id, value });
+export const addRadarListItem = async ({ addRadarItemOptions }: StripeRadarParams) => {
+  if (!addRadarItemOptions) throw Error("addRadarItemOptions is required");
+  return await stripe.radar.valueListItems.create(addRadarItemOptions);
 };

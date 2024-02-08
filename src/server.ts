@@ -25,7 +25,7 @@ app.use(cors({ credentials: true, origin: [clientUrl, clientUrlAlt], methods: al
 // middleware for all functions
 app.use(deserializeUser);
 
-connectMongoose().then(({ status }) => {
+void connectMongoose().then(({ status }) => {
   if (status === "success") {
     // init app
     app.listen(port, () => {
