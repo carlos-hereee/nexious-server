@@ -1,14 +1,12 @@
 import { S3 } from "@aws-sdk/client-s3";
 import { awsRegion, awsAccessKey, awsSecretKey } from "@appUtils/config";
 import { createBucket } from "./bucket/createBucket";
-import { listBuckets } from "./bucket/listBuckets";
 import { listBucket } from "./bucket/listBucket";
 import { listBucketItems } from "./bucket/listBucketItems";
-import { uploadFile } from "./file/uploadFile";
+import { uploadFile, uploadFiles } from "./file/uploadFile";
 import { deleteBucket } from "./bucket/deleteBucket";
 import { deleteFile } from "./file/deleteFile";
-import { uploadFiles } from "./file/uploadFiles";
-import type { AWSAssetParams } from "@app/assets";
+import type { AWSBucket, AWSGetBucket } from "@app/assets";
 
 // Create S3 service object
 const s3 = new S3({
@@ -16,18 +14,17 @@ const s3 = new S3({
   credentials: { accessKeyId: awsAccessKey, secretAccessKey: awsSecretKey },
 });
 
-// show buckets
-export const allBuckets = () => listBuckets(s3);
-export const getBucket = (bucketName: string) => listBucket({ s3, bucketName });
+// get buckets
+export const getBucket: AWSGetBucket = (bucket, all) => listBucket({ s3, listBucket: bucket, all });
 // build a bucket
-export const makeBucket = (bucketName: string) => createBucket({ s3, bucketName });
+export const makeBucket = (bucket: AWSBucket) => createBucket({ s3, addBucket: bucket });
 // remove a bucket
-export const removeBucket = (bucketName: string) => deleteBucket({ s3, bucketName });
+export const removeBucket = (bucket: AWSBucket) => deleteBucket({ s3, removeBucket: bucket });
 // show bucket items
-export const getBucketItems = (bucketName: string) => listBucketItems({ s3, bucketName });
+export const getBucketItems = (bucket: AWSBucket) => listBucketItems({ s3, listBucketItems: bucket });
 // add file
-export const addFile = (params: AWSAssetParams) => uploadFile({ s3, params });
+export const addFile = (bucket: AWSBucket) => uploadFile({ s3, addFile: bucket });
 // remove file
-export const removeFile = (params: AWSAssetParams) => deleteFile({ s3, params });
+export const removeFile = (bucket: AWSBucket) => deleteFile({ s3, removeFile: bucket });
 // add multiple files
-export const addMulipleFiles = (files: AWSAssetParams[]) => uploadFiles({ s3, files });
+export const addMulipleFiles = (files: AWSBucket[]) => uploadFiles({ s3, files });

@@ -1,11 +1,8 @@
-import type { AWSBucketProps } from "@app/assets";
+import type { AWSBucketParams } from "@app/assets";
+import { bucketError } from "@aws/errors";
 
 // call S3 to create the bucket
-export const createBucket = ({ s3, bucketName }: AWSBucketProps) =>
-  s3.createBucket({ Bucket: bucketName }, (err, data) => {
-    if (err || !data) {
-      console.log("Error", err);
-    } else {
-      console.log("Success", data.Location);
-    }
-  });
+export const createBucket = ({ s3, addBucket }: AWSBucketParams) => {
+  if (!addBucket) throw Error("addBucket is required");
+  return s3.createBucket(addBucket, bucketError);
+};

@@ -1,12 +1,9 @@
-import type { AWSBucketProps } from "@app/assets";
+import type { AWSBucketParams } from "@app/assets";
+import { bucketError } from "@aws/errors";
 
 // Call S3 to list the buckets
-export const listBucket = ({ s3, bucketName }: AWSBucketProps) => {
-  return s3.listBuckets({ Bucket: bucketName }, (err, data) => {
-    if (err) {
-      console.log("Error", err);
-    } else {
-      console.log("Success", data.Buckets);
-    }
-  });
+export const listBucket = ({ s3, listBucket, all }: AWSBucketParams) => {
+  if (!listBucket) throw Error("listBucket is required");
+  if (all) return s3.listBuckets(listBucket, bucketError);
+  return s3.listBuckets(listBucket, bucketError);
 };

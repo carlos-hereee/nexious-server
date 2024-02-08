@@ -1,6 +1,11 @@
 import type {
+  CreateBucketCommandInput,
+  DeleteBucketCommandInput,
   DeleteObjectCommandInput,
   DeleteObjectCommandOutput,
+  ListBucketsCommandInput,
+  ListObjectsCommandInput,
+  ListObjectsCommandOutput,
   PutObjectCommandInput,
   PutObjectCommandOutput,
   S3,
@@ -8,43 +13,48 @@ import type {
 import type { Request, Express } from "express";
 import { FileFilterCallback } from "multer";
 
-export type DestinationCallback = (error: Error | null, destination: string) => void;
-export type FileNameCallback = (error: Error | null, filename: string) => void;
+// MULTER
 export type IFile = Express.Multer.File;
-
+export type MulterFileFilter = (req: Request, file: IFile, cb: FileFilterCallback) => void;
+export interface MulterUploadField {
+  name: string;
+  maxCount: number;
+}
 export interface ReqFiles {
   files: IFile[];
   file: IFile;
 }
-export type AssetProps = (file: IFile, heroData?: { [key: string]: string }, key?: string) => void;
 
 // AWS
-export type S3Prop = S3;
-export interface AWSAssetParams {
+export interface AWSBucket {
   Bucket: string;
   Key: string;
   Body: Buffer;
   ContentType: string;
 }
-export interface AWSBucketProps {
+export type AWSGetBucket = (bucket: AWSBucket, all?: boolean) => void;
+export interface AWSBucketParams {
   s3: S3;
-  bucketName: string;
+  all?: boolean;
+  listBucket?: ListBucketsCommandInput;
+  addBucket?: CreateBucketCommandInput;
+  listBucketItems?: ListObjectsCommandInput;
+  removeBucket?: DeleteBucketCommandInput;
 }
 export interface AWSFileProps {
   s3: S3;
-  params: PutObjectCommandInput | DeleteObjectCommandInput;
+  addFile?: PutObjectCommandInput;
+  removeFile?: DeleteObjectCommandInput;
 }
-export type MulterFileFilter = (req: Request, file: IFile, cb: FileFilterCallback) => void;
+export type AssetProps = (file: IFile, heroData?: { [key: string]: string }, key?: string) => void;
+
 export interface AWSMultiFileUploadProps {
   s3: S3;
-  files: AWSAssetParams[];
+  files: AWSBucket[];
 }
-export type AWSFileError = (err: Error, data?: PutObjectCommandOutput | DeleteObjectCommandOutput) => void;
+export type AWSFileError = (err: string, data?: PutObjectCommandOutput | DeleteObjectCommandOutput) => void;
+export type AWSBucketError = (err: string, data?: ListObjectsCommandOutput) => void;
 export interface MulterUploadList {
   name: string;
   count: number;
-}
-export interface MulterUploadField {
-  name: string;
-  maxCount: number;
 }

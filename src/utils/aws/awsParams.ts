@@ -1,7 +1,7 @@
-import type { AWSAssetParams, IFile } from "@app/assets";
+import type { AWSBucket, IFile } from "@app/assets";
 import { awsBucketName } from "@appUtils/config";
 
-const generateParamFile = (file: IFile): AWSAssetParams => {
+const generateParamFile = (file: IFile): AWSBucket => {
   return {
     Bucket: awsBucketName,
     Key: Date.now() + "-" + file.originalname,
