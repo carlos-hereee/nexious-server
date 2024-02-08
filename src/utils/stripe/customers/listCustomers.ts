@@ -1,8 +1,6 @@
+import { StripeCustomerParams } from "@app/stripe";
 import stripe from "../connection";
 
-export const listCustomers = async (stripeAccount: string) => {
-  if (stripeAccount) {
-    return stripe.customers.list({}, { stripeAccount });
-  }
-  return await stripe.customers.list();
+export const listCustomers = async ({ customerList }: StripeCustomerParams) => {
+  return await stripe.customers.list(customerList);
 };

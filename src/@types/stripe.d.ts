@@ -3,6 +3,23 @@ import type { IStoreSchema, MerchBody, StoreBody } from "./store";
 import type Stripe from "stripe";
 import type { IUserSchema } from "./user";
 
+export interface StripeBankParams {
+  id?: string;
+  accountId?: string;
+  stripeAccount?: Stripe.RequestOptions;
+  externalAccount?: Stripe.ExternalAccountCreateParams;
+  updateExternalBank?: Stripe.ExternalAccountUpdateParams;
+}
+export interface StripeCustomerParams {
+  id?: string;
+  updateCustomer?: Stripe.CustomerUpdateParams;
+  customerList?: Stripe.CustomerListParams;
+  getCustomer?: Stripe.CustomerRetrieveParams;
+  addCustomer?: Stripe.CustomerCreateParams;
+  removeCustomer?: Stripe.CustomerDeleteParams;
+  stripeAccount?: Stripe.RequestOptions;
+}
+
 export interface StripeRadarParams {
   id?: string;
   stripeAccount?: Stripe.RequestOptions;
