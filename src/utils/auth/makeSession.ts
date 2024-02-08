@@ -1,7 +1,8 @@
 import { generateHash } from "@authUtils/generateHash";
-import { random } from "@authUtils/random";
+import crypto from "crypto";
 
-export const makeSession = (payload) => {
+export const random = () => crypto.randomBytes(128).toString("base64");
+export const makeSession = (payload: string) => {
   const salt = random();
   return generateHash(salt, payload);
 };

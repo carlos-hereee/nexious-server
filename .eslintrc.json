@@ -32,7 +32,14 @@
         "eslint-plugin-import/default": "off",
         "import/default": "off",
         "semi": "off",
-        "@typescript-eslint/semi": "off"
+        "@typescript-eslint/semi": "off",
+        "@typescript-eslint/no-misused-promises": [
+            "error",
+            {
+                "checksVoidReturn": false,
+                "checksConditionals": true
+            }
+        ]
     },
     "settings": {
         "import/parsers": {

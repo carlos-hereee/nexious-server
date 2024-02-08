@@ -112,7 +112,9 @@ export interface StripeSecretParams {
   secretOptions?: Stripe.Apps.SecretCreateParams;
   removeSecretOptions?: Stripe.Apps.SecretDeleteWhereParams;
 }
-
+export type StripeSuccessEvent = Stripe.PaymentIntentSucceededEvent;
+export type StripeSessionCompleteEvent = Stripe.CheckoutSessionCompletedEvent;
+export type StripePaymentAttachedEvent = Stripe.PaymentMethodAttachedEvent;
 export interface StoreRequest {
   myApp: IAppSchema;
   user: IUserSchema;

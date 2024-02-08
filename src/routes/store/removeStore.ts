@@ -4,8 +4,8 @@ import { removeAccount } from "@stripe/accounts/removeAccount";
 import type { RequestHandler } from "express";
 
 export const removeStore: RequestHandler = async (req, res, next) => {
-  try {
-    if (req.store && req.myApp) {
+  if (req.store && req.myApp) {
+    try {
       const { name } = req.store;
       // remove store from app menu
       req.myApp.menu = req.myApp.menu.filter((m) => m.name !== name);
@@ -17,8 +17,9 @@ export const removeStore: RequestHandler = async (req, res, next) => {
       // TODO: REMOVE MERCH ON STRIPE
 
       next();
+    } catch (error) {
+      useGenericErrors(res, error, "unable to remove store");
     }
-  } catch (error) {
-    useGenericErrors(res, error, "unable to remove store");
   }
+  // return res.status(400);
 };

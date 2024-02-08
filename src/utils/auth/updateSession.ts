@@ -1,6 +1,6 @@
 import type { AuthRequest } from "@app/auth";
 import { generateHash } from "@authUtils/generateHash";
-import { random } from "@authUtils/random";
+import { random } from "./makeSession";
 
 export const updateSession = async (req: AuthRequest) => {
   const salt = random();
