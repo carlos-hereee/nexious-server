@@ -6,7 +6,6 @@ import type { IAppSchema } from "./app";
 import type { IFile } from "./assets";
 import type { IPage } from "./page";
 import type { IStoreSchema } from "./store";
-import type { AuthBody } from "./auth";
 
 export type ObjectId = Schema.Types.ObjectId;
 export type ExpressApp = Express;
@@ -17,11 +16,11 @@ export interface MRequest extends Request {
   page?: IPage;
   stripeEvent?: Stripe.Event;
   user?: IUserSchema | null;
-  cart?: any;
+  // cart?: any;
   myApp?: IAppSchema;
   asset?: string;
   file?: IFile;
-  calendar?: any;
+  // calendar?: any;
   store?: IStoreSchema;
   assets?: { hero: string; sectionHero: string[] };
   files?: { hero: IFile; sectionHero: IFile[] };

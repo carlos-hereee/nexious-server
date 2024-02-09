@@ -9,7 +9,7 @@ const appSchema = new Schema<IAppSchema>(
     appName: { type: String, unique: true },
     locale: { type: String },
     country: { type: String, default: "US" },
-    email: { type: String, default: "" },
+    email: { type: String, require: true },
     appUrl: { type: String },
     // logo: {
     //   url: { type: String, default: "" },

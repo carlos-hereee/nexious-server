@@ -1,5 +1,13 @@
 import type { Document } from "mongoose";
+import { ObjectId } from "./db";
 
+export interface StoreBodyParams {
+  name: string;
+  title: string;
+  body: string;
+  pageName: string;
+  email?: string;
+}
 export interface GetMerchProps {
   storeId?: string;
   appId?: string;
@@ -43,10 +51,10 @@ export interface IStoreSchema extends Document {
   title: string;
   body: string;
   email: string;
-  hero: string;
-  isRegistered: boolean;
-  termsOfService: boolean;
-  inventory: string[];
+  hero?: string;
+  isRegistered?: boolean;
+  termsOfService?: boolean;
+  inventory: ObjectId[];
 }
 export interface MerchBody {
   name: string;

@@ -1,9 +1,10 @@
-import { Request, Response } from "express";
+import { Response } from "express";
 import { checkoutCompleted } from "@stripe/webhook/checkoutCompleted";
 import { paymentIntentSucceeded } from "@stripe/webhook/paymentIntentSucceeded";
 import { paymentAttached } from "@stripe/webhook/paymentAttached";
+import { StripeWebhookRequest } from "@app/request";
 
-export const stripeWebhook = async (req: Request, res: Response) => {
+export const stripeWebhook = async (req: StripeWebhookRequest, res: Response) => {
   const event = req.stripeEvent;
   if (event) {
     // Handle the event

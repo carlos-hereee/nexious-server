@@ -15,6 +15,7 @@ export interface StripeAccountParams {
   addAccount?: Stripe.AccountCreateParams;
   accountSession?: Stripe.AccountSessionCreateParams;
   accountLink?: Stripe.AccountLinkCreateParams;
+  stripeAccount?: Stripe.RequestOptions;
 }
 export interface StripeBankParams {
   id?: string;

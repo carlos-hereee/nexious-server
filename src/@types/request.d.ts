@@ -5,11 +5,63 @@
 // import type { IFile } from "./assets";
 // import type { IAuth } from "./auth";
 import type { IUserSchema } from "./user";
-import type { CartBody, IStoreSchema, RequestStore } from "./store";
+import type { CartBody, IStoreSchema, RequestStore, StoreBodyParams } from "./store";
 import type { Request } from "express";
 import Stripe from "stripe";
 import { AuthBody } from "./auth";
 import { AppReqBody, IAppSchema } from "./app";
+
+export interface DeserializeUserRequest extends Request {
+  cookies: { [cookieName: string]: string | undefined };
+  user?: IUserSchema | null;
+}
+export interface CartRequest extends Request {
+  body: {
+    cart: CartBody;
+  };
+}
+export interface StoreRequest extends Request {
+  body: RequestStore;
+  asset?: string;
+  store?: IStoreSchema | null;
+}
+export interface StoreRemovalRequest extends Request {
+  store: IStoreSchema;
+  myApp: IAppSchema;
+}
+export interface StoreCreateRequest extends Request {
+  body: StoreBodyParams;
+  store: IStoreSchema;
+  user: IUserSchema;
+  myApp: IAppSchema;
+  asset?: string;
+}
+export interface StripeWebhookRequest extends Request {
+  body: RequestStore;
+  store?: IStoreSchema | null;
+  stripeEvent?: Stripe.Event;
+}
+export interface StripeCheckoutSessionRequest extends Request {
+  body: {
+    cart: CartBody;
+  };
+}
+// defined custom properties after passing middleware requirements
+export interface UserRequest extends Request {
+  user?: IUserSchema | null;
+  body: AuthBody;
+}
+export interface AppRequest extends Request {
+  params: {
+    appId: string;
+    appName: string;
+    assetId: string;
+  };
+  myApp?: IAppSchema | null;
+  user: IUserSchema;
+  asset: string;
+  body: AppReqBody;
+}
 
 // export {};
 // declare global {
@@ -43,44 +95,3 @@ import { AppReqBody, IAppSchema } from "./app";
 //     }
 //   }
 // }
-export interface DeserializeUserRequest extends Request {
-  cookies: { [cookieName: string]: string | undefined };
-  user?: IUserSchema | null;
-}
-export interface CartRequest extends Request {
-  body: {
-    cart: CartBody;
-  };
-  // cart: RequestCart[];
-}
-export interface StoreRequest extends Request {
-  body: RequestStore;
-  asset?: string;
-  store?: IStoreSchema | null;
-}
-export interface StripeWebhookRequest extends Request {
-  body: RequestStore;
-  store?: IStoreSchema | null;
-  stripeEvent?: Stripe.Event;
-}
-export interface StripeCheckoutSessionRequest extends Request {
-  body: {
-    cart: CartBody;
-  };
-}
-// defined custom properties after passing middleware requirements
-export interface UserRequest extends Request {
-  user?: IUserSchema | null;
-  body: AuthBody;
-}
-export interface AppRequest extends Request {
-  params: {
-    appId: string;
-    appName: string;
-    assetId: string;
-  };
-  myApp?: IAppSchema | null;
-  user: IUserSchema;
-  asset: string;
-  body: AppReqBody;
-}
