@@ -17,7 +17,7 @@ export interface GetMerchProps {
   deleteMany?: boolean;
 }
 export interface MerchSchema {
-  storeId: string;
+  storeId: ObjectId;
   description: string;
   name: string;
   cost: number;
@@ -29,16 +29,7 @@ export interface MerchSchema {
   hero?: string;
 }
 export interface IMerchSchema extends MerchSchema, Document {
-  storeId: string;
-  uid?: string;
-  merchId?: string;
-  productId: string;
-  priceId: string;
-  hero: string;
-  name: string;
-  description: string;
-  inStock: number;
-  cost: number;
+  _id: ObjectId;
 }
 export interface CreateStoreSchema {
   ownerId: ObjectId;
@@ -54,26 +45,12 @@ export interface CreateStoreSchema {
   hero?: string;
   isRegistered?: boolean;
   termsOfService?: boolean;
-  inventory?: ObjectId[];
+  inventory: ObjectId[];
 }
-export interface IStoreSchema extends Document {
+export interface IStoreSchema extends CreateStoreSchema, Document {
   _id: ObjectId;
-  ownerId: ObjectId;
-  appId: ObjectId;
-  email: string;
-  storeId?: string;
-  accountId?: string;
-  currency?: string;
-  name?: string;
-  pageName?: string;
-  title?: string;
-  body?: string;
-  hero?: string;
-  isRegistered?: boolean;
-  termsOfService?: boolean;
-  inventory?: ObjectId[];
 }
-export interface MerchBody {
+export interface MerchBodyParams {
   name: string;
   description: string;
   inStock: number;

@@ -16,7 +16,7 @@ export const addStore = async (req: StoreCreateRequest, res: Response, next: Nex
     const email = req.body.email || req.myApp.email;
     if (!email) return res.status(400).json(message.emailRequired).end();
     const menuData = formatMenuPageData(name);
-    const payload = { ...req.body, email, ownerId, appId: _id, hero, accountId: "" };
+    const payload = { ...req.body, email, ownerId, appId: _id, hero, accountId: "", inventory: [] };
 
     // create stripe account with app data
     const account = await addAccount({ addAccount: { country, email, type: "standard" } });

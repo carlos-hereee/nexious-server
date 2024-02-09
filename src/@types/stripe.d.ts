@@ -70,7 +70,7 @@ export interface StripeFundParams {
 export interface StripeProductParams {
   id?: string;
   productOptions?: Stripe.ProductUpdateParams;
-  priceOptions?: Stripe.PriceCreateParams;
+  addPriceOptions?: Stripe.PriceCreateParams;
   addProductOptions?: Stripe.ProductCreateParams;
   stripeAccount?: Stripe.RequestOptions;
 }

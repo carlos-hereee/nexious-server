@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 const merchSchema = new Schema<IMerchSchema>(
   {
-    storeId: { type: String, require: true },
+    storeId: { type: Schema.Types.ObjectId, ref: "Store", require: true },
     // universal id
     uid: { type: String, default: v4 },
     // unique item id

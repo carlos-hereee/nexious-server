@@ -1,5 +1,5 @@
 import type { IUserSchema } from "./user";
-import type { CartBody, IStoreSchema, RequestStore, StoreBodyParams } from "./store";
+import type { CartBody, IStoreSchema, MerchBodyParams, RequestStore, StoreBodyParams } from "./store";
 import type { Request } from "express";
 import Stripe from "stripe";
 import { AuthBody } from "./auth";
@@ -28,6 +28,11 @@ export interface StoreCreateRequest extends Request {
   store: IStoreSchema;
   user: IUserSchema;
   myApp: IAppSchema;
+  asset?: string;
+}
+export interface AddStoreMerchRequest extends Request {
+  body: MerchBodyParams;
+  store: IStoreSchema;
   asset?: string;
 }
 export interface StripeWebhookRequest extends Request {

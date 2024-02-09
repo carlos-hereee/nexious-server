@@ -2,42 +2,35 @@ import { createMerch } from "@dbModels/merch/createMerch";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { addPrice } from "@stripe/merch/addPrice";
 import { addProduct } from "@stripe/merch/addProduct";
-import { NextFunction, Request, Response } from "express";
+import { NextFunction, Response } from "express";
+import { AddStoreMerchRequest } from "@app/request";
 
-export const addMerch = async (req: Request, res: Response, next: NextFunction) => {
+export const addMerch = async (req: AddStoreMerchRequest, res: Response, next: NextFunction) => {
   try {
-    if (req.store) {
-      // key variables
-      const { name, description, inStock, cost, hero: h } = req.body;
-      const { storeId, accountId, currency } = req.store;
-      const hero: string = req.asset || h || "";
-      const payload = {
-        hero,
-        name,
-        description,
-        inStock,
-        cost,
-        storeId,
-        productId: "",
-        priceId: "",
-      };
-      const productInfo = { name, description, stripeAccount: accountId, images: [""] };
-      if (hero) productInfo.images = [hero];
-      // add to stripe
-      const product = await addProduct(productInfo);
-      payload.productId = product.id;
-      // console.log("product :>> ", product);
-      // add price to product
-      const price = await addPrice({ id: product.id, cost, currency, stripeAccount: accountId });
-      payload.priceId = price.id;
-      // add merch to db
-      const merch = await createMerch(payload);
-      // create ref to merch on store inventory
-      const refId = merch._id as string;
-      req.store.inventory.push(refId);
-      await req.store.save();
-      next();
-    }
+    // key variables
+    const { name, description } = req.body;
+    const { accountId } = req.store;
+    const storeId = req.store._id;
+    const hero = req.asset || req.body.hero || "";
+    const currency = req.store.currency || "usd";
+    const payload = { ...req.body, hero, storeId, productId: "", priceId: "" };
+    const productInfo = { name, description, stripeAccount: accountId, images: [""] };
+    if (hero) productInfo.images = [hero];
+    // add to stripe
+    const product = await addProduct({ addProductOptions: productInfo });
+    payload.productId = product.id;
+    // add price to product
+    const price = await addPrice({
+      addPriceOptions: { product: product.id, currency },
+      stripeAccount: { stripeAccount: accountId },
+    });
+    payload.priceId = price.id;
+    // add merch to db
+    const merch = await createMerch(payload);
+    // create ref to merch on store inventory
+    req.store.inventory.push(merch._id);
+    await req.store.save();
+    next();
   } catch (error) {
     useGenericErrors(res, error, "unable to add merch");
   }
