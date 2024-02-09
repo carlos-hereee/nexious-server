@@ -1,8 +1,9 @@
 //
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { getAccount } from "@stripe/accounts/getAccount";
+import { Request, Response } from "express";
 
-export const getStripeAccount: RequestHandler = async (req, res) => {
+export const getStripeAccount = async (req: Request, res: Response) => {
   try {
     // console.log("req.params :>> ", req.params);
     const { accountId } = req.params;

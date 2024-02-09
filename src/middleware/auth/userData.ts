@@ -1,7 +1,7 @@
 import { getUser } from "@dbModels/users/getUser";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-
-export const userData: RequestHandler = async (req, res) => {
+import { Request, Response } from "express";
+export const userData = async (req: Request, res: Response) => {
   try {
     if (req.user) {
       const userId = req.user.userId;

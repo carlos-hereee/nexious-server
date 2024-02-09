@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
+import { config } from "dotenv";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import routes from "@routes/index";
@@ -9,7 +9,8 @@ import { clientUrl, clientUrlAlt, allowedMethods, port, isDev } from "@appUtils/
 import { deserializeUser } from "@authWare/index";
 
 // configure envs
-dotenv.config();
+// dotenv.config();
+config();
 // create an express app
 const app = express();
 

@@ -1,7 +1,8 @@
 import { getApp } from "@dbModels/app/getApp";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
+import { Request, Response } from "express";
 
-export const getOwnedApps: RequestHandler = async (req, res) => {
+export const getOwnedApps = async (req: Request, res: Response) => {
   try {
     if (req.user) {
       // send owned apps

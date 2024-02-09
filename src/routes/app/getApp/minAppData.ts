@@ -1,8 +1,9 @@
 import { getApp } from "@dbModels/app/getApp";
 import { getUser } from "@dbModels/users/getUser";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
+import { Request, Response } from "express";
 
-export const minAppData: RequestHandler = async (req, res) => {
+export const minAppData = async (req: Request, res: Response) => {
   try {
     if (req.user && req.myApp) {
       // key varialbles

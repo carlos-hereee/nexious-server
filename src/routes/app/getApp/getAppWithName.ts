@@ -1,7 +1,8 @@
 import { getApp } from "@dbModels/app/getApp";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
+import { Request, Response } from "express";
 
-export const getAppWithName: RequestHandler = async (req, res) => {
+export const getAppWithName = async (req: Request, res: Response) => {
   try {
     if (req.params.appName) {
       const appName = req.params.appName.split("+").join(" ");
