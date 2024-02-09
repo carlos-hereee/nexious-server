@@ -1,4 +1,4 @@
-import type { Request, NextFunction, Response } from "express";
+import type { Request } from "express";
 import type { Document } from "mongoose";
 import type { ObjectId } from "./db";
 import type { ILandingPage } from "./page";
@@ -114,6 +114,10 @@ export interface AppReqBody {
   locale: string;
   logo: string;
   email: string;
+  title: string;
+  details: string;
+  hero: string;
+  subtitle: string;
 }
 export interface UpdateAppRequest extends Request {
   myApp: IAppSchema;
@@ -133,4 +137,3 @@ export interface AppIdRequest {
   params: { appId: string };
   myApp?: IAppSchema;
 }
-export type AppRequestware = (req: AppRequest, res: Response, next: NextFunction) => void;

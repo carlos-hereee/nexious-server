@@ -23,14 +23,13 @@ export interface IUserSchema extends Document {
   locale: string;
   theme: string;
   hero: string;
-  permissions: { appId: string; role: string }[];
+  permissions: { appId: ObjectId; role: string }[];
   auth: IUserAuth;
-  ownedApps: string[];
-  subscriptions: string[];
+  ownedApps: ObjectId[];
+  subscriptions: ObjectId[];
 }
 export interface InitUser {
   username: string;
-  // password: string;
   userId: string;
   auth: IUserAuth;
   email?: string;

@@ -1,14 +1,14 @@
-import { formatFormData } from "@appUtils/format/formatFormData";
+import { AppRequest } from "@app/request";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import { NextFunction, Request, Response } from "express";
+import { NextFunction, Response } from "express";
 
-export const updateNewsletter = async (req: Request, res: Response, next: NextFunction) => {
+export const updateNewsletter = async (req: AppRequest, res: Response, next: NextFunction) => {
   try {
-    if (req.myApp) {
-      let { pageData } = formatFormData(req.body);
-      req.myApp.newsletter = { ...pageData, hero: req.asset || "" };
-      await req.myApp.save();
-    }
+    req.myApp.newsletter.title = req.body.title;
+    req.myApp.newsletter.details = req.body.details;
+    req.myApp.newsletter.hero = req.asset || req.body.hero || "";
+    req.myApp.newsletter.subtitle = req.body.subtitle;
+    await req.myApp.save();
     next();
   } catch (error) {
     useGenericErrors(res, error, "errror occured upating newsletter");

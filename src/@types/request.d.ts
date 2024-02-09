@@ -62,12 +62,18 @@ export interface AppRequest extends Request {
     appName: string;
     assetId: string;
   };
-  myApp?: IAppSchema | null;
+  myApp: IAppSchema;
   user: IUserSchema;
   asset: string;
   body: AppReqBody;
 }
-
+export interface AppUpdateRequest extends Request {
+  body: {
+    media: string;
+    link: string;
+  };
+  myApp: IAppSchema;
+}
 // export {};
 // declare global {
 //   namespace Express {
