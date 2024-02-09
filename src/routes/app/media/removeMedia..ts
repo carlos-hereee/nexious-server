@@ -1,5 +1,4 @@
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import type { RequestHandler } from "express";
 
 export const removeMedia: RequestHandler = async (req, res, next) => {
   try {

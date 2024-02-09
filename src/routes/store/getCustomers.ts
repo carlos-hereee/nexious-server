@@ -1,4 +1,4 @@
-// import type { RequestHandler } from "express";
+//
 // import { useGenericErrors } from "@authUtils/useGenericErrors";
 // import { listCustomers } from "@stripe/customers/listCustomers";
 

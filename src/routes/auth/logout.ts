@@ -1,5 +1,5 @@
 import { updateUser } from "@dbModels/users/updateUser";
-import type { RequestHandler } from "express";
+
 import { resetCookies } from "@authUtils/resetCookies";
 
 export const logout: RequestHandler = async (req, res) => {

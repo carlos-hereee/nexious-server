@@ -1,7 +1,6 @@
-import type { RequestHandler } from "express";
-import messages from "@data/error.message.json" ;
+import messages from "@data/error.message.json";
 
-export const addPassHistory: RequestHandler = (req, res, next) => {
+export const addPassHistory = (req: Request, res: Response, next: NextFunction) => {
   if (req.user) {
     // key variables
     const oldPassword = req.user.auth.password;

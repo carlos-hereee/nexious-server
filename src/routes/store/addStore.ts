@@ -3,7 +3,6 @@ import { formatMenuPageData } from "@appUtils/format/formatMenuPageData";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { addAccount } from "@stripe/accounts/addAccount";
 import message from "@data/error.message.json";
-import type { RequestHandler } from "express";
 
 export const addStore: RequestHandler = async (req, res, next) => {
   try {

@@ -1,4 +1,3 @@
-import type { RequestHandler } from "express";
 import { formatFormData } from "@appUtils/format/formatFormData";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 

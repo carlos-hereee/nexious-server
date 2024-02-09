@@ -3,7 +3,6 @@ import { random } from "@authUtils/random";
 import { generateHash } from "@authUtils/generateHash";
 import { v4 } from "uuid";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import type { RequestHandler } from "express";
 
 export const register: RequestHandler = async (req, res, next) => {
   try {

@@ -3,7 +3,7 @@
 // import { formatFormData } from "@appUtils/format/formatFormData";
 // // import updateApp from "@dbModels/app/updateApp";
 // import { getApp } from "@dbModels/app/getApp";
-// import type { RequestHandler } from "express";
+//
 
 // export const landingPageWithSection:RequestHandler= async (req, res) => {
 //   const hero = req.file;

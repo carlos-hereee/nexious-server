@@ -1,6 +1,6 @@
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { getSessionWithId } from "@stripe/payments/getSessionWithId";
-import type { RequestHandler } from "express";
+
 // import { getStripeCustomer } from "@stripe/customers/getStripeCustomer";
 // import { getCheckoutItems } from "@stripe/payments/getCheckoutItems";
 

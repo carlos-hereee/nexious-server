@@ -1,3 +1,4 @@
+import { Request } from "express";
 import type { Document } from "mongoose";
 
 export interface GetMerchProps {
@@ -46,7 +47,6 @@ export interface IStoreSchema extends Document {
   hero: string;
   isRegistered: boolean;
   termsOfService: boolean;
-  // inventory: IMerchSchema[];
   inventory: string[];
 }
 export interface MerchBody {
@@ -62,4 +62,13 @@ export interface StoreBody {
   title: string;
   body: string;
   pageName: string;
+}
+export interface RequestCart {
+  productId: string;
+  quantity: number;
+}
+export interface CartRequest extends Request {
+  body: {
+    cart: RequestCart[];
+  };
 }

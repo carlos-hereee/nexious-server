@@ -1,4 +1,3 @@
-import type { RequestHandler } from "express";
 import { generateMediaUrl } from "@appUtils/generateMediaUrl";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 

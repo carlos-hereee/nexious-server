@@ -3,7 +3,6 @@ import { createApp } from "@dbModels/app/createApp";
 // import formatThemeList  from "@authUtils/app/format/formatThemeList";
 // import formatLanguageList  from "@authUtils/app/format/formatLanguageList";
 import themeList from "@data/app/themeList.json";
-import type { RequestHandler } from "express";
 
 export const initApp: RequestHandler = async (req, res, next) => {
   try {

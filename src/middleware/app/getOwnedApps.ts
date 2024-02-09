@@ -1,5 +1,5 @@
 // import { getApp } from "@dbModels/app/getApp";
-// import type { RequestHandler } from "express";
+//
 // import { useGenericErrors } from "@authUtils/useGenericErrors";
 
 // export const getOwnedApps:RequestHandler = async (req, res, next) => {

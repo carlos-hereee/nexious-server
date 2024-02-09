@@ -1,7 +1,7 @@
 import { getApp } from "@dbModels/app/getApp";
 // import { getStore } from "@dbModels/store/getStore";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import type { RequestHandler } from "express";
+
 // import type { IAppSchema } from "@app/db";
 
 export const getStoreWithName: RequestHandler = async (req, res) => {

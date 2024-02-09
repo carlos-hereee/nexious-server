@@ -1,9 +1,9 @@
 import { stripeErrorHandling } from "@stripe/errors";
-import type { RequestHandler } from "express";
 import { isDev, stripeEndpointSecret as secret } from "@appUtils/config";
 import stripe from "../connection";
+import { NextFunction, Request, Response } from "express";
 
-export const initHook: RequestHandler = (req, res, next) => {
+export const initHook = (req: Request, res: Response, next: NextFunction) => {
   try {
     // key variables
     let signature = req.headers["stripe-signature"];

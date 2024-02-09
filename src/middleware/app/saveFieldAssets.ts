@@ -3,7 +3,6 @@ import { saveFile } from "middleware/app/saveFile";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { addFile } from "@aws/index";
 import { generateParamFiles } from "@aws/awsParams";
-import type { RequestHandler } from "express";
 
 export const saveFieldAssets: RequestHandler = async (req, res, next) => {
   try {

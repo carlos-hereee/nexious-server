@@ -1,8 +1,7 @@
 import message from "@data/error.message.json";
 import { generateHash } from "@authUtils/generateHash";
-import type { RequestHandler } from "express";
 
-export const authenticatePassword: RequestHandler = (req, res, next) => {
+export const authenticatePassword = (req: Request, res: Response, next: NextFunction) => {
   // key variable
   const password = req.body.password || req.body.oldPassword;
   if (req.user) {

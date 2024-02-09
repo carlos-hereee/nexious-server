@@ -6,7 +6,6 @@ import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { addFile } from "@aws/index";
 import { generateParamFile } from "@aws/awsParams";
 import type { ISection } from "@app/page";
-import type { RequestHandler } from "express";
 
 export const addPage: RequestHandler = async (req, res, next) => {
   try {

@@ -1,4 +1,3 @@
-import type { RequestHandler } from "express";
 import { formatLanguageList } from "@appUtils/format/formatLanguageList";
 import { formatThemeList } from "@appUtils/format/formatThemeList";
 import { useGenericErrors } from "@authUtils/useGenericErrors";

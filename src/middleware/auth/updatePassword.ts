@@ -1,7 +1,6 @@
 import { generateHash } from "@authUtils/generateHash";
 import { makeSession } from "@authUtils/makeSession";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import type { RequestHandler } from "express";
 
 export const updatePassword: RequestHandler = async (req, res, next) => {
   try {

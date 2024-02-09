@@ -1,6 +1,5 @@
 import { getUserAuth } from "@dbModels/users/getUserAuth";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import type { RequestHandler } from "express";
 
 export const getWithUsername: RequestHandler = async (req, res) => {
   try {

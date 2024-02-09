@@ -1,4 +1,3 @@
-import type { RequestHandler } from "express";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import message from "@data/error.message.json";
 import { getApp } from "@dbModels/app/getApp";

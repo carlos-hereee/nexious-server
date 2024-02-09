@@ -2,7 +2,7 @@ import type { IAppSchema } from "./app";
 import type { IPage } from "./page";
 import type Stripe from "stripe";
 import type { IUserSchema } from "./user";
-import type { IStoreSchema } from "./store";
+import type { IStoreSchema, RequestCart } from "./store";
 import type { IFile } from "./assets";
 import type { IAuth } from "./auth";
 
@@ -27,7 +27,7 @@ declare global {
       asset?: string;
       file?: IFile;
       // calendar?: any;
-      // cart?: any;
+      cart?: RequestCart[];
       assets?: { hero: string; sectionHero: string[] };
       files?: { hero: IFile; sectionHero: IFile[] };
       stripeEvent?: Stripe.Event;

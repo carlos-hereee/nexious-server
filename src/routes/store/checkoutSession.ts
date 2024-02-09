@@ -1,4 +1,3 @@
-import type { RequestHandler } from "express";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { createCheckoutSession } from "@stripe/payments/createCheckoutSession";
 

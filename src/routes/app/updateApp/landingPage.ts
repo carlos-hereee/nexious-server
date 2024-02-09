@@ -1,7 +1,6 @@
 import type { ISection } from "@app/page";
 import { formatFormData } from "@appUtils/format/formatFormData";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import type { RequestHandler } from "express";
 
 export const updateLandingPage: RequestHandler = async (req, res, next) => {
   try {

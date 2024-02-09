@@ -1,4 +1,4 @@
-// import type { RequestHandler } from "express";
+//
 // import { useGenericErrors } from "@authUtils/useGenericErrors";
 
 // export const editMerch: RequestHandler = async (req, res, next) => {

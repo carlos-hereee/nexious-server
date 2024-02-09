@@ -2,7 +2,6 @@ import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { addFile } from "@aws/index";
 import { awsImageUrl } from "@appUtils/config";
 import { generateParamFile } from "@aws/awsParams";
-import type { RequestHandler } from "express";
 
 export const saveAsset: RequestHandler = async (req, res, next) => {
   try {
