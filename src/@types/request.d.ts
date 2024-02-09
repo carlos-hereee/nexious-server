@@ -2,7 +2,7 @@ import type { IUserSchema } from "./user";
 import type { CartBody, IStoreSchema, MerchBodyParams, RequestStore, StoreBodyParams } from "./store";
 import type { Request } from "express";
 import Stripe from "stripe";
-import { AuthBody } from "./auth";
+import { AuthBody, IAuth } from "./auth";
 import { AppReqBody, IAppSchema } from "./app";
 
 export interface DeserializeUserRequest extends Request {
@@ -18,6 +18,7 @@ export interface StoreRequest extends Request {
   body: RequestStore;
   asset?: string;
   store?: IStoreSchema | null;
+  myApp?: IAppSchema | null;
 }
 export interface StoreRemovalRequest extends Request {
   store: IStoreSchema;
@@ -49,6 +50,11 @@ export interface StripeCheckoutSessionRequest extends Request {
 export interface UserRequest extends Request {
   user?: IUserSchema | null;
   body: AuthBody;
+}
+export interface UserAuthRequest extends Request {
+  body: AuthBody;
+  user: IUserSchema;
+  auth: IAuth;
 }
 export interface AppRequest extends Request {
   params: {

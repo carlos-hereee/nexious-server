@@ -2,10 +2,11 @@ import { createUser } from "@dbModels/users/createUser";
 import { generateHash } from "@authUtils/generateHash";
 import { v4 } from "uuid";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import { NextFunction, Request, Response } from "express";
+import { NextFunction, Response } from "express";
 import { random } from "@authUtils/makeSession";
+import { UserAuthRequest } from "@app/request";
 
-export const register = async (req: Request, res: Response, next: NextFunction) => {
+export const register = async (req: UserAuthRequest, res: Response, next: NextFunction) => {
   try {
     // key variables
     const username = req.body.username;

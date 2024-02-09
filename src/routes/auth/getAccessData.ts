@@ -1,9 +1,10 @@
 import { getApp } from "@dbModels/app/getApp";
 import { getUser } from "@dbModels/users/getUser";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import { Request, Response } from "express";
+import { Response } from "express";
+import { UserRequest } from "@app/request";
 
-export const getAccessData = async (req: Request, res: Response) => {
+export const getAccessData = async (req: UserRequest, res: Response) => {
   try {
     if (req.user) {
       const appList = await getApp({ all: true });

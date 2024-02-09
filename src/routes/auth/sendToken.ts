@@ -1,7 +1,9 @@
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { storeCookies } from "@authUtils/storeCookies";
+import { Response } from "express";
+import { UserAuthRequest } from "@app/request";
 
-export const sendToken = (req, res) => {
+export const sendToken = (req: UserAuthRequest, res: Response) => {
   try {
     // made it through the forest, generate session cookie
     const sessionId = req.user.auth.sessionId;
@@ -12,7 +14,6 @@ export const sendToken = (req, res) => {
     }
     return res.status(400).json("Unable to login try again later").end();
   } catch (error) {
-    // console.log("error :>> ", error);
     useGenericErrors(res, error, "error occured sending token");
   }
 };

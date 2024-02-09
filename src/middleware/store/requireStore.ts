@@ -1,7 +1,9 @@
+import { StoreRequest } from "@app/request";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import message from "@data/error.message.json";
+import { NextFunction, Response } from "express";
 
-export const requireStore = (req: Request, res: Response, next: NextFunction) => {
+export const requireStore = (req: StoreRequest, res: Response, next: NextFunction) => {
   try {
     req.store ? next() : res.status(404).json(message.storeNotFound);
   } catch (error) {

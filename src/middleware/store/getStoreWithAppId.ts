@@ -1,9 +1,10 @@
 import { getStore } from "@dbModels/store/getStore";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import message from "@data/error.message.json";
-import { NextFunction, Request, Response } from "express";
+import { NextFunction, Response } from "express";
+import { StoreRequest } from "@app/request";
 
-export const getStoreWithAppId = async (req: Request, res: Response, next: NextFunction) => {
+export const getStoreWithAppId = async (req: StoreRequest, res: Response, next: NextFunction) => {
   try {
     // require app
     if (req.myApp) {

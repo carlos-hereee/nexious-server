@@ -1,6 +1,5 @@
 import type { Document } from "mongoose";
 import type { IUserAuth } from "./auth";
-import type { NextFunction, Response } from "express";
 import { ObjectId } from "./db";
 
 // user
@@ -37,5 +36,3 @@ export interface InitUser {
   email?: string;
   phone?: number;
 }
-
-export type UserRequestHandler = (req: UserRequest, res: Response, next: NextFunction) => void;
