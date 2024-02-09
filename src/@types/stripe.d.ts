@@ -1,5 +1,5 @@
 import type { IAppSchema } from "./app";
-import type { IStoreSchema, MerchBody, StoreBody } from "./store";
+import type { IStoreSchema, MerchBody } from "./store";
 import type Stripe from "stripe";
 import type { IUserSchema } from "./user";
 
@@ -115,13 +115,7 @@ export interface StripeSecretParams {
 export type StripeSuccessEvent = Stripe.PaymentIntentSucceededEvent;
 export type StripeSessionCompleteEvent = Stripe.CheckoutSessionCompletedEvent;
 export type StripePaymentAttachedEvent = Stripe.PaymentMethodAttachedEvent;
-export interface StoreRequest {
-  myApp: IAppSchema;
-  user: IUserSchema;
-  body: StoreBody;
-  asset: string;
-  store?: IStoreSchema;
-}
+
 export interface MerchRequest {
   store: IStoreSchema;
   myApp: IAppSchema;

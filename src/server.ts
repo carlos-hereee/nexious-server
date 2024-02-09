@@ -1,4 +1,4 @@
-import express from "express";
+import express, { json, urlencoded } from "express";
 import cors from "cors";
 import { config } from "dotenv";
 import helmet from "helmet";
@@ -16,8 +16,8 @@ const app = express();
 
 app.use(helmet({ crossOriginResourcePolicy: false }));
 app.use(cookieParser());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(json());
+app.use(urlencoded({ extended: true }));
 app.use(cors({ credentials: true, origin: [clientUrl, clientUrlAlt], methods: allowedMethods }));
 // app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
 //   res.status ? res.status : res.status(500);

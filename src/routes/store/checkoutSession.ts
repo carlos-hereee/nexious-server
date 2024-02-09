@@ -1,19 +1,18 @@
+import type { CartRequest } from "@app/request";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { createCheckoutSession } from "@stripe/payments/createCheckoutSession";
-import { Request, Response } from "express";
+import { formatMerchData } from "@stripe/webhook/formatMerchData";
+import type { Response } from "express";
 
-export const checkoutSession = async (req: Request, res: Response) => {
+export const checkoutSession = async (req: CartRequest, res: Response) => {
   try {
-    const { accountId } = req.body.cart;
-    // console.log("req.cart :>> ", req.cart);
-    // console.log("accountId :>> ", accountId);
+    const cartData = formatMerchData(req.body.cart);
     const session = await createCheckoutSession({
-      cartData: req.cart,
-      mode: "payment",
-      stripeAccount: accountId,
+      sessionOptions: { mode: "payment", line_items: cartData },
+      stripeAccount: { stripeAccount: req.body.cart.accountId },
     });
-    res.status(200).json(session.url).end();
+    return res.status(200).json(session.url).end();
   } catch (error) {
-    useGenericErrors(res, error, "unable to create stripe session");
+    return useGenericErrors(res, error, "unable to create stripe session");
   }
 };

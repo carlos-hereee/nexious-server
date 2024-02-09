@@ -1,4 +1,4 @@
-import router from "express";
+import { Router } from "express";
 import bodyParser from "body-parser";
 import { getAppWithAppId } from "../../middleware/app/getAppWithAppId";
 import { saveAsset } from "../../middleware/app/saveAsset";
@@ -13,7 +13,6 @@ import { addStore } from "./addStore";
 import { editStore } from "./editStore";
 // import { getCustomers } from "./getCustomers";
 import { checkoutSession } from "./checkoutSession";
-import { getCartMerch } from "./getCartMerch";
 import { getConfirmation } from "./getConfirmation";
 import { stripeWebhook } from "./stripeWebhook";
 import { initHook } from "@stripe/webhook/initHook";
@@ -25,7 +24,7 @@ import { getStripeAccount } from "./getStripeAccount";
 import { uploadSingle } from "@aws/multer";
 import { requireApp } from "middleware/app/requireApp";
 
-const route = router.Router();
+const route = Router();
 
 const bodyParse = bodyParser.raw({ type: "application/json" });
 const adminWare = [requireUser, validateAdmin, getAppWithAppId, requireApp];
@@ -41,7 +40,8 @@ route.get("/confirm-intent", getConfirmation);
 route.get("/account/:accountId", getStripeAccount);
 route.get("/inventory/:storeId", getStoreMerch);
 // route.post("/request-secret", requestSecret);
-route.post("/create-checkout-session", getCartMerch, checkoutSession);
+// route.post("/create-checkout-session", getCartMerch, checkoutSession);
+route.post("/create-checkout-session", checkoutSession);
 // add to store
 route.post("/build-store/:appId", heroWare, addStore, minAppData);
 route.post("/add-merch/:appId", storeWare, addMerch, minAppData);

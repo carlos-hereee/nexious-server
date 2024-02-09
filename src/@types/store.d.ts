@@ -1,4 +1,3 @@
-import { Request } from "express";
 import type { Document } from "mongoose";
 
 export interface GetMerchProps {
@@ -63,12 +62,20 @@ export interface StoreBody {
   body: string;
   pageName: string;
 }
+export interface CartBody {
+  accountId: string;
+  merch: {
+    productId: string;
+    quantity: number;
+  }[];
+}
+export type StripeMerchData = RequestCart[];
 export interface RequestCart {
   productId: string;
   quantity: number;
 }
-export interface CartRequest extends Request {
-  body: {
-    cart: RequestCart[];
-  };
+export interface RequestStore {
+  name: string;
+  body: string;
+  title: string;
 }

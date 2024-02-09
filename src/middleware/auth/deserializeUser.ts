@@ -2,11 +2,12 @@ import { isDev, accessTokenName, refreshTokenName } from "@appUtils/config";
 import { getUserAuth } from "@dbModels/users/getUserAuth";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { verifyJWT } from "@authUtils/verifyJWT";
-import { NextFunction, Request, Response } from "express";
+import { NextFunction, Response } from "express";
+import { DeserializeUserRequest } from "@app/request";
 // import type { AuthRequestHandler } from "@app/auth";
 // import type { MiddlewareRequestHandler } from "@app/db";
 
-export const deserializeUser = async (req: Request, res: Response, next: NextFunction) => {
+export const deserializeUser = async (req: DeserializeUserRequest, res: Response, next: NextFunction) => {
   try {
     // key variables
     const accessToken = req.cookies[accessTokenName];
@@ -14,14 +15,14 @@ export const deserializeUser = async (req: Request, res: Response, next: NextFun
     const token = accessToken || refreshToken || "";
     if (!token) {
       if (isDev) console.log("no token", accessToken, refreshToken);
-      next();
+      return next();
     }
     // validate token
     const { username, sessionId, error } = verifyJWT(token);
     if (username) req.user = await getUserAuth({ username });
     else if (sessionId) req.user = await getUserAuth({ sessionId });
     else if (error) isDev && console.log("error  verifying JWT", error);
-    next();
+    return next();
   } catch (error) {
     useGenericErrors(res, error, "unable to deserialize user");
   }
