@@ -4,7 +4,13 @@ import type { Request } from "express";
 import Stripe from "stripe";
 import { AuthBody, IAuth } from "./auth";
 import { AppReqBody, IAppSchema } from "./app";
+import { IFile, ReqFiles } from "./assets";
 
+export interface FileRequest extends Request {
+  file: IFile;
+  files: ReqFiles;
+  asset?: string;
+}
 export interface DeserializeUserRequest extends Request {
   cookies: { [cookieName: string]: string | undefined };
   user?: IUserSchema | null;
