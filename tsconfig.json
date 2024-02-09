@@ -29,6 +29,9 @@
       "@app/*": [
         "./@types/*"
       ],
+      "@middleware/*": [
+        "./middleware/*"
+      ],
       "@dbModels/*": [
         "./db/models/*"
       ],
@@ -46,9 +49,6 @@
       ],
       "@aws/*": [
         "./utils/aws/*"
-      ],
-      "@authWare/*": [
-        "./middleware/auth/*"
       ],
       "@appUtils/*": [
         "./utils/app/*"

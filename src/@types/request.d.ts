@@ -8,6 +8,8 @@ import type { IUserSchema } from "./user";
 import type { CartBody, IStoreSchema, RequestStore } from "./store";
 import type { Request } from "express";
 import Stripe from "stripe";
+import { AuthBody } from "./auth";
+import { AppReqBody, IAppSchema } from "./app";
 
 // export {};
 // declare global {
@@ -53,6 +55,7 @@ export interface CartRequest extends Request {
 }
 export interface StoreRequest extends Request {
   body: RequestStore;
+  asset?: string;
   store?: IStoreSchema | null;
 }
 export interface StripeWebhookRequest extends Request {
@@ -64,4 +67,20 @@ export interface StripeCheckoutSessionRequest extends Request {
   body: {
     cart: CartBody;
   };
+}
+// defined custom properties after passing middleware requirements
+export interface UserRequest extends Request {
+  user?: IUserSchema | null;
+  body: AuthBody;
+}
+export interface AppRequest extends Request {
+  params: {
+    appId: string;
+    appName: string;
+    assetId: string;
+  };
+  myApp?: IAppSchema | null;
+  user: IUserSchema;
+  asset: string;
+  body: AppReqBody;
 }

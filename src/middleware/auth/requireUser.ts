@@ -1,6 +1,8 @@
+import { UserRequest } from "@app/request";
 import message from "@data/error.message.json";
+import { NextFunction, Response } from "express";
 
-export const requireUser = (req: Request, res: Response, next: NextFunction) => {
+export const requireUser = (req: UserRequest, res: Response, next: NextFunction) => {
   // check if user was found
   if (req.user) next();
   else {

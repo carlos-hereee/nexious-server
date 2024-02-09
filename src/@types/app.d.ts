@@ -121,13 +121,7 @@ export interface AppDataRequest extends Request {
   user: IUserSchema;
   myApp: IAppSchema;
 }
-export interface AppRequest extends Request {
-  params: { appId: string; appName: string; assetId: string };
-  myApp: IAppSchema;
-  user: IUserSchema;
-  asset: string;
-  body: AppReqBody;
-}
+
 export interface InitAppRequest extends Request {
   user: IUserSchema;
   myApp?: IAppSchema;

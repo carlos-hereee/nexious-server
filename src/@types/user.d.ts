@@ -1,6 +1,6 @@
 import type { Document } from "mongoose";
-import type { AuthBody, IUserAuth } from "./auth";
-import type { Request, NextFunction, Response } from "express";
+import type { IUserAuth } from "./auth";
+import type { NextFunction, Response } from "express";
 
 // user
 export interface GetUserProps {
@@ -35,9 +35,5 @@ export interface InitUser {
   email?: string;
   phone?: number;
 }
-// defined custom properties after passing middleware requirements
-export interface UserRequest extends Request {
-  user: IUserSchema | null;
-  body: AuthBody;
-}
+
 export type UserRequestHandler = (req: UserRequest, res: Response, next: NextFunction) => void;
