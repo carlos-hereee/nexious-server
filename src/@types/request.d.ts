@@ -1,9 +1,3 @@
-// import type { IAppSchema } from "./app";
-// import type { IPage } from "./page";
-// import type Stripe from "stripe";
-// import type { CartBody, IStoreSchema, RequestCart, RequestStore } from "./store";
-// import type { IFile } from "./assets";
-// import type { IAuth } from "./auth";
 import type { IUserSchema } from "./user";
 import type { CartBody, IStoreSchema, RequestStore, StoreBodyParams } from "./store";
 import type { Request } from "express";

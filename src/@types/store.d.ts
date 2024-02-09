@@ -40,21 +40,38 @@ export interface IMerchSchema extends MerchSchema, Document {
   inStock: number;
   cost: number;
 }
-export interface IStoreSchema extends Document {
-  ownerId: string;
-  appId: string;
-  storeId: string;
-  accountId: string;
-  currency: string;
-  name: string;
-  pageName: string;
-  title: string;
-  body: string;
+export interface CreateStoreSchema {
+  ownerId: ObjectId;
+  appId: ObjectId;
   email: string;
+  storeId?: string;
+  accountId?: string;
+  currency?: string;
+  name?: string;
+  pageName?: string;
+  title?: string;
+  body?: string;
   hero?: string;
   isRegistered?: boolean;
   termsOfService?: boolean;
-  inventory: ObjectId[];
+  inventory?: ObjectId[];
+}
+export interface IStoreSchema extends Document {
+  _id: ObjectId;
+  ownerId: ObjectId;
+  appId: ObjectId;
+  email: string;
+  storeId?: string;
+  accountId?: string;
+  currency?: string;
+  name?: string;
+  pageName?: string;
+  title?: string;
+  body?: string;
+  hero?: string;
+  isRegistered?: boolean;
+  termsOfService?: boolean;
+  inventory?: ObjectId[];
 }
 export interface MerchBody {
   name: string;

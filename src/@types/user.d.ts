@@ -1,6 +1,7 @@
 import type { Document } from "mongoose";
 import type { IUserAuth } from "./auth";
 import type { NextFunction, Response } from "express";
+import { ObjectId } from "./db";
 
 // user
 export interface GetUserProps {
@@ -13,6 +14,7 @@ export interface GetUserProps {
 }
 
 export interface IUserSchema extends Document {
+  _id: ObjectId;
   userId: string;
   username: string;
   nickname: string;

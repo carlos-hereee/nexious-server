@@ -9,14 +9,14 @@ import { StoreCreateRequest } from "@app/request";
 export const addStore = async (req: StoreCreateRequest, res: Response, next: NextFunction) => {
   try {
     // key variables
-    const { name, title, body, pageName } = req.body;
-    const { country, appId } = req.myApp;
-    const ownerId = req.user.userId;
+    const { name } = req.body;
+    const { country, _id } = req.myApp;
+    const ownerId = req.user._id;
     const hero = req.asset || "";
     const email = req.body.email || req.myApp.email;
     if (!email) return res.status(400).json(message.emailRequired).end();
     const menuData = formatMenuPageData(name);
-    const payload = { ownerId, appId, hero, title, body, pageName, name, accountId: "" };
+    const payload = { ...req.body, email, ownerId, appId: _id, hero, accountId: "" };
 
     // create stripe account with app data
     const account = await addAccount({ addAccount: { country, email, type: "standard" } });

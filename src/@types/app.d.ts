@@ -79,6 +79,7 @@ export interface IMenu {
   isStore?: boolean;
 }
 export interface IAppSchema extends Document {
+  _id: ObjectId;
   appId: string;
   appName: string;
   locale: string;
