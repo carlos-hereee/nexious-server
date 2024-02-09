@@ -1,6 +1,7 @@
 import { useGenericErrors } from "@authUtils/useGenericErrors";
+import { NextFunction, Request, Response } from "express";
 
-export const updateAppLogo: RequestHandler = async (req, res, next) => {
+export const updateAppLogo = async (req: Request, res: Response, next: NextFunction) => {
   try {
     if (req.myApp) {
       // // update appname

@@ -3,8 +3,9 @@ import { formatMenuPageData } from "@appUtils/format/formatMenuPageData";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { addAccount } from "@stripe/accounts/addAccount";
 import message from "@data/error.message.json";
+import { NextFunction, Request, Response } from "express";
 
-export const addStore: RequestHandler = async (req, res, next) => {
+export const addStore = async (req: Request, res: Response, next: NextFunction) => {
   try {
     if (req.myApp && req.user) {
       // key variables

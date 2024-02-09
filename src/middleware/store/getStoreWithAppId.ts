@@ -1,8 +1,9 @@
 import { getStore } from "@dbModels/store/getStore";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import message from "@data/error.message.json";
+import { NextFunction, Request, Response } from "express";
 
-export const getStoreWithAppId: RequestHandler = async (req, res, next) => {
+export const getStoreWithAppId = async (req: Request, res: Response, next: NextFunction) => {
   try {
     // require app
     if (req.myApp) {

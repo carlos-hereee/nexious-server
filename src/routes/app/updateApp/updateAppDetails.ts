@@ -1,8 +1,9 @@
 import { formatLanguageList } from "@appUtils/format/formatLanguageList";
 import { formatThemeList } from "@appUtils/format/formatThemeList";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
+import { NextFunction, Request, Response } from "express";
 
-export const updateAppDetails: RequestHandler = async (req, res, next) => {
+export const updateAppDetails = async (req: Request, res: Response, next: NextFunction) => {
   try {
     if (req.myApp) {
       // key variables

@@ -2,11 +2,11 @@ import { isDev, accessTokenName, refreshTokenName } from "@appUtils/config";
 import { getUserAuth } from "@dbModels/users/getUserAuth";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { verifyJWT } from "@authUtils/verifyJWT";
-
+import { NextFunction, Request, Response } from "express";
 // import type { AuthRequestHandler } from "@app/auth";
 // import type { MiddlewareRequestHandler } from "@app/db";
 
-export const deserializeUser: RequestHandler = async (req, res, next) => {
+export const deserializeUser = async (req: Request, res: Response, next: NextFunction) => {
   try {
     // key variables
     const accessToken = req.cookies[accessTokenName];

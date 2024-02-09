@@ -1,6 +1,7 @@
 import { useGenericErrors } from "@authUtils/useGenericErrors";
+import { NextFunction, Request, Response } from "express";
 
-export const editStore: RequestHandler = async (req, res, next) => {
+export const editStore = async (req: Request, res: Response, next: NextFunction) => {
   try {
     if (req.store) {
       const { name, title, body } = req.body;

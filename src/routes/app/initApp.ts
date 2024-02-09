@@ -3,8 +3,9 @@ import { createApp } from "@dbModels/app/createApp";
 // import formatThemeList  from "@authUtils/app/format/formatThemeList";
 // import formatLanguageList  from "@authUtils/app/format/formatLanguageList";
 import themeList from "@data/app/themeList.json";
+import { NextFunction, Request, Response } from "express";
 
-export const initApp: RequestHandler = async (req, res, next) => {
+export const initApp = async (req: Request, res: Response, next: NextFunction) => {
   try {
     if (req.user) {
       // key variables

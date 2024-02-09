@@ -1,7 +1,8 @@
 import { removeApp } from "@dbModels/app/removeApp";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
+import { NextFunction, Request, Response } from "express";
 
-export const deleteApp: RequestHandler = async (req, res, next) => {
+export const deleteApp = async (req: Request, res: Response, next: NextFunction) => {
   try {
     if (req.user) {
       const appId = req.params.appId;

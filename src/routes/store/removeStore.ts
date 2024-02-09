@@ -1,8 +1,9 @@
 import { deleteStore } from "@dbModels/store/deleteStore";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { removeAccount } from "@stripe/accounts/removeAccount";
+import { NextFunction, Request, Response } from "express";
 
-export const removeStore: RequestHandler = async (req, res, next) => {
+export const removeStore = async (req: Request, res: Response, next: NextFunction) => {
   if (req.store && req.myApp) {
     try {
       const { name } = req.store;

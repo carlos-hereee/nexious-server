@@ -2,8 +2,9 @@ import { createMerch } from "@dbModels/merch/createMerch";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { addPrice } from "@stripe/merch/addPrice";
 import { addProduct } from "@stripe/merch/addProduct";
+import { NextFunction, Request, Response } from "express";
 
-export const addMerch: RequestHandler = async (req, res, next) => {
+export const addMerch = async (req: Request, res: Response, next: NextFunction) => {
   try {
     if (req.store) {
       // key variables

@@ -1,6 +1,7 @@
 import { useGenericErrors } from "@authUtils/useGenericErrors";
+import { NextFunction, Request, Response } from "express";
 
-export const removeMedia: RequestHandler = async (req, res, next) => {
+export const removeMedia = async (req: Request, res: Response, next: NextFunction) => {
   try {
     if (req.myApp) {
       const { assetId } = req.params;

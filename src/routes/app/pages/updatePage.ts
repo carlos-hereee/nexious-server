@@ -5,10 +5,11 @@
 // import { addFile } from "@aws/index";
 // import { generateParamFile } from "@aws/awsParams";
 // import { getPages } from "@dbModels/page/getPages";
-//
+//import { NextFunction, Request, Response } from "express";
+
 // import type { ISection } from "@app/page";
 
-// export const updatePage: RequestHandler = async (req, res, next) => {
+// export const updatePage= async (req: Request, res: Response, next: NextFunction) => {
 //   try {
 //     // get page data
 //     const pageId = req.params.pageId;

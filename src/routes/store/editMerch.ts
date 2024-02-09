@@ -1,7 +1,8 @@
-//
+//import { NextFunction, Request, Response } from "express";
+
 // import { useGenericErrors } from "@authUtils/useGenericErrors";
 
-// export const editMerch: RequestHandler = async (req, res, next) => {
+// export const editMerch= async (req: Request, res: Response, next: NextFunction) => {
 //   try {
 //     if (req.store) {
 //       const { name, quantity, cost, body, hero: h } = req.body;

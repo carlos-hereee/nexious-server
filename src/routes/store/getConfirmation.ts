@@ -1,10 +1,11 @@
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { getSessionWithId } from "@stripe/payments/getSessionWithId";
+import { NextFunction, Request, Response } from "express";
 
 // import { getStripeCustomer } from "@stripe/customers/getStripeCustomer";
 // import { getCheckoutItems } from "@stripe/payments/getCheckoutItems";
 
-export const getConfirmation: RequestHandler = async (req, res, next) => {
+export const getConfirmation = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const sessionId = req.query.session_id;
     if (sessionId) {

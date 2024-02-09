@@ -1,7 +1,8 @@
 import { formatFormData } from "@appUtils/format/formatFormData";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
+import { NextFunction, Request, Response } from "express";
 
-export const updateMedias: RequestHandler = async (req, res, next) => {
+export const updateMedias = async (req: Request, res: Response, next: NextFunction) => {
   try {
     if (req.myApp) {
       const payload = formatFormData(req.body);

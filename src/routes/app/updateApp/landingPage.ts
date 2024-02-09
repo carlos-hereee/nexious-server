@@ -1,8 +1,9 @@
 import type { ISection } from "@app/page";
 import { formatFormData } from "@appUtils/format/formatFormData";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
+import { NextFunction, Request, Response } from "express";
 
-export const updateLandingPage: RequestHandler = async (req, res, next) => {
+export const updateLandingPage = async (req: Request, res: Response, next: NextFunction) => {
   try {
     if (req.myApp) {
       let { pageData, refs } = formatFormData(req.body);

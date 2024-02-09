@@ -1,7 +1,7 @@
 import message from "@data/error.message.json";
 import { getUser } from "@dbModels/users/getUser";
-
-export const requireUsername: RequestHandler = async (req, res, next) => {
+import { NextFunction, Request, Response } from "express";
+export const requireUsername = async (req: Request, res: Response, next: NextFunction) => {
   const username = req.body.username || req.params.username;
   // must have a value
   if (!username) {

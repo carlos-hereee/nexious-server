@@ -1,6 +1,7 @@
 import { useGenericErrors } from "@authUtils/useGenericErrors";
+import { NextFunction, Request, Response } from "express";
 
-export const subscribe: RequestHandler = async (req, res, next) => {
+export const subscribe = async (req: Request, res: Response, next: NextFunction) => {
   try {
     if (req.user && req.myApp) {
       req.user.subscriptions.push(req.myApp._id);

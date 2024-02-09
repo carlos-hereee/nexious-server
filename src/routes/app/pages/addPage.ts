@@ -6,8 +6,9 @@ import { useGenericErrors } from "@authUtils/useGenericErrors";
 import { addFile } from "@aws/index";
 import { generateParamFile } from "@aws/awsParams";
 import type { ISection } from "@app/page";
+import { NextFunction, Request, Response } from "express";
 
-export const addPage: RequestHandler = async (req, res, next) => {
+export const addPage = async (req: Request, res: Response, next: NextFunction) => {
   try {
     if (req.myApp) {
       let { pageData, refs } = formatFormData(req.body);

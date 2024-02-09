@@ -1,8 +1,8 @@
 import { generateHash } from "@authUtils/generateHash";
 import { makeSession } from "@authUtils/makeSession";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-
-export const updatePassword: RequestHandler = async (req, res, next) => {
+import { NextFunction, Request, Response } from "express";
+export const updatePassword = async (req: Request, res: Response, next: NextFunction) => {
   try {
     if (req.user) {
       // update password and genereate new sessionId (should log everyone out)
