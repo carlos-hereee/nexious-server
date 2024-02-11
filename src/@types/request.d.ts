@@ -15,10 +15,6 @@ export interface FileRequest extends Request {
   asset: string;
   assets: { hero: string; sectionHero: string[] };
 }
-export interface DeserializeUserRequest extends Request {
-  cookies: { [cookieName: string]: string | undefined };
-  user?: IUserSchema | null;
-}
 
 export interface StoreRequest<B> extends Request {
   body: B;
@@ -58,22 +54,12 @@ export interface UserRequest extends Request {
     appId: string;
     username: string;
   };
-  user?: IUserSchema | null;
-  body: AuthBody;
-}
-// defined custom properties after passing middleware requirements
-export interface AdminRequest extends Request {
-  params: {
-    appId: string;
-  };
+  cookies: { [cookieName: string]: string | undefined };
   user: IUserSchema;
+  auth?: IAuth;
   body: AuthBody;
 }
-export interface UserAuthRequest extends Request {
-  body: AuthBody;
-  user: IUserSchema;
-  auth: IAuth;
-}
+
 export interface AppRequest<B> extends Request {
   body: B;
   params: {

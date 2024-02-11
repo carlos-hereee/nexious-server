@@ -1,11 +1,12 @@
-import { getUserAuth } from "@db/models/users/getUserAuth";
+import { UserRequest } from "@app/request";
+import { getUser } from "@db/models/users/getUser";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
-import { Request, Response } from "express";
+import { Response } from "express";
 
-export const getWithUsername = async (req: Request, res: Response) => {
+export const getWithUsername = async (req: UserRequest, res: Response) => {
   try {
     const { username } = req.params;
-    const user = await getUserAuth({ username });
+    const user = await getUser({ username });
     // // TODO: ADD ADDITIONAL VERFICATION METHODS
     res.status(200).json(user).end();
   } catch (error) {

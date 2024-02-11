@@ -1,9 +1,9 @@
 import { getAllApps } from "@db/models/app/getApp";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { Response } from "express";
-import { AdminRequest } from "@app/request";
+import { UserRequest } from "@app/request";
 
-export const getOwnedApps = async (req: AdminRequest, res: Response) => {
+export const getOwnedApps = async (req: UserRequest, res: Response) => {
   try {
     // send owned apps
     const apps = await getAllApps({ ownerId: req.user._id });

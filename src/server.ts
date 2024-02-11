@@ -24,6 +24,8 @@ app.use(cors({ credentials: true, origin: [clientUrl, clientUrlAlt], methods: al
 //   res.json(error);
 // });
 // middleware for all functions
+// TODO: DEBUG ERROR
+// app.use(deserializeUser as unknown as RequestHandler);
 app.use(deserializeUser);
 
 void connectMongoose().then(({ status }) => {

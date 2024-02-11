@@ -1,8 +1,8 @@
-import { UserAuthRequest } from "@app/request";
+import { UserRequest } from "@app/request";
 import messages from "@db/data/error.message.json";
 import { NextFunction, Response } from "express";
 
-export const addPassHistory = (req: UserAuthRequest, res: Response, next: NextFunction) => {
+export const addPassHistory = (req: UserRequest, res: Response, next: NextFunction) => {
   if (req.user) {
     // key variables
     const oldPassword = req.user.auth.password;
