@@ -1,5 +1,5 @@
-import Events from "@dbSchema/events";
+// import Events from "@dbSchema/events";
 
-export const removeEvent = async ({ pageId }) => {
-  return await Events.findOneAndDelete({ pageId });
-};
+// export const removeEvent = async ({ pageId }) => {
+//   return await Events.findOneAndDelete({ pageId });
+// };

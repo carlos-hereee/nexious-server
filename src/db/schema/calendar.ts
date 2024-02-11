@@ -1,8 +1,9 @@
+import { ICalendarSchema } from "@app/calendar";
 import mongoose from "mongoose";
 import { v4 } from "uuid";
 
 const Schema = mongoose.Schema;
-const calendarSchema = new Schema(
+const calendarSchema = new Schema<ICalendarSchema>(
   {
     calendarId: { type: String, require: true, unique: true, default: v4 },
     appId: { type: Schema.Types.ObjectId, ref: "App", require: true },

@@ -1,6 +1,9 @@
 import type { Document } from "mongoose";
 import { ObjectId } from "./db";
 
+export interface StoreFilters {
+  storeId: string;
+}
 export interface StoreBodyParams {
   name: string;
   title: string;

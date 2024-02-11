@@ -61,6 +61,7 @@ export interface StripeCheckoutSessionRequest extends Request {
 export interface UserRequest extends Request {
   params: {
     appId: ObjectId;
+    username: string;
   };
   user?: IUserSchema | null;
   body: AuthBody;

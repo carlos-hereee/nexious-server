@@ -4,7 +4,7 @@ import type { ObjectId } from "./db";
 import type { ILandingPage } from "./page";
 import type { IUserSchema } from "./user";
 
-export interface GetAppProps {
+export interface AppFilters {
   appId?: string;
   appName?: string;
   appIds?: string[];

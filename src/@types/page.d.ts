@@ -1,6 +1,10 @@
 import type { Document } from "mongoose";
 import type { IMediaItem } from "./app";
 
+export interface PageFilters {
+  pageId: string;
+  appId: string;
+}
 // pages
 export interface GetPagesProps {
   appId?: string;

@@ -1,5 +1,5 @@
-import Hero from "@dbSchema/hero";
+// import Hero from "@dbSchema/hero";
 
-export const saveHero = async (payload) => {
-  return await Hero.create(payload);
-};
+// export const saveHero = async (payload) => {
+//   return await Hero.create(payload);
+// };
