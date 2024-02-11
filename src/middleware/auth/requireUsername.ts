@@ -1,6 +1,6 @@
 import { UserRequest } from "@app/request";
-import message from "@data/error.message.json";
-import { getUser } from "@dbModels/users/getUser";
+import message from "@db/data/error.message.json";
+import { getUser } from "@db/models/users/getUser";
 import { NextFunction, Response } from "express";
 
 export const requireUsername = async (req: UserRequest, res: Response, next: NextFunction) => {

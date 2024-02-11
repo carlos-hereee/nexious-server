@@ -1,4 +1,4 @@
-import { accessTokenName, refreshTokenName } from "@appUtils/config";
+import { accessTokenName, refreshTokenName } from "@utils/app/config";
 import { signJWT } from "./signJWT";
 import { cookieCongig } from "./cookieCongig";
 import type { StoreCookiesProps } from "@app/auth";

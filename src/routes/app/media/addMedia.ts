@@ -1,6 +1,6 @@
 import { AppUpdateRequest } from "@app/request";
-import { generateMediaUrl } from "@appUtils/generateMediaUrl";
-import { useGenericErrors } from "@authUtils/useGenericErrors";
+import { generateMediaUrl } from "@utils/app/generateMediaUrl";
+import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
 
 export const addMedia = async (req: AppUpdateRequest, res: Response, next: NextFunction) => {

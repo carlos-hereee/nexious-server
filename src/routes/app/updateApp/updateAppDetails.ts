@@ -1,7 +1,7 @@
 import { AppRequest } from "@app/request";
-import { formatLanguageList } from "@appUtils/format/formatLanguageList";
-import { formatThemeList } from "@appUtils/format/formatThemeList";
-import { useGenericErrors } from "@authUtils/useGenericErrors";
+import { formatLanguageList } from "@utils/app/format/formatLanguageList";
+import { formatThemeList } from "@utils/app/format/formatThemeList";
+import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
 
 export const updateAppDetails = async (req: AppRequest, res: Response, next: NextFunction) => {

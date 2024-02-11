@@ -1,4 +1,4 @@
-// import Hero from "@dbSchema/hero";
+// import Hero from "@db/schema/hero";
 
 // export const getHero = async ({ heroId, filename }) => {
 //   if (filename) {

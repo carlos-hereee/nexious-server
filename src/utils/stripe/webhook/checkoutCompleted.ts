@@ -1,5 +1,5 @@
 import { StripeSessionCompleteEvent } from "@app/stripe";
-import { getSessionWithId } from "@stripe/payments/getSessionWithId";
+import { getSessionWithId } from "@utils/stripe/payments/getSessionWithId";
 
 export const checkoutCompleted = async (event: StripeSessionCompleteEvent) => {
   // Handle the checkout.session.completed event

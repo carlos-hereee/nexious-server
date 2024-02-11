@@ -1,5 +1,5 @@
 import { S3 } from "@aws-sdk/client-s3";
-import { awsRegion, awsAccessKey, awsSecretKey } from "@appUtils/config";
+import { awsRegion, awsAccessKey, awsSecretKey } from "@utils/app/config";
 import { createBucket } from "./bucket/createBucket";
 import { listBucket } from "./bucket/listBucket";
 import { listBucketItems } from "./bucket/listBucketItems";

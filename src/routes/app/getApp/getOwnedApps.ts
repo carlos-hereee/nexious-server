@@ -1,5 +1,5 @@
-import { getAllApps } from "@dbModels/app/getApp";
-import { useGenericErrors } from "@authUtils/useGenericErrors";
+import { getAllApps } from "@db/models/app/getApp";
+import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { Response } from "express";
 import { AdminRequest } from "@app/request";
 

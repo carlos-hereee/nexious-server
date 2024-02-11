@@ -1,6 +1,6 @@
 import { StoreFilters } from "@app/store";
-import Merch from "@dbSchema/merch";
-import Store from "@dbSchema/store";
+import Merch from "@db/schema/merch";
+import Store from "@db/schema/store";
 
 export const deleteStore = async ({ storeId }: StoreFilters) => {
   // if (appId) return await Store.findOneAndDelete({ appId });

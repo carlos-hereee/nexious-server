@@ -1,5 +1,5 @@
 //
-// import { useGenericErrors } from "@authUtils/useGenericErrors";
+// import { useGenericErrors }  from "@utils/auth/useGenericErrors";
 
 // export const updateAppName: RequestHandler= (req, res, next) => {
 //   try {

@@ -1,5 +1,5 @@
-import { getUser } from "@dbModels/users/getUser";
-import { useGenericErrors } from "@authUtils/useGenericErrors";
+import { getUser } from "@db/models/users/getUser";
+import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { Response } from "express";
 import { UserAuthRequest } from "@app/request";
 

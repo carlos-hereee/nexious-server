@@ -1,5 +1,5 @@
 import { StoreRequest } from "@app/request";
-import { useGenericErrors } from "@authUtils/useGenericErrors";
+import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
 
 export const editStore = async (req: StoreRequest, res: Response, next: NextFunction) => {

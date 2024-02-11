@@ -1,5 +1,5 @@
 import type { AppFilters } from "@app/app";
-import App from "@dbSchema/app";
+import App from "@db/schema/app";
 
 export const getApp = async ({ appId, appName, locale }: AppFilters) => {
   const includeData = "owner pages store calendar";

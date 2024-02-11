@@ -1,8 +1,8 @@
-import { useGenericErrors } from "@authUtils/useGenericErrors";
-import { createApp } from "@dbModels/app/createApp";
-// import formatThemeList  from "@authUtils/app/format/formatThemeList";
-// import formatLanguageList  from "@authUtils/app/format/formatLanguageList";
-import themeList from "@data/app/themeList.json";
+import { useGenericErrors } from "@utils/auth/useGenericErrors";
+import { createApp } from "@db/models/app/createApp";
+// import formatThemeList   from "@utils/auth/app/format/formatThemeList";
+// import formatLanguageList   from "@utils/auth/app/format/formatLanguageList";
+import themeList from "@db/data/app/themeList.json";
 import { NextFunction, Response } from "express";
 import { AppRequest } from "@app/request";
 

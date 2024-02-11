@@ -1,5 +1,5 @@
-import { getMerch } from "@dbModels/merch/getMerch";
-import { useGenericErrors } from "@authUtils/useGenericErrors";
+import { getMerch } from "@db/models/merch/getMerch";
+import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { Request, Response } from "express";
 
 export const getStoreMerch = async (req: Request, res: Response) => {

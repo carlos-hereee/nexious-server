@@ -1,5 +1,5 @@
-import { useGenericErrors } from "@authUtils/useGenericErrors";
-import { storeCookies } from "@authUtils/storeCookies";
+import { useGenericErrors } from "@utils/auth/useGenericErrors";
+import { storeCookies } from "@utils/auth/storeCookies";
 import { Response } from "express";
 import { UserAuthRequest } from "@app/request";
 

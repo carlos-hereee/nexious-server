@@ -1,7 +1,7 @@
-import { awsImageUrl } from "@appUtils/config";
+import { awsImageUrl } from "@utils/app/config";
 import { saveFile } from "middleware/app/saveFile";
-import { addFile } from "@aws/index";
-import { generateParamFiles } from "@aws/awsParams";
+import { addFile } from "@utils/aws/index";
+import { generateParamFiles } from "@utils/aws/awsParams";
 import { NextFunction, Response } from "express";
 import { FileRequest } from "@app/request";
 

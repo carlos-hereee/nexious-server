@@ -1,5 +1,5 @@
-// import useGenericErrors  from "@authUtils/useGenericErrors";
-// import { getBucket }  from "@authUtils/aws";
+// import useGenericErrors   from "@utils/auth/useGenericErrors";
+// import { getBucket }   from "@utils/auth/aws";
 
 // export =(req, res) => {
 //   try {

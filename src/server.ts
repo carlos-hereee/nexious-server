@@ -5,7 +5,7 @@ import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import routes from "@routes/index";
 import { connectMongoose } from "@db/connectMongoose";
-import { clientUrl, clientUrlAlt, allowedMethods, port, isDev } from "@appUtils/config";
+import { clientUrl, clientUrlAlt, allowedMethods, port, isDev } from "@utils/app/config";
 import { deserializeUser } from "@middleware/auth/deserializeUser";
 
 // configure envs

@@ -1,5 +1,5 @@
-import { getApp } from "@dbModels/app/getApp";
-import { useGenericErrors } from "@authUtils/useGenericErrors";
+import { getApp } from "@db/models/app/getApp";
+import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import type { Response } from "express";
 
 export const getAppList = async (_req, res: Response) => {

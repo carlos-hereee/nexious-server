@@ -1,4 +1,4 @@
-// import Events from "@dbSchema/events";
+// import Events from "@db/schema/events";
 
 // export const getEvents = async ({ appId, languageId }) => {
 //   if (languageId) {

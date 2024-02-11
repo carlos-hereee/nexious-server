@@ -1,6 +1,6 @@
-import { useGenericErrors } from "@authUtils/useGenericErrors";
-import { getPage } from "@dbModels/page/getPages";
-import messages from "@data/error.message.json";
+import { useGenericErrors } from "@utils/auth/useGenericErrors";
+import { getPage } from "@db/models/page/getPages";
+import messages from "@db/data/error.message.json";
 import { NextFunction, Response } from "express";
 import { PageRequest } from "@app/request";
 

@@ -71,14 +71,7 @@
   "_moduleAliases": {
     "@routes": "dist/routes",
     "@app": "dist/@types",
-    "@dbModels": "dist/db/models",
-    "@dbSchema": "dist/db/schema",
     "@db": "dist/db",
-    "@data": "dist/db/data",
-    "@stripe": "dist/utils/stripe",
-    "@aws": "dist/utils/aws",
-    "@authWare": "dist/middleware/auth",
-    "@appUtils": "dist/utils/app",
-    "@authUtils": "dist/utils/auth"
+    "@utils": "dist/utils"
   }
 }

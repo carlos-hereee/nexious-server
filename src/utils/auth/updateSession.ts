@@ -1,5 +1,5 @@
 import type { AuthRequest } from "@app/auth";
-import { generateHash } from "@authUtils/generateHash";
+import { generateHash } from "@utils/auth/generateHash";
 import { random } from "./makeSession";
 
 export const updateSession = async (req: AuthRequest) => {

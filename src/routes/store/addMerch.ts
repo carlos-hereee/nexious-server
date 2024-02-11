@@ -1,7 +1,7 @@
-import { createMerch } from "@dbModels/merch/createMerch";
-import { useGenericErrors } from "@authUtils/useGenericErrors";
-import { addPrice } from "@stripe/merch/addPrice";
-import { addProduct } from "@stripe/merch/addProduct";
+import { createMerch } from "@db/models/merch/createMerch";
+import { useGenericErrors } from "@utils/auth/useGenericErrors";
+import { addPrice } from "@utils/stripe/merch/addPrice";
+import { addProduct } from "@utils/stripe/merch/addProduct";
 import { NextFunction, Response } from "express";
 import { AddStoreMerchRequest } from "@app/request";
 

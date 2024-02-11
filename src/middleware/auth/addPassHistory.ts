@@ -1,5 +1,5 @@
 import { UserAuthRequest } from "@app/request";
-import messages from "@data/error.message.json";
+import messages from "@db/data/error.message.json";
 import { NextFunction, Response } from "express";
 
 export const addPassHistory = (req: UserAuthRequest, res: Response, next: NextFunction) => {

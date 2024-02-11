@@ -1,7 +1,7 @@
 import type { CartRequest } from "@app/request";
-import { useGenericErrors } from "@authUtils/useGenericErrors";
-import { createCheckoutSession } from "@stripe/payments/createCheckoutSession";
-import { formatMerchData } from "@stripe/webhook/formatMerchData";
+import { useGenericErrors } from "@utils/auth/useGenericErrors";
+import { createCheckoutSession } from "@utils/stripe/payments/createCheckoutSession";
+import { formatMerchData } from "@utils/stripe/webhook/formatMerchData";
 import type { Response } from "express";
 
 export const checkoutSession = async (req: CartRequest, res: Response) => {

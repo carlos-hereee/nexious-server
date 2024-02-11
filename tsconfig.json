@@ -32,29 +32,11 @@
       "@middleware/*": [
         "./middleware/*"
       ],
-      "@dbModels/*": [
-        "./db/models/*"
-      ],
-      "@dbSchema/*": [
-        "./db/schema/*"
-      ],
       "@db/*": [
         "./db/*"
       ],
-      "@data/*": [
-        "./db/data/*"
-      ],
-      "@stripe/*": [
-        "./utils/stripe/*"
-      ],
-      "@aws/*": [
-        "./utils/aws/*"
-      ],
-      "@appUtils/*": [
-        "./utils/app/*"
-      ],
-      "@authUtils/*": [
-        "./utils/auth/*"
+      "@utils/*": [
+        "./utils/*"
       ],
     }, /* Specify a set of entries that re-map imports to additional lookup locations. */
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */

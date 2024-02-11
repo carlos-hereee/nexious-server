@@ -1,7 +1,7 @@
 import { AppRequest } from "@app/request";
-import { useGenericErrors } from "@authUtils/useGenericErrors";
-import message from "@data/error.message.json";
-import { getApp } from "@dbModels/app/getApp";
+import { useGenericErrors } from "@utils/auth/useGenericErrors";
+import message from "@db/data/error.message.json";
+import { getApp } from "@db/models/app/getApp";
 import { NextFunction, Response } from "express";
 
 export const requireUniqueName = async (req: AppRequest, res: Response, next: NextFunction) => {

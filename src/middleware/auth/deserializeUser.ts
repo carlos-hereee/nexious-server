@@ -1,7 +1,7 @@
-import { isDev, accessTokenName, refreshTokenName } from "@appUtils/config";
-import { getUserAuth } from "@dbModels/users/getUserAuth";
-import { useGenericErrors } from "@authUtils/useGenericErrors";
-import { verifyJWT } from "@authUtils/verifyJWT";
+import { isDev, accessTokenName, refreshTokenName } from "@utils/app/config";
+import { getUserAuth } from "@db/models/users/getUserAuth";
+import { useGenericErrors } from "@utils/auth/useGenericErrors";
+import { verifyJWT } from "@utils/auth/verifyJWT";
 import { NextFunction, Response } from "express";
 import { DeserializeUserRequest } from "@app/request";
 // import type { AuthRequestHandler } from "@app/auth";

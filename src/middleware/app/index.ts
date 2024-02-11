@@ -2,7 +2,7 @@ import { requireApp } from "./requireApp";
 import { validateAdmin } from "./validateAdmin";
 import { getAppWithAppId } from "./getAppWithAppId";
 import { requireUser } from "@middleware/auth/requireUser";
-import { uploadFields, uploadSingle } from "@aws/multer";
+import { uploadFields, uploadSingle } from "@utils/aws/multer";
 import { saveAsset } from "./saveAsset";
 import { requireAppName } from "./requireAppName";
 import { requireUniqueName } from "./requireUniqueName";

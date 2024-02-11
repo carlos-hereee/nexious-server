@@ -1,7 +1,7 @@
 import { Response } from "express";
-import { checkoutCompleted } from "@stripe/webhook/checkoutCompleted";
-import { paymentIntentSucceeded } from "@stripe/webhook/paymentIntentSucceeded";
-import { paymentAttached } from "@stripe/webhook/paymentAttached";
+import { checkoutCompleted } from "@utils/stripe/webhook/checkoutCompleted";
+import { paymentIntentSucceeded } from "@utils/stripe/webhook/paymentIntentSucceeded";
+import { paymentAttached } from "@utils/stripe/webhook/paymentAttached";
 import { StripeWebhookRequest } from "@app/request";
 
 export const stripeWebhook = async (req: StripeWebhookRequest, res: Response) => {

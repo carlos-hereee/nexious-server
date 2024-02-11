@@ -1,9 +1,9 @@
-import { createUser } from "@dbModels/users/createUser";
-import { generateHash } from "@authUtils/generateHash";
+import { createUser } from "@db/models/users/createUser";
+import { generateHash } from "@utils/auth/generateHash";
 import { v4 } from "uuid";
-import { useGenericErrors } from "@authUtils/useGenericErrors";
+import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
-import { random } from "@authUtils/makeSession";
+import { random } from "@utils/auth/makeSession";
 import { UserAuthRequest } from "@app/request";
 
 export const register = async (req: UserAuthRequest, res: Response, next: NextFunction) => {

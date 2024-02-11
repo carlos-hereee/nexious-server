@@ -1,9 +1,9 @@
-import { useGenericErrors } from "@authUtils/useGenericErrors";
-import { getSessionWithId } from "@stripe/payments/getSessionWithId";
+import { useGenericErrors } from "@utils/auth/useGenericErrors";
+import { getSessionWithId } from "@utils/stripe/payments/getSessionWithId";
 import { NextFunction, Request, Response } from "express";
 
-// import { getStripeCustomer } from "@stripe/customers/getStripeCustomer";
-// import { getCheckoutItems } from "@stripe/payments/getCheckoutItems";
+// import { getStripeCustomer }  from "@utils/stripe/customers/getStripeCustomer";
+// import { getCheckoutItems }  from "@utils/stripe/payments/getCheckoutItems";
 
 export const getConfirmation = async (req: Request, res: Response, next: NextFunction) => {
   try {

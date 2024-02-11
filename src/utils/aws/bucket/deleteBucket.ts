@@ -1,5 +1,5 @@
 import type { AWSBucketParams } from "@app/assets";
-import { bucketError } from "@aws/errors";
+import { bucketError } from "@utils/aws/errors";
 
 // Call S3 to delete the bucket
 export const deleteBucket = ({ s3, removeBucket }: AWSBucketParams) => {

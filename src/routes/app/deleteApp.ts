@@ -1,5 +1,5 @@
-import { removeApp } from "@dbModels/app/removeApp";
-import { useGenericErrors } from "@authUtils/useGenericErrors";
+import { removeApp } from "@db/models/app/removeApp";
+import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
 import { AdminRequest } from "@app/request";
 import { ObjectId } from "@app/db";

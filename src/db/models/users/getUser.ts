@@ -1,5 +1,5 @@
 import type { UserFilters } from "@app/user";
-import Users from "@dbSchema/users";
+import Users from "@db/schema/users";
 
 export const getUser = async ({ username, email, userId }: UserFilters) => {
   if (username) {

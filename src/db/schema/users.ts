@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { toLowerCase } from "@appUtils/lowerCase";
+import { toLowerCase } from "@utils/app/lowerCase";
 import { v4 } from "uuid";
 import type { IUserSchema } from "@app/user";
 
@@ -15,9 +15,7 @@ const userSchema = new Schema<IUserSchema>(
     theme: { type: String },
     avatar: { type: String },
     // hero: { type: Schema.Types.ObjectId, ref: "Hero" },
-    permissions: [
-      { appId: { type: Schema.Types.ObjectId, ref: "App", require: true }, role: { type: String } },
-    ],
+    permissions: [{ appId: { type: Schema.Types.ObjectId, ref: "App", require: true }, role: { type: String } }],
     auth: {
       salt: { type: String, select: false },
       sessionId: { type: String, select: false },

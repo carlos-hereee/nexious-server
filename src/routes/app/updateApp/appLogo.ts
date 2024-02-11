@@ -1,5 +1,5 @@
 import { AppRequest } from "@app/request";
-import { useGenericErrors } from "@authUtils/useGenericErrors";
+import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
 
 export const updateAppLogo = async (req: AppRequest, res: Response, next: NextFunction) => {

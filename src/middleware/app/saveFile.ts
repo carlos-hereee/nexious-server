@@ -1,7 +1,7 @@
-import { awsImageUrl } from "@appUtils/config";
+import { awsImageUrl } from "@utils/app/config";
 // import { awsImageUrl, isDev } from "@config";
-import { addFile } from "@aws/index";
-import { generateParamFile } from "@aws/awsParams";
+import { addFile } from "@utils/aws/index";
+import { generateParamFile } from "@utils/aws/awsParams";
 // import type { AssetProps, IFile } from "@app/assets";
 import type { IFile } from "@app/assets";
 

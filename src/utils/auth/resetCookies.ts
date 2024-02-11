@@ -1,4 +1,4 @@
-import { accessTokenName, refreshTokenName } from "@appUtils/config";
+import { accessTokenName, refreshTokenName } from "@utils/app/config";
 import { cookieCongig } from "./cookieCongig";
 import type { Response } from "express";
 

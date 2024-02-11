@@ -1,5 +1,5 @@
-import message from "@data/error.message.json";
-import { generateHash } from "@authUtils/generateHash";
+import message from "@db/data/error.message.json";
+import { generateHash } from "@utils/auth/generateHash";
 import { NextFunction, Response } from "express";
 import { UserRequest } from "@app/request";
 

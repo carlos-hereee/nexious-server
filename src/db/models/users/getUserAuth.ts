@@ -1,5 +1,5 @@
 import type { UserFilters } from "@app/user";
-import Users from "@dbSchema/users";
+import Users from "@db/schema/users";
 
 export const getUserAuth = async (props: UserFilters) => {
   const { username, sessionId } = props;

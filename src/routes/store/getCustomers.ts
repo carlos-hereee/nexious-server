@@ -1,7 +1,7 @@
 //import { NextFunction, Request, Response } from "express";
 
-// import { useGenericErrors } from "@authUtils/useGenericErrors";
-// import { listCustomers } from "@stripe/customers/listCustomers";
+// import { useGenericErrors }  from "@utils/auth/useGenericErrors";
+// import { listCustomers }  from "@utils/stripe/customers/listCustomers";
 
 // export const getCustomers= async (req: Request, res: Response, next: NextFunction) => {
 //   try {

@@ -1,5 +1,5 @@
 import type { CookieConfigProps } from "@app/auth";
-import { isProduction } from "@appUtils/config";
+import { isProduction } from "@utils/app/config";
 
 export const cookieCongig: CookieConfigProps = (hour) => {
   const maxAge = hour === 0 ? 0 : Date.now() + hour * 60 * 60 * 1000;

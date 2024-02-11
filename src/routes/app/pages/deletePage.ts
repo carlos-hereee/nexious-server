@@ -1,5 +1,5 @@
-// import { removePage } from "@dbModels/page/removePage";
-// import { useGenericErrors } from "@authUtils/useGenericErrors";
+// import { removePage } from "@db/models/page/removePage";
+// import { useGenericErrors }  from "@utils/auth/useGenericErrors";
 // import type { PageRequestware } from "@app/express";
 
 // export const deletePage: PageRequestware = async (req, res, next) => {

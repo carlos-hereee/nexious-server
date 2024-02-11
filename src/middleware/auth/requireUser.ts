@@ -1,5 +1,5 @@
 import { UserRequest } from "@app/request";
-import message from "@data/error.message.json";
+import message from "@db/data/error.message.json";
 import { NextFunction, Response } from "express";
 
 export const requireUser = (req: UserRequest, res: Response, next: NextFunction) => {

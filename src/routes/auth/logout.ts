@@ -1,7 +1,7 @@
 import { Response } from "express";
-import { resetCookies } from "@authUtils/resetCookies";
+import { resetCookies } from "@utils/auth/resetCookies";
 import { UserRequest } from "@app/request";
-// import { updateUser } from "@dbModels/users/updateUser";
+// import { updateUser } from "@db/models/users/updateUser";
 
 export const logout = async (req: UserRequest, res: Response) => {
   if (req.user) {

@@ -1,5 +1,5 @@
 import { AppRequest } from "@app/request";
-import message from "@data/error.message.json";
+import message from "@db/data/error.message.json";
 import { NextFunction, Response } from "express";
 
 export const requireApp = (req: AppRequest, res: Response, next: NextFunction) => {

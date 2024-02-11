@@ -1,5 +1,5 @@
 import type { AWSBucketParams } from "@app/assets";
-import { bucketError } from "@aws/errors";
+import { bucketError } from "@utils/aws/errors";
 
 // call S3 to create the bucket
 export const createBucket = ({ s3, addBucket }: AWSBucketParams) => {

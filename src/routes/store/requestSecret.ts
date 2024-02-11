@@ -1,5 +1,5 @@
-// import { useGenericErrors } from "@authUtils/useGenericErrors";
-// // import { paymentInitent } from "@stripe/payments/paymentInitent";
+// import { useGenericErrors }  from "@utils/auth/useGenericErrors";
+// // import { paymentInitent }  from "@utils/stripe/payments/paymentInitent";
 
 // export const requestSecret = async (req, res) => {
 //   try {

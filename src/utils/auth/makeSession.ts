@@ -1,4 +1,4 @@
-import { generateHash } from "@authUtils/generateHash";
+import { generateHash } from "@utils/auth/generateHash";
 import crypto from "crypto";
 
 export const random = () => crypto.randomBytes(128).toString("base64");

@@ -1,6 +1,6 @@
-import { getStore } from "@dbModels/store/getStore";
-import { useGenericErrors } from "@authUtils/useGenericErrors";
-import message from "@data/error.message.json";
+import { getStore } from "@db/models/store/getStore";
+import { useGenericErrors } from "@utils/auth/useGenericErrors";
+import message from "@db/data/error.message.json";
 import { NextFunction, Response } from "express";
 import { StoreRequest } from "@app/request";
 

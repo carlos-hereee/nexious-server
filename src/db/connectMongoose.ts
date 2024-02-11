@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { uri, isDev } from "@appUtils/config";
+import { uri, isDev } from "@utils/app/config";
 import type { MongoError } from "mongodb";
 import type { StatusPayload } from "@app/errors";
 

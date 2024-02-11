@@ -1,6 +1,6 @@
-// import { getApp } from "@dbModels/app/getApp";
+// import { getApp } from "@db/models/app/getApp";
 //
-// import { useGenericErrors } from "@authUtils/useGenericErrors";
+// import { useGenericErrors }  from "@utils/auth/useGenericErrors";
 
 // export const getOwnedApps:RequestHandler = async (req, res, next) => {
 //   try {

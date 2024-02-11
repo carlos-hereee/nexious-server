@@ -1,6 +1,6 @@
 import { StoreRequest } from "@app/request";
-import { useGenericErrors } from "@authUtils/useGenericErrors";
-import message from "@data/error.message.json";
+import { useGenericErrors } from "@utils/auth/useGenericErrors";
+import message from "@db/data/error.message.json";
 import { NextFunction, Response } from "express";
 
 export const requireStore = (req: StoreRequest, res: Response, next: NextFunction) => {

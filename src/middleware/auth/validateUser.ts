@@ -1,5 +1,5 @@
-import { getUserAuth } from "@dbModels/users/getUserAuth";
-import message from "@data/error.message.json";
+import { getUserAuth } from "@db/models/users/getUserAuth";
+import message from "@db/data/error.message.json";
 import { NextFunction, Response } from "express";
 import { UserRequest } from "@app/request";
 

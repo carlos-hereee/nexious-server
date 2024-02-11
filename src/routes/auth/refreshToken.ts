@@ -1,7 +1,7 @@
-// import getUser  from "@dbModels/users/getUser";
-import { makeSession } from "@authUtils/makeSession";
-import { useGenericErrors } from "@authUtils/useGenericErrors";
-import { storeCookies } from "@authUtils/storeCookies";
+// import getUser  from "@db/models/users/getUser";
+import { makeSession } from "@utils/auth/makeSession";
+import { useGenericErrors } from "@utils/auth/useGenericErrors";
+import { storeCookies } from "@utils/auth/storeCookies";
 import { Response } from "express";
 import { UserRequest } from "@app/request";
 

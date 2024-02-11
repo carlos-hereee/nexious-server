@@ -1,7 +1,7 @@
 import { UserAuthRequest } from "@app/request";
-import { generateHash } from "@authUtils/generateHash";
-import { makeSession } from "@authUtils/makeSession";
-import { useGenericErrors } from "@authUtils/useGenericErrors";
+import { generateHash } from "@utils/auth/generateHash";
+import { makeSession } from "@utils/auth/makeSession";
+import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
 
 export const updatePassword = async (req: UserAuthRequest, res: Response, next: NextFunction) => {

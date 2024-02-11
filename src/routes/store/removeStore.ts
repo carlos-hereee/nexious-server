@@ -1,6 +1,6 @@
-import { deleteStore } from "@dbModels/store/deleteStore";
-import { useGenericErrors } from "@authUtils/useGenericErrors";
-import { removeAccount } from "@stripe/accounts/removeAccount";
+import { deleteStore } from "@db/models/store/deleteStore";
+import { useGenericErrors } from "@utils/auth/useGenericErrors";
+import { removeAccount } from "@utils/stripe/accounts/removeAccount";
 import { NextFunction, Response } from "express";
 import { StoreRemovalRequest } from "@app/request";
 
