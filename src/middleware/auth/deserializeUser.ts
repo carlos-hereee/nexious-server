@@ -1,5 +1,5 @@
 import { isDev, accessTokenName, refreshTokenName } from "@utils/app/config";
-import { getUserAuthWithSession, getUserAuthWithUsername } from "@db/models/users/getUserAuth";
+import { getUserAuthWithSession, getUserAuthWithUsername } from "@db/models/users/getUser";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { verifyJWT } from "@utils/auth/verifyJWT";
 import { NextFunction, Response } from "express";

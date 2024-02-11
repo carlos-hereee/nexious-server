@@ -3,9 +3,9 @@ import { getUser } from "@db/models/users/getUser";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { Response } from "express";
 import { AppRequest } from "@app/request";
-import { AppBody } from "@app/app";
+// import { AppBody } from "@app/app";
 
-export const minAppData = async (req: AppRequest<AppBody>, res: Response) => {
+export const minAppData = async (req: AppRequest<null>, res: Response) => {
   try {
     // key varialbles
     const userId = req.user.userId;

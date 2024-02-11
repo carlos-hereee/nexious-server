@@ -1,7 +1,9 @@
+import { AppRequest } from "@app/request";
 import { getApp } from "@db/models/app/getApp";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
-import { Request, Response } from "express";
-export const getAppWithLanguage = async (req: Request, res: Response) => {
+import { Response } from "express";
+
+export const getAppWithLanguage = async (req: AppRequest<null>, res: Response) => {
   try {
     const appName = req.params.appName;
     const locale = req.params.locale;

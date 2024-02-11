@@ -1,5 +1,5 @@
 import type { IUserSchema } from "./user";
-import type { CartBody, IStoreSchema, MerchBodyParams, RequestStore, StoreBody } from "./store";
+import type { IStoreSchema, MerchBodyParams, RequestStore, StoreBody } from "./store";
 import type { Request } from "express";
 import Stripe from "stripe";
 import { AuthBody, IAuth } from "./auth";
@@ -43,11 +43,7 @@ export interface StripeWebhookRequest extends Request {
   store?: IStoreSchema | null;
   stripeEvent?: Stripe.Event;
 }
-export interface StripeCheckoutSessionRequest extends Request {
-  body: {
-    cart: CartBody;
-  };
-}
+
 // defined custom properties after passing middleware requirements
 export interface UserRequest extends Request {
   params: {
@@ -64,9 +60,10 @@ export interface AppRequest<B> extends Request {
   body: B;
   params: {
     appId: string;
-    appName: string;
     assetId: string;
     merchId: string;
+    appName: string;
+    locale: string;
   };
   myApp: IAppSchema;
   user: IUserSchema;
