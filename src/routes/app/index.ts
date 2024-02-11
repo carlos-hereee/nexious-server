@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { saveAsset } from "../../middleware/app/saveAsset";
+import { saveAsset } from "@middleware/app/saveAsset";
 import { deleteApp } from "./deleteApp";
 import { initApp } from "./initApp";
 import { getAppWithName } from "./getApp/getAppWithName";

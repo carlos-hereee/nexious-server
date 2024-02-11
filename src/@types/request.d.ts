@@ -5,6 +5,7 @@ import Stripe from "stripe";
 import { AuthBody, IAuth } from "./auth";
 import { AppReqBody, IAppSchema } from "./app";
 import { IFile, ReqFiles } from "./assets";
+import { ObjectId } from "./db";
 
 export interface FileRequest extends Request {
   file: IFile;
@@ -55,6 +56,14 @@ export interface StripeCheckoutSessionRequest extends Request {
 // defined custom properties after passing middleware requirements
 export interface UserRequest extends Request {
   user?: IUserSchema | null;
+  body: AuthBody;
+}
+// defined custom properties after passing middleware requirements
+export interface AdminRequest extends Request {
+  params: {
+    appId: ObjectId;
+  };
+  user: IUserSchema;
   body: AuthBody;
 }
 export interface UserAuthRequest extends Request {

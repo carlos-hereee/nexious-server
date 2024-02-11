@@ -8,7 +8,7 @@ export interface GetAppProps {
   appId?: string;
   appName?: string;
   appIds?: string[];
-  ownerId?: string;
+  ownerId?: ObjectId;
   all?: boolean;
   locale?: string;
 }

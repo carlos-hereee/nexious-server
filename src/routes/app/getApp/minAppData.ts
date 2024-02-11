@@ -1,24 +1,23 @@
 import { getApp } from "@dbModels/app/getApp";
 import { getUser } from "@dbModels/users/getUser";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import { Request, Response } from "express";
+import { Response } from "express";
+import { AppRequest } from "@app/request";
 
-export const minAppData = async (req: Request, res: Response) => {
+export const minAppData = async (req: AppRequest, res: Response) => {
   try {
-    if (req.user && req.myApp) {
-      // key varialbles
-      const userId = req.user.userId;
-      const appName = req.myApp.appName;
+    // key varialbles
+    const userId = req.user.userId;
+    const appName = req.myApp.appName;
 
-      const appList = await getApp({ all: true });
-      const user = await getUser({ userId });
-      const app = await getApp({ appName });
-      // const store = await getStore({ storeId: app.store.storeId });
-      // if(app.store.storeId)
-      // console.log("app :>> ", store);
-      res.status(200).json({ user, app, appList }).end();
-      // res.status(200).json({ user, app, appList, store }).end();
-    }
+    // const appList = await getApp({ all: true });
+    const user = await getUser({ userId });
+    const app = await getApp({ appName });
+    // const store = await getStore({ storeId: app.store.storeId });
+    // if(app.store.storeId)
+    // console.log("app :>> ", store);
+    res.status(200).json({ user, app }).end();
+    // res.status(200).json({ user, app, appList, store }).end();
   } catch (error) {
     useGenericErrors(res, error, "error occurred sending client data");
   }

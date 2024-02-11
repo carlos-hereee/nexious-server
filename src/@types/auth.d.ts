@@ -18,6 +18,7 @@ export interface IAuth {
 export interface AuthBody {
   username: string;
   password: string;
+  newPassword: string;
   email?: string;
   phone?: number;
 }
@@ -36,16 +37,9 @@ export interface JWTVerifyPayload {
     message: string;
   };
 }
-export type StoreCookiesProps = (
-  res: Response,
-  username: string,
-  sessionId: string
-) => { accessToken: string };
+export type StoreCookiesProps = (res: Response, username: string, sessionId: string) => { accessToken: string };
 
-export type SignJWTProps = (
-  payload: { username?: string; sessionId: string },
-  expiresIn: string
-) => string;
+export type SignJWTProps = (payload: { username?: string; sessionId: string }, expiresIn: string) => string;
 export type CookieConfigProps = (hour: number) => CookieOptions;
 export type ResetCookieConfigProps = (res: Response) => void;
 
