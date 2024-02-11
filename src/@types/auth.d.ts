@@ -1,13 +1,7 @@
-import type { CookieOptions, Response, Request, NextFunction } from "express";
+import type { CookieOptions, Response, Request } from "express";
 import type { JwtPayload, VerifyErrors } from "jsonwebtoken";
-import type { IUserSchema } from "./user";
+import type { IUserAuth, IUserSchema } from "./user";
 
-export interface IUserAuth {
-  salt: string;
-  sessionId: string;
-  password: string;
-  passwordHistory: string[];
-}
 export interface IAuth {
   userId: string;
   email: string;
@@ -50,4 +44,3 @@ export interface AuthRequest extends Request {
   auth?: IAuth;
   body: AuthBody;
 }
-export type AuthRequestHandler = (req: AuthRequest, res: Response, next: NextFunction) => void;

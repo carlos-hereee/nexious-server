@@ -12,7 +12,7 @@ export const removeStore = async (req: StoreRemovalRequest, res: Response, next:
     // remove stripe account
     if (accountId) await removeAccount({ id: accountId });
     // remove store and store items
-    await deleteStore({ storeId });
+    if (storeId) await deleteStore({ storeId });
     await req.myApp.save();
     // TODO: REMOVE MERCH ON STRIPE
 

@@ -1,5 +1,4 @@
 import type { Document } from "mongoose";
-import type { IUserAuth } from "./auth";
 import { ObjectId } from "./db";
 
 // user
@@ -11,7 +10,12 @@ export interface UserFilters {
   appId?: string;
   userId?: string;
 }
-
+export interface IUserAuth {
+  salt: string;
+  sessionId: string;
+  password: string;
+  passwordHistory: string[];
+}
 export interface IUserSchema extends Document {
   _id: ObjectId;
   userId: string;
