@@ -1,6 +1,8 @@
+import { UserRequest } from "@app/request";
 import messages from "@data/error.message.json";
+import { NextFunction, Response } from "express";
 
-export const validateAdmin = (req: Request, res: Response, next: NextFunction) => {
+export const validateAdmin = (req: UserRequest, res: Response, next: NextFunction) => {
   if (req.user) {
     // const appId = req.params.appId || req.body.appId;
     const appId = req.params.appId;

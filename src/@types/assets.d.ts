@@ -21,8 +21,8 @@ export interface MulterUploadField {
   maxCount: number;
 }
 export interface ReqFiles {
-  files: IFile[];
-  file: IFile;
+  hero: IFile[];
+  sectionHero: IFile[];
 }
 
 // AWS

@@ -1,8 +1,9 @@
 import { getUser } from "@dbModels/users/getUser";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
-import { Request, Response } from "express";
+import { Response } from "express";
+import { UserRequest } from "@app/request";
 
-export const getUserWithId = async (req: Request, res: Response) => {
+export const getUserWithId = async (req: UserRequest, res: Response) => {
   try {
     if (req.user) {
       const user = await getUser({ userId: req.user.userId });

@@ -19,6 +19,7 @@ export interface AuthBody {
   username: string;
   password: string;
   newPassword: string;
+  oldPassword: string;
   email?: string;
   phone?: number;
 }

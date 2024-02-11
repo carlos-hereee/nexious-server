@@ -10,7 +10,11 @@ import { ObjectId } from "./db";
 export interface FileRequest extends Request {
   file: IFile;
   files: ReqFiles;
-  asset?: string;
+  asset: string;
+  assets: {
+    hero: string;
+    sectionHero: string[];
+  };
 }
 export interface DeserializeUserRequest extends Request {
   cookies: { [cookieName: string]: string | undefined };
@@ -55,6 +59,9 @@ export interface StripeCheckoutSessionRequest extends Request {
 }
 // defined custom properties after passing middleware requirements
 export interface UserRequest extends Request {
+  params: {
+    appId: ObjectId;
+  };
   user?: IUserSchema | null;
   body: AuthBody;
 }

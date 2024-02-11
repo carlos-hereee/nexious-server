@@ -1,5 +1,5 @@
-import Store from "@dbSchema/store";
+// import Store from "@dbSchema/store";
 
-export const updateStore = async ({ storeId }, payload) => {
-  return await Store.updateOne({ storeId }, { $set: payload });
-};
+// export const updateStore = async ({ storeId }, payload) => {
+//   return await Store.updateOne({ storeId }, { $set: payload });
+// };

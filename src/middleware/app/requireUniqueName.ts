@@ -1,9 +1,10 @@
+import { AppRequest } from "@app/request";
 import { useGenericErrors } from "@authUtils/useGenericErrors";
 import message from "@data/error.message.json";
 import { getApp } from "@dbModels/app/getApp";
-import { NextFunction, Request, Response } from "express";
+import { NextFunction, Response } from "express";
 
-export const requireUniqueName = async (req: Request, res: Response, next: NextFunction) => {
+export const requireUniqueName = async (req: AppRequest, res: Response, next: NextFunction) => {
   try {
     const appName = req.body.appName || req.params.appName;
     const app = await getApp({ appName });
