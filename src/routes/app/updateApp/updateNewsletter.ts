@@ -1,8 +1,9 @@
+import { AppBody } from "@app/app";
 import { AppRequest } from "@app/request";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
 
-export const updateNewsletter = async (req: AppRequest, res: Response, next: NextFunction) => {
+export const updateNewsletter = async (req: AppRequest<AppBody>, res: Response, next: NextFunction) => {
   try {
     req.myApp.newsletter.title = req.body.title;
     req.myApp.newsletter.details = req.body.details;

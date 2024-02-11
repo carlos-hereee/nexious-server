@@ -1,10 +1,11 @@
-import type { CartRequest } from "@app/request";
+import { StoreRequest } from "@app/request";
+import { CartBody } from "@app/store";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { createCheckoutSession } from "@utils/stripe/payments/createCheckoutSession";
 import { formatMerchData } from "@utils/stripe/webhook/formatMerchData";
 import type { Response } from "express";
 
-export const checkoutSession = async (req: CartRequest, res: Response) => {
+export const checkoutSession = async (req: StoreRequest<{ cart: CartBody }>, res: Response) => {
   try {
     const cartData = formatMerchData(req.body.cart);
     const session = await createCheckoutSession({

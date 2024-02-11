@@ -4,13 +4,7 @@ import { ObjectId } from "./db";
 export interface StoreFilters {
   storeId: string;
 }
-export interface StoreBodyParams {
-  name: string;
-  title: string;
-  body: string;
-  pageName: string;
-  email?: string;
-}
+
 export interface GetMerchProps {
   storeId?: string;
   appId?: string;

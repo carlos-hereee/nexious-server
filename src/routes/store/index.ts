@@ -40,6 +40,6 @@ route.put("/update-store/:appId", storeWare, editStore, minAppData);
 // route.put("/update-merch/:appId/:merchId", storeWare, editMerch, minAppData);
 // remove store
 route.delete("/remove-store/:appId", storeRemovalWare, removeStore, minAppData);
-route.delete("/remove-merch/:appId/:merchId", merchWare, removeMerchendise, minAppData);
+route.delete("/remove-merch/:appId/:merchId", merchWare, removeMerchendise);
 
 export default route;

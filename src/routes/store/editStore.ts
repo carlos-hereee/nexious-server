@@ -1,8 +1,9 @@
 import { StoreRequest } from "@app/request";
+import { StoreBody } from "@app/store";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
 
-export const editStore = async (req: StoreRequest, res: Response, next: NextFunction) => {
+export const editStore = async (req: StoreRequest<StoreBody>, res: Response, next: NextFunction) => {
   try {
     if (req.store) {
       const { name, title, body } = req.body;
@@ -12,7 +13,6 @@ export const editStore = async (req: StoreRequest, res: Response, next: NextFunc
       req.store.title = title;
       req.store.body = body;
       req.store.hero = hero;
-
       await req.store.save();
     }
 

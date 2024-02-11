@@ -1,9 +1,9 @@
 import type { IUserSchema } from "./user";
-import type { CartBody, IStoreSchema, MerchBodyParams, RequestStore, StoreBodyParams } from "./store";
+import type { CartBody, IStoreSchema, MerchBodyParams, RequestStore, StoreBody } from "./store";
 import type { Request } from "express";
 import Stripe from "stripe";
 import { AuthBody, IAuth } from "./auth";
-import { AppReqBody, IAppSchema } from "./app";
+import { IAppSchema } from "./app";
 import { IFile } from "./assets";
 import { ICalendarSchema } from "./calendar";
 import { IPageSchema } from "./page";
@@ -19,13 +19,9 @@ export interface DeserializeUserRequest extends Request {
   cookies: { [cookieName: string]: string | undefined };
   user?: IUserSchema | null;
 }
-export interface CartRequest extends Request {
-  body: {
-    cart: CartBody;
-  };
-}
-export interface StoreRequest extends Request {
-  body: RequestStore;
+
+export interface StoreRequest<B> extends Request {
+  body: B;
   asset?: string;
   store?: IStoreSchema | null;
   myApp?: IAppSchema | null;
@@ -35,7 +31,7 @@ export interface StoreRemovalRequest extends Request {
   myApp: IAppSchema;
 }
 export interface StoreCreateRequest extends Request {
-  body: StoreBodyParams;
+  body: StoreBody;
   store: IStoreSchema;
   user: IUserSchema;
   myApp: IAppSchema;
@@ -78,24 +74,19 @@ export interface UserAuthRequest extends Request {
   user: IUserSchema;
   auth: IAuth;
 }
-export interface AppRequest extends Request {
+export interface AppRequest<B> extends Request {
+  body: B;
   params: {
     appId: string;
     appName: string;
     assetId: string;
+    merchId: string;
   };
   myApp: IAppSchema;
   user: IUserSchema;
   asset: string;
-  body: AppReqBody;
 }
-export interface AppUpdateRequest extends Request {
-  body: {
-    media: string;
-    link: string;
-  };
-  myApp: IAppSchema;
-}
+
 export interface CalendarRequest extends Request {
   params: {
     appId: string;

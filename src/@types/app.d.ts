@@ -107,7 +107,7 @@ export interface AppPayload {
   themeList: IThemeList[];
   appUrl: string;
 }
-export interface AppReqBody {
+export interface AppBody {
   appName: string;
   theme: string;
   language: string;
@@ -131,7 +131,7 @@ export interface InitAppRequest extends Request {
   user: IUserSchema;
   myApp?: IAppSchema;
   asset: string;
-  body: AppReqBody;
+  body: AppBody;
 }
 export interface AppIdRequest {
   params: { appId: string };

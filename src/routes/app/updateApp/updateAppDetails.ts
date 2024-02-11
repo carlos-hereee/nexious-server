@@ -1,10 +1,11 @@
+import { AppBody } from "@app/app";
 import { AppRequest } from "@app/request";
 import { formatLanguageList } from "@utils/app/format/formatLanguageList";
 import { formatThemeList } from "@utils/app/format/formatThemeList";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
 
-export const updateAppDetails = async (req: AppRequest, res: Response, next: NextFunction) => {
+export const updateAppDetails = async (req: AppRequest<AppBody>, res: Response, next: NextFunction) => {
   try {
     if (req.myApp) {
       // key variables

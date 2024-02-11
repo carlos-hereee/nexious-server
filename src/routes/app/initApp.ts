@@ -5,8 +5,9 @@ import { createApp } from "@db/models/app/createApp";
 import themeList from "@db/data/app/themeList.json";
 import { NextFunction, Response } from "express";
 import { AppRequest } from "@app/request";
+import { AppBody } from "@app/app";
 
-export const initApp = async (req: AppRequest, res: Response, next: NextFunction) => {
+export const initApp = async (req: AppRequest<AppBody>, res: Response, next: NextFunction) => {
   try {
     // key variables
     const appName = req.body.appName;

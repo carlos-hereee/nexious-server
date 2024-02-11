@@ -4,7 +4,7 @@ import message from "@db/data/error.message.json";
 import { NextFunction, Response } from "express";
 import { StoreRequest } from "@app/request";
 
-export const getStoreWithAppId = async (req: StoreRequest, res: Response, next: NextFunction) => {
+export const getStoreWithAppId = async (req: StoreRequest<null>, res: Response, next: NextFunction) => {
   try {
     // require app
     if (req.myApp) {

@@ -54,3 +54,7 @@ export interface MulterUploadList {
   name: string;
   count: number;
 }
+export interface MediaBody {
+  media: string;
+  link: string;
+}
