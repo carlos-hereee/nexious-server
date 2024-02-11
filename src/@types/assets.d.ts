@@ -10,7 +10,7 @@ import type {
   PutObjectCommandOutput,
   S3,
 } from "@aws-sdk/client-s3";
-import type { Request, Express } from "express";
+import type { Request } from "express";
 import { FileFilterCallback } from "multer";
 
 // MULTER
@@ -19,10 +19,6 @@ export type MulterFileFilter = (req: Request, file: IFile, cb: FileFilterCallbac
 export interface MulterUploadField {
   name: string;
   maxCount: number;
-}
-export interface ReqFiles {
-  hero: IFile[];
-  sectionHero: IFile[];
 }
 
 // AWS

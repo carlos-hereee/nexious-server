@@ -4,17 +4,16 @@ import type { Request } from "express";
 import Stripe from "stripe";
 import { AuthBody, IAuth } from "./auth";
 import { AppReqBody, IAppSchema } from "./app";
-import { IFile, ReqFiles } from "./assets";
-import { ObjectId } from "./db";
+import { IFile } from "./assets";
+import { ICalendarSchema } from "./calendar";
+import { IPageSchema } from "./page";
+// import { ObjectId } from "./db";
 
 export interface FileRequest extends Request {
   file: IFile;
-  files: ReqFiles;
+  files: { hero: IFile[]; sectionHero: IFile[] };
   asset: string;
-  assets: {
-    hero: string;
-    sectionHero: string[];
-  };
+  assets: { hero: string; sectionHero: string[] };
 }
 export interface DeserializeUserRequest extends Request {
   cookies: { [cookieName: string]: string | undefined };
@@ -60,7 +59,7 @@ export interface StripeCheckoutSessionRequest extends Request {
 // defined custom properties after passing middleware requirements
 export interface UserRequest extends Request {
   params: {
-    appId: ObjectId;
+    appId: string;
     username: string;
   };
   user?: IUserSchema | null;
@@ -69,7 +68,7 @@ export interface UserRequest extends Request {
 // defined custom properties after passing middleware requirements
 export interface AdminRequest extends Request {
   params: {
-    appId: ObjectId;
+    appId: string;
   };
   user: IUserSchema;
   body: AuthBody;
@@ -97,35 +96,15 @@ export interface AppUpdateRequest extends Request {
   };
   myApp: IAppSchema;
 }
-// export {};
-// declare global {
-//   namespace Express {
-//     interface Request {
-//       // params cannot be initialy undefined
-//       // params: {
-//       //   appId: string;
-//       //   appName: string;
-//       //   username: string;
-//       //   pageId: string;
-//       //   assetId: string;
-//       // };
-//       body: {
-//         cart?: CartBody;
-//       };
-//       auth?: IAuth;
-//       cookies: { [cookieName: string]: string | undefined };
-//       // undefined properties because they have yet to be included
-//       page?: IPage | null;
-//       user?: IUserSchema | null;
-//       store?: IStoreSchema | null;
-//       myApp?: IAppSchema | null;
-//       asset?: string;
-//       file?: IFile;
-//       // calendar?: any;
-//       cart?: RequestCart[];
-//       assets?: { hero: string; sectionHero: string[] };
-//       files?: { hero: IFile; sectionHero: IFile[] };
-//       stripeEvent?: Stripe.Event;
-//     }
-//   }
-// }
+export interface CalendarRequest extends Request {
+  params: {
+    appId: string;
+  };
+  calendar: ICalendarSchema;
+}
+export interface PageRequest extends Request {
+  params: {
+    pageId: string;
+  };
+  page: IPageSchema;
+}

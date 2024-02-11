@@ -38,7 +38,7 @@ export interface CreateStoreSchema {
   ownerId: ObjectId;
   appId: ObjectId;
   email: string;
-  storeId?: string;
+  storeId: string;
   accountId?: string;
   currency?: string;
   name?: string;

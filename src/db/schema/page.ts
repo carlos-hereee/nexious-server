@@ -1,9 +1,9 @@
-import type { IPage } from "@app/page";
+import type { IPageSchema } from "@app/page";
 import mongoose from "mongoose";
 import { v4 } from "uuid";
 const Schema = mongoose.Schema;
 
-const pageSchema = new Schema<IPage>(
+const pageSchema = new Schema<IPageSchema>(
   {
     pageId: { type: String, require: true, unique: true, default: v4 },
     userId: { type: String, require: true },

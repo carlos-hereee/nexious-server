@@ -51,30 +51,31 @@ const appSchema = new Schema<IAppSchema>(
         },
       },
     ],
-    landing: {
-      title: { type: String, default: "" },
-      tagline: { type: String, default: "" },
-      body: { type: String, default: "" },
-      hasCta: { type: Boolean, default: false },
-      hasSections: { type: Boolean, default: false },
-      hero: { type: String, default: "" },
-      cta: [
-        {
-          label: { type: String },
-          link: { type: String },
-          icon: { type: String },
-          uid: { type: String, default: v4 },
-        },
-      ],
-      sections: [
-        {
-          title: { type: String },
-          body: { type: String },
-          sectionHero: { type: String },
-          uid: { type: String, default: v4 },
-        },
-      ],
-    },
+    landing: { type: Schema.Types.ObjectId, ref: "Pages" },
+    // landing: {
+    //   title: { type: String, default: "" },
+    //   tagline: { type: String, default: "" },
+    //   body: { type: String, default: "" },
+    //   hasCta: { type: Boolean, default: false },
+    //   hasSections: { type: Boolean, default: false },
+    //   hero: { type: String, default: "" },
+    //   cta: [
+    //     {
+    //       label: { type: String },
+    //       link: { type: String },
+    //       icon: { type: String },
+    //       uid: { type: String, default: v4 },
+    //     },
+    //   ],
+    //   sections: [
+    //     {
+    //       title: { type: String },
+    //       body: { type: String },
+    //       sectionHero: { type: String },
+    //       uid: { type: String, default: v4 },
+    //     },
+    //   ],
+    // },
     newsletter: {
       title: { type: String, default: "Join the newsletter" },
       subtitle: { type: String, default: "Suscribe to get the latest content by email" },

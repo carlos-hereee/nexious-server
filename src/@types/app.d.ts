@@ -1,7 +1,7 @@
 import type { Request } from "express";
 import type { Document } from "mongoose";
 import type { ObjectId } from "./db";
-import type { ILandingPage } from "./page";
+// import type { ILandingPage } from "./page";
 import type { IUserSchema } from "./user";
 
 export interface AppFilters {
@@ -91,7 +91,7 @@ export interface IAppSchema extends Document {
   adminIds: { userId: string; role: string }[];
   languageList: ILanguageList[];
   themeList: IThemeList[];
-  landing: ILandingPage;
+  landing: ObjectId;
   newsletter: INewsletter;
   media: IMedia;
   menu: IMenu[];

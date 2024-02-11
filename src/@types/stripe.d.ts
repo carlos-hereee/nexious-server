@@ -1,5 +1,5 @@
 import type { IAppSchema } from "./app";
-import type { IStoreSchema, MerchBody } from "./store";
+import type { IStoreSchema, MerchBodyParams } from "./store";
 import type Stripe from "stripe";
 import type { IUserSchema } from "./user";
 
@@ -121,6 +121,6 @@ export interface MerchRequest {
   store: IStoreSchema;
   myApp: IAppSchema;
   user: IUserSchema;
-  body: MerchBody;
+  body: MerchBodyParams;
   asset: string;
 }

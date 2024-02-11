@@ -7,7 +7,6 @@ export const getApp = async ({ appId, appName, locale }: AppFilters) => {
   if (locale && appName) {
     return await App.findOne({ appName, locale }).populate(includeData);
   }
-
   if (appId) {
     return await App.findOne({ appId });
   }

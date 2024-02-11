@@ -19,8 +19,6 @@ import { adminWare, heroWare, initAppWare, logoWare, userAppWare } from "@middle
 import { requireUser } from "@middleware/auth/requireUser";
 import { userData } from "@middleware/auth/userData";
 
-// one liner
-
 const route = Router();
 // load app data
 route.get("/app-list", getAppList);

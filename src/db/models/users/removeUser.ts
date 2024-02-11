@@ -1,6 +1,6 @@
-import type { GetUserProps } from "@app/user";
+import type { UserFilters } from "@app/user";
 import Users from "@dbSchema/users";
 
-export const removeUser = async ({ userId }: GetUserProps) => {
+export const removeUser = async ({ userId }: UserFilters) => {
   return await Users.findOneAndDelete({ userId });
 };

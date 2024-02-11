@@ -2,9 +2,9 @@ import { Document } from "mongoose";
 import { ObjectId } from "./db";
 
 export interface CalendarFilters {
-  appId: string;
-  calendarId: string;
-  adminIds: string;
+  appId?: string;
+  calendarId?: string;
+  adminIds?: string;
 }
 export interface ICalendarSchema extends Document {
   calendarId: string;

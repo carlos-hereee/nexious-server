@@ -1,7 +1,7 @@
-import type { GetUserProps } from "@app/user";
+import type { UserFilters } from "@app/user";
 import Users from "@dbSchema/users";
 
-export const getUserAuth = async (props: GetUserProps) => {
+export const getUserAuth = async (props: UserFilters) => {
   const { username, sessionId } = props;
   const selectOption = "+auth.salt +auth.password +auth.sessionId +auth.passwordHistory";
   if (username) {
@@ -16,5 +16,4 @@ export const getUserAuth = async (props: GetUserProps) => {
       select: "appId appName owner adminIds logo themeList",
     });
   }
-  return null;
 };

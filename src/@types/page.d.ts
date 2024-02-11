@@ -39,7 +39,7 @@ export interface Page {
   cta: ICta[];
   sections: ISection[];
 }
-export interface IPage extends Document {
+export interface IPageSchema extends Document {
   title: string;
   body: string;
   pageId: string;
@@ -53,9 +53,7 @@ export interface IPage extends Document {
   cta: ICta[];
   sections: ISection[];
 }
-export interface ILandingPage extends IPage {
-  tagline: string;
-}
+
 export interface PageDataProps {
   title: string;
   body: string;

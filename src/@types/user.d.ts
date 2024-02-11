@@ -3,7 +3,7 @@ import type { IUserAuth } from "./auth";
 import { ObjectId } from "./db";
 
 // user
-export interface GetUserProps {
+export interface UserFilters {
   username?: string;
   sessionId?: string;
   email?: string;
