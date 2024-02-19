@@ -10,6 +10,6 @@ export const logout = async (req: UserRequest, res: Response) => {
     await req.user.save();
     // await updateUser({ userId: req.user.userId }, { "auth.sessionId": "invalidated" });
     resetCookies(res);
-    res.status(202).end();
   }
+  return res.status(202).end();
 };

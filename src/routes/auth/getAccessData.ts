@@ -6,12 +6,10 @@ import { UserRequest } from "@app/request";
 
 export const getAccessData = async (req: UserRequest, res: Response) => {
   try {
-    if (req.user) {
-      const appList = await getApp({ all: true });
-      const user = await getUser({ userId: req.user.userId });
-      // console.log("data :>> ", data);
-      res.status(200).json({ appList, user }).end();
-    }
+    const appList = await getApp({ all: true });
+    const user = await getUser({ userId: req.user?.userId });
+    // console.log("data :>> ", data);
+    res.status(200).json({ appList, user }).end();
   } catch (error) {
     useGenericErrors(res, error, "error occurred sending client data");
   }

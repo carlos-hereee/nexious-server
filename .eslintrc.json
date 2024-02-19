@@ -7,7 +7,7 @@
     "parser": "@typescript-eslint/parser", //  This is required, or else ESLint will throw errors as it tries to parse TypeScript code as if it were regular JavaScript.
     "extends": [
         "eslint:recommended",
-        "plugin:@typescript-eslint/recommended",
+        // "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/recommended-type-checked",
         "plugin:import/errors",
         "plugin:import/warnings",

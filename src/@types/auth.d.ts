@@ -1,6 +1,6 @@
-import type { CookieOptions, Response, Request } from "express";
+import type { CookieOptions, Response } from "express";
 import type { JwtPayload, VerifyErrors } from "jsonwebtoken";
-import type { IUserAuth, IUserSchema } from "./user";
+import type { IUserAuth } from "./user";
 
 export interface IAuth {
   userId: string;
@@ -37,10 +37,3 @@ export type StoreCookiesProps = (res: Response, username: string, sessionId: str
 export type SignJWTProps = (payload: { username?: string; sessionId: string }, expiresIn: string) => string;
 export type CookieConfigProps = (hour: number) => CookieOptions;
 export type ResetCookieConfigProps = (res: Response) => void;
-
-// defined custom properties after passing middleware requirements
-export interface AuthRequest extends Request {
-  user: IUserSchema;
-  auth?: IAuth;
-  body: AuthBody;
-}

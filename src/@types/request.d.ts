@@ -2,6 +2,7 @@ import type { IUserSchema } from "./user";
 import type { IStoreSchema, MerchBodyParams, RequestStore, StoreBody } from "./store";
 import type { Request } from "express";
 import Stripe from "stripe";
+// import { AuthBody, IAuth } from "./auth";
 import { AuthBody, IAuth } from "./auth";
 import { IAppSchema } from "./app";
 import { IFile } from "./assets";
@@ -42,25 +43,29 @@ export interface StripeWebhookRequest extends Request {
   store?: IStoreSchema | null;
   stripeEvent?: Stripe.Event;
 }
+// initial request
 export interface InitRequest extends Request {
   cookies: { [cookieName: string]: string };
+  // optional due to issues with PathParams
   user?: IUserSchema;
   auth?: IAuth;
   myApp?: IAppSchema;
   asset?: string;
 }
-export interface AuthRequest extends InitRequest {
+export interface AuthRequest extends Request {
   params: {
     username: string;
   };
+  user?: IUserSchema;
+  auth?: IAuth;
   body: AuthBody;
 }
 // defined custom properties after passing middleware requirements
 export interface UserRequest extends InitRequest {
   params: {
-    appId: string;
     username: string;
   };
+  user?: IUserSchema;
 }
 
 export interface AppRequest extends InitRequest {
