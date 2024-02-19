@@ -14,7 +14,7 @@ import { requireUser } from "@middleware/auth/requireUser";
 const route = Router();
 
 // get
-route.get("/", requireUser, userRoute);
+route.get("/", userRoute);
 // TODO: ADD ADDITIONAL VERFICATION METHODS
 route.get("/user/:username", userWare, getWithUsername);
 route.get("/access-token", requireUser, getAccessData);

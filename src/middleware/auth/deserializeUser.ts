@@ -3,9 +3,9 @@ import { getUserAuthWithSession, getUserAuthWithUsername } from "@db/models/user
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { verifyJWT } from "@utils/auth/verifyJWT";
 import { NextFunction, Response } from "express";
-import { UserRequest } from "@app/request";
+import { InitRequest } from "@app/request";
 
-export const deserializeUser = async (req: UserRequest, res: Response, next: NextFunction) => {
+export const deserializeUser = async (req: InitRequest, res: Response, next: NextFunction) => {
   try {
     // key variables
     const accessToken = req.cookies[accessTokenName];

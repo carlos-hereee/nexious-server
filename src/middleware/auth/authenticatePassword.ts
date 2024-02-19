@@ -1,9 +1,9 @@
 import message from "@db/data/error.message.json";
 import { generateHash } from "@utils/auth/generateHash";
 import { NextFunction, Response } from "express";
-import { UserRequest } from "@app/request";
+import { AuthRequest } from "@app/request";
 
-export const authenticatePassword = (req: UserRequest, res: Response, next: NextFunction) => {
+export const authenticatePassword = (req: AuthRequest, res: Response, next: NextFunction) => {
   // key variable
   const password = req.body.password || req.body.oldPassword;
   if (req.user) {

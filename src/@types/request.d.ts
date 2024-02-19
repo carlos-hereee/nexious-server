@@ -7,7 +7,6 @@ import { IAppSchema } from "./app";
 import { IFile } from "./assets";
 import { ICalendarSchema } from "./calendar";
 import { IPageSchema } from "./page";
-// import { ObjectId } from "./db";
 
 export interface FileRequest extends Request {
   file: IFile;
@@ -43,20 +42,37 @@ export interface StripeWebhookRequest extends Request {
   store?: IStoreSchema | null;
   stripeEvent?: Stripe.Event;
 }
-
+export interface InitRequest extends Request {
+  user?: IUserSchema;
+  cookies: { [cookieName: string]: string };
+}
+export interface AuthRequest extends InitRequest {
+  user: IUserSchema;
+  body: AuthBody;
+}
 // defined custom properties after passing middleware requirements
-export interface UserRequest extends Request {
+export interface UserRequest extends AuthRequest {
   params: {
     appId: string;
     username: string;
   };
-  cookies: { [cookieName: string]: string | undefined };
+  // body: AuthBody;
   user: IUserSchema;
+  myApp?: IAppSchema;
   auth?: IAuth;
-  body: AuthBody;
 }
 
-export interface AppRequest<B> extends Request {
+export interface AppRequest extends Request {
+  params: {
+    appId: string;
+    appName: string;
+    locale: string;
+  };
+  myApp: IAppSchema;
+  user: IUserSchema;
+  asset: string;
+}
+export interface AppUpdateRequest<B> extends Request {
   body: B;
   params: {
     appId: string;

@@ -1,9 +1,9 @@
 import { isDev } from "@utils/app/config";
 import type { Response } from "express";
-import stripe from "stripe";
+import Stripe from "stripe";
 
 export const stripeErrorHandling = (res: Response, error: unknown, message?: string) => {
-  const err = error as stripe.errors.StripeError;
+  const err = error as Stripe.errors.StripeError;
   // switch (err.type) {
   //   case "StripeCardError":
   //     // A declined card error

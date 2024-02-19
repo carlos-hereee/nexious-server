@@ -16,20 +16,18 @@ import { subscribe } from "./updateApp/subscribe";
 import { unsubscribe } from "./updateApp/unsubscribe";
 import { updateAppDetails } from "./updateApp/updateAppDetails";
 import { adminWare, heroWare, initAppWare, logoWare, userAppWare } from "@middleware/app";
-import { requireUser } from "@middleware/auth/requireUser";
-import { userData } from "@middleware/auth/userData";
 
 const route = Router();
 // load app data
 route.get("/app-list", getAppList);
 route.get("/:appName", getAppWithName);
 // route.get("/latest/:appId", requireUser, latest);
-route.get("/:appName/locale/:locale", requireUser, getAppWithLanguage);
+route.get("/:appName/locale/:locale", getAppWithLanguage);
 // build app data
 route.post("/init-app", initAppWare, saveAsset, initApp, minAppData);
 // user subscrition
-route.post("/subscribe/:appId", userAppWare, subscribe, userData);
-route.post("/unsubscribe/:appId", userAppWare, unsubscribe, userData);
+route.post("/subscribe/:appId", userAppWare, subscribe);
+route.post("/unsubscribe/:appId", userAppWare, unsubscribe);
 // update app
 route.post("/update-newsletter/:appId", heroWare, updateNewsletter, minAppData);
 // route.post("/update-medias/:appId", heroWare, updateMedias, minAppData);
