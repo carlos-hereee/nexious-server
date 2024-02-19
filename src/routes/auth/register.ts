@@ -4,9 +4,9 @@ import { v4 } from "uuid";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
 import { random } from "@utils/auth/makeSession";
-import { UserRequest } from "@app/request";
+import { AuthRequest } from "@app/request";
 
-export const register = async (req: UserRequest, res: Response, next: NextFunction) => {
+export const register = async (req: AuthRequest, res: Response, next: NextFunction) => {
   try {
     // key variables
     const username = req.body.username;

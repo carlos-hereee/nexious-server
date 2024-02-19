@@ -43,26 +43,27 @@ export interface StripeWebhookRequest extends Request {
   stripeEvent?: Stripe.Event;
 }
 export interface InitRequest extends Request {
-  user?: IUserSchema;
   cookies: { [cookieName: string]: string };
+  user?: IUserSchema;
+  auth?: IAuth;
+  myApp?: IAppSchema;
+  asset?: string;
 }
 export interface AuthRequest extends InitRequest {
-  user: IUserSchema;
+  params: {
+    username: string;
+  };
   body: AuthBody;
 }
 // defined custom properties after passing middleware requirements
-export interface UserRequest extends AuthRequest {
+export interface UserRequest extends InitRequest {
   params: {
     appId: string;
     username: string;
   };
-  // body: AuthBody;
-  user: IUserSchema;
-  myApp?: IAppSchema;
-  auth?: IAuth;
 }
 
-export interface AppRequest extends Request {
+export interface AppRequest extends InitRequest {
   params: {
     appId: string;
     appName: string;
