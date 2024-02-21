@@ -1,15 +1,23 @@
-import type { Request, Express, Response } from "express";
 import authRoute from "./auth/index";
 import appRoute from "./app/index";
 // import calendarRoute from "./calendar";
 import storeRoute from "./store/index";
-import { port } from "@utils/app/config";
+import { initRoute, startApp } from "./initRoute";
+import { ExpressApp } from "@app/db";
+import { deserializeUser } from "@middleware/auth/deserializeUser";
 
-export default (app: Express) => {
+export default (app: ExpressApp) => {
+  startApp(app);
+  // app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
+  //   res.status ? res.status : res.status(500);
+  //   res.json(error);
+  // });
+  // middleware for all functions
+  app.use(deserializeUser);
+  // TODO: DEBUG ERROR
+  // app.use(deserializeUser as unknown as RequestHandler);
   // initial test route
-  app.get("/", (_req: Request, res: Response) => {
-    res.status(200).json(`api is running on ${port}`).end();
-  });
+  app.get("/", initRoute);
   // authentication route for login and access/refresh tokens
   app.use("/auth/", authRoute);
   // app data
