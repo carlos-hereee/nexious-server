@@ -44,11 +44,11 @@
 //       // if (refs.hasCta) page.cta = refs.hasCta;
 //       // // update page name on menu
 //       // const pageName = pageData.name;
-//       // const pageIdx = req.myApp.menu.findIndex((m) => m.isPage && m.name === pageName);
+//       // const pageIdx = req.project.menu.findIndex((m) => m.isPage && m.name === pageName);
 //       // if (pageIdx >= 0) {
 //       //   const menuData = formatMenuPageData(pageName);
-//       //   req.myApp.menu[pageIdx] = menuData;
-//       //   await req.myApp.save();
+//       //   req.project.menu[pageIdx] = menuData;
+//       //   await req.project.save();
 //       // }
 
 //       // await page.save();

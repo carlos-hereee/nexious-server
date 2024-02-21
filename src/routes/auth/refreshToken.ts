@@ -6,15 +6,13 @@ import { AuthRequest } from "@app/request";
 
 export const refreshToken = async (req: AuthRequest, res: Response) => {
   try {
-    if (req.user) {
+    if (req.auth) {
       // access granted: generate new sessionId
       const sessionId = makeSession(req.user.userId);
-      req.user.auth.sessionId = sessionId;
-      await req.user.save();
+      req.auth.sessionId = sessionId;
+      await req.auth.save();
       // create  cookies
-      // const user = await getUser({ userId: req.user.userId });
       const { accessToken } = storeCookies(res, req.user.username, sessionId);
-      // console.log("accessToken :>> ", accessToken);
       res.status(200).json(accessToken).end();
     }
   } catch (error) {

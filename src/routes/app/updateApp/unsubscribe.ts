@@ -4,7 +4,7 @@ import { Response } from "express";
 
 export const unsubscribe = async (req: AppRequest, res: Response) => {
   try {
-    req.user.subscriptions = req.user.subscriptions.filter((sub) => sub !== req.myApp?._id);
+    req.user.subscriptions = req.user.subscriptions.filter((sub) => sub !== req.project._id);
     await req.user.save();
     res.status(200).end();
   } catch (error) {

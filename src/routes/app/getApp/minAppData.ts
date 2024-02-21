@@ -9,7 +9,7 @@ export const minAppData = async (req: AppRequest<null>, res: Response) => {
   try {
     // key varialbles
     const userId = req.user.userId;
-    const appName = req.myApp.appName;
+    const appName = req.project.appName;
 
     // const appList = await getApp({ all: true });
     const user = await getUser({ userId });

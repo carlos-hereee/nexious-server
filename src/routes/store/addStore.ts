@@ -10,10 +10,10 @@ export const addStore = async (req: StoreCreateRequest, res: Response, next: Nex
   try {
     // key variables
     const { name } = req.body;
-    const { country, _id } = req.myApp;
+    const { country, _id } = req.project;
     const ownerId = req.user._id;
     const hero = req.asset || "";
-    const email = req.body.email || req.myApp.email;
+    const email = req.body.email || req.project.email;
     if (!email) return res.status(400).json(message.emailRequired).end();
     const menuData = formatMenuPageData(name);
     const payload = { ...req.body, email, ownerId, appId: _id, hero, accountId: "", inventory: [] };
@@ -25,9 +25,9 @@ export const addStore = async (req: StoreCreateRequest, res: Response, next: Nex
     // // save store data
     const store = await createStore(payload);
     // // connect store to app
-    req.myApp.store = store._id;
-    req.myApp.menu.push({ ...menuData, isStore: true });
-    await req.myApp.save();
+    req.project.store = store._id;
+    req.project.menu.push({ ...menuData, isStore: true });
+    await req.project.save();
     next();
   } catch (error) {
     useGenericErrors(res, error, "unable to add store");

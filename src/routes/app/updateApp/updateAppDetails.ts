@@ -1,24 +1,24 @@
 import { AppBody } from "@app/app";
-import { AppRequest } from "@app/request";
+import { AppUpdateRequest } from "@app/request";
 import { formatLanguageList } from "@utils/app/format/formatLanguageList";
 import { formatThemeList } from "@utils/app/format/formatThemeList";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
 
-export const updateAppDetails = async (req: AppRequest<AppBody>, res: Response, next: NextFunction) => {
+export const updateAppDetails = async (req: AppUpdateRequest<AppBody>, res: Response, next: NextFunction) => {
   try {
-    if (req.myApp) {
+    if (req.project) {
       // key variables
       const { theme, language, locale, appName, logo, email } = req.body;
       // update appname
-      req.myApp.appName = appName;
+      req.project.appName = appName;
       // req.asset middleware yields asset url
-      req.myApp.logo = req.asset || logo;
-      req.myApp.locale = locale;
-      req.myApp.email = email;
-      req.myApp.themeList = formatThemeList(theme);
-      req.myApp.languageList = formatLanguageList(language);
-      await req.myApp.save();
+      req.project.logo = req.asset || logo;
+      req.project.locale = locale;
+      req.project.email = email;
+      req.project.themeList = formatThemeList(theme);
+      req.project.languageList = formatLanguageList(language);
+      await req.project.save();
     }
     next();
   } catch (error) {

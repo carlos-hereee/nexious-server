@@ -11,15 +11,15 @@ export const changePassword = async (req: AuthRequest, res: Response) => {
     const oldPassword = req.body.oldPassword;
     if (req.user) {
       // add password to the timeline
-      if (!req.user.auth.passwordHistory.includes(oldPassword)) {
-        req.user.auth.passwordHistory = [...req.user.auth.passwordHistory, oldPassword];
+      if (!req.auth.passwordHistory.includes(oldPassword)) {
+        req.auth.passwordHistory = [...req.auth.passwordHistory, oldPassword];
         // otherwise its a security risk: deny request
       } else return res.status(400).json(message.passwordAlreadyInHistory).end();
       // update password and genereate new sessionId (should log everyone out)
       const sessionId = makeSession(req.user.userId);
-      req.user.auth.sessionId = sessionId;
+      req.auth.sessionId = sessionId;
       // new to history add old password to history
-      req.user.auth.password = generateHash(req.body.newPassword);
+      req.auth.password = generateHash(req.body.newPassword);
       await req.user.save();
       // create new cookies
       const { accessToken } = storeCookies(res, req.user.username, sessionId);

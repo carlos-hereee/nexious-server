@@ -1,14 +1,12 @@
 import { Response } from "express";
 import { resetCookies } from "@utils/auth/resetCookies";
 import { AuthRequest } from "@app/request";
-// import { updateUser } from "@db/models/users/updateUser";
 
 export const logout = async (req: AuthRequest, res: Response) => {
-  if (req.user) {
+  if (req.auth) {
     // invalidate session
-    req.user.auth.sessionId = "invalidated";
-    await req.user.save();
-    // await updateUser({ userId: req.user.userId }, { "auth.sessionId": "invalidated" });
+    req.auth.sessionId = "invalidated";
+    await req.auth.save();
     resetCookies(res);
   }
   return res.status(202).end();

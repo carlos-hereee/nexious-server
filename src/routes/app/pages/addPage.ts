@@ -39,9 +39,9 @@
 //     const page = await createPage(pageData);
 //     const menuData = formatMenuPageData(page.name);
 
-//     req.myApp.pages.push(page._id);
-//     req.myApp.menu.push(menuData);
-//     await req.myApp.save();
+//     req.project.pages.push(page._id);
+//     req.project.menu.push(menuData);
+//     await req.project.save();
 //     next();
 //   } catch (error) {
 //     useGenericErrors(res, error, "unable to add page ");

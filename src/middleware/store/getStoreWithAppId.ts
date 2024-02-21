@@ -7,8 +7,8 @@ import { StoreRequest } from "@app/request";
 export const getStoreWithAppId = async (req: StoreRequest<null>, res: Response, next: NextFunction) => {
   try {
     // require app
-    if (req.myApp) {
-      req.store = await getStore({ appId: req.myApp.appId });
+    if (req.project) {
+      req.store = await getStore({ appId: req.project.appId });
       next();
     } else res.status(404).json(message.appNotFound);
   } catch (error) {

@@ -2,8 +2,8 @@ import type { IUserSchema } from "./user";
 import type { IStoreSchema, MerchBodyParams, RequestStore, StoreBody } from "./store";
 import type { Request } from "express";
 import type Stripe from "stripe";
-import type { AuthBody, IAuth } from "./auth";
-import type { IAppSchema } from "./app";
+import type { AuthBody, IAuthSchema } from "./auth";
+import type { AppBody, IAppSchema } from "./app";
 import type { IFile } from "./assets";
 import type { ICalendarSchema } from "./calendar";
 import type { IPageSchema } from "./page";
@@ -13,22 +13,29 @@ export interface InitRequest extends Request {
   cookies: { [cookieName: string]: string };
   // optional due to issues with PathParams
   user: IUserSchema | null;
+  auth: IAuthSchema | null;
 }
 // defined custom properties after passing middleware requirements
 export interface AuthRequest extends Request {
   params: {
     userId: string;
     appId: string;
+    username: string;
   };
-  auth: IAuth | null;
+  auth: IAuthSchema;
   body: AuthBody;
-  user: IUserSchema | null;
+  user: IUserSchema;
 }
+
 export interface AppRequest extends Request {
   params: {
     appId: string;
     locale: string;
+    appName: string;
   };
+  body: AppBody;
+  project: IAppSchema;
+  user: IUserSchema;
   file: IFile;
   files: { hero: IFile[]; sectionHero: IFile[] };
   asset: string;
@@ -43,9 +50,12 @@ export interface AppUpdateRequest<B> extends Request {
     appName: string;
     locale: string;
   };
-  myApp: IAppSchema;
+  project: IAppSchema;
   user: IUserSchema;
+  file: IFile;
+  files: { hero: IFile[]; sectionHero: IFile[] };
   asset: string;
+  assets: { hero: string; sectionHero: string[] };
 }
 
 export interface FileRequest extends Request {
@@ -59,17 +69,17 @@ export interface StoreRequest<B> extends Request {
   body: B;
   asset?: string;
   store?: IStoreSchema;
-  myApp?: IAppSchema;
+  project?: IAppSchema;
 }
 export interface StoreRemovalRequest extends Request {
   store: IStoreSchema;
-  myApp: IAppSchema;
+  project: IAppSchema;
 }
 export interface StoreCreateRequest extends Request {
   body: StoreBody;
   store: IStoreSchema;
   user: IUserSchema;
-  myApp: IAppSchema;
+  project: IAppSchema;
   asset?: string;
 }
 export interface AddStoreMerchRequest extends Request {

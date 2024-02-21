@@ -88,7 +88,7 @@ export interface IAppSchema extends Document {
   appUrl: string;
   logo: string;
   owner: ObjectId;
-  adminIds: { userId: string; role: string }[];
+  adminIds: { userId: ObjectId; role: string }[];
   languageList: ILanguageList[];
   themeList: IThemeList[];
   landing: ObjectId;
@@ -120,20 +120,20 @@ export interface AppBody {
   subtitle: string;
 }
 export interface UpdateAppRequest extends Request {
-  myApp: IAppSchema;
+  project: IAppSchema;
 }
 export interface AppDataRequest extends Request {
   user: IUserSchema;
-  myApp: IAppSchema;
+  project: IAppSchema;
 }
 
 export interface InitAppRequest extends Request {
   user: IUserSchema;
-  myApp?: IAppSchema;
+  project?: IAppSchema;
   asset: string;
   body: AppBody;
 }
 export interface AppIdRequest {
   params: { appId: string };
-  myApp?: IAppSchema;
+  project?: IAppSchema;
 }

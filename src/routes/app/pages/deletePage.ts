@@ -6,14 +6,14 @@
 //   try {
 //     const { appId, pageId } = req.params;
 //     // find page
-//     const pageIdx = req.myApp.pages.findIndex((page) => page.pageId === pageId);
+//     const pageIdx = req.project.pages.findIndex((page) => page.pageId === pageId);
 //     // remove page from app pages
-//     req.myApp.pages = req.myApp.pages.filter((page) => page.pageId !== pageId);
+//     req.project.pages = req.project.pages.filter((page) => page.pageId !== pageId);
 //     // remove page from menu if found
-//     const pageName = req.myApp.pages[pageIdx].name;
-//     if (pageName) req.myApp.menu = req.myApp.menu.filter((m) => m.name !== pageName);
+//     const pageName = req.project.pages[pageIdx].name;
+//     if (pageName) req.project.menu = req.project.menu.filter((m) => m.name !== pageName);
 
-//     await req.myApp.save();
+//     await req.project.save();
 //     // finally remove page
 //     await removePage({ appId, pageId });
 //     next();

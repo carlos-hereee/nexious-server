@@ -8,15 +8,15 @@
 //   try {
 //     let { pageData, refs } = formatFormData(req.body);
 //     // update landing
-//     req.myApp.landing.title = pageData.title;
-//     req.myApp.landing.tagline = pageData.tagline;
-//     req.myApp.landing.body = pageData.body;
-//     req.myApp.landing.hasCta = pageData.hasCta;
-//     req.myApp.landing.hasSections = pageData.hasSections;
-//     if (refs.hasCta) req.myApp.landing.cta = refs.hasCta;
+//     req.project.landing.title = pageData.title;
+//     req.project.landing.tagline = pageData.tagline;
+//     req.project.landing.body = pageData.body;
+//     req.project.landing.hasCta = pageData.hasCta;
+//     req.project.landing.hasSections = pageData.hasSections;
+//     if (refs.hasCta) req.project.landing.cta = refs.hasCta;
 //     if (req.assets) {
 //       // update asset data
-//       if (req.assets.hero) req.myApp.landing.hero = req.assets.hero;
+//       if (req.assets.hero) req.project.landing.hero = req.assets.hero;
 //       if (refs.hasSections) {
 //         if (req.assets.sectionHero.length > 0 && refs.hasSections?.length > 0) {
 //           // TODO:  match asset data to section data
@@ -28,12 +28,12 @@
 //                 sections.push({ ...element, sectionHero: req.assets.sectionHero[item] || "" });
 //               }
 //             }
-//             req.myApp.landing.sections = sections;
+//             req.project.landing.sections = sections;
 //           }
 //         }
 //       }
 //     }
-//     await req.myApp.save();
+//     await req.project.save();
 //     next();
 //   } catch (error) {
 //     useGenericErrors(res, error, "error occured updating lading page");
