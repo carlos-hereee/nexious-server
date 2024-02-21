@@ -7,8 +7,8 @@ import { AuthRequest } from "@app/request";
 export const getAccessData = async (req: AuthRequest, res: Response) => {
   try {
     const appList = await getApp({ all: true });
-    const user = await getUser({ userId: req.user?.userId });
-    // console.log("data :>> ", data);
+    const user = await getUser({ userId: req.user.userId });
+    // console.log("user :>> ", user);
     res.status(200).json({ appList, user }).end();
   } catch (error) {
     useGenericErrors(res, error, "error occurred sending client data");

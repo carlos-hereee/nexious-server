@@ -5,7 +5,7 @@ import { Response } from "express";
 import { AppRequest } from "@app/request";
 // import { AppBody } from "@app/app";
 
-export const minAppData = async (req: AppRequest<null>, res: Response) => {
+export const minAppData = async (req: AppRequest, res: Response) => {
   try {
     // key varialbles
     const userId = req.user.userId;

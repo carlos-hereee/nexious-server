@@ -4,6 +4,7 @@ import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { verifyJWT } from "@utils/auth/verifyJWT";
 import { NextFunction, Response } from "express";
 import { InitRequest } from "@app/request";
+import { getSession } from "@db/models/users/getSession";
 
 export const deserializeUser = async (req: InitRequest, res: Response, next: NextFunction) => {
   try {
@@ -16,7 +17,9 @@ export const deserializeUser = async (req: InitRequest, res: Response, next: Nex
     // validate token
     const { username, sessionId } = verifyJWT(token);
     // assign user
-    req.user = await getUser({ username, sessionId });
+    if (username) req.user = await getUser({ username });
+    // TODO: get user instead of session
+    else if (sessionId) req.auth = await getSession({ sessionId });
     next();
   } catch (error) {
     useGenericErrors(res, error, "unable to deserialize user");

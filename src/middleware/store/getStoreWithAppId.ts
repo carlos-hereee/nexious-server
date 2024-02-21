@@ -8,7 +8,8 @@ export const getStoreWithAppId = async (req: StoreRequest<null>, res: Response, 
   try {
     // require app
     if (req.project) {
-      req.store = await getStore({ appId: req.project.appId });
+      const store = await getStore({ appId: req.project.appId });
+      if (store) req.store = store;
       next();
     } else res.status(404).json(message.appNotFound);
   } catch (error) {

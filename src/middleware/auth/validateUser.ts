@@ -5,9 +5,9 @@ import { useGenericErrors } from "@utils/auth/useGenericErrors";
 
 export const validateUser = async (req: AuthRequest, res: Response, next: NextFunction) => {
   try {
-    // key variables
-    const username = req.body.username || req.params.username;
     if (!req.user) {
+      // key variables
+      const username = req.body.username || req.params.username;
       // assign user
       const user = await getUser({ username });
       if (user) req.user = user;

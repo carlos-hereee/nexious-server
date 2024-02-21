@@ -11,6 +11,8 @@ import { sendToken } from "./sendToken";
 import { getAccessData } from "./getAccessData";
 import { registerWare, userWare, validateWare } from "@middleware/auth";
 import { requireUser } from "@middleware/auth/requireUser";
+import { aquireAuthSession } from "@middleware/auth/aquireAuthSession";
+import { validateUser } from "@middleware/auth/validateUser";
 
 const route = Router();
 
@@ -21,8 +23,8 @@ route.get("/user/:username", userWare, userRoute);
 route.get("/access-token", requireUser, getAccessData);
 // post
 route.post("/register", registerWare, register, sendToken);
-route.post("/login", userWare, sendToken);
-route.post("/refresh-token", requireUser, refreshToken);
+route.post("/login", validateUser, aquireAuthSession, sendToken);
+route.post("/refresh-token", requireUser, aquireAuthSession, refreshToken, sendToken);
 route.post("/change-password", validateWare, changePassword);
 // TODO: ADD ADDITIONAL VERFICATION MEDTHODS
 route.post("/forgot-password", userWare, changePassword);
