@@ -3,9 +3,8 @@ import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import message from "@db/data/error.message.json";
 import { getApp } from "@db/models/app/getApp";
 import { NextFunction, Response } from "express";
-import { AppBody } from "@app/app";
 
-export const requireUniqueName = async (req: AppRequest<AppBody>, res: Response, next: NextFunction) => {
+export const requireUniqueName = async (req: AppRequest, res: Response, next: NextFunction) => {
   try {
     const appName = req.body.appName || req.params.appName;
     const app = await getApp({ appName });

@@ -7,6 +7,6 @@ export const getAppList = async (_req: Request, res: Response) => {
     const apps = await getApp({ all: true });
     return apps ? res.status(200).json(apps).end() : res.status(200).json([]).end();
   } catch (error) {
-    useGenericErrors(res, error, "error occured gettign all apps");
+    return useGenericErrors(res, error, "error occured gettign all apps");
   }
 };

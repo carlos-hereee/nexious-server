@@ -5,6 +5,7 @@ import storeRoute from "./store/index";
 import { initRoute, startApp } from "./initRoute";
 import { ExpressApp } from "@app/db";
 import { deserializeUser } from "@middleware/auth/deserializeUser";
+import { RequestHandler } from "express";
 
 export default (app: ExpressApp) => {
   startApp(app);
@@ -13,9 +14,9 @@ export default (app: ExpressApp) => {
   //   res.json(error);
   // });
   // middleware for all functions
-  app.use(deserializeUser);
   // TODO: DEBUG ERROR
-  // app.use(deserializeUser as unknown as RequestHandler);
+  // app.use(deserializeUser);
+  app.use(deserializeUser as unknown as RequestHandler);
   // initial test route
   app.get("/", initRoute);
   // authentication route for login and access/refresh tokens

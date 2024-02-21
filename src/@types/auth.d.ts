@@ -1,11 +1,21 @@
 import type { CookieOptions, Response } from "express";
 import type { JwtPayload, VerifyErrors } from "jsonwebtoken";
-import type { IUserAuth } from "./user";
+import { Document } from "mongoose";
+import { ObjectId } from "./db";
 
+export interface AuthSchema {
+  salt: string;
+  sessionId: string;
+  password: string;
+  passwordHistory: string[];
+}
+export interface IAuthSchema extends AuthSchema, Document {
+  _id: ObjectId;
+}
 export interface IAuth {
   userId: string;
   email: string;
-  auth: IUserAuth;
+  auth: AuthSchema;
   username: string;
   phone: number;
 }
@@ -26,11 +36,7 @@ export interface JWTDecodedProps {
 export interface JWTVerifyPayload {
   username: string;
   sessionId: string;
-  error: {
-    expired: boolean;
-    status: number;
-    message: string;
-  };
+  error: string;
 }
 export type StoreCookiesProps = (res: Response, username: string, sessionId: string) => { accessToken: string };
 

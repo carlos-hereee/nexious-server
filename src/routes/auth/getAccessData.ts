@@ -2,9 +2,9 @@ import { getApp } from "@db/models/app/getApp";
 import { getUser } from "@db/models/users/getUser";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { Response } from "express";
-import { UserRequest } from "@app/request";
+import { AuthRequest } from "@app/request";
 
-export const getAccessData = async (req: UserRequest, res: Response) => {
+export const getAccessData = async (req: AuthRequest, res: Response) => {
   try {
     const appList = await getApp({ all: true });
     const user = await getUser({ userId: req.user?.userId });

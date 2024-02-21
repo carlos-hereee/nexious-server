@@ -1,4 +1,5 @@
-import express, { json, urlencoded } from "express";
+import express, { json } from "express";
+// import express, { json, urlencoded } from "express";
 import cors from "cors";
 import { config } from "dotenv";
 import helmet from "helmet";
@@ -15,7 +16,7 @@ const app = express();
 app.use(helmet({ crossOriginResourcePolicy: false }));
 app.use(cookieParser());
 app.use(json());
-app.use(urlencoded({ extended: true }));
+// app.use(urlencoded({ extended: true }));
 app.use(cors({ credentials: true, origin: [clientUrl, clientUrlAlt], methods: allowedMethods }));
 // db connection
 connectMongoose()

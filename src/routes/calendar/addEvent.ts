@@ -1,7 +1,7 @@
-// import type { UserRequestMiddleware } from "@app/db";
+// import type { AuthRequestMiddleware } from "@app/db";
 // import { v4 } from "uuid";
 
-// export const addEvent: UserRequestMiddleware = (req, res) => {
+// export const addEvent: AuthRequestMiddleware = (req, res) => {
 //   if (req.user) {
 //     const { userId } = req.user;
 //     const { date } = req.body;

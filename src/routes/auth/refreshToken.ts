@@ -2,9 +2,9 @@ import { makeSession } from "@utils/auth/makeSession";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { storeCookies } from "@utils/auth/storeCookies";
 import { Response } from "express";
-import { UserRequest } from "@app/request";
+import { AuthRequest } from "@app/request";
 
-export const refreshToken = async (req: UserRequest, res: Response) => {
+export const refreshToken = async (req: AuthRequest, res: Response) => {
   try {
     if (req.user) {
       // access granted: generate new sessionId

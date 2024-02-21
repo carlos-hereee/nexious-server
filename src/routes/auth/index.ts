@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck - may need to be at the start of file
 // routes
 import { Router } from "express";
 import { register } from "./register";

@@ -1,10 +1,10 @@
 import { removeApp } from "@db/models/app/removeApp";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
-import { UserRequest } from "@app/request";
+import { AuthRequest } from "@app/request";
 import { ObjectId } from "@app/db";
 
-export const deleteApp = async (req: UserRequest, res: Response, next: NextFunction) => {
+export const deleteApp = async (req: AuthRequest, res: Response, next: NextFunction) => {
   try {
     const appId = req.params.appId as unknown as ObjectId;
     // if match remove from owned app

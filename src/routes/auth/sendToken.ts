@@ -1,12 +1,12 @@
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { storeCookies } from "@utils/auth/storeCookies";
 import { Response } from "express";
-import { UserRequest } from "@app/request";
+import { AuthRequest } from "@app/request";
 
-export const sendToken = (req: UserRequest, res: Response) => {
+export const sendToken = (req: AuthRequest, res: Response) => {
   try {
     // made it through the forest, generate session cookie
-    const sessionId = req.user?.auth.sessionId;
+    const sessionId = req.user.auth.sessionId;
     // console.log("req.user :>> ", req.user);
     if (sessionId) {
       const { accessToken } = storeCookies(res, req.user?.username || "", sessionId);

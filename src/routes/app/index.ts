@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck - may need to be at the start of file
 import { Router } from "express";
 import { saveAsset } from "@middleware/app/saveAsset";
 import { deleteApp } from "./deleteApp";

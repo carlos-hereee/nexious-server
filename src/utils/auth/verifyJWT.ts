@@ -1,27 +1,24 @@
 import { verify } from "jsonwebtoken";
-import { jwtPrivateKey } from "@utils/app/config";
-import message from "@db/data/error.message.json";
+import { isDev, jwtPrivateKey } from "@utils/app/config";
+// import message from "@db/data/error.message.json";
 import type { JWTVerifyPayload, JWTDecodedProps } from "@app/auth";
 
+// verfiry token with jwt
 export const verifyJWT = (token: string): JWTVerifyPayload => {
-  let verification = {
-    username: "",
-    sessionId: "",
-    error: { status: 0, expired: false, message: "" },
-  };
-
-  verify(token, jwtPrivateKey, (err, decoded) => {
+  // key variables
+  const verification = { username: "", sessionId: "", error: "" };
+  verify(token, jwtPrivateKey, (error, decoded) => {
+    // handle error
+    if (error) {
+      if (isDev) console.log("verifying JWT", error);
+      // if expired
+      const isExpired = error ? error.message.includes("jwt expired") : false;
+      return (verification.error = isExpired ? "expired" : "error");
+    }
+    // assign verification
     const code = decoded as JWTDecodedProps;
-    const isExpired = err ? err.message.includes("jwt expired") : false;
-    verification = {
-      username: code?.username || "",
-      sessionId: code?.sessionId || "",
-      error: {
-        expired: isExpired,
-        status: isExpired ? 401 : 403,
-        message: isExpired ? message.payloadExpired : message.notVerfifed,
-      },
-    };
+    verification.username = code?.username || "";
+    verification.sessionId = code?.sessionId || "";
   });
   return verification;
 };

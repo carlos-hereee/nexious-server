@@ -1,11 +1,11 @@
-import type { UserFilters } from "@app/user";
+import type { IUserSchema, UserFilters } from "@app/user";
 import Users from "@db/schema/users";
 
 // search individual users
-export const getUser = async ({ username, email, userId }: UserFilters) => {
-  // by username
+export const getUser = async ({ username, email, userId, sessionId }: UserFilters): Promise<IUserSchema | null> => {
+  if (sessionId) return await Users.findOne({ "auth.sessionId": sessionId });
   if (username) return await Users.findOne({ username });
-  // by userId
+  if (email) return await Users.findOne({ email });
   if (userId) {
     // send data required by client
     return await Users.findOne({ userId }).populate({
@@ -14,19 +14,14 @@ export const getUser = async ({ username, email, userId }: UserFilters) => {
       populate: { path: "owner", select: "userId url small alt heroId uid" },
     });
   }
-  // by email
-  if (email) return await Users.findOne({ email });
+  return null;
 };
 // search a list of users
 export const getAllUsers = async ({ all, appId }: UserFilters) => {
   // find users in a given app
-  if (appId) {
-    return await Users.find({ appId });
-  }
+  if (appId) return await Users.find({ appId });
   // list all users
-  if (all) {
-    return await Users.find();
-  }
+  if (all) return await Users.find();
 };
 // search for auth information using username
 export const getUserAuthWithUsername = async ({ username }: UserFilters) => {

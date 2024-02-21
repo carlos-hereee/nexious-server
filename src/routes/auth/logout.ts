@@ -1,9 +1,9 @@
 import { Response } from "express";
 import { resetCookies } from "@utils/auth/resetCookies";
-import { UserRequest } from "@app/request";
+import { AuthRequest } from "@app/request";
 // import { updateUser } from "@db/models/users/updateUser";
 
-export const logout = async (req: UserRequest, res: Response) => {
+export const logout = async (req: AuthRequest, res: Response) => {
   if (req.user) {
     // invalidate session
     req.user.auth.sessionId = "invalidated";
