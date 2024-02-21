@@ -39,6 +39,7 @@ export interface AWSBucketParams {
 }
 export interface AWSFileProps {
   s3: S3;
+  file?: IFile;
   addFile?: PutObjectCommandInput;
   removeFile?: DeleteObjectCommandInput;
 }

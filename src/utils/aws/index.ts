@@ -6,7 +6,7 @@ import { listBucketItems } from "./bucket/listBucketItems";
 import { uploadFile, uploadFiles } from "./file/uploadFile";
 import { deleteBucket } from "./bucket/deleteBucket";
 import { deleteFile } from "./file/deleteFile";
-import type { AWSBucket, AWSGetBucket } from "@app/assets";
+import type { AWSBucket, AWSGetBucket, IFile } from "@app/assets";
 
 // Create S3 service object
 const s3 = new S3({
@@ -23,7 +23,7 @@ export const removeBucket = (bucket: AWSBucket) => deleteBucket({ s3, removeBuck
 // show bucket items
 export const getBucketItems = (bucket: AWSBucket) => listBucketItems({ s3, listBucketItems: bucket });
 // add file
-export const addFile = (bucket: AWSBucket) => uploadFile({ s3, addFile: bucket });
+export const saveFile = (file: IFile) => uploadFile({ s3, file });
 // remove file
 export const removeFile = (bucket: AWSBucket) => deleteFile({ s3, removeFile: bucket });
 // add multiple files
