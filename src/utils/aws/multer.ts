@@ -6,7 +6,8 @@ const fileFilter: MulterFileFilter = (_req, file, cb) => {
   if (!file) return cb(new Error("No file detected"));
   // no mimetype detected
   if (!file.mimetype) return cb(new Error("no file mimetype detected"));
-  const safeFiles = ["png", "image/svg+xml", "jpg"];
+  // console.log("file :>> ", file);
+  const safeFiles = ["png", "image/svg+xml", "jpg", "image/jpeg"];
   // TODO: add additional image verifications
   // check if is image
   // const isImage = file.mimetype.split("/")[0] === "image";
