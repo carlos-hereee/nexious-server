@@ -27,30 +27,11 @@ export interface AuthRequest extends Request {
   user: IUserSchema;
 }
 
-export interface AppRequest extends Request {
-  params: {
-    appId: string;
-    locale: string;
-    appName: string;
-  };
-  body: AppBody;
-  project: IAppSchema;
-  user: IUserSchema;
-  file: IFile;
-  files: { hero: IFile[]; sectionHero: IFile[] };
-  asset: string;
-  assets: { hero: string; sectionHero: string[] };
-}
-export interface AppUpdateRequest<B> extends Request {
+export interface AppRequest<B = AppBody> extends Request {
+  params: { appId: string; locale: string; appName: string; assetId: string };
   body: B;
-  params: {
-    appId: string;
-    assetId: string;
-    merchId: string;
-    appName: string;
-    locale: string;
-  };
   project: IAppSchema;
+  page: IPageSchema;
   user: IUserSchema;
   file: IFile;
   files: { hero: IFile[]; sectionHero: IFile[] };

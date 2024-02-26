@@ -10,6 +10,7 @@ export interface PageFilters {
 // pages
 export interface GetPagesProps {
   appId?: string;
+  id?: ObjectId;
   languageId?: string;
   pageId?: string;
 }
@@ -31,7 +32,18 @@ export interface RefsProps {
   hasCta?: ICta[];
   hasSections?: ISection[];
 }
-
+export interface IPage {
+  body?: string;
+  pageId?: string;
+  hero?: string;
+  title?: string;
+  name?: string;
+  isStore?: boolean;
+  hasCta?: boolean;
+  hasSections?: boolean;
+  cta?: ICta[];
+  sections?: ISection[];
+}
 export interface IPageSchema extends Document {
   // require type of page
   type: "store" | "landing" | "page";
