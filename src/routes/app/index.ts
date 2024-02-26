@@ -23,7 +23,6 @@ const route = Router();
 // load app data
 route.get("/app-list", getAppList);
 route.get("/:appName", getAppWithName);
-// route.get("/latest/:appId", requireUser, latest);
 route.get("/:appName/locale/:locale", getAppWithLanguage);
 // build app data
 route.post("/init-app", initAppWare, saveAsset, initApp, minAppData);

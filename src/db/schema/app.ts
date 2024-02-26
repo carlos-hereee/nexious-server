@@ -8,6 +8,7 @@ const appSchema = new Schema<IAppSchema>(
     appId: { type: String, require: true, default: v4 },
     appName: { type: String, unique: true },
     locale: { type: String },
+    isFeatured: { type: Boolean },
     country: { type: String },
     email: { type: String, require: true },
     appUrl: { type: String },

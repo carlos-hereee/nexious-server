@@ -17,10 +17,9 @@ export const getApp = async ({ appId, appName, locale }: AppFilters) => {
 export const getAllApps = async ({ appIds, all, ownerId }: AppFilters) => {
   const includeData = "owner pages store calendar";
   if (all) {
-    return await App.find().select("appName appId logo menu owner media").populate({
-      path: "owner",
-      select: "userId",
-    });
+    // avoid overloading requests set limit
+    const selectData = "appName appUrl logo adminIds media appId";
+    return await App.find().select(selectData).limit(30);
   }
   if (appIds) {
     return await App.find(appIds).populate(includeData);

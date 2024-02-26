@@ -82,6 +82,7 @@ export interface IAppSchema extends Document {
   _id: ObjectId;
   appId: string;
   appName: string;
+  isFeatured?: string;
   locale: string;
   country: string;
   email: string;
