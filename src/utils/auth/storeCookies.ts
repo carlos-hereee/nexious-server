@@ -9,7 +9,7 @@ export const storeCookies: StoreCookiesProps = (res, username, sessionId) => {
 
   // console.log("accessConfig :>> ", accessConfig);
 
-  const accessToken = signJWT({ username, sessionId }, "1d");
+  const accessToken = signJWT({ username, sessionId }, "10d");
   const refreshToken = signJWT({ sessionId }, "90d");
   res.cookie(accessTokenName, accessToken, accessConfig);
   res.cookie(refreshTokenName, refreshToken, refreshConfig);
