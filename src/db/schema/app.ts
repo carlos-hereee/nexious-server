@@ -13,7 +13,7 @@ const appSchema = new Schema<IAppSchema>(
     appUrl: { type: String },
     logo: { type: String, default: "" },
     owner: { type: Schema.Types.ObjectId, ref: "Users" },
-    adminIds: [{ userId: { type: Schema.Types.ObjectId, ref: "Users" }, role: { type: String } }],
+    adminIds: [{ userId: { type: String, ref: "Users" }, role: { type: String } }],
     languageList: [
       {
         name: { type: String },

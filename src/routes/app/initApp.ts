@@ -10,13 +10,12 @@ export const initApp = async (req: AppRequest, res: Response, next: NextFunction
   try {
     // key variables
     const appName = req.body.appName;
-    const owner = req.user._id;
     const appUrl = "app/" + appName.split(" ").join("+");
     const logo = req.asset || "";
     // const logo = { url: req.asset, alt: appName + " industry brand", link: appUrl };
-    const adminIds = [{ userId: owner, role: "owner" }];
+    const adminIds = [{ userId: req.user.userId, role: "owner" }];
     // const themeLis
-    const app = await createApp({ appName, logo, owner, adminIds, themeList, appUrl });
+    const app = await createApp({ appName, logo, owner: req.user._id, adminIds, themeList, appUrl });
     // add user permissions
     req.project = app;
     req.user.ownedApps.push(app._id);

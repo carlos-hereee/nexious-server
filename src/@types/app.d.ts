@@ -88,7 +88,7 @@ export interface IAppSchema extends Document {
   appUrl: string;
   logo: string;
   owner: ObjectId;
-  adminIds: { userId: ObjectId; role: string }[];
+  adminIds: { userId: string; role: string }[];
   languageList: ILanguageList[];
   themeList: IThemeList[];
   landing: ObjectId;
@@ -103,7 +103,7 @@ export interface AppPayload {
   appName: string;
   logo: string;
   owner: ObjectId;
-  adminIds: { userId: ObjectId; role: string }[];
+  adminIds: { userId: string; role: string }[];
   themeList: IThemeList[];
   appUrl: string;
 }
