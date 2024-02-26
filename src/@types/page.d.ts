@@ -1,5 +1,7 @@
 import type { Document } from "mongoose";
 import type { IMediaItem } from "./app";
+import { ObjectId } from "./db";
+// import { ObjectId } from "./db";
 
 export interface PageFilters {
   pageId: string;
@@ -30,28 +32,21 @@ export interface RefsProps {
   hasSections?: ISection[];
 }
 
-export interface Page {
-  title: string;
-  body: string;
-  hero: string;
-  hasCta: boolean;
-  hasSections: boolean;
-  cta: ICta[];
-  sections: ISection[];
-}
 export interface IPageSchema extends Document {
-  title: string;
-  body: string;
-  pageId: string;
-  userId: string;
-  appId: string;
-  hero: string;
-  name: string;
-  isStore: boolean;
-  hasCta: boolean;
-  hasSections: boolean;
-  cta: ICta[];
-  sections: ISection[];
+  // require type of page
+  type: "store" | "landing" | "page";
+  // populate default values
+  body?: string;
+  _id?: ObjectId;
+  pageId?: string;
+  hero?: string;
+  title?: string;
+  name?: string;
+  isStore?: boolean;
+  hasCta?: boolean;
+  hasSections?: boolean;
+  cta?: ICta[];
+  sections?: ISection[];
 }
 
 export interface PageDataProps {

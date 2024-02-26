@@ -6,10 +6,8 @@ const Schema = mongoose.Schema;
 const pageSchema = new Schema<IPageSchema>(
   {
     pageId: { type: String, require: true, unique: true, default: v4 },
-    userId: { type: String, require: true },
-    appId: { type: String, require: true },
-    // locale: { type: String, require: true },
-    title: { type: String, default: "" },
+    type: { type: String, require: true, default: "page" },
+    title: { type: String, default: "Lorem Ipsum" },
     body: { type: String, default: "" },
     hero: { type: String, default: "" },
     name: { type: String, default: "" },

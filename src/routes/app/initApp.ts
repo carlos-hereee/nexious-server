@@ -1,10 +1,10 @@
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
-import { createApp } from "@db/models/app/createApp";
-// import formatThemeList   from "@utils/auth/app/format/formatThemeList";
-// import formatLanguageList   from "@utils/auth/app/format/formatLanguageList";
 import themeList from "@db/data/app/themeList.json";
 import { NextFunction, Response } from "express";
 import { AppRequest } from "@app/request";
+import Page from "@db/schema/page";
+import App from "@db/schema/app";
+import { IPageSchema } from "@app/page";
 
 export const initApp = async (req: AppRequest, res: Response, next: NextFunction) => {
   try {
@@ -12,10 +12,13 @@ export const initApp = async (req: AppRequest, res: Response, next: NextFunction
     const appName = req.body.appName;
     const appUrl = "app/" + appName.split(" ").join("+");
     const logo = req.asset || "";
+    const owner = req.user._id;
     // const logo = { url: req.asset, alt: appName + " industry brand", link: appUrl };
     const adminIds = [{ userId: req.user.userId, role: "owner" }];
+    // add inital landing page data
+    const landing: IPageSchema = await Page.create({ type: "landing" });
     // const themeLis
-    const app = await createApp({ appName, logo, owner: req.user._id, adminIds, themeList, appUrl });
+    const app = await App.create({ appName, logo, owner, adminIds, themeList, appUrl, landing: landing._id });
     // add user permissions
     req.project = app;
     req.user.ownedApps.push(app._id);
