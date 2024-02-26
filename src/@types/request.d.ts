@@ -32,6 +32,7 @@ export interface AppRequest<B = AppBody> extends Request {
   body: B;
   project: IAppSchema;
   page: IPageSchema;
+  pages: IPageSchema[];
   user: IUserSchema;
   file: IFile;
   files: { hero: IFile[]; sectionHero: IFile[] };

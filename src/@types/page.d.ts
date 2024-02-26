@@ -33,16 +33,17 @@ export interface RefsProps {
   hasSections?: ISection[];
 }
 export interface IPage {
-  body?: string;
-  pageId?: string;
-  hero?: string;
-  title?: string;
-  name?: string;
-  isStore?: boolean;
-  hasCta?: boolean;
-  hasSections?: boolean;
-  cta?: ICta[];
-  sections?: ISection[];
+  body: string;
+  pageId: string;
+  hero: string;
+  tagline: string;
+  title: string;
+  name: string;
+  isStore: boolean;
+  hasCta: boolean;
+  hasSections: boolean;
+  cta: ICta[];
+  sections: ISection[];
 }
 export interface IPageSchema extends Document {
   // require type of page
@@ -53,6 +54,7 @@ export interface IPageSchema extends Document {
   pageId?: string;
   hero?: string;
   title?: string;
+  tagline?: string;
   name?: string;
   isStore?: boolean;
   hasCta?: boolean;

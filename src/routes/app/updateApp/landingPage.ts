@@ -1,9 +1,10 @@
-import type { ISection } from "@app/page";
+import type { IPage, ISection } from "@app/page";
 import { AppRequest } from "@app/request";
+import { formatFormData } from "@utils/app/format/formatFormData";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
 
-export const updateLandingPage = async (req: AppRequest, res: Response, next: NextFunction) => {
+export const updateLandingPage = async (req: AppRequest<IPage>, res: Response, next: NextFunction) => {
   try {
     const { pageData, refs } = formatFormData(req.body);
     // update landing
