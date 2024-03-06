@@ -1,11 +1,14 @@
 import type { AppFilters } from "@app/app";
 import App from "@db/schema/app";
 
-export const getApp = async ({ appId, appName, locale }: AppFilters) => {
-  const includeData = "owner pages store calendar";
+export const getApp = async ({ appId, appName, locale, id }: AppFilters) => {
+  const includeData = "owner pages store calendar landing";
 
   if (locale && appName) {
     return await App.findOne({ appName, locale }).populate(includeData);
+  }
+  if (id) {
+    return await App.findOne({ _id: id });
   }
   if (appId) {
     return await App.findOne({ appId });

@@ -6,6 +6,7 @@ import type { IUserSchema } from "./user";
 
 export interface AppFilters {
   appId?: string;
+  id?: ObjectId;
   appName?: string;
   appIds?: string[];
   ownerId?: ObjectId;
