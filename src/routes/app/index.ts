@@ -26,12 +26,15 @@ import {
   userAppWare,
 } from "@middleware/app";
 import { updateLandingPage } from "./updateApp/landingPage";
+import { addPage } from "./pages/addPage";
+import { fetchPage } from "./pages/fetchPage";
 
 const route = Router();
 // load app data
 route.get("/app-list", getAppList);
 route.get("/:appName", getAppWithName);
 route.get("/:appName/locale/:locale", getAppWithLanguage);
+route.get("/page/:pageId", fetchPage);
 // build app data
 route.post("/init-app", initAppWare, saveAsset, initApp, minAppData);
 // user subscrition
@@ -44,7 +47,7 @@ route.put("/update-landing-page/:appId", multiHeroWare, landingPageWare, updateL
 // route.post("/update-page/:appId/page/:pageId", multiHeroWare, requirePage, updatePage, minAppData);
 route.put("/update-app-details/:appId", logoWare, updateAppDetails, minAppData);
 // building pages
-// route.post("/add-page/:appId", multiHeroWare, addPage, minAppData);
+route.post("/add-page/:appId", multiHeroWare, addPage, minAppData);
 route.post("/add-media/:appId", adminWare, addMedia, minAppData);
 // delete app
 route.delete("/delete-app/:appId", adminWare, deleteApp, minAppData);

@@ -4,7 +4,6 @@ import { formatFormData } from "@utils/app/format/formatFormData";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
 
-// eslint-disable-next-line @typescript-eslint/require-await
 export const updateLandingPage = async (req: AppRequest<IPage>, res: Response, next: NextFunction) => {
   try {
     const page = formatFormData(req.body);

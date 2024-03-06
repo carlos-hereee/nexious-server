@@ -28,7 +28,7 @@ export interface AuthRequest extends Request {
 }
 
 export interface AppRequest<B = AppBody> extends Request {
-  params: { appId: string; locale: string; appName: string; assetId: string };
+  params: { appId: string; locale: string; appName: string; assetId: string; pageId: string };
   body: B;
   project: IAppSchema;
   page: IPageSchema;

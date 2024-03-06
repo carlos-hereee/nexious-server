@@ -65,13 +65,11 @@ export interface IMedia {
   medias: IMediaItem[];
 }
 export interface IMenu {
-  name: string;
+  // name: string;
   value: string;
   link: string;
   label: string;
-  category: string;
   icon?: string;
-  hero?: string;
   menuId?: string;
   uid?: string;
   isToggle?: boolean;

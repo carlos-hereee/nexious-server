@@ -26,12 +26,7 @@ const pageSchema = new Schema<IPageSchema>(
       },
     ],
     cta: [
-      {
-        label: { type: String },
-        link: { type: String },
-        icon: { type: String },
-        uid: { type: String, default: v4 },
-      },
+      { label: { type: String }, link: { type: String }, icon: { type: String }, uid: { type: String, default: v4 } },
     ],
   },
   { timestamps: true }
