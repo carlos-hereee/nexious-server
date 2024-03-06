@@ -41,8 +41,8 @@ export interface AppRequest<B = AppBody> extends Request {
 }
 
 export interface FileRequest extends Request {
-  file?: IFile;
-  files?: { hero: IFile[]; sectionHero: IFile[] };
+  file: IFile;
+  files: { hero?: IFile[]; sectionHero?: IFile[] };
   asset: string;
   assets: { hero: string; sectionHero: string[] };
 }

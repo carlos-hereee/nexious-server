@@ -12,7 +12,7 @@ const pageSchema = new Schema<IPageSchema>(
     title: { type: String, default: `${data.title}` },
     body: { type: String, default: `${data.body}` },
     hero: { type: String, default: "" },
-    tagline: { type: String },
+    tagline: { type: String, default: "" },
     name: { type: String, default: "Lorem" },
     isStore: { type: Boolean, default: false },
     hasCta: { type: Boolean, default: false },

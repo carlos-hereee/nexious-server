@@ -13,8 +13,6 @@ export const deleteApp = async (req: AppRequest, res: Response, next: NextFuncti
     await req.user.save();
     await removeApp({ appId: appId as unknown as string });
     next();
-    // const appList = await getApp({ all: true });
-    // res.status(200).json({ user: req.user, appList }).end();
   } catch (error) {
     useGenericErrors(res, error, "error occured removing app");
   }

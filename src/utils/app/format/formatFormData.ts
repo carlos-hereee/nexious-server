@@ -1,44 +1,45 @@
-import type { IPage, PageDataProps, RefsProps } from "@app/page";
+import type { ICta, IPage, ISection, RefsProps } from "@app/page";
 
 export const formatFormData = (data: IPage) => {
   const canSkip = ["hero", "sectionHero"];
-  const pageData: PageDataProps = {
-    title: "",
-    body: "",
-    hasCta: false,
-    hasSections: false,
-    subtitle: "",
-    hasMedias: false,
-    hero: "",
-    cta: [],
-    sections: [],
-    tagline: "",
-    details: "",
-  };
-  const refs: RefsProps = {};
+
+  const refs: RefsProps = { hasSections: [], hasCta: [], hasMedias: [] };
   Object.keys(data).forEach((key) => {
     if (!canSkip.includes(key)) {
       // key variables
       const current = key.split("-");
-      const name = current[0];
+      const name = current[0] || "";
       const group = current[1] || "";
       const uid = current[2] || "";
-      if (name) {
-        if (uid) {
-          // check if data is part of sub doc
-          if (refs[group]?.length > 0) {
-            // check existing grouping
-            const sharedKeyIdx = refs[group]?.findIndex((p) => p.uid === uid);
-            if (sharedKeyIdx >= 0) {
-              // add to grouping
-              refs[group][sharedKeyIdx] = { ...refs[group][sharedKeyIdx], [name]: data[key] };
-            } else refs[group].push({ [name]: data[key], uid });
-            // create grouping
-          } else refs[group] = [{ [name]: data[key], uid }];
-          // add data
-        } else pageData[name] = value === "true" ? true : value === "false" ? false : data[key];
+      if (name && uid && group) {
+        // check if data is part of sub doc
+        if (group === "hasCta") {
+          // check existing grouping
+          const sharedKeyIdx = refs[group].findIndex((p) => p.uid === uid);
+          const valueKey = name as keyof ICta;
+          const value = data[key] as unknown as string;
+          // add data to grouping
+          if (sharedKeyIdx >= 0) {
+            refs[group][sharedKeyIdx as unknown as keyof ICta] = { ...refs[group][sharedKeyIdx], [valueKey]: value };
+          }
+          // otherwise create grouping
+          else refs[group].push({ label: "", link: "", icon: "", uid, [valueKey]: value });
+        }
+        if (group === "hasSections") {
+          // check existing grouping
+          const sharedKeyIdx = refs[group].findIndex((p) => p.uid === uid);
+          const valueKey = name as keyof ISection;
+          const value = data[key] as unknown as string;
+          // add data to grouping
+          if (sharedKeyIdx >= 0) {
+            const idx = sharedKeyIdx as unknown as keyof ISection;
+            refs[group][idx] = { ...refs[group][sharedKeyIdx], [valueKey]: value };
+          }
+          // otherwise create grouping
+          else refs[group].push({ uid, title: "", body: "", sectionHero: "", [valueKey]: value });
+        }
       }
     }
   });
-  return { pageData, refs };
+  return refs;
 };
