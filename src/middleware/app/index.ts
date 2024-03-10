@@ -9,6 +9,7 @@ import { requireUniqueName } from "./requireUniqueName";
 import { saveFieldAssets } from "./saveFieldAssets";
 import { aquireAppLanding } from "./aquireAppLanding";
 import { requirePage } from "./requirePage";
+import { aquireAppPage } from "./aquireAppPage";
 
 export const adminWare = [requireUser, getAppWithAppId, requireApp, validateAdmin];
 export const heroWare = [...adminWare, uploadSingle("hero"), saveAsset];
@@ -23,4 +24,5 @@ export const multiHeroWare = [
   ]),
   saveFieldAssets,
 ];
+export const pageWare = [aquireAppPage, requirePage];
 export const landingPageWare = [aquireAppLanding, requirePage];

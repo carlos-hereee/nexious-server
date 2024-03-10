@@ -23,11 +23,13 @@ import {
   landingPageWare,
   logoWare,
   multiHeroWare,
+  pageWare,
   userAppWare,
 } from "@middleware/app";
 import { updateLandingPage } from "./updateApp/landingPage";
 import { addPage } from "./pages/addPage";
 import { fetchPage } from "./pages/fetchPage";
+import { updatePage } from "./pages/updatePage";
 
 const route = Router();
 // load app data
@@ -44,7 +46,7 @@ route.post("/unsubscribe/:appId", userAppWare, unsubscribe);
 route.post("/update-newsletter/:appId", heroWare, updateNewsletter, minAppData);
 // route.post("/update-medias/:appId", heroWare, updateMedias, minAppData);
 route.put("/update-landing-page/:appId", multiHeroWare, landingPageWare, updateLandingPage, minAppData);
-// route.post("/update-page/:appId/page/:pageId", multiHeroWare, requirePage, updatePage, minAppData);
+route.put("/update-page/:appId/page/:pageId", multiHeroWare, pageWare, updatePage, minAppData);
 route.put("/update-app-details/:appId", logoWare, updateAppDetails, minAppData);
 // building pages
 route.post("/add-page/:appId", multiHeroWare, addPage, minAppData);
