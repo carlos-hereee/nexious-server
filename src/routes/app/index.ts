@@ -48,6 +48,7 @@ route.put("/update-landing-page/:appId", multiHeroWare, landingPageWare, updateL
 route.put("/update-app-details/:appId", logoWare, updateAppDetails, minAppData);
 // building pages
 route.post("/add-page/:appId", multiHeroWare, addPage, minAppData);
+// add social media
 route.post("/add-media/:appId", adminWare, addMedia, minAppData);
 // delete app
 route.delete("/delete-app/:appId", adminWare, deleteApp, minAppData);

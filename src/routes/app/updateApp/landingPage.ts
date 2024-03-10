@@ -1,6 +1,8 @@
-import type { IPage, ISection } from "@app/page";
+import type { IPage, IPageSchema, ISection } from "@app/page";
 import { AppRequest } from "@app/request";
+import Page from "@db/schema/page";
 import { formatFormData } from "@utils/app/format/formatFormData";
+import { formatMenuPageData } from "@utils/app/format/formatMenuPageData";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
 
@@ -8,13 +10,34 @@ export const updateLandingPage = async (req: AppRequest<IPage>, res: Response, n
   try {
     const page = formatFormData(req.body);
     // update landing
-    req.page.title = req.body.title;
-    req.page.tagline = req.body.tagline;
-    req.page.body = req.body.body;
-    req.page.hasCta = req.body.hasCta === "true";
-    req.page.hasSections = req.body.hasSections === "true";
-    // page contains CTA
-    if (req.page.hasCta) req.page.cta = page.hasCta;
+    if (req.body.title) req.page.title = req.body.title;
+    if (req.body.tagline) req.page.tagline = req.body.tagline;
+    if (req.body.body) req.page.body = req.body.body;
+    if (req.body.hasCta) req.page.hasCta = req.body.hasCta === "true";
+    if (req.body.hasSections) req.page.hasSections = req.body.hasSections === "true";
+    // if update contains CTA
+    if (page.hasCta) {
+      // populate pages
+      await req.project.populate("pages");
+      // create init page for each cta
+      page.hasCta.forEach(async (p) => {
+        const pageName = p.link;
+        const pageIdx = req.project.pages.findIndex((p) => (p as unknown as IPageSchema).name === pageName);
+        // if page doesnt exist
+        if (pageIdx <= 0) {
+          // TODO: handle url name change
+          const ctaPage: IPageSchema = await Page.create({ type: "page", name: pageName });
+          // link page app pages
+          if (ctaPage._id) req.project.pages.push(ctaPage._id);
+          const menuItem = formatMenuPageData(pageName);
+          // link page to app menu
+          req.project.menu.push({ ...menuItem, menuId: ctaPage.pageId });
+          // save linked page
+          await req.project.save();
+        }
+      });
+      req.page.cta = page.hasCta;
+    }
     // if assets contains hero
     if (req.assets.hero) req.page.hero = req.assets.hero;
     // if section heros were uploaded

@@ -7,7 +7,7 @@ export const minAppData = async (req: AppRequest, res: Response) => {
     // populate data required by client
     const userData = "ownedApps subscriptions permissions subscriptions";
     // populate app data required by client
-    const appData = "owner adminIds landing";
+    const appData = "owner adminIds landing pages";
     // depopulate auth data
     const user = await req.user.depopulate("auth").populate(userData);
     const app = await req.project.populate(appData);
