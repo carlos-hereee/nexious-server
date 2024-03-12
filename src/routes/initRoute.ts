@@ -4,7 +4,7 @@ import { ExpressApp } from "@app/db";
 
 // test route
 export const initRoute = (_req: Request, res: Response) => {
-  const data = { message: `api is running on ${port}`, status: "success" };
+  const data = { message: "Api is running", status: "success" };
   return res.status(200).json(data).end();
 };
 // init app

@@ -5,7 +5,7 @@ import { AppRequest } from "@app/request";
 export const minAppData = async (req: AppRequest, res: Response) => {
   try {
     // populate data required by client
-    const userData = "ownedApps subscriptions permissions subscriptions";
+    const userData = "ownedApps subscriptions permissions";
     // populate app data required by client
     const appData = "owner adminIds landing pages";
     // depopulate auth data

@@ -14,7 +14,6 @@ import { updateNewsletter } from "./updateApp/updateNewsletter";
 import { addMedia } from "./media/addMedia";
 import { removeMedia } from "./media/removeMedia.";
 import { subscribe } from "./updateApp/subscribe";
-import { unsubscribe } from "./updateApp/unsubscribe";
 import { updateAppDetails } from "./updateApp/updateAppDetails";
 import {
   adminWare,
@@ -41,7 +40,6 @@ route.get("/page/:pageId", fetchPage);
 route.post("/init-app", initAppWare, saveAsset, initApp, minAppData);
 // user subscrition
 route.post("/subscribe/:appId", userAppWare, subscribe);
-route.post("/unsubscribe/:appId", userAppWare, unsubscribe);
 // update app
 route.post("/update-newsletter/:appId", heroWare, updateNewsletter, minAppData);
 // route.post("/update-medias/:appId", heroWare, updateMedias, minAppData);

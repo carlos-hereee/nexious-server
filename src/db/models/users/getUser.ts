@@ -10,7 +10,7 @@ export const getUser = async ({ username, email, userId }: UserFilters): Promise
     // send data required by client
     return await Users.findOne({ userId }).populate({
       path: "ownedApps subscriptions",
-      select: "appName appId ownerId menu media logo",
+      select: "appName appId owner menu media logo",
     });
   }
   return null;
