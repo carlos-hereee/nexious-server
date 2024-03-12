@@ -30,6 +30,7 @@ import { addPage } from "./pages/addPage";
 import { fetchPage } from "./pages/fetchPage";
 import { updatePage } from "./pages/updatePage";
 import { minUserData } from "./minUserData";
+import { deletePage } from "./pages/deletePage";
 
 const route = Router();
 // load app data
@@ -53,7 +54,7 @@ route.post("/add-page/:appId", multiHeroWare, addPage, minAppData);
 route.post("/add-media/:appId", adminWare, addMedia, minAppData);
 // delete app
 route.delete("/delete-app/:appId", adminWare, deleteApp, minAppData);
-// route.delete("/delete-page/:appId/page/:pageId", adminWare, deletePage, minAppData);
+route.delete("/delete-page/:appId/page/:pageId", adminWare, pageWare, deletePage, minAppData);
 route.delete("/delete-media/:appId/media/:assetId", adminWare, removeMedia, minAppData);
 
 export default route;
