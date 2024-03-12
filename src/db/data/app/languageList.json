@@ -1,14 +1,16 @@
-{
-  "en-US (English)": {
+[
+  {
     "name": "english",
     "label": "English",
     "value": "en-US (English)",
+    "locale": "en-US",
     "url": "icons/english.svg"
   },
-  "es-US (Espanol)": {
+  {
     "name": "espanol",
     "label": "Espanol",
-    "value": "en-US (Espanol)",
+    "value": "es-US (Espanol)",
+    "locale": "es-US",
     "url": "icons/spanish.svg"
   }
-}
+]
