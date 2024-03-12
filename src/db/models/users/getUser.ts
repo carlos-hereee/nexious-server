@@ -1,5 +1,6 @@
 import type { IUserSchema, UserFilters } from "@app/user";
 import Users from "@db/schema/users";
+import Auth from "@db/schema/auth";
 
 // search individual users
 export const getUser = async ({ username, email, userId }: UserFilters): Promise<IUserSchema | null> => {
@@ -21,25 +22,11 @@ export const getAllUsers = async ({ all, appId }: UserFilters) => {
   // list all users
   if (all) return await Users.find();
 };
-// // search for auth information using username
-// export const getUserAuthWithUsername = async ({ username }: UserFilters) => {
-//   // require key variable
-//   if (!username) throw Error("username is required");
-//   // selection is required for hidden keys
-//   const selectOption = "+auth.salt +auth.password +auth.sessionId +auth.passwordHistory";
-//   return await Users.findOne({ username }).select(selectOption).populate({
-//     path: "ownedApps",
-//     select: "appId appName owner adminIds logo themeList",
-//   });
-// };
-// // search for auth information using session id
-// export const getUserAuthWithSession = async ({ sessionId }: UserFilters) => {
-//   // require key variable
-//   if (!sessionId) throw Error("sessionId is required");
-//   // selection is required for hidden keys
-//   const selectOption = "+auth.salt +auth.password +auth.sessionId +auth.passwordHistory";
-//   return await Users.findOne({ "auth.sessionId": sessionId }).select(selectOption).populate({
-//     path: "ownedApps",
-//     select: "appId appName owner adminIds logo themeList",
-//   });
-// };
+
+// search individual users
+export const getSession = async ({ id, sessionId }: UserFilters) => {
+  // selection is required for hidden keys
+  const selectOption = "+salt +password +sessionId +passwordHistory";
+  if (sessionId) return await Auth.findOne({ sessionId }).select(selectOption);
+  return await Auth.findOne({ _id: id }).select(selectOption);
+};

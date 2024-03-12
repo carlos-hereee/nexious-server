@@ -10,6 +10,7 @@ export interface UserFilters {
   all?: boolean;
   appId?: string;
   userId?: string;
+  id?: ObjectId;
 }
 
 export interface IUserSchema extends Document {

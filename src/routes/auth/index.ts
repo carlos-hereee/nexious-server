@@ -4,14 +4,14 @@
 import { Router } from "express";
 import { register } from "./register";
 import { userRoute } from "./userRoute";
-import { refreshToken } from "./refreshToken";
+import { refreshSession } from "@middleware/auth/refreshSession";
 import { logout } from "./logout";
 import { changePassword } from "./changePassword";
 import { sendToken } from "./sendToken";
 import { getAccessData } from "./getAccessData";
-import { registerWare, userWare, validateWare } from "@middleware/auth";
+import { loginWare, registerWare, userWare, validateWare } from "@middleware/auth";
 import { requireUser } from "@middleware/auth/requireUser";
-import { aquireAuthSession } from "@middleware/auth/aquireAuthSession";
+import { aquireAuthSession } from "@middleware/auth/authSession";
 import { validateUser } from "@middleware/auth/validateUser";
 
 const route = Router();
@@ -23,12 +23,12 @@ route.get("/user/:username", userWare, userRoute);
 route.get("/access-token", requireUser, getAccessData);
 // post
 route.post("/register", registerWare, register, sendToken);
-route.post("/login", validateUser, aquireAuthSession, sendToken);
-route.post("/refresh-token", requireUser, aquireAuthSession, refreshToken, sendToken);
-route.post("/change-password", validateWare, changePassword);
+route.post("/login", validateWare, refreshSession, sendToken);
+route.post("/refresh-token", requireUser, aquireAuthSession, refreshSession, sendToken);
+route.post("/change-password", validateWare, changePassword, refreshSession, sendToken);
 // TODO: ADD ADDITIONAL VERFICATION MEDTHODS
 route.post("/forgot-password", userWare, changePassword);
 // log out
-route.delete("/logout", requireUser, logout);
+route.delete("/logout", requireUser, aquireAuthSession, logout);
 
 export default route;

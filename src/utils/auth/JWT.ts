@@ -1,7 +1,6 @@
-import { verify } from "jsonwebtoken";
+import { sign, verify } from "jsonwebtoken";
 import { isDev, jwtPrivateKey } from "@utils/app/config";
-// import message from "@db/data/error.message.json";
-import type { JWTVerifyPayload, JWTDecodedProps } from "@app/auth";
+import type { JWTVerifyPayload, JWTDecodedProps, SignJWTProps } from "@app/auth";
 
 // verfiry token with jwt
 export const verifyJWT = (token: string): JWTVerifyPayload => {
@@ -21,4 +20,7 @@ export const verifyJWT = (token: string): JWTVerifyPayload => {
     verification.sessionId = code?.sessionId || "";
   });
   return verification;
+};
+export const signJWT: SignJWTProps = (payload, expiresIn) => {
+  return sign(payload, jwtPrivateKey, { algorithm: "HS256", expiresIn });
 };
