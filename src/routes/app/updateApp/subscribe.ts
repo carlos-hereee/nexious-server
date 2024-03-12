@@ -1,8 +1,8 @@
 import { AppRequest } from "@app/request";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
-import { Response } from "express";
+import { NextFunction, Response } from "express";
 
-export const subscribe = async (req: AppRequest, res: Response) => {
+export const subscribe = async (req: AppRequest, res: Response, next: NextFunction) => {
   try {
     // if user is already subscribe
     if (req.user.subscriptions.includes(req.project._id)) {
@@ -11,8 +11,7 @@ export const subscribe = async (req: AppRequest, res: Response) => {
       // otherwise add subscription
     } else req.user.subscriptions.push(req.project._id);
     await req.user.save();
-    await req.user.populate({ path: "subscriptions", select: "appId appName logo media" });
-    res.status(200).json(req.user).end();
+    next();
   } catch (error) {
     useGenericErrors(res, error, "unable to save subscription");
   }

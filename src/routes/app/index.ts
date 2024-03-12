@@ -29,6 +29,7 @@ import { updateLandingPage } from "./updateApp/landingPage";
 import { addPage } from "./pages/addPage";
 import { fetchPage } from "./pages/fetchPage";
 import { updatePage } from "./pages/updatePage";
+import { minUserData } from "./minUserData";
 
 const route = Router();
 // load app data
@@ -39,7 +40,7 @@ route.get("/page/:pageId", fetchPage);
 // build app data
 route.post("/init-app", initAppWare, saveAsset, initApp, minAppData);
 // user subscrition
-route.post("/subscribe/:appId", userAppWare, subscribe);
+route.post("/subscribe/:appId", userAppWare, subscribe, minUserData);
 // update app
 route.post("/update-newsletter/:appId", heroWare, updateNewsletter, minAppData);
 // route.post("/update-medias/:appId", heroWare, updateMedias, minAppData);

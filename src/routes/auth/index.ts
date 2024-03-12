@@ -9,10 +9,9 @@ import { logout } from "./logout";
 import { changePassword } from "./changePassword";
 import { sendToken } from "./sendToken";
 import { getAccessData } from "./getAccessData";
-import { loginWare, registerWare, userWare, validateWare } from "@middleware/auth";
+import { registerWare, userWare, validateWare } from "@middleware/auth";
 import { requireUser } from "@middleware/auth/requireUser";
 import { aquireAuthSession } from "@middleware/auth/authSession";
-import { validateUser } from "@middleware/auth/validateUser";
 
 const route = Router();
 
