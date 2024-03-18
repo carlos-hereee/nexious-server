@@ -1,13 +1,17 @@
-// import router from "express";
-// import { requireUser } from "@authWare/requireUser";
-// import { requireCalendar } from "../../middleware/calendar";
-// import {addEvent} from "./addEvent";
-// import {fetchCalendar} from "./fetchCalendar";
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck - may need to be at the start of file
 
-// const authenticateCalendar = [requireUser, requireCalendar];
+import { Router } from "express";
+import { addEvent } from "./addEvent";
+import { fetchCalendar } from "./fetchCalendar";
+import { authenticateCalendar } from "@middleware/calendar";
 
-// const route = router.Router();
-// route.get("/", authenticateCalendar, fetchCalendar);
-// route.post("/add-event", authenticateCalendar, addEvent);
+const route = Router();
+// fetch calendar
+route.get("/:appId", authenticateCalendar, fetchCalendar);
+// add calendar
+route.post("/:appId");
+// add calendar event
+route.post("/:appId/add-event", authenticateCalendar, addEvent);
 
-// export default route;
+export default route;

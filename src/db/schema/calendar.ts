@@ -13,7 +13,7 @@ const calendarSchema = new Schema<ICalendarSchema>(
         role: { type: String },
       },
     ],
-    hero: { type: Schema.Types.ObjectId, ref: "Hero" },
+    hero: { type: String },
     title: { type: String },
     theme: { type: String },
     schedule: [{ eventId: { type: Schema.Types.ObjectId, ref: "Events" } }],

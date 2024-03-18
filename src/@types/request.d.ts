@@ -80,6 +80,7 @@ export interface CalendarRequest extends Request {
     appId: string;
   };
   calendar: ICalendarSchema;
+  user: IUserSchema;
 }
 export interface PageRequest extends Request {
   params: {

@@ -1,3 +1,4 @@
+import { requireUser } from "@middleware/auth/requireUser";
 import { requireCalendar } from "./requireCalendar";
 
-export { requireCalendar };
+export const authenticateCalendar = [requireUser, requireCalendar];

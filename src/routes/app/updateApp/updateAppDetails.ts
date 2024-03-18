@@ -1,5 +1,5 @@
 import { AppRequest } from "@app/request";
-import { formatLanguageList } from "@utils/app/format/formatLanguageList";
+// import { formatLanguageList } from "@utils/app/format/formatLanguageList";
 import { formatThemeList } from "@utils/app/format/formatThemeList";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
@@ -7,7 +7,8 @@ import { NextFunction, Response } from "express";
 export const updateAppDetails = async (req: AppRequest, res: Response, next: NextFunction) => {
   try {
     // key variables
-    const { theme, language, locale, appName, logo, email } = req.body;
+    // const { theme, language, locale, appName, logo, email } = req.body;
+    const { theme, locale, appName, logo, email } = req.body;
     // update appname
     req.project.appName = appName;
     // req.asset middleware yields asset url
@@ -15,7 +16,7 @@ export const updateAppDetails = async (req: AppRequest, res: Response, next: Nex
     req.project.locale = locale;
     req.project.email = email;
     req.project.themeList = formatThemeList(theme);
-    req.project.languageList = formatLanguageList(language);
+    // req.project.languageList = formatLanguageList(language);
     await req.project.save();
     next();
   } catch (error) {

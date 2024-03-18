@@ -1,13 +1,14 @@
+import { IEventSchema } from "@app/calendar";
 import mongoose from "mongoose";
 import { v4 } from "uuid";
 
 const Schema = mongoose.Schema;
-const eventSchema = new Schema(
+const eventSchema = new Schema<IEventSchema>(
   {
     eventId: { type: String, require: true, unique: true, default: v4 },
     calendarId: { type: Schema.Types.ObjectId, ref: "Calendar", require: true },
-    hero: { type: Schema.Types.ObjectId, ref: "Hero" },
-    date: { type: Date, require: true },
+    hero: { type: String, ref: "Hero" },
+    date: { type: Schema.Types.Date, require: true },
     events: [
       {
         uid: { type: String, require: true, default: v4 },
