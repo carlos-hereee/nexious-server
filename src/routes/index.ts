@@ -2,6 +2,7 @@ import authRoute from "./auth/index";
 import appRoute from "./app/index";
 // import calendarRoute from "./calendar";
 import storeRoute from "./store/index";
+import calendarRoute from "./calendar/index";
 import { initRoute, startApp } from "./initRoute";
 import { ExpressApp } from "@app/db";
 import { deserializeUser } from "@middleware/auth/deserializeUser";
@@ -23,6 +24,7 @@ export default (app: ExpressApp) => {
   app.use("/auth/", authRoute);
   // app data
   app.use("/app/", appRoute);
+  app.use("/calendar/", calendarRoute);
   // app.use("/calendar/", calendarRoute);
   app.use("/store/", storeRoute);
 };

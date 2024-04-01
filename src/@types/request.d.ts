@@ -5,7 +5,7 @@ import type Stripe from "stripe";
 import type { AuthBody, IAuthSchema } from "./auth";
 import type { AppBody, IAppSchema } from "./app";
 import type { IFile } from "./assets";
-import type { ICalendarSchema } from "./calendar";
+import type { CalendarBody, ICalendarSchema } from "./calendar";
 import type { IPageSchema } from "./page";
 
 // initial request
@@ -75,12 +75,15 @@ export interface StripeWebhookRequest extends Request {
   stripeEvent?: Stripe.Event;
 }
 
-export interface CalendarRequest extends Request {
+export interface CalendarRequest<B = CalendarBody> extends Request {
   params: {
     appId: string;
   };
+  body: B;
   calendar: ICalendarSchema;
+  project: IAppSchema;
   user: IUserSchema;
+  asset?: string;
 }
 export interface PageRequest extends Request {
   params: {

@@ -5,12 +5,15 @@ import { Router } from "express";
 import { addEvent } from "./addEvent";
 import { fetchCalendar } from "./fetchCalendar";
 import { authenticateCalendar } from "@middleware/calendar";
+import { addCalendar } from "./addCalendar";
+import { heroWare } from "@middleware/app";
+import { minAppData } from "@routes/app/getApp/minAppData";
 
 const route = Router();
 // fetch calendar
 route.get("/:appId", authenticateCalendar, fetchCalendar);
 // add calendar
-route.post("/:appId");
+route.post("/:appId", heroWare, addCalendar, minAppData);
 // add calendar event
 route.post("/:appId/add-event", authenticateCalendar, addEvent);
 

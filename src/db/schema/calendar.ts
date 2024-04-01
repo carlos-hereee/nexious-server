@@ -6,15 +6,15 @@ const Schema = mongoose.Schema;
 const calendarSchema = new Schema<ICalendarSchema>(
   {
     calendarId: { type: String, require: true, unique: true, default: v4 },
-    appId: { type: Schema.Types.ObjectId, ref: "App", require: true },
-    adminIds: [
-      {
-        userId: { type: Schema.Types.ObjectId, ref: "Users", require: true },
-        role: { type: String },
-      },
-    ],
+    // appId: { type: Schema.Types.ObjectId, ref: "App", require: true },
+    // adminIds: [
+    //   {
+    //     userId: { type: Schema.Types.ObjectId, ref: "Users", require: true },
+    //     role: { type: String },
+    //   },
+    // ],
     hero: { type: String },
-    title: { type: String },
+    name: { type: String },
     theme: { type: String },
     schedule: [{ eventId: { type: Schema.Types.ObjectId, ref: "Events" } }],
   },

@@ -32,10 +32,14 @@ export interface CalendarFilters {
 }
 export interface ICalendarSchema extends Document {
   calendarId: string;
-  appId: ObjectId;
+  _id: ObjectId;
   hero: string;
-  title: string;
+  name: string;
   theme: string;
   schedule: { eventId: ObjectId }[];
-  adminIds: { userId: ObjectId; role: string }[];
+  // appId: ObjectId;
+  // adminIds: { userId: ObjectId; role: string }[];
+}
+export interface CalendarBody {
+  name: string;
 }
