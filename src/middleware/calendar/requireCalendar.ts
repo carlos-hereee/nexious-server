@@ -7,9 +7,7 @@ export const requireCalendar = async (req: CalendarRequest, res: Response, next:
   try {
     const appId = req.params.appId;
     const calendar = await getCalendar({ appId });
-    if (calendar) {
-      req.calendar = calendar;
-    }
+    if (calendar) req.calendar = calendar;
     next();
   } catch (error) {
     useGenericErrors(res, error, "Calendar not found ");

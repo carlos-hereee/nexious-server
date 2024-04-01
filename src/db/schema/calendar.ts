@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 const calendarSchema = new Schema<ICalendarSchema>(
   {
     calendarId: { type: String, require: true, unique: true, default: v4 },
-    // appId: { type: Schema.Types.ObjectId, ref: "App", require: true },
+    appId: { type: String, require: true },
     // adminIds: [
     //   {
     //     userId: { type: Schema.Types.ObjectId, ref: "Users", require: true },

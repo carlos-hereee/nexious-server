@@ -37,9 +37,10 @@ export interface ICalendarSchema extends Document {
   name: string;
   theme: string;
   schedule: { eventId: ObjectId }[];
-  // appId: ObjectId;
+  appId: string;
   // adminIds: { userId: ObjectId; role: string }[];
 }
 export interface CalendarBody {
   name: string;
+  theme: string;
 }
