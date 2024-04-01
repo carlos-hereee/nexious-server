@@ -76,6 +76,7 @@ const appSchema = new Schema<IAppSchema>(
         isToggle: { type: Boolean, default: false },
         isPrivate: { type: Boolean, default: false },
         isPage: { type: Boolean, default: false },
+        isBooking: { type: Boolean, default: false },
         isStore: { type: Boolean, default: false },
         value: { type: String },
         link: { type: String },

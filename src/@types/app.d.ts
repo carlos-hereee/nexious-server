@@ -74,6 +74,7 @@ export interface IMenu {
   uid?: string;
   isToggle?: boolean;
   isPrivate?: boolean;
+  isBooking?: boolean;
   isPage?: boolean;
   isStore?: boolean;
 }
