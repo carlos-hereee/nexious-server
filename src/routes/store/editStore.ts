@@ -6,10 +6,10 @@ import { NextFunction, Response } from "express";
 export const editStore = async (req: StoreRequest<StoreBody>, res: Response, next: NextFunction) => {
   try {
     if (req.store) {
-      const { name, title, body } = req.body;
+      const { storeName, title, body } = req.body;
       const hero = req.asset || "";
 
-      req.store.name = name;
+      req.store.storeName = storeName;
       req.store.title = title;
       req.store.body = body;
       req.store.hero = hero;

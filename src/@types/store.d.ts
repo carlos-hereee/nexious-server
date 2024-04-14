@@ -35,8 +35,7 @@ export interface CreateStoreSchema {
   storeId?: string;
   accountId?: string;
   currency?: string;
-  name?: string;
-  pageName?: string;
+  storeName?: string;
   title?: string;
   body?: string;
   hero?: string;
@@ -55,11 +54,10 @@ export interface MerchBodyParams {
   hero: string;
 }
 export interface StoreBody {
-  name: string;
+  storeName: string;
   email: string;
   title: string;
   body: string;
-  pageName: string;
 }
 export interface CartBody {
   accountId: string;

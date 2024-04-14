@@ -7,15 +7,11 @@ const calendarSchema = new Schema<ICalendarSchema>(
   {
     calendarId: { type: String, require: true, unique: true, default: v4 },
     appId: { type: String, require: true },
-    // adminIds: [
-    //   {
-    //     userId: { type: Schema.Types.ObjectId, ref: "Users", require: true },
-    //     role: { type: String },
-    //   },
-    // ],
     hero: { type: String },
     name: { type: String },
     theme: { type: String },
+    workWeek: { type: String },
+    altHours: { type: Boolean },
     schedule: [{ eventId: { type: Schema.Types.ObjectId, ref: "Events" } }],
   },
   { timestamps: true }
