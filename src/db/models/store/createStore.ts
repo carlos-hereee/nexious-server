@@ -1,6 +1,6 @@
-import { CreateStoreSchema } from "@app/store";
+import { StoreSchema } from "@app/store";
 import Store from "@db/schema/store";
 
-export const createStore = async (payload: CreateStoreSchema) => {
+export const createStore = async (payload: StoreSchema) => {
   return await Store.create(payload);
 };

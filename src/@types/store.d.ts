@@ -28,7 +28,7 @@ export interface MerchSchema {
 export interface IMerchSchema extends MerchSchema, Document {
   _id: ObjectId;
 }
-export interface CreateStoreSchema {
+export interface StoreSchema {
   ownerId: ObjectId;
   appId: ObjectId;
   email: string;
@@ -40,10 +40,11 @@ export interface CreateStoreSchema {
   body?: string;
   hero?: string;
   isRegistered?: boolean;
+  onBoardingRequired?: boolean;
   termsOfService?: boolean;
   inventory: ObjectId[];
 }
-export interface IStoreSchema extends CreateStoreSchema, Document {
+export interface IStoreSchema extends StoreSchema, Document {
   _id: ObjectId;
 }
 export interface MerchBodyParams {

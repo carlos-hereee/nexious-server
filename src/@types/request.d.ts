@@ -47,23 +47,18 @@ export interface FileRequest extends Request {
   assets: { hero: string; sectionHero: string[] };
 }
 
-export interface StoreRequest<B> extends Request {
+export interface StoreRequest<B = StoreBody> extends Request {
   body: B;
   asset?: string;
-  store?: IStoreSchema;
-  project?: IAppSchema;
+  store: IStoreSchema;
+  project: IAppSchema;
+  user: IUserSchema;
 }
 export interface StoreRemovalRequest extends Request {
   store: IStoreSchema;
   project: IAppSchema;
 }
-export interface StoreCreateRequest extends Request {
-  body: StoreBody;
-  store: IStoreSchema;
-  user: IUserSchema;
-  project: IAppSchema;
-  asset?: string;
-}
+
 export interface AddStoreMerchRequest extends Request {
   body: MerchBodyParams;
   store: IStoreSchema;

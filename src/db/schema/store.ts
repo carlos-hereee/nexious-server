@@ -16,6 +16,7 @@ const storeSchema = new Schema<IStoreSchema>(
     title: { type: String, default: "" },
     body: { type: String, default: "" },
     hero: { type: String, default: "" },
+    onBoardingRequired: { type: Boolean, default: true },
     isRegistered: { type: Boolean, default: false },
     termsOfService: { type: Boolean, default: false },
     inventory: [{ type: Schema.Types.ObjectId, ref: "Merch" }],
