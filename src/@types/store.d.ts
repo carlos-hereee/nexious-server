@@ -7,10 +7,10 @@ export interface StoreFilters {
 
 export interface GetMerchProps {
   storeId?: string;
-  appId?: string;
+  appId?: ObjectId;
   merchId?: string;
   merchIds?: string;
-  id?: string;
+  id?: ObjectId;
   deleteMany?: boolean;
 }
 export interface MerchSchema {

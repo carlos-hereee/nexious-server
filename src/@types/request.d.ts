@@ -54,6 +54,12 @@ export interface StoreRequest<B = StoreBody> extends Request {
   project: IAppSchema;
   user: IUserSchema;
 }
+export interface StripeRequest extends Request {
+  asset?: string;
+  store: IStoreSchema;
+  project: IAppSchema;
+  user: IUserSchema;
+}
 export interface StoreRemovalRequest extends Request {
   store: IStoreSchema;
   project: IAppSchema;

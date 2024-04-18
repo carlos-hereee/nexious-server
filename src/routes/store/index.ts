@@ -15,8 +15,10 @@ import { getStoreMerch } from "./getStoreMerch";
 import { removeMerchendise } from "./removeMerch";
 import { getStoreWithName } from "./getStoreWithName";
 import { getStripeAccount } from "./getStripeAccount";
-import { heroWare } from "@middleware/app";
+import { adminWare, heroWare } from "@middleware/app";
 import { merchWare, storeRemovalWare, storeWare } from "@middleware/store";
+import { stripeOnboarding } from "./stripeOnboarding";
+import { getStoreWithAppId } from "@middleware/store/getStoreWithAppId";
 
 const route = Router();
 const bodyParse = bodyParser.raw({ type: "application/json" });
@@ -31,6 +33,7 @@ route.get("/inventory/:storeId", getStoreMerch);
 // route.post("/request-secret", requestSecret);
 // route.post("/create-checkout-session", getCartMerch, checkoutSession);
 route.post("/create-checkout-session", checkoutSession);
+route.post("/onboarding/:appId", adminWare, getStoreWithAppId, stripeOnboarding);
 // add to store
 route.post("/build-store/:appId", heroWare, addStore, minAppData);
 route.post("/add-merch/:appId", storeWare, addMerch, minAppData);

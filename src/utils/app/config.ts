@@ -31,6 +31,8 @@ export const awsApiVersion = process.env.AWS_ACCESS_KEY || "";
 export const stripeAccessKey = process.env.STRIPE_ACCESS_KEY || "";
 export const stripeSecretKey = process.env.STRIPE_SECRET_KEY || "";
 export const stripeEndpointSecret = process.env.STRIPE_ENDPOINT_SECRET || "";
+export const stripeRefreshUrl = process.env.STRIPE_REFRESH_URL || "";
+export const stripeReturnUrl = process.env.STRIPE_RETURN_URL || "";
 export const appEmail = process.env.APP_EMAIL || "";
 // express
 export const allowedMethods = ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"];
