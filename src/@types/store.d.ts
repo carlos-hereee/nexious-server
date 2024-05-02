@@ -28,6 +28,9 @@ export interface MerchSchema {
 export interface IMerchSchema extends MerchSchema, Document {
   _id: ObjectId;
 }
+export interface StoreUpdateWithStripe {
+  onBoardingRequired?: boolean;
+}
 export interface StoreSchema {
   ownerId: ObjectId;
   appId: ObjectId;

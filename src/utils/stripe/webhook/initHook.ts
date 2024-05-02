@@ -11,6 +11,7 @@ export const initHook = (req: StripeWebhookRequest, res: Response, next: NextFun
     const payload = JSON.stringify(req.body, null, 2);
     // use testing data in development
     if (isDev) {
+      // console.log("secret :>> ", secret);
       signature = stripe.webhooks.generateTestHeaderString({ payload, secret });
     }
     if (signature) {

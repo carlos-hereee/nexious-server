@@ -113,3 +113,4 @@ export interface StripeSecretParams {
 export type StripeSuccessEvent = Stripe.PaymentIntentSucceededEvent;
 export type StripeSessionCompleteEvent = Stripe.CheckoutSessionCompletedEvent;
 export type StripePaymentAttachedEvent = Stripe.PaymentMethodAttachedEvent;
+export type StripeUpdateAccountEvent = Stripe.AccountUpdatedEvent;
