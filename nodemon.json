@@ -1,8 +1,8 @@
 {
-  "watch": ["src"],
-  "ext": "ts,json,js",
-  "ignore": ["node_modules", "dist"],
-  "exec": "ts-node -r dotenv/config -r tsconfig-paths/register ./src/server.ts",
+  "watch": ["dist"],
+  "ext": "ts, json, js",
+  "ignore": ["node_modules", "src"],
+  "exec": "node -r dotenv/config ./dist/server.js",
   "restartable": "rs",
   "env": {
     "NODE_ENV": "development"
