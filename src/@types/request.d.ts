@@ -42,9 +42,9 @@ export interface AppRequest<B = AppBody> extends Request {
 
 export interface FileRequest extends Request {
   file: IFile;
-  files: { hero?: IFile[]; sectionHero?: IFile[] };
+  files: { hero?: IFile[]; sectionHero?: IFile[]; catalog?: IFile[] };
   asset: string;
-  assets: { hero: string; sectionHero: string[] };
+  assets: { hero: string; sectionHero: string[]; catalog?: string[] };
 }
 
 export interface StoreRequest<B = StoreBody> extends Request {
@@ -69,6 +69,7 @@ export interface AddStoreMerchRequest extends Request {
   body: MerchBodyParams;
   store: IStoreSchema;
   asset?: string;
+  assets: { hero: string; sectionHero: string[]; catalog?: string[] };
 }
 export interface StripeWebhookRequest extends Request {
   body: RequestStore;

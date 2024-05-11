@@ -24,6 +24,8 @@ export interface MerchSchema {
   productId?: string;
   priceId?: string;
   hero?: string;
+  thumbnail?: string;
+  catalog?: string[];
 }
 export interface IMerchSchema extends MerchSchema, Document {
   _id: ObjectId;
@@ -56,6 +58,7 @@ export interface MerchBodyParams {
   inStock: number;
   cost: number;
   hero: string;
+  images?: string[];
 }
 export interface StoreBody {
   storeName: string;

@@ -11,7 +11,7 @@
     "watch:1": "tsc -p tsconfig.json --watch",
     "watch:2": "tsc-alias -p tsconfig.json --watch",
     "clean": "rimraf dist",
-    "build": "npm run clean && tsc && tsc-alias",
+    "build": "tsc && tsc-alias",
     "stripe-login": "stripe login",
     "stripe-listen": "stripe listen --forward-to localhost:4937/store/webhook",
     "stripe-checkout": "stripe trigger checkout.session.completed",

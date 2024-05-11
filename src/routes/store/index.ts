@@ -16,7 +16,7 @@ import { removeMerchendise } from "./removeMerch";
 import { getStoreWithName } from "./getStoreWithName";
 import { getStripeAccount } from "./getStripeAccount";
 import { adminWare, heroWare } from "@middleware/app";
-import { merchWare, storeRemovalWare, storeWare } from "@middleware/store";
+import { merchWare, merchindiseWare, storeRemovalWare, storeWare } from "@middleware/store";
 import { stripeOnboarding } from "./stripeOnboarding";
 import { getStoreWithAppId } from "@middleware/store/getStoreWithAppId";
 
@@ -36,7 +36,7 @@ route.post("/create-checkout-session", checkoutSession);
 route.post("/onboarding/:appId", adminWare, getStoreWithAppId, stripeOnboarding);
 // add to store
 route.post("/build-store/:appId", heroWare, addStore, minAppData);
-route.post("/add-merch/:appId", storeWare, addMerch, minAppData);
+route.post("/add-merch/:appId", storeWare, merchindiseWare, addMerch, minAppData);
 route.post("/webhook", bodyParse, initHook, stripeWebhook);
 // route.post("/complete-checkout", requestSecret);
 // update store
