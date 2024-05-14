@@ -8,6 +8,12 @@ import type { IFile } from "./assets";
 import type { CalendarBody, ICalendarSchema } from "./calendar";
 import type { IPageSchema } from "./page";
 
+export interface MinAppResponseData {
+  user?: IUserSchema;
+  app?: IAppSchema;
+  store?: IStoreSchema;
+}
+
 // initial request
 export interface InitRequest extends Request {
   cookies: { [cookieName: string]: string };
@@ -32,6 +38,7 @@ export interface AppRequest<B = AppBody> extends Request {
   body: B;
   project: IAppSchema;
   page: IPageSchema;
+  store?: IStoreSchema;
   pages: IPageSchema[];
   user: IUserSchema;
   file: IFile;

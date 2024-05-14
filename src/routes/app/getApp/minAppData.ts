@@ -1,17 +1,32 @@
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { Response } from "express";
-import { AppRequest } from "@app/request";
+import { AppRequest, MinAppResponseData } from "@app/request";
 
 export const minAppData = async (req: AppRequest, res: Response) => {
   try {
-    // populate data required by client
-    const userData = "ownedApps subscriptions permissions";
+    // init response data
+    const response: MinAppResponseData = {};
+    // populate user data required by client
+    if (req.user) {
+      const userData = "ownedApps subscriptions permissions";
+      // depopulate auth data for security
+      const user = await req.user.depopulate("auth").populate(userData);
+      response.user = user;
+    }
     // populate app data required by client
-    const appData = "owner adminIds landing pages calendar store";
-    // depopulate auth data
-    const user = await req.user.depopulate("auth").populate(userData);
-    const app = await req.project.populate(appData);
-    res.status(200).json({ user, app }).end();
+    if (req.project) {
+      const appData = "owner adminIds landing pages calendar";
+      const app = await req.project.populate(appData);
+      response.app = app;
+    }
+    // populate inventory in response
+    if (req.store) {
+      console.log("req.store :>> ", req.store);
+      const store = await req.store.populate("inventory");
+      response.store = store;
+    }
+
+    res.status(200).json(response).end();
   } catch (error) {
     useGenericErrors(res, error, "error occurred sending client data");
   }
