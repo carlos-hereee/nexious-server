@@ -69,7 +69,7 @@ export interface AddStoreMerchRequest extends Request {
   body: MerchBodyParams;
   store: IStoreSchema;
   asset?: string;
-  assets: { hero: string; sectionHero: string[]; catalog?: string[] };
+  assets: { hero: string; sectionHero: string[]; catalog: string[] };
 }
 export interface StripeWebhookRequest extends Request {
   body: RequestStore;
