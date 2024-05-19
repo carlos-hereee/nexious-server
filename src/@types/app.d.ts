@@ -70,9 +70,7 @@ export interface IMenu {
   link: string;
   label: string;
   icon?: string;
-  menuId?: string;
   uid?: string;
-  isToggle?: boolean;
   isPrivate?: boolean;
   isBooking?: boolean;
   isPage?: boolean;

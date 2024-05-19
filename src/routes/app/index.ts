@@ -31,6 +31,7 @@ import { fetchPage } from "./pages/fetchPage";
 import { updatePage } from "./pages/updatePage";
 import { minUserData } from "./minUserData";
 import { deletePage } from "./pages/deletePage";
+import { deleteMenuItem } from "./deleteMenuItem";
 
 const route = Router();
 // load app data
@@ -55,6 +56,7 @@ route.post("/add-media/:appId", adminWare, addMedia, minAppData);
 // delete app
 route.delete("/delete-app/:appId", adminWare, deleteApp, minAppData);
 route.delete("/delete-page/:appId/page/:pageId", adminWare, pageWare, deletePage, minAppData);
+route.delete("/:appId/menu/:menuId", adminWare, deleteMenuItem, minAppData);
 route.delete("/delete-media/:appId/media/:assetId", adminWare, removeMedia, minAppData);
 
 export default route;

@@ -71,9 +71,7 @@ const appSchema = new Schema<IAppSchema>(
     menu: [
       {
         // menuId = pageId/storeId
-        menuId: { type: String, default: v4 },
         uid: { type: String, default: v4 },
-        isToggle: { type: Boolean, default: false },
         isPrivate: { type: Boolean, default: false },
         isPage: { type: Boolean, default: false },
         isBooking: { type: Boolean, default: false },
