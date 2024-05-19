@@ -72,11 +72,8 @@ const appSchema = new Schema<IAppSchema>(
       {
         // menuId = pageId/storeId
         uid: { type: String, default: v4 },
-        isPrivate: { type: Boolean, default: false },
-        isPage: { type: Boolean, default: false },
-        isBooking: { type: Boolean, default: false },
-        isStore: { type: Boolean, default: false },
         value: { type: String },
+        category: { type: String, required: true },
         link: { type: String },
         label: { type: String },
         icon: { type: String },
@@ -85,6 +82,7 @@ const appSchema = new Schema<IAppSchema>(
     calendar: { type: Schema.Types.ObjectId, ref: "Calendar" },
     pages: [{ type: Schema.Types.ObjectId, ref: "Pages" }],
     store: { type: Schema.Types.ObjectId, ref: "Store" },
+    dbVersion: { type: Schema.Types.String },
   },
   { timestamps: true }
 );

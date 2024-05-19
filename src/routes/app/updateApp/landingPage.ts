@@ -25,15 +25,18 @@ export const updateLandingPage = async (req: AppRequest<IPage>, res: Response, n
         const pageIdx = req.project.pages.findIndex((p) => (p as unknown as IPageSchema).name === pageName);
         // if page doesnt exist
         if (pageIdx <= 0) {
-          // TODO: handle url name change
           const ctaPage: IPageSchema = await Page.create({ type: "page", name: pageName });
-          // link page app pages
-          if (ctaPage._id) req.project.pages.push(ctaPage._id);
-          const menuItem = formatMenuPageData(pageName);
-          // link page to app menu
-          req.project.menu.push({ ...menuItem, menuId: ctaPage.pageId });
-          // save linked page
-          await req.project.save();
+          // link page app pages if success
+          if (ctaPage._id && ctaPage.pageId) {
+            req.project.pages.push(ctaPage._id);
+            // format page url
+            const pageUrl = `${req.project.appUrl}/${pageName.split(" ").join("+")}`;
+            const menuItem = formatMenuPageData({ pageName, category: "page", uid: ctaPage.pageId, link: pageUrl });
+            // link page to app menu
+            req.project.menu.push({ ...menuItem, uid: ctaPage.pageId });
+            // save linked page
+            await req.project.save();
+          }
         }
       });
       req.page.cta = page.hasCta;

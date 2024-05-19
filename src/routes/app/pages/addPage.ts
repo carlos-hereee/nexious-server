@@ -38,11 +38,14 @@ export const addPage = async (req: AppRequest<IPage>, res: Response, next: NextF
       cta: page.hasCta,
       sections: page.hasSections,
     });
-    const menuItem = formatMenuPageData(pageName);
-    // link page to app menu
-    req.project.menu.push({ ...menuItem, menuId: pageData.pageId });
-    await req.project.save();
-
+    if (pageData.pageId) {
+      // app page name to appurl
+      const link = req.project.appUrl + "/" + pageName.split(" ").join("+");
+      const menuItem = formatMenuPageData({ pageName, uid: pageData.pageId, category: "page", link });
+      // link page to app menu
+      req.project.menu.push(menuItem);
+      await req.project.save();
+    }
     next();
   } catch (error) {
     useGenericErrors(res, error, "unable to add page ");

@@ -8,7 +8,7 @@ export const removeStore = async (req: StoreRemovalRequest, res: Response, next:
   try {
     const { accountId, storeId } = req.store;
     // remove store from app menu
-    req.project.menu = req.project.menu.filter((m) => m.menuId !== storeId);
+    req.project.menu = req.project.menu.filter((m) => m.uid !== storeId);
     // remove stripe account
     if (accountId) await removeAccount({ id: accountId });
     // remove store and store items

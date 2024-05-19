@@ -1,10 +1,11 @@
 import type { IMenu } from "@app/app";
 
-export const formatMenuPageData = (pageName: string): IMenu => {
-  return {
-    isPage: true,
-    value: pageName,
-    link: `/${pageName}`,
-    label: pageName,
-  };
+type MenuItem = {
+  pageName: string;
+  category: "store" | "page" | "calendar";
+  uid: string;
+  link: string;
+};
+export const formatMenuPageData = ({ pageName, category, uid, link }: MenuItem): IMenu => {
+  return { category, value: pageName, link, label: pageName, uid };
 };

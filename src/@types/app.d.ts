@@ -65,16 +65,12 @@ export interface IMedia {
   medias: IMediaItem[];
 }
 export interface IMenu {
-  // name: string;
+  category: "page" | "store" | "calendar";
   value: string;
   link: string;
   label: string;
   icon?: string;
   uid?: string;
-  isPrivate?: boolean;
-  isBooking?: boolean;
-  isPage?: boolean;
-  isStore?: boolean;
 }
 export interface IAppSchema extends Document {
   _id: ObjectId;
@@ -83,6 +79,7 @@ export interface IAppSchema extends Document {
   isFeatured?: string;
   locale: string;
   country: string;
+  dbVersion: string;
   email: string;
   appUrl: string;
   logo: string;
