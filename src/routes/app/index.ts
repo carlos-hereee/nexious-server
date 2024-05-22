@@ -32,6 +32,7 @@ import { updatePage } from "./pages/updatePage";
 import { minUserData } from "./minUserData";
 import { deletePage } from "./pages/deletePage";
 import { deleteMenuItem } from "./deleteMenuItem";
+import { latest } from "./updateApp/latest";
 
 const route = Router();
 // load app data
@@ -41,6 +42,7 @@ route.get("/:appName/locale/:locale", getAppWithLanguage);
 route.get("/page/:pageId", fetchPage);
 // build app data
 route.post("/init-app", initAppWare, saveAsset, initApp, minAppData);
+route.post("/latest/:appId", adminWare, latest, minAppData);
 // user subscrition
 route.post("/subscribe/:appId", userAppWare, subscribe, minUserData);
 // update app

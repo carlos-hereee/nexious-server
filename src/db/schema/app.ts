@@ -70,10 +70,12 @@ const appSchema = new Schema<IAppSchema>(
     },
     menu: [
       {
+        category: { type: String, required: true },
         // menuId = pageId/storeId
+        menuId: { type: String },
+        // uid = universal id
         uid: { type: String, default: v4 },
         value: { type: String },
-        category: { type: String, required: true },
         link: { type: String },
         label: { type: String },
         icon: { type: String },

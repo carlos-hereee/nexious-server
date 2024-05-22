@@ -71,6 +71,7 @@ export interface IMenu {
   label: string;
   icon?: string;
   uid?: string;
+  menuId?: string;
 }
 export interface IAppSchema extends Document {
   _id: ObjectId;
