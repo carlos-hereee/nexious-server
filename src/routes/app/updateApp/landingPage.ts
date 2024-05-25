@@ -31,7 +31,7 @@ export const updateLandingPage = async (req: AppRequest<IPage>, res: Response, n
             req.project.pages.push(ctaPage._id);
             // format page url
             const pageUrl = `${req.project.appUrl}/${pageName.split(" ").join("+")}`;
-            const menuItem = formatMenuPageData({ pageName, category: "page", uid: ctaPage.pageId, link: pageUrl });
+            const menuItem = formatMenuPageData({ pageName, category: "page", menuId: ctaPage.pageId, link: pageUrl });
             // link page to app menu
             req.project.menu.push({ ...menuItem, uid: ctaPage.pageId });
             // save linked page

@@ -8,9 +8,8 @@ export const saveFieldAssets = (req: FileRequest, _res: Response, next: NextFunc
   // init assets properties
   req.assets = { hero: "", sectionHero: [], catalog: [] };
   if (req.files) {
-    if (isDev) {
-      next();
-    } else {
+    if (isDev) return next();
+    else {
       // save hero if exists
       if (req.files.hero && req.files.hero[0]) req.assets.hero = saveFile(req.files.hero[0]);
       // save sectionHero if exists

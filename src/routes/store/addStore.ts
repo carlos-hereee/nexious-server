@@ -18,8 +18,8 @@ export const addStore = async (req: StoreRequest, res: Response, next: NextFunct
     // require email to continue
     if (!email) return res.status(400).json(message.emailRequired).end();
     // format link url
-    const link = req.project.appUrl.replace("/app/", "/store/");
-    const menuData = formatMenuPageData({ pageName: storeName, category: "store", link, uid: v4() });
+    const link = "/store/" + req.project.appUrl;
+    const menuData = formatMenuPageData({ pageName: storeName, category: "store", link, menuId: v4() });
     const payload = { ...req.body, email, ownerId, appId: _id, hero, accountId: "", inventory: [] };
 
     const account = await addAccount({ addAccount: { country, email, type: "standard" } });
@@ -30,6 +30,7 @@ export const addStore = async (req: StoreRequest, res: Response, next: NextFunct
     // // connect store to app
     req.project.store = store._id;
     req.project.menu.push(menuData);
+    req.store = store;
     await req.project.save();
     next();
   } catch (error) {

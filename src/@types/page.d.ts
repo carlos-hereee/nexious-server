@@ -50,7 +50,7 @@ export interface IPageSchema extends Document {
   // populate default values
   body?: string;
   _id?: ObjectId;
-  pageId?: string;
+  pageId: string;
   hero?: string;
   title?: string;
   tagline?: string;

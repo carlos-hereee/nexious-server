@@ -17,7 +17,9 @@ export const addMerch = async (req: AddStoreMerchRequest, res: Response, next: N
     // init merch payload
     const payload = { ...req.body, thumbnail, storeId, productId: "", priceId: "", catalog: catalogImages };
     const stripeAccount = req.store.accountId;
-    if (stripeAccount) {
+    const onboardingRequired = req.store.onBoardingRequired;
+
+    if (stripeAccount && !onboardingRequired) {
       const currency = req.store.currency || "usd";
       // init product data
       const productInfo: Stripe.ProductCreateParams = { name, description };

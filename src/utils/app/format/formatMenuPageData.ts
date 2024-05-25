@@ -3,9 +3,9 @@ import type { IMenu } from "@app/app";
 type MenuItem = {
   pageName: string;
   category: "store" | "page" | "calendar";
-  uid: string;
+  menuId: string;
   link: string;
 };
-export const formatMenuPageData = ({ pageName, category, uid, link }: MenuItem): IMenu => {
-  return { category, value: pageName, link, label: pageName, uid };
+export const formatMenuPageData = ({ pageName, category, menuId, link }: MenuItem): IMenu => {
+  return { category, value: pageName, link, label: pageName, menuId };
 };

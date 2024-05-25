@@ -19,7 +19,8 @@ export const initApp = async (req: AppRequest, res: Response, next: NextFunction
     // add inital landing page data
     const landing: IPageSchema = await Page.create({ type: "landing", tagline: `${data.title}` });
     // const themeLis
-    const app = await App.create({ appName, logo, owner, adminIds, themeList, appUrl, landing: landing._id });
+    const appData = { appName, logo, owner, adminIds, themeList, appUrl, landing: landing._id, dbVersion: "1.0.0" };
+    const app = await App.create(appData);
     // add user permissions
     req.project = app;
     req.user.ownedApps.push(app._id);

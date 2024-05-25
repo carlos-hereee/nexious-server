@@ -41,7 +41,7 @@ export const addPage = async (req: AppRequest<IPage>, res: Response, next: NextF
     if (pageData.pageId) {
       // app page name to appurl
       const link = req.project.appUrl + "/" + pageName.split(" ").join("+");
-      const menuItem = formatMenuPageData({ pageName, uid: pageData.pageId, category: "page", link });
+      const menuItem = formatMenuPageData({ pageName, menuId: pageData.pageId, category: "page", link });
       // link page to app menu
       req.project.menu.push(menuItem);
       await req.project.save();
