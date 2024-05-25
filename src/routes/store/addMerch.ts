@@ -20,6 +20,7 @@ export const addMerch = async (req: AddStoreMerchRequest, res: Response, next: N
     const onboardingRequired = req.store.onBoardingRequired;
 
     if (stripeAccount && !onboardingRequired) {
+      console.log("stripeAccount :>> ", stripeAccount);
       const currency = req.store.currency || "usd";
       // init product data
       const productInfo: Stripe.ProductCreateParams = { name, description };
