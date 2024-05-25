@@ -32,6 +32,12 @@ export interface IMerchSchema extends MerchSchema, Document {
 }
 export interface StoreUpdateWithStripe {
   onBoardingRequired?: boolean;
+  stripeDisabledReason?: string;
+  stripeCurrentlyDue?: string[] | null;
+  stripePassedDue?: string[] | null;
+  pendingVerification?: string[] | null;
+  stripePendingVerification?: string[] | null;
+  stripeDeadline?: number | null;
 }
 export interface StoreSchema {
   ownerId: ObjectId;
@@ -39,6 +45,11 @@ export interface StoreSchema {
   email: string;
   storeId?: string;
   accountId?: string;
+  stripeDisabledReason?: string;
+  stripeDeadline?: number;
+  stripeCurrentlyDue?: string[];
+  stripePassedDue?: string[];
+  stripePendingVerification?: string[];
   currency?: string;
   storeName?: string;
   title?: string;
