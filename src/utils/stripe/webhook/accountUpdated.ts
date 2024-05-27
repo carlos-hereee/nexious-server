@@ -9,7 +9,10 @@ export const accountUpdated = async (event: StripeUpdateAccountEvent) => {
   // check if user has completed onboarding`
   if (event.account) {
     // charges have been enabled means user passed onboarding
-    if (account.charges_enabled) data.onBoardingRequired = false;
+    if (account.charges_enabled) {
+      data.onBoardingRequired = false;
+      data.isStripeActive = true;
+    }
     // list reasons disabled
     data.stripeDisabledReason = account.requirements?.disabled_reason || "";
     // data.stripeCurrentlyDue = account.requirements?.currently_due || [];

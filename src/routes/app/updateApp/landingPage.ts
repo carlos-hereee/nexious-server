@@ -33,12 +33,12 @@ export const updateLandingPage = async (req: AppRequest<IPage>, res: Response, n
             const pageUrl = `${req.project.appUrl}/${pageName.split(" ").join("+")}`;
             const menuItem = formatMenuPageData({ pageName, category: "page", menuId: ctaPage.pageId, link: pageUrl });
             // link page to app menu
-            req.project.menu.push({ ...menuItem, uid: ctaPage.pageId });
-            // save linked page
-            await req.project.save();
+            req.project.menu.push(menuItem);
           }
         }
       });
+      // save cta page data to project db
+      await req.project.save();
       req.page.cta = page.hasCta;
     }
     // if assets contains hero

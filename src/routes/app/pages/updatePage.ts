@@ -54,7 +54,6 @@ export const updatePage = async (req: AppRequest<IPage>, res: Response, next: Ne
       await req.project.save();
     }
     await req.page.save();
-
     next();
   } catch (error) {
     useGenericErrors(res, error, "error occured updating lading page");
