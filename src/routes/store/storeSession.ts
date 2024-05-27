@@ -8,7 +8,7 @@ export const storeSession = async (req: StoreRequest<StoreSessionBody>, res: Res
   try {
     const { cart, client } = req.body;
     // require param data
-    if (!client || !client.email || !client.phone) return res.status(400).json(message.missingCredentials);
+    if (!client || !client.email || !client.phone) return res.status(400).json(message.missingClientData).end();
     if (req.store.storeId) {
       // format order data
       const order: IOrderShema = { storeId: req.store.storeId, status: "pending", client, merch: cart };
