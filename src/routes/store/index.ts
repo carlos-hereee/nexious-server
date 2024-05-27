@@ -18,6 +18,8 @@ import { heroWare } from "@middleware/app";
 import { merchWare, merchindiseWare, storeWare } from "@middleware/store";
 import { stripeOnboarding } from "./stripeOnboarding";
 import { minStoreData } from "./minStoreData";
+import { storeSession } from "./storeSession";
+import { getStoreWithStoreId } from "@middleware/store/getStoreWithStoreId";
 
 const route = Router();
 const bodyParse = bodyParser.raw({ type: "application/json" });
@@ -32,6 +34,8 @@ route.get("/inventory/:storeId", getStoreMerch);
 // route.post("/request-secret", requestSecret);
 // route.post("/create-checkout-session", getCartMerch, checkoutSession);
 route.post("/create-checkout-session", checkoutSession);
+// request for in store appointments
+route.post("/checkout-store-session/:storeId", getStoreWithStoreId, storeSession);
 route.post("/stripe-account-link/:appId", storeWare, stripeOnboarding);
 // add to store
 route.post("/build-store/:appId", heroWare, addStore, minStoreData);

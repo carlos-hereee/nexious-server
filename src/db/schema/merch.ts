@@ -20,6 +20,7 @@ const merchSchema = new Schema<IMerchSchema>(
     name: { type: String, default: "" },
     description: { type: String, default: "" },
     inStock: { type: Number, default: 1 },
+    onHold: { type: Number, default: 0 },
     cost: { type: Number, default: 0 },
   },
   { timestamps: true }

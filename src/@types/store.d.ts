@@ -19,6 +19,7 @@ export interface MerchSchema {
   name: string;
   cost: number;
   inStock: number;
+  onHold?: number;
   uid?: string;
   merchId?: string;
   productId?: string;
@@ -26,6 +27,26 @@ export interface MerchSchema {
   hero?: string;
   thumbnail?: string;
   catalog?: string[];
+}
+export interface OrderMerchSchema {
+  merchId: string;
+  quantity: number;
+}
+export interface ClientSchema {
+  email: string;
+  phone: string;
+  userId?: string;
+  address?: string;
+}
+export interface StoreSessionBody {
+  cart: OrderMerchSchema[];
+  client: ClientSchema;
+}
+export interface IOrderShema {
+  storeId: string;
+  status: "pending" | "completed" | "accepted" | "declined";
+  client: ClientSchema;
+  merch: OrderMerchSchema[];
 }
 export interface IMerchSchema extends MerchSchema, Document {
   _id: ObjectId;
@@ -60,6 +81,9 @@ export interface StoreSchema {
   isRegistered?: boolean;
   onBoardingRequired?: boolean;
   termsOfService?: boolean;
+  pendingOrders?: IOrderShema[];
+  completedOrders?: IOrderShema[];
+  inCompleteOrders?: IOrderShema[];
   inventory: ObjectId[];
 }
 export interface IStoreSchema extends StoreSchema, Document {

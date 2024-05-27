@@ -1,6 +1,7 @@
 import type { IStoreSchema } from "@app/store";
 import mongoose from "mongoose";
 import { v4 } from "uuid";
+import { orderSchema } from "./order";
 const Schema = mongoose.Schema;
 
 const storeSchema = new Schema<IStoreSchema>(
@@ -14,17 +15,6 @@ const storeSchema = new Schema<IStoreSchema>(
     onBoardingRequired: { type: Boolean, default: true },
     isStripeActive: { type: Boolean, default: false },
     stripeDisabledReason: { type: String },
-    // stripeDeadline: { type: Number },
-    // stripeCurrentlyDue: [{ type: String }],
-    // stripePassedDue: [{ type: String }],
-    // stripePendingVerification: [{ type: String }],
-    // stripeConfiguration: {
-    //   stripeDisabledReason: { type: String },
-    //   stripeDeadline: { type: Number },
-    //   stripeCurrentlyDue: [{ type: String }],
-    //   stripePassedDue: [{ type: String }],
-    //   stripePendingVerification: [{ type: String }],
-    // }
     currency: { type: String, default: "usd" },
     storeName: { type: String, default: "" },
     title: { type: String, default: "" },
@@ -33,6 +23,9 @@ const storeSchema = new Schema<IStoreSchema>(
     isRegistered: { type: Boolean, default: false },
     termsOfService: { type: Boolean, default: false },
     inventory: [{ type: Schema.Types.ObjectId, ref: "Merch" }],
+    completedOrders: [orderSchema],
+    inCompleteOrders: [orderSchema],
+    pendingOrders: [orderSchema],
   },
   { timestamps: true }
 );
