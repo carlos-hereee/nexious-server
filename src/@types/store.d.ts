@@ -46,10 +46,10 @@ export interface StoreSchema {
   storeId?: string;
   accountId?: string;
   stripeDisabledReason?: string;
-  stripeDeadline?: number;
-  stripeCurrentlyDue?: string[];
-  stripePassedDue?: string[];
-  stripePendingVerification?: string[];
+  // stripeDeadline?: number;
+  // stripeCurrentlyDue?: string[];
+  // stripePassedDue?: string[];
+  // stripePendingVerification?: string[];
   currency?: string;
   storeName?: string;
   title?: string;

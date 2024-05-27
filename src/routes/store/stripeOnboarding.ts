@@ -8,7 +8,7 @@ export const stripeOnboarding = async (req: StripeRequest, res: Response) => {
     // if (req.user) console.log("user :>> ", req.user);
     if (req.store.accountId) {
       const accountLink = await accountLinks({ accountId: req.store.accountId });
-      console.log("accountLink :>> ", accountLink);
+      // console.log("accountLink :>> ", accountLink);
       return res.status(200).json(accountLink.url);
     }
   } catch (error) {

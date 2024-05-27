@@ -8,7 +8,6 @@ import { saveFieldAssets } from "@middleware/app/saveFieldAssets";
 
 export const merchWare = [requireUser, validateAdmin];
 export const storeWare = [...adminWare, getStoreWithAppId, requireStore];
-export const storeRemovalWare = [...adminWare, getStoreWithAppId, requireStore];
 
 export const merchindiseWare = [
   uploadFields([

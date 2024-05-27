@@ -12,6 +12,7 @@ export interface MinAppResponseData {
   user?: IUserSchema;
   app?: IAppSchema;
   store?: IStoreSchema;
+  account?: Stripe.Response<Stripe.Account>;
 }
 
 // initial request
@@ -60,6 +61,7 @@ export interface StoreRequest<B = StoreBody> extends Request {
   store: IStoreSchema;
   project: IAppSchema;
   user: IUserSchema;
+  account?: Stripe.Response<Stripe.Account>;
 }
 export interface StripeRequest extends Request {
   asset?: string;
