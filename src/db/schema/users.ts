@@ -9,6 +9,7 @@ const userSchema = new Schema<IUserSchema>(
     userId: { type: String, require: true, unique: true, default: v4 },
     username: { type: String, require: true, unique: true },
     email: { type: String, set: toLowerCase },
+    name: { type: String },
     nickname: { type: String },
     phone: { type: Number },
     locale: { type: String },

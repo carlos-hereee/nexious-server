@@ -38,13 +38,20 @@ export interface ClientSchema {
   userId?: string;
   address?: string;
 }
+export interface OrderStoreInfo {
+  storeId: string;
+  email: string;
+  location: string;
+  location2?: string;
+}
 export interface StoreSessionBody {
   cart: OrderMerchSchema[];
   client: ClientSchema;
 }
 export interface IOrderShema {
-  storeId: string;
+  store: OrderStoreInfo;
   status: "pending" | "completed" | "accepted" | "declined";
+  paymentMethod: "in-store" | "stripe";
   client: ClientSchema;
   merch: OrderMerchSchema[];
 }
@@ -76,6 +83,8 @@ export interface StoreSchema {
   currency?: string;
   storeName?: string;
   title?: string;
+  location?: string;
+  location2?: string;
   body?: string;
   hero?: string;
   isRegistered?: boolean;

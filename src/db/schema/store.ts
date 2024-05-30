@@ -19,6 +19,8 @@ const storeSchema = new Schema<IStoreSchema>(
     storeName: { type: String, default: "" },
     title: { type: String, default: "" },
     body: { type: String, default: "" },
+    location: { type: String, default: "" },
+    location2: { type: String, default: "" },
     hero: { type: String, default: "" },
     isRegistered: { type: Boolean, default: false },
     termsOfService: { type: Boolean, default: false },

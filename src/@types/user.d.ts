@@ -23,6 +23,7 @@ export interface IUserSchema extends Document {
   phone: number;
   locale: string;
   theme: string;
+  name?: string;
   permissions: { appId: ObjectId; role: string }[];
   auth: ObjectId;
   ownedApps: ObjectId[];
