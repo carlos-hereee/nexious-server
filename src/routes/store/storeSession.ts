@@ -17,10 +17,10 @@ export const storeSession = async (req: StoreRequest<StoreSessionBody>, res: Res
     // add order to store pending order
     if (!req.store.pendingOrders) req.store.pendingOrders = [order];
     else req.store.pendingOrders.push(order);
-    // // save order to store db
+    // save order to store db
     await req.store.save();
     res.status(200).json(order).end();
   } catch (error) {
-    return useGenericErrors(res, error, "unable to create stripe session");
+    return useGenericErrors(res, error, "unable to create store session");
   }
 };
