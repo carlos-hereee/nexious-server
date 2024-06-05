@@ -17,6 +17,7 @@ export const storeSession = async (req: StoreRequest<StoreSessionBody>, res: Res
     // add order to store pending order
     if (!req.store.pendingOrders) req.store.pendingOrders = [order];
     else req.store.pendingOrders.push(order);
+    // TODO: NOTIFY STORE THRES A NEW ORDER
     // save order to store db
     await req.store.save();
     res.status(200).json(order).end();

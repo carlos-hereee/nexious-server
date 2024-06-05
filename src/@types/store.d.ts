@@ -54,6 +54,7 @@ export interface IOrderShema {
   paymentMethod: "in-store" | "stripe";
   client: ClientSchema;
   merch: OrderMerchSchema[];
+  orderId?: string;
 }
 export interface IMerchSchema extends MerchSchema, Document {
   _id: ObjectId;

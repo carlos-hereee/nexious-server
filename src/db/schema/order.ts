@@ -1,5 +1,6 @@
 import type { IOrderShema } from "@app/store";
 import mongoose from "mongoose";
+import { v4 } from "uuid";
 const Schema = mongoose.Schema;
 
 export const orderSchema = new Schema<IOrderShema>({
@@ -17,6 +18,7 @@ export const orderSchema = new Schema<IOrderShema>({
     location2: { type: Schema.Types.String },
   },
   paymentMethod: { type: Schema.Types.String, required: true },
+  orderId: { type: Schema.Types.String, default: v4 },
   merch: [
     {
       merchId: { type: Schema.Types.String, required: true },
