@@ -26,7 +26,7 @@ export interface MerchSchema {
   priceId?: string;
   hero?: string;
   thumbnail?: string;
-  catalog?: string[];
+  catalog: string[];
 }
 export interface OrderMerchSchema {
   merchId: string;
@@ -83,7 +83,7 @@ export interface StoreSchema {
   // stripeCurrentlyDue?: string[];
   // stripePassedDue?: string[];
   // stripePendingVerification?: string[];
-  currency?: string;
+  currency: string;
   storeName?: string;
   title?: string;
   location?: string;

@@ -21,6 +21,8 @@ import { minStoreData } from "./minStoreData";
 import { storeSession } from "./storeSession";
 import { getStoreWithStoreId } from "@middleware/store/getStoreWithStoreId";
 import { updateOrder } from "./updateOrder";
+// import { editMerch } from "./editMerch";
+import { editStripeMerch } from "./editStripeMerch";
 
 const route = Router();
 const bodyParse = bodyParser.raw({ type: "application/json" });
@@ -50,6 +52,7 @@ route.put("/update-store/:appId", storeWare, editStore, minStoreData);
 // update order details
 route.put("/:appId/order/:orderUpdate", storeWare, updateOrder, minStoreData);
 // route.put("/update-merch/:appId/:merchId", storeWare, editMerch, minStoreData);
+route.put("/update-merch/:appId/stripe", storeWare, editStripeMerch, minStoreData);
 
 // remove store
 route.delete("/remove-store/:appId", storeWare, removeStore, minStoreData);
