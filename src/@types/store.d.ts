@@ -13,6 +13,15 @@ export interface GetMerchProps {
   id?: ObjectId;
   deleteMany?: boolean;
 }
+export interface MerchBody {
+  name: string;
+  hero: string;
+  images: string;
+  description: string;
+  cost: string;
+  inStock: string;
+  catalog: string[];
+}
 export interface MerchSchema {
   storeId: ObjectId;
   description: string;
@@ -59,6 +68,7 @@ export interface IOrderShema {
   _id?: ObjectId | string;
 }
 export interface IMerchSchema extends MerchSchema, Document {
+  hasCatalog: boolean;
   _id: ObjectId;
 }
 export interface StoreUpdateWithStripe {

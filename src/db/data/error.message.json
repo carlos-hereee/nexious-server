@@ -21,6 +21,7 @@
   "tokenNotFound": "No cookies sent",
   "pageNotFound": "Page not found",
   "storeNotFound": "Page not found",
+  "merchNotFound": "Unable to find merhandise",
   "orderNotFound": "Order not found",
   "stripeAccountRequired": "Stripe account is required to continue"
 }

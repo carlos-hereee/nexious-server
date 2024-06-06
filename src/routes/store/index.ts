@@ -21,8 +21,9 @@ import { minStoreData } from "./minStoreData";
 import { storeSession } from "./storeSession";
 import { getStoreWithStoreId } from "@middleware/store/getStoreWithStoreId";
 import { updateOrder } from "./updateOrder";
-// import { editMerch } from "./editMerch";
+import { editMerch } from "./editMerch";
 import { editStripeMerch } from "./editStripeMerch";
+import { getMerchWithId } from "@middleware/store/getMerchWithId";
 
 const route = Router();
 const bodyParse = bodyParser.raw({ type: "application/json" });
@@ -51,7 +52,7 @@ route.post("/webhook", bodyParse, initHook, stripeWebhook);
 route.put("/update-store/:appId", storeWare, editStore, minStoreData);
 // update order details
 route.put("/:appId/order/:orderUpdate", storeWare, updateOrder, minStoreData);
-// route.put("/update-merch/:appId/:merchId", storeWare, editMerch, minStoreData);
+route.put("/update-merch/:appId/merch/:merchId", storeWare, merchindiseWare, getMerchWithId, editMerch, minStoreData);
 route.put("/update-merch/:appId/stripe", storeWare, editStripeMerch, minStoreData);
 
 // remove store

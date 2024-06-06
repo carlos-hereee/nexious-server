@@ -1,5 +1,5 @@
 import type { IUserSchema } from "./user";
-import type { IStoreSchema, MerchBodyParams, RequestStore, StoreBody } from "./store";
+import type { IMerchSchema, IStoreSchema, MerchBodyParams, RequestStore, StoreBody } from "./store";
 import type { Request } from "express";
 import type Stripe from "stripe";
 import type { AuthBody, IAuthSchema } from "./auth";
@@ -59,13 +59,17 @@ export interface StoreRequest<B = StoreBody> extends Request {
   body: B;
   asset?: string;
   params: {
+    storeId: string;
     appId: string;
     orderId: string;
+    merchId: string;
     orderUpdate: string;
   };
   store: IStoreSchema;
   project: IAppSchema;
   user: IUserSchema;
+  merch: IMerchSchema;
+  assets: { hero: string; sectionHero: string[]; catalog: string[] };
   account?: Stripe.Response<Stripe.Account>;
 }
 export interface StripeRequest extends Request {
