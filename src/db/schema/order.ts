@@ -11,6 +11,7 @@ export const orderSchema = new Schema<IOrderShema>({
     address: { type: Schema.Types.String },
   },
   status: { type: Schema.Types.String, required: true },
+  statusReason: { type: Schema.Types.String },
   store: {
     storeId: { type: Schema.Types.String, required: true },
     email: { type: Schema.Types.String },

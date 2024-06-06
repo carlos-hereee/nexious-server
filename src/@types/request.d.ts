@@ -58,6 +58,11 @@ export interface FileRequest extends Request {
 export interface StoreRequest<B = StoreBody> extends Request {
   body: B;
   asset?: string;
+  params: {
+    appId: string;
+    orderId: string;
+    orderUpdate: string;
+  };
   store: IStoreSchema;
   project: IAppSchema;
   user: IUserSchema;

@@ -3,6 +3,7 @@ import { IOrderShema, StoreSessionBody } from "@app/store";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import type { Response } from "express";
 import message from "@db/data/error.message.json";
+import { v4 } from "uuid";
 
 export const storeSession = async (req: StoreRequest<StoreSessionBody>, res: Response) => {
   try {
@@ -12,8 +13,9 @@ export const storeSession = async (req: StoreRequest<StoreSessionBody>, res: Res
     if (!req.store || !req.store.storeId) return res.status(404).json(message.storeNotFound).end();
     const { storeId, email, location, location2 } = req.store;
     const store = { storeId, email, location: location || "", location2: location2 || "" };
+    const orderId = v4();
     // format order data
-    const order: IOrderShema = { store, status: "pending", client, merch: cart, paymentMethod: "in-store" };
+    const order: IOrderShema = { store, status: "pending", client, merch: cart, paymentMethod: "in-store", orderId };
     // add order to store pending order
     if (!req.store.pendingOrders) req.store.pendingOrders = [order];
     else req.store.pendingOrders.push(order);

@@ -20,5 +20,6 @@
   "passwordAlreadyInHistory": "Password used in the passed.",
   "tokenNotFound": "No cookies sent",
   "pageNotFound": "Page not found",
-  "storeNotFound": "Page not found"
+  "storeNotFound": "Page not found",
+  "orderNotFound": "Order not found"
 }
