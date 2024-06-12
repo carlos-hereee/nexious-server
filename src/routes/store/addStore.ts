@@ -6,6 +6,7 @@ import { StoreRequest } from "@app/request";
 import { createStore } from "@db/models/store/createStore";
 import { addAccount } from "@utils/stripe/accounts/addAccount";
 import { v4 } from "uuid";
+import { StoreSchema } from "@app/store";
 
 export const addStore = async (req: StoreRequest, res: Response, next: NextFunction) => {
   try {
@@ -20,13 +21,24 @@ export const addStore = async (req: StoreRequest, res: Response, next: NextFunct
     // format link url
     const link = "/store/" + req.project.appUrl;
     const menuData = formatMenuPageData({ pageName: storeName, category: "store", link, menuId: v4() });
-    const payload = { ...req.body, email, ownerId, appId: _id, hero, accountId: "", inventory: [] };
+    const storeData: StoreSchema = {
+      ...req.body,
+      email,
+      ownerId,
+      appId: _id,
+      hero,
+      accountId: "",
+      inventory: [],
+      pendingOrders: [],
+      completedOrders: [],
+      inCompleteOrders: [],
+    };
 
     const account = await addAccount({ addAccount: { country, email, type: "standard" } });
     // // add account id to payload
-    payload.accountId = account.id;
+    storeData.accountId = account.id;
     // // save store data
-    const store = await createStore(payload);
+    const store = await createStore(storeData);
     // // connect store to app
     req.project.store = store._id;
     req.project.menu.push(menuData);

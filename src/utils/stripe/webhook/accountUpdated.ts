@@ -15,14 +15,7 @@ export const accountUpdated = async (event: StripeUpdateAccountEvent) => {
     }
     // list reasons disabled
     data.stripeDisabledReason = account.requirements?.disabled_reason || "";
-    // data.stripeCurrentlyDue = account.requirements?.currently_due || [];
-    // data.stripePassedDue = account.requirements?.past_due || [];
-    // data.stripeDeadline = account.requirements?.current_deadline || 0;
-    // data.stripePendingVerification = account.requirements?.pending_verification || [];
-    await updateStore(event.account, data);
+    await updateStore({ accountId: event.account, stripe: data, type: "stripe-account-updated" });
   }
   // if user was not fully onboarded check details_submitted parameter on their account
-
-  // Then define and call a method to handle the successful attachment of a PaymentMethod.
-  // handlePaymentMethodAttached(paymentMethod);
 };

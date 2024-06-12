@@ -4,7 +4,13 @@ import { ObjectId } from "./db";
 export interface StoreFilters {
   storeId: string;
 }
-
+export interface UpdateStoreParams {
+  accountId: string;
+  order?: CartBody;
+  stripe?: StoreUpdateWithStripe;
+  type?: "payment" | "stripe-account-updated" | "checkout-complete";
+  payload?: StoreUpdateWithStripe;
+}
 export interface GetMerchProps {
   storeId?: string;
   appId?: ObjectId;
@@ -21,6 +27,12 @@ export interface MerchBody {
   cost: string;
   inStock: string;
   catalog: string[];
+}
+export interface CheckoutMerch {
+  productId: string;
+  priceId: string;
+  merchId: string;
+  quantity: number;
 }
 export interface MerchSchema {
   storeId: ObjectId;
@@ -61,7 +73,7 @@ export interface IOrderShema {
   store: OrderStoreInfo;
   status: "pending" | "completed" | "accepted" | "declined";
   statusReason?: string;
-  paymentMethod: "in-store" | "stripe";
+  paymentMethod: "in-store" | "stripe" | "in-store-and-online";
   client: ClientSchema;
   merch: OrderMerchSchema[];
   orderId: string;
@@ -124,13 +136,17 @@ export interface StoreBody {
   email: string;
   title: string;
   body: string;
+  currency: string;
 }
 export interface CartBody {
   accountId: string;
-  merch: {
+  cart: {
     productId: string;
+    priceId: string;
+    merchId: string;
     quantity: number;
   }[];
+  user?: { username: string; name: string; phone: string; address: string; email: string };
 }
 export type StripeMerchData = RequestCart[];
 export interface RequestCart {

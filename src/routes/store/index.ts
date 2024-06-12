@@ -45,6 +45,7 @@ route.post("/stripe-account-link/:appId", storeWare, stripeOnboarding);
 route.post("/build-store/:appId", heroWare, addStore, minStoreData);
 route.post("/add-merch/:appId", storeWare, merchindiseWare, addMerch, minStoreData);
 route.post("/webhook", bodyParse, initHook, stripeWebhook);
+// route.post("/webhook/connect", bodyParse, initHook, stripeWebhook);
 // route.post("/complete-checkout", requestSecret);
 
 // update store

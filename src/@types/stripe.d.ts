@@ -111,6 +111,7 @@ export interface StripeSecretParams {
   removeSecretOptions?: Stripe.Apps.SecretDeleteWhereParams;
 }
 export type StripeSuccessEvent = Stripe.PaymentIntentSucceededEvent;
+export type StripePaymentIntentFailed = Stripe.PaymentIntentPaymentFailedEvent;
 export type StripeSessionCompleteEvent = Stripe.CheckoutSessionCompletedEvent;
 export type StripePaymentAttachedEvent = Stripe.PaymentMethodAttachedEvent;
 export type StripeUpdateAccountEvent = Stripe.AccountUpdatedEvent;
