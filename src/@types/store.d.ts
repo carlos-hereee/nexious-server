@@ -140,6 +140,7 @@ export interface StoreBody {
 }
 export interface CartBody {
   accountId: string;
+  orderId?: string;
   cart: {
     productId: string;
     priceId: string;

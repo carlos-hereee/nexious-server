@@ -11,6 +11,7 @@ export const fulFillOrder = async ({ lineItems, accountId, status }: OrderData) 
   // console.log("Fulfilling order", lineItems);
   if (lineItems) {
     if (status === "paid") {
+      console.log("lineItems :>> ", lineItems);
       lineItems.data.forEach((d) => {
         // update merch quantity
         const quantity = d.quantity;

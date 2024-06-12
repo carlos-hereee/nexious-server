@@ -14,14 +14,14 @@ export const updateStore = async (params: UpdateStoreParams) => {
             client: order.user,
             merch: order.cart,
             paymentMethod: "in-store-and-online",
-            orderId: v4(),
+            orderId: order.orderId || v4(),
           },
         },
       }
     );
   }
-  if (type === "checkout-complete") {
-  }
+  // if (type === "checkout-complete") {
+  // }
   if (stripe) return await Store.updateOne({ accountId }, { $set: stripe });
   return await Store.updateOne({ accountId }, { $set: payload });
 };
