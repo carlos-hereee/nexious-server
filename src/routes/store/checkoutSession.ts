@@ -11,25 +11,15 @@ export const checkoutSession = async (req: StoreRequest<CartBody>, res: Response
     const { cart, accountId } = req.body;
     const someInstore = cart.some((c) => !c.productId);
     const orderId = v4();
-    if (someInstore) {
-      const online = cart.filter((c) => c.productId);
-      await updateStore({
-        order: { ...req.body, orderId, merch: online, paymentMethod: "in-store-and-online" },
-        accountId,
-        type: "payment",
-      });
+    const online = cart.filter((c) => c.productId);
 
-      const session = await createSession(online, accountId, orderId);
-      return res.status(200).json(session.url).end();
-    } else {
-      await updateStore({
-        order: { ...req.body, orderId, merch: cart, paymentMethod: "stripe" },
-        accountId,
-        type: "payment",
-      });
-      const session = await createSession(cart, accountId, orderId);
-      return res.status(200).json(session.url).end();
-    }
+    await updateStore({
+      order: { ...req.body, orderId, merch: cart, paymentMethod: someInstore ? "in-store-and-online" : "stripe" },
+      accountId,
+      type: "payment",
+    });
+    const session = await createSession(someInstore ? online : cart, accountId, orderId);
+    return res.status(200).json(session.url).end();
   } catch (error) {
     return useGenericErrors(res, error, "unable to create stripe session");
   }

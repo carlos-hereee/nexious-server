@@ -19,9 +19,9 @@ export const fulFillOrder = async ({ lineItems, accountId, status, metadata }: O
         if (orderData) {
           // remove from pending
           store.pendingOrders = store.pendingOrders.filter((o) => o.orderId !== metadata.orderId);
-          orderData?.status === "accepted";
+          orderData.status = "accepted";
           // update paid items
-          orderData?.merch.map((m) => {
+          orderData.merch = orderData.merch.map((m) => {
             if (m.productId) return { ...m, paymentStatus: "paid" };
             return m;
           });
