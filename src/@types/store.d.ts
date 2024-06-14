@@ -1,12 +1,16 @@
 import type { Document } from "mongoose";
 import { ObjectId } from "./db";
+import Stripe from "stripe";
 
 export interface StoreFilters {
   storeId: string;
 }
 export interface UpdateStoreParams {
   accountId: string;
-  order?: CartBody;
+  orderId?: string;
+  order?: IOrderShema;
+  client?: ClientSchema;
+  merch?: Stripe.LineItem[];
   stripe?: StoreUpdateWithStripe;
   type?: "payment" | "stripe-account-updated" | "checkout-complete";
   payload?: StoreUpdateWithStripe;
@@ -15,6 +19,7 @@ export interface GetMerchProps {
   storeId?: string;
   appId?: ObjectId;
   merchId?: string;
+  accountId?: string;
   merchIds?: string;
   id?: ObjectId;
   deleteMany?: boolean;
@@ -51,6 +56,9 @@ export interface MerchSchema {
 }
 export interface OrderMerchSchema {
   merchId: string;
+  productId?: string;
+  priceId?: string;
+  paymentStatus?: "paid" | "unpaid" | "no_payment_required";
   quantity: number;
 }
 export interface ClientSchema {
@@ -70,13 +78,13 @@ export interface StoreSessionBody {
   client: ClientSchema;
 }
 export interface IOrderShema {
-  store: OrderStoreInfo;
-  status: "pending" | "completed" | "accepted" | "declined";
-  statusReason?: string;
-  paymentMethod: "in-store" | "stripe" | "in-store-and-online";
   client: ClientSchema;
   merch: OrderMerchSchema[];
   orderId: string;
+  store?: OrderStoreInfo;
+  status?: "pending" | "completed" | "accepted" | "declined";
+  statusReason?: string;
+  paymentMethod?: "in-store" | "stripe" | "in-store-and-online";
   _id?: ObjectId | string;
 }
 export interface IMerchSchema extends MerchSchema, Document {
@@ -141,13 +149,14 @@ export interface StoreBody {
 export interface CartBody {
   accountId: string;
   orderId?: string;
+  paymentMethod?: "in-store" | "stripe" | "in-store-and-online";
   cart: {
     productId: string;
     priceId: string;
     merchId: string;
     quantity: number;
   }[];
-  user?: { username: string; name: string; phone: string; address: string; email: string };
+  client: { username: string; name: string; phone: string; address: string; email: string };
 }
 export type StripeMerchData = RequestCart[];
 export interface RequestCart {

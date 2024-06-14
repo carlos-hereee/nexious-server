@@ -10,12 +10,11 @@ export const createSession = async (cart: CheckoutMerch[], accountId: string, or
       mode: "payment",
       line_items: cartData,
       success_url: `${clientUrl}/checkout/success`,
-      payment_intent_data: {
-        // platform fee
-        application_fee_amount: 123,
-      },
-      // let stripe handle tax
-      automatic_tax: { enabled: true },
+      // platform fee
+      payment_intent_data: { application_fee_amount: 123 },
+      // // let stripe handle tax
+      // automatic_tax: { enabled: true },
+      // add orderid if order is already in system
       metadata: orderId ? { orderId } : undefined,
     },
     stripeAccount: { stripeAccount: accountId },

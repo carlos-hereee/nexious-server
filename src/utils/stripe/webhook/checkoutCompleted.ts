@@ -16,9 +16,14 @@ export const checkoutCompleted = async (event: StripeSessionCompleteEvent) => {
     try {
       // Retrieve the session. If you require line items in the response, you may include them by expanding line_items.
       const session = await getSessionWithId(sessionOptions);
-      // console.log("session :>> ", session);
 
-      const orderData = { lineItems: session.line_items, accountId: event.account, status: session.payment_status };
+      const orderData = {
+        lineItems: session.line_items,
+        accountId: event.account,
+        status: session.payment_status,
+        // track order id
+        metadata: event.data.object.metadata,
+      };
       // // Fulfill the purchase...
       await fulFillOrder(orderData);
     } catch (error) {
