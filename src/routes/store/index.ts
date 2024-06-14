@@ -52,7 +52,7 @@ route.post("/webhook", bodyParse, initHook, stripeWebhook);
 // route.put("/update-store/:appId", heroWare, editStore, minStoreData);
 route.put("/update-store/:appId", storeWare, editStore, minStoreData);
 // update order details
-route.put("/:appId/order/:orderUpdate", storeWare, updateOrder, minStoreData);
+route.put("/:appId/order/:orderUpdate/from/:from", storeWare, updateOrder, minStoreData);
 route.put("/update-merch/:appId/merch/:merchId", storeWare, merchindiseWare, getMerchWithId, editMerch, minStoreData);
 route.put("/update-merch/:appId/stripe", storeWare, editStripeMerch, minStoreData);
 

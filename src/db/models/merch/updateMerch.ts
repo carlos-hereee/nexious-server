@@ -3,10 +3,15 @@ import Merch from "@db/schema/merch";
 
 interface MerchUpdateFilter {
   merchHold?: { merchId: string; quantity: number };
+  releaseHold?: { merchId: string; quantity: number };
+  merchSold?: { productId: string; quantity: number };
   merchPurchased?: { productId: string; quantity: number };
   merch?: MerchSchema;
 }
-export const updateMerch = async ({ merchHold, merch, merchPurchased }: MerchUpdateFilter) => {
+export const updateMerch = async ({ merchHold, merch, merchPurchased, releaseHold }: MerchUpdateFilter) => {
+  if (releaseHold) {
+    return await Merch.updateOne({ merchId: releaseHold.merchId }, { $inc: { onHold: -releaseHold.quantity } });
+  }
   // add merch on hold
   if (merchHold) {
     return await Merch.updateOne(
