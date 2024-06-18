@@ -8,15 +8,7 @@ export const updateStore = async (params: UpdateStoreParams) => {
     return await Store.updateOne(
       { accountId },
       {
-        $push: {
-          pendingOrders: {
-            status: "pending",
-            client: order.client,
-            merch: order.merch,
-            paymentMethod: order.paymentMethod || "in-store",
-            orderId: order.orderId,
-          },
-        },
+        $push: { pendingOrders: order },
       }
     );
   }

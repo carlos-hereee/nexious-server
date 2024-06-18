@@ -1,31 +1,14 @@
-import { StripeSessionCompleteEvent } from "@app/stripe";
-import { getSessionWithId } from "@utils/stripe/payments/getSessionWithId";
-import { fulFillOrder } from "./fulfillOrder";
+// import { StripeSessionCompleteEvent } from "@app/stripe";
+// import { getSessionWithId } from "@utils/stripe/payments/getSessionWithId";
+// import { fulFillOrder } from "./fulfillOrder";
+import Stripe from "stripe";
 
-export const checkoutCompleted = async (event: StripeSessionCompleteEvent) => {
+export const checkoutCompleted = async (event: Stripe.CheckoutSessionCompletedEvent) => {
   // Handle the checkout.session.completed event
-  const sessionComplete = event.data.object;
+  const accountId = event.account;
   if (event.account) {
-    const sessionOptions = {
-      id: sessionComplete.id,
-      // expand line items to full fill order
-      options: { expand: ["line_items"] },
-      // add connect account
-      stripeAccount: { stripeAccount: event.account },
-    };
     try {
-      // Retrieve the session. If you require line items in the response, you may include them by expanding line_items.
-      const session = await getSessionWithId(sessionOptions);
-
-      const orderData = {
-        lineItems: session.line_items,
-        accountId: event.account,
-        status: session.payment_status,
-        // track order id
-        metadata: event.data.object.metadata,
-      };
-      // // Fulfill the purchase...
-      await fulFillOrder(orderData);
+      // Save an order in your database, marked as 'awaiting payment'
     } catch (error) {
       // console.log("event :>> ", event);
       // console.log("error :>> ", error);

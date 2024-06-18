@@ -80,9 +80,9 @@ export interface StoreSessionBody {
 export interface IOrderShema {
   client: ClientSchema;
   merch: OrderMerchSchema[];
-  orderId: string;
+  status: "pending" | "awaiting-payment" | "completed" | "accepted" | "declined";
+  orderId?: string;
   store?: OrderStoreInfo;
-  status?: "pending" | "completed" | "accepted" | "declined";
   statusReason?: string;
   paymentMethod?: "in-store" | "stripe" | "in-store-and-online";
   _id?: ObjectId | string;
@@ -130,6 +130,7 @@ export interface StoreSchema {
 }
 export interface IStoreSchema extends StoreSchema, Document {
   _id: ObjectId;
+  storeId: string;
 }
 export interface MerchBodyParams {
   name: string;
