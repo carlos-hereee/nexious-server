@@ -1,5 +1,5 @@
-import { updateMerch } from "@db/models/merch/updateMerch";
-import { getStore } from "@db/models/store/getStore";
+// import { updateMerch } from "@db/models/merch/updateMerch";
+// import { getStore } from "@db/models/store/getStore";
 import Stripe from "stripe";
 
 // interface OrderData {
@@ -11,7 +11,7 @@ import Stripe from "stripe";
 
 // 	The customer’s payment succeeded.
 export const fulFillOrder = async (event: Stripe.CheckoutSessionAsyncPaymentSucceededEvent) => {
-  // console.log("event :>> ", event);
+  console.log("fulling order :>> ", event);
   const sessionComplete = event.data.object;
   const sessionOptions = {
     id: sessionComplete.id,

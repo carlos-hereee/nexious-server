@@ -6,14 +6,15 @@ export interface StoreFilters {
   storeId: string;
 }
 export interface UpdateStoreParams {
-  accountId: string;
+  accountId?: string;
+  storeId?: string;
   orderId?: string;
+  status?: "pending" | "awaiting-payment" | "completed" | "accepted" | "declined";
   order?: IOrderShema;
   client?: ClientSchema;
   merch?: Stripe.LineItem[];
   stripe?: StoreUpdateWithStripe;
   type?: "payment" | "stripe-account-updated" | "checkout-complete";
-  payload?: StoreUpdateWithStripe;
 }
 export interface GetMerchProps {
   storeId?: string;
@@ -124,6 +125,7 @@ export interface StoreSchema {
   onBoardingRequired?: boolean;
   termsOfService?: boolean;
   pendingOrders: IOrderShema[];
+  orders: IOrderShema[];
   completedOrders: IOrderShema[];
   inCompleteOrders: IOrderShema[];
   inventory: ObjectId[];

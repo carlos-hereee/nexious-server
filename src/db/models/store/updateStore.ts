@@ -3,23 +3,16 @@ import Store from "@db/schema/store";
 // import { v4 } from "uuid";
 
 export const updateStore = async (params: UpdateStoreParams) => {
-  const { accountId, payload, type, order, stripe, orderId } = params;
-  if (type === "payment" && order && order.client) {
+  const { accountId, type, order, stripe, orderId, status, storeId } = params;
+
+  if (type === "payment" && order && storeId) {
+    return await Store.updateOne({ accountId }, { $push: { orders: order } });
+  }
+  if (type === "checkout-complete" && orderId && status) {
     return await Store.updateOne(
-      { accountId },
-      {
-        $push: { pendingOrders: order },
-      }
+      { accountId, "pendingOrders.orderId": orderId },
+      { $set: { "pendingOrders.$.status": status } }
     );
   }
-  if (type === "checkout-complete" && orderId) {
-    // const orderData = ;
-    // return await Store.updateOne(
-    //   { accountId },
-    //   { $pull: { pendingOrders: { orderId } }, $addToSet: { completedOrders: store.pendingOrders[orderIdx] } },
-    //   { multi: false }
-    // );
-  }
-  if (stripe) return await Store.updateOne({ accountId }, { $set: stripe });
-  return await Store.updateOne({ accountId }, { $set: payload });
+  if (stripe && accountId) return await Store.updateOne({ accountId }, { $set: stripe });
 };
