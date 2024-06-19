@@ -5,6 +5,7 @@ import { checkoutCompleted } from "@utils/stripe/webhook/checkoutCompleted";
 import { StripeWebhookRequest } from "@app/request";
 import { accountUpdated } from "@utils/stripe/webhook/accountUpdated";
 import { fulFillOrder } from "@utils/stripe/webhook/fulfillOrder";
+import { emailCustomerAboutFailedPayment } from "@utils/stripe/webhook/emailCustomer";
 // import { productCreated } from "./stripe/stripeProduct";
 
 export const stripeWebhook = async (req: StripeWebhookRequest, res: Response) => {
@@ -43,11 +44,7 @@ export const stripeWebhook = async (req: StripeWebhookRequest, res: Response) =>
         break;
       // payment was declined, or failed for some other reason.
       case "checkout.session.async_payment_failed":
-        // const session = event.data.object;
-
-        // // Send an email to the customer asking them to retry their order
-        // emailCustomerAboutFailedPayment(session);
-
+        emailCustomerAboutFailedPayment(event);
         break;
       default:
         // Unexpected event type

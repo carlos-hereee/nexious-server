@@ -16,32 +16,17 @@ export const fulFillOrder = async (event: Stripe.CheckoutSessionAsyncPaymentSucc
     // expand line items to full fill order
     options: { expand: ["line_items"] },
     // add connect account
-    stripeAccount: { stripeAccount: event.account },
+    stripeAccount: { stripeAccount: accountId },
   });
   if (session.line_items && accountId && metadata && metadata.orderId) {
+    console.log("session :>> ", session);
     await updateStore({
+      orderId: metadata.orderId,
+      accountId,
       type: "checkout-complete-paid",
       status: "accepted",
-      orderId: metadata.orderId,
       paymentStatus: "paid",
     });
-    // //  find store
-    // const store = await getStore({ accountId });
-    // const orderIdx = store ? store.orders.findIndex((p) => p.orderId === metadata.orderId) : -1;
-    // if (store && orderIdx > -1) {
-
-    //   store.orders[orderIdx].status = "accepted";
-    //   if (orderData) {
-    //     // remove from pending
-    //     orderData.status = "accepted";
-    //     // update paid items
-    //     orderData.merch = orderData.merch.map((m) => {
-    //       if (m.productId) return { ...m, paymentStatus: "paid" };
-    //       return m;
-    //     });
-    //   }
-    //   await store.save();
-    // }
     // update merch quantity
     session.line_items.data.forEach(async (d) => {
       const quantity = d.quantity || 1;
