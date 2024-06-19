@@ -1,6 +1,5 @@
 import type { Document } from "mongoose";
 import { ObjectId } from "./db";
-import Stripe from "stripe";
 
 export interface StoreFilters {
   storeId: string;
@@ -10,11 +9,11 @@ export interface UpdateStoreParams {
   storeId?: string;
   orderId?: string;
   status?: "pending" | "awaiting-payment" | "completed" | "accepted" | "declined";
+  paymentStatus?: "paid" | "unpaid" | "no_payment_required";
   order?: IOrderShema;
   client?: ClientSchema;
-  merch?: Stripe.LineItem[];
   stripe?: StoreUpdateWithStripe;
-  type?: "payment" | "stripe-account-updated" | "checkout-complete";
+  type?: "payment" | "stripe-account-updated" | "checkout-complete" | "checkout-complete-paid";
 }
 export interface GetMerchProps {
   storeId?: string;
