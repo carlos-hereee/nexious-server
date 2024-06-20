@@ -36,3 +36,6 @@ export const stripeReturnUrl = process.env.STRIPE_RETURN_URL || "";
 export const appEmail = process.env.APP_EMAIL || "";
 // express
 export const allowedMethods = ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"];
+// emails
+export const sendgridKey = process.env.SENDGRID_API_KEY || "";
+export const sendgridEmail = process.env.EMAIL || "";

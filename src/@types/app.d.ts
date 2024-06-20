@@ -57,6 +57,12 @@ export interface IMediaItem {
   sharedKey?: string;
   uid?: string;
 }
+export interface EmailParams {
+  from?: string;
+  to: string;
+  subject: string;
+  text: string;
+}
 export interface IMedia {
   title: string;
   subtitle: string;
