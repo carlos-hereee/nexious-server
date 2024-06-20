@@ -28,6 +28,8 @@ export interface IUserSchema extends Document {
   auth: ObjectId;
   ownedApps: ObjectId[];
   subscriptions: ObjectId[];
+  notifications: ObjectId[];
+  feed: ObjectId[];
 }
 export interface InitUser {
   username: string;
