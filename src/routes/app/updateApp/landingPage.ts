@@ -3,6 +3,7 @@ import { AppRequest } from "@app/request";
 import Page from "@db/schema/page";
 import { formatFormData } from "@utils/app/format/formatFormData";
 import { formatMenuPageData } from "@utils/app/format/formatMenuPageData";
+import { generateStringUrl } from "@utils/app/generateUrl";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
 
@@ -30,7 +31,7 @@ export const updateLandingPage = async (req: AppRequest<IPage>, res: Response, n
           if (ctaPage._id && ctaPage.pageId) {
             req.project.pages.push(ctaPage._id);
             // format page url
-            const pageUrl = `${req.project.appUrl}/${pageName.split(" ").join("+")}`;
+            const pageUrl = `${req.project.appUrl}/${generateStringUrl(pageName)}`;
             const menuItem = formatMenuPageData({ pageName, category: "page", menuId: ctaPage.pageId, link: pageUrl });
             // link page to app menu
             req.project.menu.push(menuItem);

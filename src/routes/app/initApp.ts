@@ -6,12 +6,13 @@ import Page from "@db/schema/page";
 import App from "@db/schema/app";
 import { IPageSchema } from "@app/page";
 import data from "@db/data/lorem.json";
+import { generateStringUrl } from "@utils/app/generateUrl";
 
 export const initApp = async (req: AppRequest, res: Response, next: NextFunction) => {
   try {
     // key variables
     const appName = req.body.appName;
-    const appUrl = appName.split(" ").join("+");
+    const appUrl = generateStringUrl(appName);
     const logo = req.asset || "";
     const owner = req.user._id;
     // const logo = { url: req.asset, alt: appName + " industry brand", link: appUrl };

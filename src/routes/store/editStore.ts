@@ -1,5 +1,6 @@
 import { StoreRequest } from "@app/request";
 import { StoreBody } from "@app/store";
+import { generateStringUrl } from "@utils/app/generateUrl";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
 
@@ -9,7 +10,7 @@ export const editStore = async (req: StoreRequest<StoreBody>, res: Response, nex
     const hero = req.asset || "";
     if (storeName) {
       req.store.storeName = storeName;
-      req.store.storeLink = storeName.split(" ").join("+");
+      req.store.storeLink = generateStringUrl(storeName);
     }
     if (title) req.store.title = title;
     if (body) req.store.body = body;

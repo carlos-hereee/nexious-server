@@ -1,4 +1,5 @@
 import { IAppSchema, IMenu } from "@app/app";
+import { generateStringUrl } from "@utils/app/generateUrl";
 
 interface InitAppMenu extends IMenu {
   isBooking?: boolean;
@@ -7,7 +8,7 @@ interface InitAppMenu extends IMenu {
 
 const initAppVersions = (app: IAppSchema) => {
   app.dbVersion = "1.0.1";
-  app.appUrl = app.appName.split(" ").join("+");
+  app.appUrl = generateStringUrl(app.appName);
   app.menu = app.menu.map((m: InitAppMenu) => {
     const { uid, menuId, label, value, isBooking, isStore, icon } = m;
     // app link should point to app url
@@ -17,7 +18,7 @@ const initAppVersions = (app: IAppSchema) => {
     if (isBooking || value === "booking") {
       return { uid, menuId, value, icon, label: "calendar", category: "calendar", link: "/booking/" + app.appUrl };
     }
-    const link = "/app/" + app.appUrl + "/" + m.value.split(" ").join("+");
+    const link = "/app/" + app.appUrl + "/" + generateStringUrl(m.value);
     return { uid, menuId, label, value, icon, category: "page", link };
   });
 };

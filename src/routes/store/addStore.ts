@@ -7,6 +7,7 @@ import { createStore } from "@db/models/store/createStore";
 import { addAccount } from "@utils/stripe/accounts/addAccount";
 import { v4 } from "uuid";
 import { StoreSchema } from "@app/store";
+import { generateStringUrl } from "@utils/app/generateUrl";
 
 export const addStore = async (req: StoreRequest, res: Response, next: NextFunction) => {
   try {
@@ -27,11 +28,13 @@ export const addStore = async (req: StoreRequest, res: Response, next: NextFunct
       ownerId,
       appId: _id,
       hero,
+      storeLink: generateStringUrl(req.body.storeName),
       accountId: "",
       inventory: [],
       pendingOrders: [],
       completedOrders: [],
       inCompleteOrders: [],
+      orders: [],
     };
 
     const account = await addAccount({ addAccount: { country, email, type: "standard" } });

@@ -5,6 +5,7 @@ import { AppRequest } from "@app/request";
 import { formatFormData } from "@utils/app/format/formatFormData";
 import Page from "@db/schema/page";
 import { formatMenuPageData } from "@utils/app/format/formatMenuPageData";
+import { generateStringUrl } from "@utils/app/generateUrl";
 
 export const addPage = async (req: AppRequest<IPage>, res: Response, next: NextFunction) => {
   try {
@@ -40,7 +41,7 @@ export const addPage = async (req: AppRequest<IPage>, res: Response, next: NextF
     });
     if (pageData.pageId) {
       // app page name to appurl
-      const link = req.project.appUrl + "/" + pageName.split(" ").join("+");
+      const link = req.project.appUrl + "/" + generateStringUrl(pageName);
       const menuItem = formatMenuPageData({ pageName, menuId: pageData.pageId, category: "page", link });
       // link page to app menu
       req.project.menu.push(menuItem);
