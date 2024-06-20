@@ -58,15 +58,18 @@ const appSchema = new Schema<IAppSchema>(
       subtitle: { type: String, default: "" },
       hasMedias: { type: Boolean, default: false },
       hero: { type: String, default: "" },
-      medias: [
-        {
-          media: { type: String, default: "" },
-          link: { type: String, default: "" },
-          url: { type: String, default: "" },
-          sharedKey: { type: String, default: v4 },
-          uid: { type: String, default: v4 },
-        },
-      ],
+      medias: {
+        type: [
+          {
+            media: { type: String, default: "" },
+            link: { type: String, default: "" },
+            url: { type: String, default: "" },
+            sharedKey: { type: String, default: v4 },
+            uid: { type: String, default: v4 },
+          },
+        ],
+        default: [],
+      },
     },
     menu: [
       {
@@ -82,9 +85,9 @@ const appSchema = new Schema<IAppSchema>(
       },
     ],
     calendar: { type: Schema.Types.ObjectId, ref: "Calendar" },
-    pages: [{ type: Schema.Types.ObjectId, ref: "Pages" }],
-    notifications: [{ type: Schema.Types.ObjectId, ref: "Notification" }],
-    subscribers: [{ type: Schema.Types.ObjectId, ref: "Users" }],
+    pages: { type: [{ type: Schema.Types.ObjectId, ref: "Pages" }], default: [] },
+    notifications: { type: [{ type: Schema.Types.ObjectId, ref: "Notification" }], default: [] },
+    subscribers: { type: [{ type: Schema.Types.ObjectId, ref: "Users" }], default: [] },
     store: { type: Schema.Types.ObjectId, ref: "Store" },
     dbVersion: { type: Schema.Types.String },
   },

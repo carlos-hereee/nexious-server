@@ -11,8 +11,8 @@ export const checkoutCompleted = async (event: Stripe.CheckoutSessionCompletedEv
       const orderId = metadata ? metadata.orderId : undefined;
       // fullfill order is checkout is paid
       if (payment_status === "paid") await completeCheckoutOrder({ accountId, orderId, sessionId: id });
+      // Save an order in your database, marked as 'awaiting payment'
       else {
-        // Save an order in your database, marked as 'awaiting payment'
         await updateStore({ accountId, orderId, status: "awaiting-payment", type: "checkout-complete" });
       }
     }
