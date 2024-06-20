@@ -27,6 +27,7 @@ export const fulFillOrder = async (event: Stripe.CheckoutSessionAsyncPaymentSucc
       status: "accepted",
       paymentStatus: "paid",
     });
+    // TODO: SEND NOTIFICATIONS
     // update merch quantity
     session.line_items.data.forEach(async (d) => {
       const quantity = d.quantity || 1;

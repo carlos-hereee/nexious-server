@@ -128,6 +128,7 @@ export interface StoreSchema {
   completedOrders: IOrderShema[];
   inCompleteOrders: IOrderShema[];
   inventory: ObjectId[];
+  posts: ObjectId[];
 }
 export interface IStoreSchema extends StoreSchema, Document {
   _id: ObjectId;

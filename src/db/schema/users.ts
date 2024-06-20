@@ -18,7 +18,9 @@ const userSchema = new Schema<IUserSchema>(
     permissions: [{ appId: { type: Schema.Types.ObjectId, ref: "App", require: true }, role: { type: String } }],
     auth: { type: Schema.Types.ObjectId, ref: "Auth" },
     ownedApps: [{ type: Schema.Types.ObjectId, ref: "App" }],
+    notifications: [{ type: Schema.Types.ObjectId, ref: "Notification" }],
     subscriptions: [{ type: Schema.Types.ObjectId, ref: "App" }],
+    feed: [{ type: Schema.Types.ObjectId, ref: "Post" }],
   },
   { timestamps: true }
 );

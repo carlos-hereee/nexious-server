@@ -1,5 +1,5 @@
 import type { IUserSchema } from "./user";
-import type { IMerchSchema, IStoreSchema, MerchBodyParams, RequestStore, StoreBody } from "./store";
+import type { IMerchSchema, IStoreSchema, RequestStore, StoreBody } from "./store";
 import type { Request } from "express";
 import type Stripe from "stripe";
 import type { AuthBody, IAuthSchema } from "./auth";
@@ -57,7 +57,6 @@ export interface FileRequest extends Request {
 
 export interface StoreRequest<B = StoreBody> extends Request {
   body: B;
-  asset?: string;
   params: {
     storeId: string;
     appId: string;
@@ -70,6 +69,7 @@ export interface StoreRequest<B = StoreBody> extends Request {
   project: IAppSchema;
   user: IUserSchema;
   merch: IMerchSchema;
+  asset?: string;
   assets: { hero: string; sectionHero: string[]; catalog: string[] };
   account?: Stripe.Response<Stripe.Account>;
 }
@@ -84,12 +84,6 @@ export interface StoreRemovalRequest extends Request {
   project: IAppSchema;
 }
 
-export interface AddStoreMerchRequest extends Request {
-  body: MerchBodyParams;
-  store: IStoreSchema;
-  asset?: string;
-  assets: { hero: string; sectionHero: string[]; catalog: string[] };
-}
 export interface StripeWebhookRequest extends Request {
   body: RequestStore;
   store?: IStoreSchema;
