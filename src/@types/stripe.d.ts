@@ -1,5 +1,10 @@
 import type Stripe from "stripe";
 
+export interface CheckoutCompleteSession {
+  accountId: string;
+  sessionId: string;
+  orderId?: string;
+}
 export interface StripeAccountParams {
   id?: string;
   accountId?: string;

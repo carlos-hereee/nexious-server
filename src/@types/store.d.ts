@@ -1,5 +1,5 @@
 import type { Document } from "mongoose";
-import { ObjectId } from "./db";
+import { NotificationSchema, ObjectId } from "./db";
 
 export interface StoreFilters {
   storeId: string;
@@ -13,7 +13,8 @@ export interface UpdateStoreParams {
   order?: IOrderShema;
   client?: ClientSchema;
   stripe?: StoreUpdateWithStripe;
-  type?: "payment" | "stripe-account-updated" | "checkout-complete" | "checkout-complete-paid";
+  notification?: NotificationSchema;
+  type?: "payment" | "stripe-account-updated" | "checkout-complete" | "checkout-paid";
 }
 export interface GetMerchProps {
   storeId?: string;

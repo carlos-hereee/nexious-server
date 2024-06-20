@@ -1,14 +1,17 @@
 import type { Request } from "express";
 import type { Document } from "mongoose";
-import type { ObjectId } from "./db";
+import type { NotificationSchema, ObjectId } from "./db";
 // import type { ILandingPage } from "./page";
 import type { IUserSchema } from "./user";
 
 export interface AppFilters {
   appId?: string;
+  accountId?: string;
+  type?: "add-notification";
   id?: ObjectId;
   appName?: string;
   appIds?: string[];
+  notification?: NotificationSchema;
   ownerId?: ObjectId;
   all?: boolean;
   locale?: string;

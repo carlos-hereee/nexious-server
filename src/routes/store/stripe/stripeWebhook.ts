@@ -13,12 +13,12 @@ export const stripeWebhook = async (req: StripeWebhookRequest, res: Response) =>
   if (event) {
     // Handle the event
     switch (event.type) {
-      // case "payment_intent.succeeded":
-      //   paymentIntentSucceeded(event);
-      //   break;
-      // case "payment_intent.payment_failed":
-      //   paymentIntentFailed(event);
-      //   break;
+      //   case "payment_intent.succeeded":
+      //     paymentIntentSucceeded(event);
+      //     break;
+      //   case "payment_intent.payment_failed":
+      //     paymentIntentFailed(event);
+      //     break;
       // case "payment_method.attached":
       //   paymentAttached(event);
       //   break;
