@@ -8,14 +8,14 @@ export const minAppData = async (req: AppRequest, res: Response) => {
     const data: MinAppResponseData = {};
     // populate user data required by client
     if (req.user) {
-      const userData = "ownedApps subscriptions permissions";
+      const userData = "ownedApps subscriptions permissions notifications";
       // depopulate auth data for security
       const user = await req.user.depopulate("auth").populate(userData);
       data.user = user;
     }
     // populate app data required by client
     if (req.project) {
-      const appData = "owner adminIds landing pages calendar";
+      const appData = "owner adminIds landing pages calendar notifications";
       const app = await req.project.populate(appData);
       data.app = app;
     }

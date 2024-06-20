@@ -83,6 +83,8 @@ const appSchema = new Schema<IAppSchema>(
     ],
     calendar: { type: Schema.Types.ObjectId, ref: "Calendar" },
     pages: [{ type: Schema.Types.ObjectId, ref: "Pages" }],
+    notifications: [{ type: Schema.Types.ObjectId, ref: "Notification" }],
+    subscribers: [{ type: Schema.Types.ObjectId, ref: "Users" }],
     store: { type: Schema.Types.ObjectId, ref: "Store" },
     dbVersion: { type: Schema.Types.String },
   },

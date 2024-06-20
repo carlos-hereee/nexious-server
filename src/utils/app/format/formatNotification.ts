@@ -17,7 +17,7 @@ export const formatNotification = ({ type, store, merch }: FormatNotification): 
     data.category = "app";
     data.name = "A new merchandise was added";
     data.message = `${store.storeName || ""} added ${merch.inStock} to their iventory`;
-    data.link = `/store/${store.storeName?.split(" ").join("+")}/${merch.name.split(" ").join("+")} `;
+    data.link = `/store/${store.storeName?.split(" ").join("+")}/${merch.name.split(" ").join("+")}`;
   }
   return data;
 };

@@ -7,25 +7,33 @@ import { MerchBodyParams, MerchSchema } from "@app/store";
 import { createNotification } from "@db/models/notification/createNotification";
 import { StoreRequest } from "@app/request";
 import { formatNotification } from "@utils/app/format/formatNotification";
+import { sendNotification } from "@db/models/notification/sendNotification";
 
 export const addMerch = async (req: StoreRequest<MerchBodyParams>, res: Response, next: NextFunction) => {
   try {
     // key variables
     const { _id: storeId, accountId, isStripeActive } = req.store;
     const thumbnail = req.asset || req.assets.hero || req.body.hero || "";
-    const user = req.user;
     // add thumbnail to image catalog if exists
     const catalog = thumbnail ? (req.assets.catalog.length > 0 ? [thumbnail, ...req.assets.catalog] : [""]) : [];
     // init merch payload
     let payload: MerchSchema = { ...req.body, thumbnail, storeId, productId: "", priceId: "", catalog, onHold: 0 };
-    console.log("payload :>> ", payload);
+    // create notification
     const notificationData = formatNotification({ type: "add-merch", store: req.store, merch: payload });
     const notification = await createNotification(notificationData);
-    // link notification to app
-    req.project.notfications;
+    // on success link notification to app
+    if (notification) {
+      req.project.notifications.push(notification._id);
+      req.user.notifications.push(notification._id);
+      // notify subscribers
+      req.project.subscribers.forEach(async (sub) => {
+        await sendNotification({ id: sub, notificationId: notification._id, type: "user" });
+      });
+      // save to db
+      await req.project.save();
+    }
 
     // add merch to stripe if stripe account is active
-    console.log("notification :>> ", notification);
     if (accountId && isStripeActive) {
       const { merch, error } = await addProductInfo({ merch: payload, store: req.store });
       if (!error) payload = merch;

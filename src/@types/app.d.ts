@@ -94,6 +94,8 @@ export interface IAppSchema extends Document {
   menu: IMenu[];
   calendar: ObjectId;
   store: ObjectId;
+  notifications: ObjectId[];
+  subscribers: ObjectId[];
   pages: ObjectId[];
 }
 export interface AppPayload {

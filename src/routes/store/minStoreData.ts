@@ -9,12 +9,12 @@ export const minStoreData = async (req: StoreRequest, res: Response) => {
     // populate user data required by client
     if (req.user) {
       // depopulate auth data for security
-      const user = await req.user.depopulate("auth").populate("ownedApps subscriptions permissions");
+      const user = await req.user.depopulate("auth").populate("ownedApps subscriptions permissions notifications");
       data.user = user;
     }
     // populate app data required by client
     if (req.project) {
-      const app = await req.project.populate("owner adminIds landing pages calendar");
+      const app = await req.project.populate("owner adminIds landing pages calendar notifications");
       data.app = app;
     }
     // populate inventory in response
