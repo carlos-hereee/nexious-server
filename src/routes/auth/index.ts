@@ -14,6 +14,7 @@ import { requireUser } from "@middleware/auth/requireUser";
 import { aquireAuthSession } from "@middleware/auth/authSession";
 import { editUser } from "./editUser";
 import { minUserData } from "./minUserData";
+import { removeNotification } from "./removeNotification";
 
 const route = Router();
 
@@ -33,5 +34,6 @@ route.post("/forgot-password", userWare, changePassword);
 route.put("/update-user", userWare, editUser, minUserData);
 // log out
 route.delete("/logout", requireUser, aquireAuthSession, logout);
+route.delete("/remove-notification/:notificationId", requireUser, removeNotification, minUserData);
 
 export default route;

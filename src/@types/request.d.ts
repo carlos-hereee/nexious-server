@@ -28,6 +28,7 @@ export interface AuthRequest extends Request {
     userId: string;
     appId: string;
     username: string;
+    notificationId: string;
   };
   auth: IAuthSchema;
   body: AuthBody;

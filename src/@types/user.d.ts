@@ -29,6 +29,7 @@ export interface IUserSchema extends Document {
   ownedApps: ObjectId[];
   subscriptions: ObjectId[];
   notifications: ObjectId[];
+  archivedNotifications: string[];
   feed: ObjectId[];
 }
 export interface InitUser {

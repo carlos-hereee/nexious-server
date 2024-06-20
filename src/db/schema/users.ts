@@ -22,6 +22,7 @@ const userSchema = new Schema<IUserSchema>(
     auth: { type: Schema.Types.ObjectId, ref: "Auth" },
     ownedApps: { type: [{ type: Schema.Types.ObjectId, ref: "App" }], default: [] },
     notifications: { type: [{ type: Schema.Types.ObjectId, ref: "Notification" }], default: [] },
+    archivedNotifications: { type: [{ type: String, ref: "Notification" }], default: [] },
     subscriptions: { type: [{ type: Schema.Types.ObjectId, ref: "App" }], default: [] },
     feed: { type: [{ type: Schema.Types.ObjectId, ref: "Post" }], default: [] },
   },
