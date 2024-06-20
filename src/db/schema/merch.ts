@@ -16,6 +16,7 @@ const merchSchema = new Schema<IMerchSchema>(
     priceId: { type: String },
     // currency: { type: String, default: "usd" },
     thumbnail: { type: String, default: "" },
+    merchLink: { type: String, default: "" },
     hasCatalog: { type: Boolean, default: false },
     catalog: [{ type: String, default: "" }],
     hero: { type: String, default: "" },

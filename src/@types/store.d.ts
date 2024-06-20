@@ -43,6 +43,7 @@ export interface MerchSchema {
   storeId: ObjectId;
   description: string;
   name: string;
+  merchLink: string;
   cost: number;
   inStock: number;
   onHold: number;
