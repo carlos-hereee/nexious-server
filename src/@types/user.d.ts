@@ -20,7 +20,7 @@ export interface IUserSchema extends Document {
   nickname: string;
   avatar: string;
   email: string;
-  phone: number;
+  phone: string;
   locale: string;
   theme: string;
   name?: string;
