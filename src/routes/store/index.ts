@@ -10,7 +10,6 @@ import { getConfirmation } from "./getConfirmation";
 import { stripeWebhook } from "./stripe/stripeWebhook";
 import { initHook } from "@utils/stripe/webhook/initHook";
 import { removeStore } from "./removeStore";
-import { getStoreMerch } from "./getStoreMerch";
 import { removeMerchendise } from "./removeMerch";
 import { getStoreWithName } from "./getStoreWithName";
 import { getStripeAccount } from "./stripe/getStripeAccount";
@@ -35,7 +34,7 @@ route.get("/app/:appName", getStoreWithName);
 // stripe payments
 route.get("/confirm-intent", getConfirmation);
 route.get("/stripe-account/:appId", storeWare, getStripeAccount, minStoreData);
-route.get("/inventory/:storeId", getStoreMerch);
+route.get("/inventory/:storeId", getStoreWithStoreId, minStoreData);
 // route.post("/request-secret", requestSecret);
 // route.post("/create-checkout-session", getCartMerch, checkoutSession);
 route.post("/create-checkout-session", requireClientData, checkoutSession);

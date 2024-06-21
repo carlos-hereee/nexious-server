@@ -2,10 +2,9 @@ import Stripe from "stripe";
 import { getSessionWithId } from "../payments/getSessionWithId";
 import { updateMerch } from "@db/models/merch/updateMerch";
 import { CheckoutCompleteSession } from "@app/stripe";
-import { formatNotification } from "@utils/app/format/formatNotification";
 import { updateApp } from "@db/models/app/updateApp";
-import { createNotification } from "@db/models/notification/createNotification";
 import { getStore } from "@db/models/store/getStore";
+import { addNotification } from "@utils/app/addNotification";
 
 // // Retrieve the session. If you require line items in the response, you may include them by expanding line_items.
 const generateSession = async (id: string, stripeAccount: string) => {
@@ -31,8 +30,7 @@ const completeCheckout = async (accountId: string, orderId: string) => {
   // find store
   const store = await getStore({ accountId });
   // create notification
-  const notification = formatNotification({ type: "order-paid" });
-  const n = await createNotification(notification);
+  const n = await addNotification("order-paid");
   if (store) {
     // link notification to app
     const app = await updateApp({ id: store.appId, type: "add-notification", notificationId: n._id });

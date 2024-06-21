@@ -4,7 +4,7 @@ import { IUserSchema } from "@app/user";
 import { generateStringUrl } from "../generateUrl";
 
 interface FormatNotification {
-  type: "add-merch" | "edit-user" | "order-paid";
+  type: "add-merch" | "edit-user" | "order-paid" | "order-in-store";
   user?: IUserSchema;
   merch?: MerchSchema;
   store?: IStoreSchema;
@@ -30,6 +30,12 @@ export const formatNotification = ({ type, store, merch }: FormatNotification): 
     data.category = "orders";
     data.name = "Order paid";
     data.message = `Client made a succesfull payment `;
+    data.link = "";
+  }
+  if (type === "order-paid") {
+    data.category = "orders";
+    data.name = "Order submitted";
+    data.message = `Client placed an order`;
     data.link = "";
   }
   return data;
