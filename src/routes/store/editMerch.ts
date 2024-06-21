@@ -3,6 +3,7 @@ import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { StoreRequest } from "@app/request";
 import { MerchBody } from "@app/store";
 import { generateStringUrl } from "@utils/app/generateUrl";
+import { addNotification } from "@utils/app/addNotification";
 
 export const editMerch = async (req: StoreRequest<MerchBody>, res: Response, next: NextFunction) => {
   try {
@@ -16,8 +17,6 @@ export const editMerch = async (req: StoreRequest<MerchBody>, res: Response, nex
     // format cost and in stock numbers
     const inStock = parseInt(stock, 10);
     const cost = parseInt(c, 10);
-    // TODO: ADD NOTIFICATION IF MORE MERCH IN STOCK
-    if (req.merch.inStock !== inStock) req.merch.inStock = inStock;
     if (req.merch.cost !== cost) req.merch.cost = cost;
     // format hero/thumbnail image
     if (req.merch.hasCatalog !== (images === "true")) req.merch.hasCatalog = images === "true";
@@ -26,6 +25,11 @@ export const editMerch = async (req: StoreRequest<MerchBody>, res: Response, nex
     if (req.merch.hero !== hero) {
       req.merch.hero = hero;
       req.merch.thumbnail = hero;
+    }
+    if (req.merch.inStock !== inStock) {
+      req.merch.inStock = inStock;
+      const n = await addNotification("edit-merch", `${inStock} of ${name} have been added to store inventory`);
+      req.project.notifications.push(n._id);
     }
     // save merch to db
     await req.merch.save();
