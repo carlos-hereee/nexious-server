@@ -33,6 +33,7 @@ import { minUserData } from "../auth/minUserData";
 import { deletePage } from "./pages/deletePage";
 import { deleteMenuItem } from "./deleteMenuItem";
 import { latest } from "./updateApp/latest";
+import { deleteNotification } from "./deleteNotification";
 
 const route = Router();
 // load app data
@@ -59,6 +60,7 @@ route.post("/add-media/:appId", adminWare, addMedia, minAppData);
 route.delete("/delete-app/:appId", adminWare, deleteApp, minAppData);
 route.delete("/delete-page/:appId/page/:pageId", adminWare, pageWare, deletePage, minAppData);
 route.delete("/:appId/menu/:menuId", adminWare, deleteMenuItem, minAppData);
+route.delete("/:appId/remove-notification/:notificationId", adminWare, deleteNotification, minAppData);
 route.delete("/delete-media/:appId/media/:assetId", adminWare, removeMedia, minAppData);
 
 export default route;

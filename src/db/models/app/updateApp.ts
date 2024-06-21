@@ -6,6 +6,6 @@ export const updateApp = async ({ id, type, notificationId }: AppFilters) => {
     // require key variable
     if (!id) throw Error("id param is required");
     if (!notificationId) throw Error("notificationId param is required");
-    return await App.updateOne(id, { $addToSet: { notifications: notificationId } });
+    return await App.updateOne({ _id: id }, { $addToSet: { notifications: notificationId } });
   }
 };

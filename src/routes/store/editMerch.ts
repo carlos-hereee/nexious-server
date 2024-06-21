@@ -16,6 +16,7 @@ export const editMerch = async (req: StoreRequest<MerchBody>, res: Response, nex
     // format cost and in stock numbers
     const inStock = parseInt(stock, 10);
     const cost = parseInt(c, 10);
+    // TODO: ADD NOTIFICATION IF MORE MERCH IN STOCK
     if (req.merch.inStock !== inStock) req.merch.inStock = inStock;
     if (req.merch.cost !== cost) req.merch.cost = cost;
     // format hero/thumbnail image

@@ -13,7 +13,7 @@ export const storeSession = async (req: StoreRequest<StoreSessionBody>, res: Res
     const { storeId, email, location, location2, appId } = req.store;
     const store = { storeId, email, location: location || "", location2: location2 || "" };
     // format order data
-    const order: IOrderShema = { store, client, merch: cart, status: "pending" };
+    const order: IOrderShema = { store, client, merch: cart, status: "pending", paymentMethod: "in-store" };
     // create notification
     const n = await addNotification("order-in-store");
     await updateApp({ id: appId, type: "add-notification", notificationId: n._id });

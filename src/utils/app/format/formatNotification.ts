@@ -32,7 +32,7 @@ export const formatNotification = ({ type, store, merch }: FormatNotification): 
     data.message = `Client made a succesfull payment `;
     data.link = "";
   }
-  if (type === "order-paid") {
+  if (type === "order-in-store") {
     data.category = "orders";
     data.name = "Order submitted";
     data.message = `Client placed an order`;
