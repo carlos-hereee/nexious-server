@@ -25,6 +25,7 @@ import { editStripeMerch } from "./editStripeMerch";
 import { getMerchWithId } from "@middleware/store/getMerchWithId";
 import { requireClientData } from "@middleware/store/requireClientData";
 import { getStripeAccountBalance } from "./stripe/getStripeAccountBalance";
+import { managePayouts } from "./stripe/managePayouts";
 
 const route = Router();
 const bodyParse = bodyParser.raw({ type: "application/json" });
@@ -37,8 +38,9 @@ route.get("/confirm-intent", getConfirmation);
 route.get("/stripe-account/:appId", storeWare, getStripeAccount, minStoreData);
 route.get("/stripe-account/:appId/balance", storeWare, getStripeAccountBalance, minStoreData);
 route.get("/inventory/:storeId", getStoreWithStoreId, minStoreData);
+// manage stripe payouts
+route.post("/stripe-account/:appId/payouts/:option", storeWare, managePayouts, minStoreData);
 // route.post("/request-secret", requestSecret);
-// route.post("/create-checkout-session", getCartMerch, checkoutSession);
 route.post("/create-checkout-session", requireClientData, checkoutSession);
 // request for in store appointments
 route.post("/checkout-store-session/:storeId", getStoreWithStoreId, requireClientData, storeSession);

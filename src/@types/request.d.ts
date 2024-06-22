@@ -69,6 +69,7 @@ export interface StoreRequest<B = StoreBody> extends Request {
   params: {
     storeId: string;
     appId: string;
+    option: string;
     from: string;
     orderId: string;
     merchId: string;
