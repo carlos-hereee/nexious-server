@@ -30,6 +30,7 @@ export const editMerch = async (req: StoreRequest<MerchBody>, res: Response, nex
       req.merch.inStock = inStock;
       const n = await addNotification("edit-merch", `${inStock} of ${name} have been added to store inventory`);
       req.project.notifications.push(n._id);
+      await req.project.save();
     }
     // save merch to db
     await req.merch.save();

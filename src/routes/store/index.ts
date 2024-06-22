@@ -24,6 +24,7 @@ import { editMerch } from "./editMerch";
 import { editStripeMerch } from "./editStripeMerch";
 import { getMerchWithId } from "@middleware/store/getMerchWithId";
 import { requireClientData } from "@middleware/store/requireClientData";
+import { getStripeAccountBalance } from "./stripe/getStripeAccountBalance";
 
 const route = Router();
 const bodyParse = bodyParser.raw({ type: "application/json" });
@@ -34,6 +35,7 @@ route.get("/app/:appName", getStoreWithName);
 // stripe payments
 route.get("/confirm-intent", getConfirmation);
 route.get("/stripe-account/:appId", storeWare, getStripeAccount, minStoreData);
+route.get("/stripe-account/:appId/balance", storeWare, getStripeAccountBalance, minStoreData);
 route.get("/inventory/:storeId", getStoreWithStoreId, minStoreData);
 // route.post("/request-secret", requestSecret);
 // route.post("/create-checkout-session", getCartMerch, checkoutSession);
@@ -44,12 +46,10 @@ route.post("/stripe-account-link/:appId", storeWare, stripeOnboarding);
 // add to store
 route.post("/build-store/:appId", heroWare, addStore, minStoreData);
 route.post("/add-merch/:appId", storeWare, merchindiseWare, addMerch, minStoreData);
+// construct stripe webhook
 route.post("/webhook", bodyParse, initHook, stripeWebhook);
-// route.post("/webhook/connect", bodyParse, initHook, stripeWebhook);
-// route.post("/complete-checkout", requestSecret);
 
 // update store
-// route.put("/update-store/:appId", heroWare, editStore, minStoreData);
 route.put("/update-store/:appId", storeWare, editStore, minStoreData);
 // update order details
 route.put("/:appId/order/:orderUpdate/from/:from", storeWare, updateOrder, minStoreData);

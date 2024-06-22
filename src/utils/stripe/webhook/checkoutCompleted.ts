@@ -12,9 +12,7 @@ export const checkoutCompleted = async (event: Stripe.CheckoutSessionCompletedEv
       // fullfill order is checkout is paid
       if (payment_status === "paid") await completeCheckoutOrder({ accountId, orderId, sessionId: id });
       // Save an order in your database, marked as 'awaiting payment'
-      else {
-        await updateStore({ accountId, orderId, status: "awaiting-payment", type: "checkout-complete" });
-      }
+      else await updateStore({ accountId, orderId, status: "awaiting-payment", type: "checkout-complete" });
     }
   } catch (error) {
     console.log("unable to update store order error :>> ", error);

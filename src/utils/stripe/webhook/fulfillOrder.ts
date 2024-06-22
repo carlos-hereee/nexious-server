@@ -33,23 +33,22 @@ const completeCheckout = async (accountId: string, orderId: string) => {
   const n = await addNotification("order-paid");
   if (store) {
     // link notification to app
-    const app = await updateApp({ id: store.appId, type: "add-notification", notificationId: n._id });
-    console.log("app :>> ", app);
-    // find order
-    const orderIdx = store.orders.findIndex((order) => order.orderId === orderId);
-    const targetOrder = store.orders[orderIdx];
-    if (orderIdx >= 0 && targetOrder) {
-      // update order status
-      targetOrder.status = "accepted";
-      targetOrder.merch = targetOrder.merch.map((m) => {
-        // change payment status to paid if merch contains a productid
-        if (m.productId) return { ...m, paymentStatus: "paid" };
-        return m;
-      });
-      console.log("store.orders[orderIdx] :>> ", store.orders[orderIdx]);
-      // save to db
-      await store.save();
-    }
+    await updateApp({ id: store.appId, type: "add-notification", notificationId: n._id });
+    store.orders = store.orders.map((order) => {
+      // // find order
+      if (order.orderId === orderId) {
+        // update order status
+        order.status = "accepted";
+        order.merch = order.merch.map((m) => {
+          // change payment status to paid if merch contains a productid
+          if (m.productId) return { ...m, paymentStatus: "paid" };
+          return m;
+        });
+      }
+      return order;
+    });
+    // save to db
+    await store.save();
   }
 };
 
