@@ -5,7 +5,7 @@ import { checkoutCompleted } from "@utils/stripe/webhook/checkoutCompleted";
 import { StripeWebhookRequest } from "@app/request";
 import { accountUpdated } from "@utils/stripe/webhook/accountUpdated";
 import { fulFillOrder } from "@utils/stripe/webhook/fulfillOrder";
-import { emailCustomerAboutFailedPayment } from "@utils/stripe/webhook/emailCustomer";
+// import { emailCustomerAboutFailedPayment } from "@utils/stripe/webhook/emailCustomer";
 // import { productCreated } from "./stripe/stripeProduct";
 
 export const stripeWebhook = async (req: StripeWebhookRequest, res: Response) => {
@@ -42,10 +42,10 @@ export const stripeWebhook = async (req: StripeWebhookRequest, res: Response) =>
       case "checkout.session.async_payment_succeeded":
         await fulFillOrder(event);
         break;
-      // payment was declined, or failed for some other reason.
-      case "checkout.session.async_payment_failed":
-        emailCustomerAboutFailedPayment(event);
-        break;
+      // // payment was declined, or failed for some other reason.
+      // case "checkout.session.async_payment_failed":
+      //   emailCustomerAboutFailedPayment(event);
+      //   break;
       default:
         // Unexpected event type
         console.log(`Unhandled event type ${event.type}.`);
