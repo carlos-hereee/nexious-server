@@ -11,7 +11,7 @@
     "watch:2": "tsc-alias -p tsconfig.json --watch",
     "dev": "nodemon",
     "clean": "rimraf dist",
-    "build": "tsc && tsc-alias",
+    "postinstall": "tsc && tsc-alias",
     "stripe-login": "stripe login",
     "stripe-listen": "stripe listen --forward-to localhost:4937/store/webhook",
     "stripe-checkout": "stripe trigger checkout.session.completed",
