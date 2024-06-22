@@ -3,6 +3,7 @@ import { AppRequest } from "@app/request";
 import Page from "@db/schema/page";
 import { formatFormData } from "@utils/app/format/formatFormData";
 import { formatMenuPageData } from "@utils/app/format/formatMenuPageData";
+import { generateStringUrl } from "@utils/app/generateUrl";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
 
@@ -25,17 +26,20 @@ export const updateLandingPage = async (req: AppRequest<IPage>, res: Response, n
         const pageIdx = req.project.pages.findIndex((p) => (p as unknown as IPageSchema).name === pageName);
         // if page doesnt exist
         if (pageIdx <= 0) {
-          // TODO: handle url name change
           const ctaPage: IPageSchema = await Page.create({ type: "page", name: pageName });
-          // link page app pages
-          if (ctaPage._id) req.project.pages.push(ctaPage._id);
-          const menuItem = formatMenuPageData(pageName);
-          // link page to app menu
-          req.project.menu.push({ ...menuItem, menuId: ctaPage.pageId });
-          // save linked page
-          await req.project.save();
+          // link page app pages if success
+          if (ctaPage._id && ctaPage.pageId) {
+            req.project.pages.push(ctaPage._id);
+            // format page url
+            const pageUrl = `${req.project.appUrl}/${generateStringUrl(pageName)}`;
+            const menuItem = formatMenuPageData({ pageName, category: "page", menuId: ctaPage.pageId, link: pageUrl });
+            // link page to app menu
+            req.project.menu.push(menuItem);
+          }
         }
       });
+      // save cta page data to project db
+      await req.project.save();
       req.page.cta = page.hasCta;
     }
     // if assets contains hero

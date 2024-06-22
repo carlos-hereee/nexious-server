@@ -6,9 +6,12 @@ import type { IUserSchema } from "./user";
 
 export interface AppFilters {
   appId?: string;
+  accountId?: string;
+  type?: "add-notification";
   id?: ObjectId;
   appName?: string;
   appIds?: string[];
+  notificationId?: ObjectId;
   ownerId?: ObjectId;
   all?: boolean;
   locale?: string;
@@ -57,6 +60,12 @@ export interface IMediaItem {
   sharedKey?: string;
   uid?: string;
 }
+export interface EmailParams {
+  from?: string;
+  to: string;
+  subject: string;
+  text: string;
+}
 export interface IMedia {
   title: string;
   subtitle: string;
@@ -65,18 +74,13 @@ export interface IMedia {
   medias: IMediaItem[];
 }
 export interface IMenu {
-  // name: string;
+  category: "page" | "store" | "calendar";
   value: string;
   link: string;
   label: string;
   icon?: string;
-  menuId?: string;
   uid?: string;
-  isToggle?: boolean;
-  isPrivate?: boolean;
-  isBooking?: boolean;
-  isPage?: boolean;
-  isStore?: boolean;
+  menuId?: string;
 }
 export interface IAppSchema extends Document {
   _id: ObjectId;
@@ -85,6 +89,7 @@ export interface IAppSchema extends Document {
   isFeatured?: string;
   locale: string;
   country: string;
+  dbVersion: string;
   email: string;
   appUrl: string;
   logo: string;
@@ -98,6 +103,8 @@ export interface IAppSchema extends Document {
   menu: IMenu[];
   calendar: ObjectId;
   store: ObjectId;
+  notifications: ObjectId[];
+  subscribers: ObjectId[];
   pages: ObjectId[];
 }
 export interface AppPayload {

@@ -1,7 +1,12 @@
-import { CartBody } from "@app/store";
+interface MerchBody {
+  productId: string;
+  priceId: string;
+  merchId: string;
+  quantity: number;
+}
 
-export const formatMerchData = (cart: CartBody) => {
-  return cart.merch.map((m) => {
-    return { productId: m.productId, quantity: m.quantity || 1 };
+export const formatMerchData = (cart: MerchBody[]) => {
+  return cart.map((m) => {
+    return { price: m.priceId, quantity: m.quantity || 1 };
   });
 };

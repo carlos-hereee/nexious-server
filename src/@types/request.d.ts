@@ -1,5 +1,5 @@
 import type { IUserSchema } from "./user";
-import type { IStoreSchema, MerchBodyParams, RequestStore, StoreBody } from "./store";
+import type { IMerchSchema, IStoreSchema, RequestStore, StoreBody } from "./store";
 import type { Request } from "express";
 import type Stripe from "stripe";
 import type { AuthBody, IAuthSchema } from "./auth";
@@ -12,6 +12,7 @@ export interface MinAppResponseData {
   user?: IUserSchema;
   app?: IAppSchema;
   store?: IStoreSchema;
+  account?: Stripe.Response<Stripe.Account>;
 }
 
 // initial request
@@ -27,6 +28,7 @@ export interface AuthRequest extends Request {
     userId: string;
     appId: string;
     username: string;
+    notificationId: string;
   };
   auth: IAuthSchema;
   body: AuthBody;
@@ -34,7 +36,15 @@ export interface AuthRequest extends Request {
 }
 
 export interface AppRequest<B = AppBody> extends Request {
-  params: { appId: string; locale: string; appName: string; assetId: string; pageId: string };
+  params: {
+    appId: string;
+    notificationId: string;
+    locale: string;
+    appName: string;
+    assetId: string;
+    pageId: string;
+    menuId: string;
+  };
   body: B;
   project: IAppSchema;
   page: IPageSchema;
@@ -56,10 +66,22 @@ export interface FileRequest extends Request {
 
 export interface StoreRequest<B = StoreBody> extends Request {
   body: B;
-  asset?: string;
+  params: {
+    storeId: string;
+    appId: string;
+    option: string;
+    from: string;
+    orderId: string;
+    merchId: string;
+    orderUpdate: string;
+  };
   store: IStoreSchema;
   project: IAppSchema;
   user: IUserSchema;
+  merch: IMerchSchema;
+  asset?: string;
+  assets: { hero: string; sectionHero: string[]; catalog: string[] };
+  account?: Stripe.Response<Stripe.Account>;
 }
 export interface StripeRequest extends Request {
   asset?: string;
@@ -72,12 +94,6 @@ export interface StoreRemovalRequest extends Request {
   project: IAppSchema;
 }
 
-export interface AddStoreMerchRequest extends Request {
-  body: MerchBodyParams;
-  store: IStoreSchema;
-  asset?: string;
-  assets: { hero: string; sectionHero: string[]; catalog: string[] };
-}
 export interface StripeWebhookRequest extends Request {
   body: RequestStore;
   store?: IStoreSchema;

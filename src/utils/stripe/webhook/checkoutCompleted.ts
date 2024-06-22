@@ -1,19 +1,20 @@
-import { StripeSessionCompleteEvent } from "@app/stripe";
-import { getSessionWithId } from "@utils/stripe/payments/getSessionWithId";
+import Stripe from "stripe";
+import { updateStore } from "@db/models/store/updateStore";
+import { completeCheckoutOrder } from "./fulfillOrder";
 
-export const checkoutCompleted = async (event: StripeSessionCompleteEvent) => {
-  // Handle the checkout.session.completed event
-  const sessionComplete = event.data.object;
-  // console.log(`Checkout session was successful!`, sessionComplete);
-  const sessionOptions = {
-    id: sessionComplete.id,
-    options: { expand: ["line_items"] },
-  };
-  // Retrieve the session. If you require line items in the response, you may include them by expanding line_items.
-  const session = await getSessionWithId(sessionOptions);
-  console.log("session :>> ", session);
-  // const lineItems = sessionWithLineItems.line_items;
-
-  // // Fulfill the purchase...
-  // fulFillOrder(lineItems);
+export const checkoutCompleted = async (event: Stripe.CheckoutSessionCompletedEvent) => {
+  const accountId = event.account;
+  // track order id
+  const { payment_status, id, metadata } = event.data.object;
+  try {
+    if (accountId) {
+      const orderId = metadata ? metadata.orderId : undefined;
+      // fullfill order is checkout is paid
+      if (payment_status === "paid") await completeCheckoutOrder({ accountId, orderId, sessionId: id });
+      // Save an order in your database, marked as 'awaiting payment'
+      else await updateStore({ accountId, orderId, status: "awaiting-payment", type: "checkout-complete" });
+    }
+  } catch (error) {
+    console.log("unable to update store order error :>> ", error);
+  }
 };

@@ -20,13 +20,17 @@ export interface IUserSchema extends Document {
   nickname: string;
   avatar: string;
   email: string;
-  phone: number;
+  phone: string;
   locale: string;
   theme: string;
+  name?: string;
   permissions: { appId: ObjectId; role: string }[];
   auth: ObjectId;
   ownedApps: ObjectId[];
   subscriptions: ObjectId[];
+  notifications: ObjectId[];
+  archivedNotifications: string[];
+  feed: ObjectId[];
 }
 export interface InitUser {
   username: string;

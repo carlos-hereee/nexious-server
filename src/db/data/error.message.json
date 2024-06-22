@@ -12,6 +12,7 @@
   "notVerfifed": "could not verify",
   "payloadExpired": "Payload is expired",
   "missingCredentials": "Missing one or more credentials",
+  "missingClientData": "Missing client information, email and phone number are required to continue",
   "emailRequired": "Email is required ",
   "serverIsDown": "Server is down, try again later.",
   "adminRequired": "Permission not met/granted",
@@ -19,5 +20,8 @@
   "passwordAlreadyInHistory": "Password used in the passed.",
   "tokenNotFound": "No cookies sent",
   "pageNotFound": "Page not found",
-  "storeNotFound": "Page not found"
+  "storeNotFound": "Page not found",
+  "merchNotFound": "Unable to find merhandise",
+  "orderNotFound": "Order not found",
+  "stripeAccountRequired": "Stripe account is required to continue"
 }

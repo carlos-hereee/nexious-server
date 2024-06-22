@@ -17,15 +17,16 @@ export interface IAuth {
   email: string;
   auth: AuthSchema;
   username: string;
-  phone: number;
+  phone: string;
 }
 export interface AuthBody {
   username: string;
   password: string;
+  nickname: string;
   newPassword: string;
   oldPassword: string;
-  email?: string;
-  phone?: number;
+  email: string;
+  phone: string;
 }
 export type JWTPayload = JwtPayload;
 export type JWTVerifyErrors = VerifyErrors;

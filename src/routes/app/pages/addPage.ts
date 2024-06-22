@@ -5,6 +5,7 @@ import { AppRequest } from "@app/request";
 import { formatFormData } from "@utils/app/format/formatFormData";
 import Page from "@db/schema/page";
 import { formatMenuPageData } from "@utils/app/format/formatMenuPageData";
+import { generateStringUrl } from "@utils/app/generateUrl";
 
 export const addPage = async (req: AppRequest<IPage>, res: Response, next: NextFunction) => {
   try {
@@ -38,11 +39,14 @@ export const addPage = async (req: AppRequest<IPage>, res: Response, next: NextF
       cta: page.hasCta,
       sections: page.hasSections,
     });
-    const menuItem = formatMenuPageData(pageName);
-    // link page to app menu
-    req.project.menu.push({ ...menuItem, menuId: pageData.pageId });
-    await req.project.save();
-
+    if (pageData.pageId) {
+      // app page name to appurl
+      const link = req.project.appUrl + "/" + generateStringUrl(pageName);
+      const menuItem = formatMenuPageData({ pageName, menuId: pageData.pageId, category: "page", link });
+      // link page to app menu
+      req.project.menu.push(menuItem);
+      await req.project.save();
+    }
     next();
   } catch (error) {
     useGenericErrors(res, error, "unable to add page ");

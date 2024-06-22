@@ -12,6 +12,9 @@ import { getAccessData } from "./getAccessData";
 import { registerWare, userWare, validateWare } from "@middleware/auth";
 import { requireUser } from "@middleware/auth/requireUser";
 import { aquireAuthSession } from "@middleware/auth/authSession";
+import { editUser } from "./editUser";
+import { minUserData } from "./minUserData";
+import { removeNotification } from "./removeNotification";
 
 const route = Router();
 
@@ -27,7 +30,10 @@ route.post("/refresh-token", requireUser, aquireAuthSession, refreshSession, sen
 route.post("/change-password", validateWare, changePassword, refreshSession, sendToken);
 // TODO: ADD ADDITIONAL VERFICATION MEDTHODS
 route.post("/forgot-password", userWare, changePassword);
+// edit user data
+route.put("/update-user", userWare, editUser, minUserData);
 // log out
 route.delete("/logout", requireUser, aquireAuthSession, logout);
+route.delete("/remove-notification/:notificationId", requireUser, removeNotification, minUserData);
 
 export default route;

@@ -27,7 +27,6 @@ export const uploadList = ({ name, count }: MulterUploadList) => {
 };
 // upload different types of files
 export const uploadFields = (fields: MulterUploadField[]) => {
-  console.log("fields :>> ", fields);
   return multer({ storage: memoryStorage(), fileFilter }).fields(fields);
 };
 // upload only one file

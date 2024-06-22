@@ -58,26 +58,26 @@ const appSchema = new Schema<IAppSchema>(
       subtitle: { type: String, default: "" },
       hasMedias: { type: Boolean, default: false },
       hero: { type: String, default: "" },
-      medias: [
-        {
-          media: { type: String, default: "" },
-          link: { type: String, default: "" },
-          url: { type: String, default: "" },
-          sharedKey: { type: String, default: v4 },
-          uid: { type: String, default: v4 },
-        },
-      ],
+      medias: {
+        type: [
+          {
+            media: { type: String, default: "" },
+            link: { type: String, default: "" },
+            url: { type: String, default: "" },
+            sharedKey: { type: String, default: v4 },
+            uid: { type: String, default: v4 },
+          },
+        ],
+        default: [],
+      },
     },
     menu: [
       {
+        category: { type: String, required: true },
         // menuId = pageId/storeId
-        menuId: { type: String, default: v4 },
+        menuId: { type: String },
+        // uid = universal id
         uid: { type: String, default: v4 },
-        isToggle: { type: Boolean, default: false },
-        isPrivate: { type: Boolean, default: false },
-        isPage: { type: Boolean, default: false },
-        isBooking: { type: Boolean, default: false },
-        isStore: { type: Boolean, default: false },
         value: { type: String },
         link: { type: String },
         label: { type: String },
@@ -85,8 +85,11 @@ const appSchema = new Schema<IAppSchema>(
       },
     ],
     calendar: { type: Schema.Types.ObjectId, ref: "Calendar" },
-    pages: [{ type: Schema.Types.ObjectId, ref: "Pages" }],
+    pages: { type: [{ type: Schema.Types.ObjectId, ref: "Pages" }], default: [] },
+    notifications: { type: [{ type: Schema.Types.ObjectId, ref: "Notification" }], default: [] },
+    subscribers: { type: [{ type: Schema.Types.ObjectId, ref: "Users" }], default: [] },
     store: { type: Schema.Types.ObjectId, ref: "Store" },
+    dbVersion: { type: Schema.Types.String },
   },
   { timestamps: true }
 );

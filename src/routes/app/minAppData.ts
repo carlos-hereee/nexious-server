@@ -5,28 +5,26 @@ import { AppRequest, MinAppResponseData } from "@app/request";
 export const minAppData = async (req: AppRequest, res: Response) => {
   try {
     // init response data
-    const response: MinAppResponseData = {};
+    const data: MinAppResponseData = {};
     // populate user data required by client
     if (req.user) {
-      const userData = "ownedApps subscriptions permissions";
+      const userData = "ownedApps subscriptions permissions notifications";
       // depopulate auth data for security
       const user = await req.user.depopulate("auth").populate(userData);
-      response.user = user;
+      data.user = user;
     }
     // populate app data required by client
     if (req.project) {
-      const appData = "owner adminIds landing pages calendar";
+      const appData = "owner adminIds landing pages calendar notifications";
       const app = await req.project.populate(appData);
-      response.app = app;
+      data.app = app;
     }
     // populate inventory in response
     if (req.store) {
-      console.log("req.store :>> ", req.store);
       const store = await req.store.populate("inventory");
-      response.store = store;
+      data.store = store;
     }
-
-    res.status(200).json(response).end();
+    res.status(200).json(data).end();
   } catch (error) {
     useGenericErrors(res, error, "error occurred sending client data");
   }
