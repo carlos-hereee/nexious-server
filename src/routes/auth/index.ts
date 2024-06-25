@@ -9,7 +9,7 @@ import { logout } from "./logout";
 import { changePassword } from "./changePassword";
 import { sendToken } from "./sendToken";
 import { getAccessData } from "./getAccessData";
-import { registerWare, userWare, validateWare } from "@middleware/auth";
+import { authSessionWare, registerWare, userWare, validateWare } from "@middleware/auth";
 import { requireUser } from "@middleware/auth/requireUser";
 import { aquireAuthSession } from "@middleware/auth/authSession";
 import { editUser } from "./editUser";
@@ -26,10 +26,10 @@ route.get("/access-token", requireUser, getAccessData);
 // post
 route.post("/register", registerWare, register, sendToken);
 route.post("/login", validateWare, refreshSession, sendToken);
-route.post("/refresh-token", requireUser, aquireAuthSession, refreshSession, sendToken);
+route.post("/refresh-token", requireUser, authSessionWare, refreshSession, sendToken);
 route.post("/change-password", validateWare, changePassword, refreshSession, sendToken);
 // TODO: ADD ADDITIONAL VERFICATION MEDTHODS
-route.post("/forgot-password", userWare, changePassword);
+route.post("/forgot-password/:username", userWare, authSessionWare, changePassword, refreshSession, sendToken);
 // edit user data
 route.put("/update-user", userWare, editUser, minUserData);
 // log out
