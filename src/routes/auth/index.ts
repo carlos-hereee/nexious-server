@@ -27,8 +27,8 @@ route.get("/access-token", requireUser, getAccessData);
 route.post("/register", registerWare, register, sendToken);
 route.post("/login", validateWare, refreshSession, sendToken);
 route.post("/refresh-token", requireUser, authSessionWare, refreshSession, sendToken);
-route.post("/change-password", validateWare, changePassword, refreshSession, sendToken);
 // TODO: ADD ADDITIONAL VERFICATION MEDTHODS
+route.post("/change-password/:username", userWare, authSessionWare, changePassword, refreshSession, sendToken);
 route.post("/forgot-password/:username", userWare, authSessionWare, changePassword, refreshSession, sendToken);
 // edit user data
 route.put("/update-user", userWare, editUser, minUserData);
