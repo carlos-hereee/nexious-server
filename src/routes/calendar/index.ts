@@ -7,9 +7,9 @@ import { fetchCalendar } from "./fetchCalendar";
 import { authenticateCalendar } from "@middleware/calendar";
 import { addCalendar } from "./addCalendar";
 import { heroWare } from "@middleware/app";
-import { minAppData } from "@routes/app/getApp/minAppData";
 import { updateCalendar } from "./updateCalendar";
 import { requireCalendar } from "@middleware/calendar/requireCalendar";
+import { minAppData } from "@routes/app/minAppData";
 
 const route = Router();
 // fetch calendar
