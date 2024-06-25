@@ -1,5 +1,5 @@
-import { StoreRequest } from "@app/request";
-import { StoreSessionBody } from "@app/store";
+import { StoreRequest } from "types/request";
+import { StoreSessionBody } from "types/store";
 import { NextFunction, Response } from "express";
 import message from "@db/data/error.message.json";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";

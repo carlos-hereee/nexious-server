@@ -1,5 +1,5 @@
-import { StoreRequest } from "@app/request";
-import { StoreBody } from "@app/store";
+import { StoreRequest } from "types/request";
+import { StoreBody } from "types/store";
 import { removeMerch } from "@db/models/merch/removeMerch";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { Response } from "express";

@@ -2,7 +2,7 @@ import { Response } from "express";
 import { checkoutCompleted } from "@utils/stripe/webhook/checkoutCompleted";
 // import { paymentIntentFailed, paymentIntentSucceeded } from "@utils/stripe/webhook/paymentIntent";
 // import { paymentAttached } from "@utils/stripe/webhook/paymentAttached";
-import { StripeWebhookRequest } from "@app/request";
+import { StripeWebhookRequest } from "types/request";
 import { accountUpdated } from "@utils/stripe/webhook/accountUpdated";
 import { fulFillOrder } from "@utils/stripe/webhook/fulfillOrder";
 // import { emailCustomerAboutFailedPayment } from "@utils/stripe/webhook/emailCustomer";

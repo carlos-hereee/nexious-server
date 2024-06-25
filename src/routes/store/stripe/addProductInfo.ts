@@ -1,4 +1,4 @@
-import { IStoreSchema, MerchSchema } from "@app/store";
+import { IStoreSchema, MerchSchema } from "types/store";
 import { addPrice } from "@utils/stripe/merch/addPrice";
 import { addProduct } from "@utils/stripe/merch/addProduct";
 import Stripe from "stripe";

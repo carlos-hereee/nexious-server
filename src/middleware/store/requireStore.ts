@@ -1,8 +1,8 @@
-import { StoreRequest } from "@app/request";
+import { StoreRequest } from "types/request";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import message from "@db/data/error.message.json";
 import { NextFunction, Response } from "express";
-import { StoreBody } from "@app/store";
+import { StoreBody } from "types/store";
 
 export const requireStore = (req: StoreRequest<StoreBody>, res: Response, next: NextFunction) => {
   try {

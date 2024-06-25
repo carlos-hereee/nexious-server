@@ -1,4 +1,4 @@
-import { StripeSecretParams } from "@app/stripe";
+import { StripeSecretParams } from "types/stripe";
 import stripe from "../connection";
 
 export const listSecret = async ({ listOptions }: StripeSecretParams) => {

@@ -6,7 +6,7 @@ import { listBucketItems } from "./bucket/listBucketItems";
 import { uploadFile, uploadFiles } from "./file/uploadFile";
 import { deleteBucket } from "./bucket/deleteBucket";
 import { deleteFile } from "./file/deleteFile";
-import type { AWSBucket, AWSGetBucket, IFile } from "@app/assets";
+import type { AWSBucket, AWSGetBucket, IFile } from "types/assets";
 
 // Create S3 service object
 const s3 = new S3({

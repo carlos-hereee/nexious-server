@@ -1,4 +1,4 @@
-import type { IMenu } from "@app/app";
+import type { IMenu } from "types/app";
 
 type MenuItem = {
   pageName: string;

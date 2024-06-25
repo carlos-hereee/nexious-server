@@ -1,6 +1,6 @@
-import { NotificationSchema } from "@app/db";
-import { IStoreSchema, MerchSchema } from "@app/store";
-import { IUserSchema } from "@app/user";
+import { NotificationSchema } from "types/db";
+import { IStoreSchema, MerchSchema } from "types/store";
+import { IUserSchema } from "types/user";
 import { generateStringUrl } from "../generateUrl";
 
 interface FormatNotification {

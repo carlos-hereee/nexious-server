@@ -1,4 +1,4 @@
-import { StripeSession } from "@app/stripe";
+import { StripeSession } from "types/stripe";
 import stripe from "../connection";
 
 export const getCheckoutItems = async ({ id, listOptions }: StripeSession) => {

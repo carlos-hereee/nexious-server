@@ -3,9 +3,9 @@ import { useGenericErrors } from "@utils/auth/useGenericErrors";
 
 import { NextFunction, Response } from "express";
 import { addProductInfo } from "./stripe/addProductInfo";
-import { MerchBodyParams, MerchSchema } from "@app/store";
+import { MerchBodyParams, MerchSchema } from "types/store";
 import { createNotification } from "@db/models/notification/createNotification";
-import { StoreRequest } from "@app/request";
+import { StoreRequest } from "types/request";
 import { formatNotification } from "@utils/app/format/formatNotification";
 import { sendNotification } from "@db/models/notification/sendNotification";
 import { generateStringUrl } from "@utils/app/generateUrl";

@@ -1,4 +1,4 @@
-import { StripeCustomerParams } from "@app/stripe";
+import { StripeCustomerParams } from "types/stripe";
 import stripe from "../connection";
 
 export const getStripeCustomer = async ({ getCustomer, id, stripeAccount }: StripeCustomerParams) => {

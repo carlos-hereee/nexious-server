@@ -1,4 +1,4 @@
-import type { AWSBucketParams } from "@app/assets";
+import type { AWSBucketParams } from "types/assets";
 import { bucketError } from "@utils/aws/errors";
 
 // Call S3 to delete the bucket

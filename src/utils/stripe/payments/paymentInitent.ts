@@ -1,4 +1,4 @@
-import { StripePaymentIntentParams } from "@app/stripe";
+import { StripePaymentIntentParams } from "types/stripe";
 import stripe from "../connection";
 
 export const paymentInitent = async ({ initentOptions }: StripePaymentIntentParams) => {

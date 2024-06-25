@@ -1,4 +1,4 @@
-import type { GetMerchProps } from "@app/store";
+import type { GetMerchProps } from "types/store";
 import Store from "@db/schema/store";
 
 export const getStore = async ({ appId, storeId, id, accountId }: GetMerchProps) => {

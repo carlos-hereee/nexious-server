@@ -1,4 +1,4 @@
-import { StripePaymentIntentFailed, StripeSuccessEvent } from "@app/stripe";
+import { StripePaymentIntentFailed, StripeSuccessEvent } from "types/stripe";
 
 export const paymentIntentSucceeded = (event: StripeSuccessEvent) => {
   const paymentIntent = event.data.object;

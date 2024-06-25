@@ -1,4 +1,4 @@
-import { StripeProductParams } from "@app/stripe";
+import { StripeProductParams } from "types/stripe";
 import stripe from "../connection";
 
 export const addPrice = async ({ addPriceOptions, stripeAccount }: StripeProductParams) => {

@@ -1,5 +1,5 @@
-import { StoreRequest } from "@app/request";
-import { CartBody, IOrderShema } from "@app/store";
+import { StoreRequest } from "types/request";
+import { CartBody, IOrderShema } from "types/store";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import type { Response } from "express";
 import { createSession } from "../stripe/createSession";

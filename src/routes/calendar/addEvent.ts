@@ -1,4 +1,4 @@
-import { CalendarRequest } from "@app/request";
+import { CalendarRequest } from "types/request";
 import { Response } from "express";
 // import { v4 } from "uuid";
 

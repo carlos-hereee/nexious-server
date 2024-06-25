@@ -1,4 +1,4 @@
-import { AuthRequest } from "@app/request";
+import { AuthRequest } from "types/request";
 import { Response } from "express";
 
 export const userRoute = (req: AuthRequest, res: Response) => {

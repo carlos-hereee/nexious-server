@@ -1,4 +1,4 @@
-import { StripeBankParams } from "@app/stripe";
+import { StripeBankParams } from "types/stripe";
 import stripe from "../connection";
 
 // https://stripe.com/docs/api/external_account_bank_accounts/create

@@ -1,4 +1,4 @@
-import type { AppFilters } from "@app/app";
+import type { AppFilters } from "types/app";
 import App from "@db/schema/app";
 
 export const getApp = async ({ appId, appName, locale, id }: AppFilters) => {

@@ -1,7 +1,7 @@
 import { makeSession } from "@utils/auth/makeSession";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
-import { AuthRequest } from "@app/request";
+import { AuthRequest } from "types/request";
 
 export const refreshSession = async (req: AuthRequest, res: Response, next: NextFunction) => {
   try {

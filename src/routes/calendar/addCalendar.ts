@@ -1,4 +1,4 @@
-import { CalendarRequest } from "@app/request";
+import { CalendarRequest } from "types/request";
 import Calendar from "@db/schema/calendar";
 import { formatMenuPageData } from "@utils/app/format/formatMenuPageData";
 import { NextFunction, Response } from "express";

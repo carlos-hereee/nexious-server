@@ -1,4 +1,4 @@
-import { AWSBucketError, AWSFileError } from "@app/assets";
+import { AWSBucketError, AWSFileError } from "types/assets";
 
 // errors
 export const bucketError: AWSBucketError = (err, data) => {

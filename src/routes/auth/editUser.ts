@@ -1,4 +1,4 @@
-import { AuthRequest } from "@app/request";
+import { AuthRequest } from "types/request";
 import { NextFunction, Response } from "express";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { formatNotification } from "@utils/app/format/formatNotification";

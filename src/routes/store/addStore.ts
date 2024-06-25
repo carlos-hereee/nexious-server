@@ -2,11 +2,11 @@ import { formatMenuPageData } from "@utils/app/format/formatMenuPageData";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import message from "@db/data/error.message.json";
 import { NextFunction, Response } from "express";
-import { StoreRequest } from "@app/request";
+import { StoreRequest } from "types/request";
 import { createStore } from "@db/models/store/createStore";
 import { addAccount } from "@utils/stripe/accounts/addAccount";
 import { v4 } from "uuid";
-import { StoreSchema } from "@app/store";
+import { StoreSchema } from "types/store";
 import { generateStringUrl } from "@utils/app/generateUrl";
 
 export const addStore = async (req: StoreRequest, res: Response, next: NextFunction) => {

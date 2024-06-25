@@ -1,4 +1,4 @@
-import type { AWSFileProps, AWSMultiFileUploadProps } from "@app/assets";
+import type { AWSFileProps, AWSMultiFileUploadProps } from "types/assets";
 import { fileError } from "@utils/aws/errors";
 import { generateParamFile } from "./awsParams";
 import { awsImageUrl } from "@utils/app/config";

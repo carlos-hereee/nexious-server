@@ -1,5 +1,5 @@
 import { NextFunction, Response } from "express";
-import { AuthRequest } from "@app/request";
+import { AuthRequest } from "types/request";
 import { getUser } from "@db/models/users/getUser";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 

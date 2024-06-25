@@ -1,4 +1,4 @@
-import { AppRequest } from "@app/request";
+import { AppRequest } from "types/request";
 import messages from "@db/data/error.message.json";
 import { NextFunction, Response } from "express";
 

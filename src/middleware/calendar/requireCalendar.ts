@@ -1,4 +1,4 @@
-import { CalendarRequest } from "@app/request";
+import { CalendarRequest } from "types/request";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { getCalendar } from "@db/models/calendar/getCalendar";
 import { NextFunction, Response } from "express";

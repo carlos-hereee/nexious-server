@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 import { uri } from "@utils/app/config";
 // import type { MongoError } from "mongodb";
-// import type { StatusPayload } from "@app/errors";
 
 // mongoose no longer requires these options
 // const dbOptions = { useNewUrlParser: true, useUnifiedTopology: true };

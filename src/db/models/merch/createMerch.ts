@@ -1,4 +1,4 @@
-import type { MerchSchema } from "@app/store";
+import type { MerchSchema } from "types/store";
 import Merch from "@db/schema/merch";
 
 export const createMerch = async (payload: MerchSchema) => {

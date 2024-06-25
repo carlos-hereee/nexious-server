@@ -1,4 +1,4 @@
-import { StripeFeeParams } from "@app/stripe";
+import { StripeFeeParams } from "types/stripe";
 import stripe from "../connection";
 
 export const refund = async ({ id }: StripeFeeParams) => {

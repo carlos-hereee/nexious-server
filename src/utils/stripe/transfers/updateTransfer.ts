@@ -1,4 +1,4 @@
-import type { StripeTransferParams } from "@app/stripe";
+import type { StripeTransferParams } from "types/stripe";
 import stripe from "../connection";
 
 // This request accepts only metadata as an argument.

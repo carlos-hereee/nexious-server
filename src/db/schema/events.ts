@@ -1,4 +1,4 @@
-import { IEventSchema } from "@app/calendar";
+import { IEventSchema } from "types/calendar";
 import mongoose from "mongoose";
 import { v4 } from "uuid";
 

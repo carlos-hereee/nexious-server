@@ -1,8 +1,8 @@
 import { removeApp } from "@db/models/app/removeApp";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
-import { AppRequest } from "@app/request";
-import { ObjectId } from "@app/db";
+import { AppRequest } from "types/request";
+import { ObjectId } from "types/db";
 
 export const deleteApp = async (req: AppRequest, res: Response, next: NextFunction) => {
   try {

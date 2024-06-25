@@ -1,4 +1,4 @@
-import { StripeRadarParams } from "@app/stripe";
+import { StripeRadarParams } from "types/stripe";
 import stripe from "../connection";
 
 export const removeRadarListItem = async ({ id, removeRadarItem }: StripeRadarParams) => {

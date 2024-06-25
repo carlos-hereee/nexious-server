@@ -1,4 +1,4 @@
-import { CalendarRequest } from "@app/request";
+import { CalendarRequest } from "types/request";
 import { NextFunction, Response } from "express";
 
 export const updateCalendar = async (req: CalendarRequest, _res: Response, next: NextFunction) => {

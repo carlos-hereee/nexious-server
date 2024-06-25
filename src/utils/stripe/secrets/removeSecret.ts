@@ -1,4 +1,4 @@
-import type { StripeSecretParams } from "@app/stripe";
+import type { StripeSecretParams } from "types/stripe";
 import stripe from "../connection";
 
 export const removeSecret = async ({ removeSecretOptions }: StripeSecretParams) => {

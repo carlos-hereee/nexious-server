@@ -1,4 +1,4 @@
-import { StripePaymentAttachedEvent } from "@app/stripe";
+import { StripePaymentAttachedEvent } from "types/stripe";
 
 export const paymentAttached = (event: StripePaymentAttachedEvent) => {
   const paymentMethod = event.data.object;

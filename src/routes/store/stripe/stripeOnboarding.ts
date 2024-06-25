@@ -1,4 +1,4 @@
-import { StripeRequest } from "@app/request";
+import { StripeRequest } from "types/request";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { accountLinks } from "@utils/stripe/accounts/accountLinks";
 import { Response } from "express";

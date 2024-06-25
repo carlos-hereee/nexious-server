@@ -1,4 +1,4 @@
-import type { AWSBucketParams } from "@app/assets";
+import type { AWSBucketParams } from "types/assets";
 import { bucketError } from "@utils/aws/errors";
 
 // call S3 to create the bucket

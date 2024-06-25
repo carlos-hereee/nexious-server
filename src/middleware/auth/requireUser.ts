@@ -1,4 +1,4 @@
-import { AuthRequest } from "@app/request";
+import { AuthRequest } from "types/request";
 import message from "@db/data/error.message.json";
 import { NextFunction, Response } from "express";
 

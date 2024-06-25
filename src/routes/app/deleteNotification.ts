@@ -1,5 +1,5 @@
-import { NotificationSchema } from "@app/db";
-import { AppRequest } from "@app/request";
+import { NotificationSchema } from "types/db";
+import { AppRequest } from "types/request";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
 

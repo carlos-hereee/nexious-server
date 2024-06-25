@@ -1,7 +1,7 @@
 import Stripe from "stripe";
 import { getSessionWithId } from "../payments/getSessionWithId";
 import { updateMerch } from "@db/models/merch/updateMerch";
-import { CheckoutCompleteSession } from "@app/stripe";
+import { CheckoutCompleteSession } from "types/stripe";
 import { updateApp } from "@db/models/app/updateApp";
 import { getStore } from "@db/models/store/getStore";
 import { addNotification } from "@utils/app/addNotification";

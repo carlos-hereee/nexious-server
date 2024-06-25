@@ -1,4 +1,4 @@
-import { AppRequest } from "@app/request";
+import { AppRequest } from "types/request";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
 import { updates } from "./updates";

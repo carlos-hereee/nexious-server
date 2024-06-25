@@ -1,6 +1,6 @@
 import { accessTokenName, refreshTokenName } from "@utils/app/config";
 import { cookieCongig } from "./cookieCongig";
-import type { StoreCookiesProps } from "@app/auth";
+import type { StoreCookiesProps } from "types/auth";
 import { signJWT } from "./JWT";
 
 export const storeCookies: StoreCookiesProps = (res, username, sessionId) => {

@@ -1,4 +1,4 @@
-import { IPostSchema } from "@app/db";
+import { IPostSchema } from "types/db";
 import mongoose from "mongoose";
 import { v4 } from "uuid";
 

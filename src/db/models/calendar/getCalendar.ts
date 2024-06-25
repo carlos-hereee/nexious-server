@@ -1,4 +1,4 @@
-import { CalendarFilters } from "@app/calendar";
+import { CalendarFilters } from "types/calendar";
 import Calendar from "@db/schema/calendar";
 
 export const getCalendar = async ({ appId }: CalendarFilters) => {
