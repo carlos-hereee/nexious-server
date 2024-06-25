@@ -11,6 +11,7 @@ export interface FormatNotification {
   merch?: MerchSchema;
   store?: IStoreSchema;
   message?: string;
+  link?: string;
 }
 export interface AppFilters {
   appId?: string;
