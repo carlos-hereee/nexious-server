@@ -11,6 +11,7 @@
     "watch:2": "tsc-alias -p tsconfig.json --watch",
     "dev": "nodemon",
     "clean": "rimraf dist",
+    "deploy": "git add . && git commit -m Heroku && git push heroku main",
     "postinstall": "tsc && tsc-alias",
     "stripe-login": "stripe login",
     "stripe-listen": "stripe listen --forward-to localhost:4937/store/webhook",
