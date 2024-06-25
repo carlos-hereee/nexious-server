@@ -30,7 +30,7 @@ const completeCheckout = async (accountId: string, orderId: string) => {
   // find store
   const store = await getStore({ accountId });
   // create notification
-  const n = await addNotification("order-paid");
+  const n = await addNotification({ type: "order-paid", message: "An order has been paid" });
   if (store) {
     // link notification to app
     await updateApp({ id: store.appId, type: "add-notification", notificationId: n._id });

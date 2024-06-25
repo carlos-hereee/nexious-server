@@ -5,7 +5,7 @@ export type ObjectId = Schema.Types.ObjectId;
 export type ExpressApp = Express;
 export interface NotificationSchema {
   notificationId?: string;
-  category: "user" | "app" | "store-merch" | "orders";
+  category: "user" | "app" | "store-merch" | "orders" | "store";
   message: string;
   link: string;
   name: string;

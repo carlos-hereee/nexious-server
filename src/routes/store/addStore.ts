@@ -8,6 +8,7 @@ import { addAccount } from "@utils/stripe/accounts/addAccount";
 import { v4 } from "uuid";
 import { StoreSchema } from "types/store";
 import { generateStringUrl } from "@utils/app/generateUrl";
+import { addNotification } from "@utils/app/addNotification";
 
 export const addStore = async (req: StoreRequest, res: Response, next: NextFunction) => {
   try {
@@ -42,10 +43,18 @@ export const addStore = async (req: StoreRequest, res: Response, next: NextFunct
     storeData.accountId = account.id;
     // // save store data
     const store = await createStore(storeData);
+    // create notification
+    const notification = await addNotification({
+      type: "add-store",
+      message: "Successfull added merch to inventory",
+      link: `/store/${generateStringUrl(req.store?.storeName || "")}`,
+    });
     // // connect store to app
     req.project.store = store._id;
     req.project.menu.push(menuData);
+    req.project.notifications.push(notification._id);
     req.store = store;
+    // save to db
     await req.project.save();
     next();
   } catch (error) {

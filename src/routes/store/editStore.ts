@@ -3,6 +3,7 @@ import { StoreBody } from "types/store";
 import { generateStringUrl } from "@utils/app/generateUrl";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
+import { addNotification } from "@utils/app/addNotification";
 
 export const editStore = async (req: StoreRequest<StoreBody>, res: Response, next: NextFunction) => {
   try {
@@ -15,8 +16,12 @@ export const editStore = async (req: StoreRequest<StoreBody>, res: Response, nex
     if (title) req.store.title = title;
     if (body) req.store.body = body;
     if (hero) req.store.hero = hero;
-
+    // create notification
+    const n = await addNotification({ type: "edit-store", message: "An order has been paid" });
+    req.project.notifications.push(n._id);
+    // save changes to db
     await req.store.save();
+    await req.project.save();
 
     next();
   } catch (error) {

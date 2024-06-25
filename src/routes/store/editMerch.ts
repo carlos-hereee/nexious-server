@@ -31,7 +31,7 @@ export const editMerch = async (req: StoreRequest<MerchBody>, res: Response, nex
       const n = await addNotification({
         type: "edit-merch",
         message: `${inStock} of ${name} have been added to store inventory`,
-        link: req.merch.merchLink,
+        link: `/store/${generateStringUrl(req.store?.storeName || "")}/${req.merch.merchLink}`,
       });
       req.project.notifications.push(n._id);
       await req.project.save();

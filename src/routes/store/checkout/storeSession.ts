@@ -15,7 +15,7 @@ export const storeSession = async (req: StoreRequest<StoreSessionBody>, res: Res
     // format order data
     const order: IOrderShema = { store, client, merch: cart, status: "pending", paymentMethod: "in-store" };
     // create notification
-    const n = await addNotification("order-in-store");
+    const n = await addNotification({ type: "order-in-store", message: `Ann order was submited` });
     await updateApp({ id: appId, type: "add-notification", notificationId: n._id });
 
     // add order to store pending order
