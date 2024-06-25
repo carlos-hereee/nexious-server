@@ -7,6 +7,7 @@ import App from "@db/schema/app";
 import { IPageSchema } from "types/page";
 import data from "@db/data/lorem.json";
 import { generateStringUrl } from "@utils/app/generateUrl";
+import { addNotification } from "@utils/app/addNotification";
 
 export const initApp = async (req: AppRequest, res: Response, next: NextFunction) => {
   try {
@@ -26,6 +27,10 @@ export const initApp = async (req: AppRequest, res: Response, next: NextFunction
     req.project = app;
     req.user.ownedApps.push(app._id);
     req.user.permissions.push({ appId: app._id, role: "owner" });
+    // add notification
+    const n = await addNotification({ type: "app-update", message: "App creation was successful" });
+    req.user.notifications.push(n._id);
+    // save to db
     await req.user.save();
     next();
   } catch (error) {

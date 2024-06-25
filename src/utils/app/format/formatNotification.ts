@@ -16,6 +16,10 @@ export const formatNotification = ({ type, store, merch, message }: FormatNotifi
     data.category = "user";
     data.name = "Account updated";
   }
+  if (type === "app-update") {
+    data.category = "app";
+    data.name = "App udpate success";
+  }
   if (type === "order-paid") {
     data.category = "orders";
     data.name = "Order paid";

@@ -6,7 +6,7 @@ import type { IUserSchema } from "./user";
 import { IStoreSchema, MerchSchema } from "./store";
 
 export interface FormatNotification {
-  type: "add-merch" | "edit-user" | "order-paid" | "order-in-store" | "edit-merch" | "edit-calendar";
+  type: "add-merch" | "edit-user" | "order-paid" | "order-in-store" | "edit-merch" | "edit-calendar" | "app-update";
   user?: IUserSchema;
   merch?: MerchSchema;
   store?: IStoreSchema;
