@@ -1,9 +1,9 @@
 import { createNotification } from "@db/models/notification/createNotification";
 import { formatNotification } from "./format/formatNotification";
+import { FormatNotification } from "@app/app";
 
-type T = "add-merch" | "edit-user" | "order-paid" | "order-in-store" | "edit-merch";
 // create notification
-export const addNotification = async (type: T, message?: string) => {
+export const addNotification = async ({ type, message }: FormatNotification) => {
   const notification = formatNotification({ type, message });
   return await createNotification(notification);
 };

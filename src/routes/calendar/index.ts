@@ -6,7 +6,7 @@ import { addEvent } from "./addEvent";
 import { fetchCalendar } from "./fetchCalendar";
 import { authenticateCalendar } from "@middleware/calendar";
 import { addCalendar } from "./addCalendar";
-import { heroWare } from "@middleware/app";
+import { adminWare, heroWare } from "@middleware/app";
 import { updateCalendar } from "./updateCalendar";
 import { requireCalendar } from "@middleware/calendar/requireCalendar";
 import { minAppData } from "@routes/app/minAppData";
@@ -17,7 +17,7 @@ route.get("/:appId", authenticateCalendar, fetchCalendar);
 // add calendar
 route.post("/:appId", heroWare, addCalendar, minAppData);
 // update calendar
-route.put("/update/:appId", heroWare, requireCalendar, updateCalendar, minAppData);
+route.put("/update/:appId", adminWare, requireCalendar, updateCalendar, minAppData);
 // add calendar event
 route.post("/:appId/add-event", authenticateCalendar, addEvent);
 

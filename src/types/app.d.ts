@@ -3,7 +3,15 @@ import type { Document } from "mongoose";
 import type { ObjectId } from "./db";
 // import type { ILandingPage } from "./page";
 import type { IUserSchema } from "./user";
+import { IStoreSchema, MerchSchema } from "./store";
 
+export interface FormatNotification {
+  type: "add-merch" | "edit-user" | "order-paid" | "order-in-store" | "edit-merch" | "edit-calendar";
+  user?: IUserSchema;
+  merch?: MerchSchema;
+  store?: IStoreSchema;
+  message?: string;
+}
 export interface AppFilters {
   appId?: string;
   accountId?: string;

@@ -35,7 +35,10 @@ export interface ICalendarSchema extends Document {
   _id: ObjectId;
   hero: string;
   workWeek: string;
+  calendarLink: string;
   altHours: boolean;
+  startTime: string;
+  closeTime: string;
   name: string;
   theme: string;
   schedule: { eventId: ObjectId }[];
@@ -45,6 +48,8 @@ export interface ICalendarSchema extends Document {
 export interface CalendarBody {
   name: string;
   workWeek: string;
+  startTime: string;
+  closeTime: string;
   theme: string;
   altHours: string;
 }

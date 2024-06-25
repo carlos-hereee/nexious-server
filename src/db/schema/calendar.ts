@@ -10,8 +10,11 @@ const calendarSchema = new Schema<ICalendarSchema>(
     hero: { type: String },
     name: { type: String },
     theme: { type: String },
-    workWeek: { type: String },
-    altHours: { type: Boolean },
+    calendarLink: { type: String, default: "" },
+    workWeek: { type: String, default: "" },
+    startTime: { type: String, default: "" },
+    closeTime: { type: String, default: "" },
+    altHours: { type: Boolean, default: false },
     schedule: [{ eventId: { type: Schema.Types.ObjectId, ref: "Events" } }],
   },
   { timestamps: true }
