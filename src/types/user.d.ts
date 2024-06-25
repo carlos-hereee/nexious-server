@@ -12,11 +12,20 @@ export interface UserFilters {
   userId?: string;
   id?: ObjectId;
 }
-
+export interface AccountTier {
+  tier: "free" | "basic" | "advanced";
+  tierId: string;
+  calendarEvent: boolean;
+  calendarBooking: boolean;
+  storeCheckout: boolean;
+  maxApps: 1 | 3 | 10;
+  maxPagesPerApp: 5 | 10 | 20;
+}
 export interface IUserSchema extends Document {
   _id: ObjectId;
   userId: string;
   username: string;
+  accountTier: AccountTier;
   nickname: string;
   avatar: string;
   email: string;

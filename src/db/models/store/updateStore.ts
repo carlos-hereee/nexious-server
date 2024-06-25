@@ -2,10 +2,10 @@ import { UpdateStoreParams } from "types/store";
 import Store from "@db/schema/store";
 
 export const updateStore = async (params: UpdateStoreParams) => {
-  const { accountId, type, order, stripe, orderId, status, storeId } = params;
+  const { accountId, type, order, stripe, orderId, status } = params;
 
-  if (type === "payment" && order && storeId) {
-    return await Store.updateOne({ accountId }, { $push: { orders: order } });
+  if (type === "payment" && order) {
+    return await Store.updateOne({ accountId }, { $addToSet: { orders: order } });
   }
   if (type === "checkout-complete" && orderId && status) {
     return await Store.updateOne({ accountId, "orders.orderId": orderId }, { $set: { "orders.$.status": status } });

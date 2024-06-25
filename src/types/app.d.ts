@@ -25,6 +25,7 @@ export interface FormatNotification {
 export interface AppFilters {
   appId?: string;
   accountId?: string;
+  storeId?: string;
   type?: "add-notification";
   id?: ObjectId;
   appName?: string;
