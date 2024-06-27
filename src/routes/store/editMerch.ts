@@ -1,6 +1,6 @@
 import { NextFunction, Response } from "express";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
-import { StoreRequest } from "@app/request";
+import type { StoreRequest } from "@app/request";
 import { MerchBody } from "@app/store";
 import { generateStringUrl } from "@utils/app/generateUrl";
 import { addNotification } from "@utils/app/addNotification";

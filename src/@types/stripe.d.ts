@@ -1,5 +1,8 @@
 import type Stripe from "stripe";
 
+export interface CheckoutPortalSession {
+  customer: string;
+}
 export interface CheckoutCompleteSession {
   accountId: string;
   sessionId: string;
@@ -8,6 +11,7 @@ export interface CheckoutCompleteSession {
 export interface StripeAccountParams {
   id?: string;
   accountId?: string;
+  customer?: string;
   updateAccountCapability?: Stripe.CapabilityUpdateParams;
   updateAccount?: Stripe.AccountUpdateParams;
   rejectAccount?: Stripe.AccountRejectParams;

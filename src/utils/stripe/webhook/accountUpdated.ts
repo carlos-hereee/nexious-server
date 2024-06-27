@@ -1,6 +1,6 @@
-// import { StoreUpdateWithStripe } from "@app/store";
-import { StoreUpdateWithStripe } from "@app/store";
-import { StripeUpdateAccountEvent } from "@app/stripe";
+// import type { StoreUpdateWithStripe } from "@app/store";
+import type { StoreUpdateWithStripe } from "@app/store";
+import type { StripeUpdateAccountEvent } from "@app/stripe";
 import { updateStore } from "@db/models/store/updateStore";
 
 export const accountUpdated = async (event: StripeUpdateAccountEvent) => {

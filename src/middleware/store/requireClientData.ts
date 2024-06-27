@@ -1,4 +1,4 @@
-import { StoreRequest } from "@app/request";
+import type { StoreRequest } from "@app/request";
 import { StoreSessionBody } from "@app/store";
 import { NextFunction, Response } from "express";
 import message from "@db/data/error.message.json";

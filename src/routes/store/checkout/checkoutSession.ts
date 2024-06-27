@@ -1,5 +1,5 @@
-import { StoreRequest } from "@app/request";
-import { CartBody, IOrderShema } from "@app/store";
+import type { StoreRequest } from "@app/request";
+import type { CartBody, IOrderShema } from "@app/store";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import type { Response } from "express";
 import { updateStore } from "@db/models/store/updateStore";

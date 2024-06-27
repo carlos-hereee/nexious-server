@@ -1,22 +1,20 @@
 import { Response } from "express";
-import { StoreRequest } from "@app/request";
-import { getSessionWithId } from "@utils/stripe/payments/getCheckoutSession";
+import type { StoreRequest } from "@app/request";
+import { getCheckoutSession } from "@utils/stripe/payments/getCheckoutSession";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
+import { createPortalSession } from "@utils/stripe/accounts/generateLinkSession";
 
 export const portalSession = async (req: StoreRequest<{ session_id: string }>, res: Response) => {
   try {
     // For demonstration purposes, we're using the Checkout session to retrieve the customer ID.
     // Typically this is stored alongside the authenticated user in your database.
     const { session_id } = req.body;
-    const checkoutSession = await getSessionWithId({ id: session_id });
-
-    // This is the url to which the customer will be redirected when they are done
-    // managing their billing with the portal.
-
-    const portalSession = await stripe.billingPortal.sessions.create({
-      customer: checkoutSession.customer,
-      return_url: returnUrl,
-    });
+    const session = await getCheckoutSession({ id: session_id });
+    console.log("session :>> ", session);
+    if (session.customer) {
+      const portalSession = await createPortalSession({ customer: session.customer as string });
+      console.log("portalSession :>> ", portalSession);
+    }
   } catch (error) {
     useGenericErrors(res, error);
   }

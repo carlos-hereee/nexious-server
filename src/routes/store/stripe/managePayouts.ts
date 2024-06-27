@@ -1,4 +1,4 @@
-import { StoreRequest } from "@app/request";
+import type { StoreRequest } from "@app/request";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { addFunds } from "@utils/stripe/funds/addFunds";
 // import { handlePayouts } from "@utils/stripe/funds/addFunds";

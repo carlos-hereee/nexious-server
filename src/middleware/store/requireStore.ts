@@ -1,4 +1,4 @@
-import { StoreRequest } from "@app/request";
+import type { StoreRequest } from "@app/request";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import message from "@db/data/error.message.json";
 import { NextFunction, Response } from "express";

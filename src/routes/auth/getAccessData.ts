@@ -1,4 +1,4 @@
-import { AuthRequest } from "@app/request";
+import type { AuthRequest } from "@app/request";
 import { getAllApps } from "@db/models/app/getApp";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { Response } from "express";

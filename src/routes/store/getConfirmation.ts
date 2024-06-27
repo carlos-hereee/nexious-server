@@ -1,5 +1,5 @@
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
-import { getSessionWithId } from "@utils/stripe/payments/getCheckoutSession";
+import { getCheckoutSession } from "@utils/stripe/payments/getCheckoutSession";
 import { NextFunction, Request, Response } from "express";
 
 // import { getStripeCustomer }  from "@utils/stripe/customers/getStripeCustomer";
@@ -10,7 +10,7 @@ export const getConfirmation = async (req: Request, res: Response, next: NextFun
     const sessionId = req.query.session_id;
     if (sessionId) {
       // console.log("sessionId :>> ", sessionId);
-      const session = await getSessionWithId({ id: sessionId as string });
+      const session = await getCheckoutSession({ id: sessionId as string });
       // const items = await getCheckoutItems({ id: sessionId });
       // console.log("session :>> ", session);
       const sessionDetails = {

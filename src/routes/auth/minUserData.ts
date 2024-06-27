@@ -1,6 +1,6 @@
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { Response } from "express";
-import { AuthRequest } from "@app/request";
+import type { AuthRequest } from "@app/request";
 
 export const minUserData = async (req: AuthRequest, res: Response) => {
   try {

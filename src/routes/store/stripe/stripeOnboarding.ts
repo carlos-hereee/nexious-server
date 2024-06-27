@@ -1,6 +1,6 @@
 import { StripeRequest } from "@app/request";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
-import { accountLinks } from "@utils/stripe/accounts/accountLinks";
+import { accountLinks } from "@utils/stripe/accounts/generateLinkSession";
 import { Response } from "express";
 
 export const stripeOnboarding = async (req: StripeRequest, res: Response) => {

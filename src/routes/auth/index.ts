@@ -15,6 +15,7 @@ import { aquireAuthSession } from "@middleware/auth/authSession";
 import { editUser } from "./editUser";
 import { minUserData } from "./minUserData";
 import { removeNotification } from "./removeNotification";
+import { upgradeAccount } from "./upgradeAccount";
 
 const route = Router();
 
@@ -27,6 +28,7 @@ route.get("/access-token", requireUser, getAccessData);
 route.post("/register", registerWare, register, sendToken);
 route.post("/login", validateWare, refreshSession, sendToken);
 route.post("/refresh-token", requireUser, authSessionWare, refreshSession, sendToken);
+route.post("/upgrade-account", requireUser, upgradeAccount);
 // TODO: ADD ADDITIONAL VERFICATION MEDTHODS
 route.post("/change-password/:username", userWare, authSessionWare, changePassword, refreshSession, sendToken);
 route.post("/forgot-password/:username", userWare, authSessionWare, changePassword, refreshSession, sendToken);

@@ -1,5 +1,5 @@
-import { StoreRequest } from "@app/request";
-import { IOrderShema, IStoreSchema } from "@app/store";
+import type { StoreRequest } from "@app/request";
+import type { IOrderShema, IStoreSchema } from "@app/store";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
 import { ObjectId } from "mongodb";

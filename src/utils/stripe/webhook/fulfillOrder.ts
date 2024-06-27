@@ -1,14 +1,14 @@
 import Stripe from "stripe";
-import { getSessionWithId } from "../payments/getCheckoutSession";
+import { getCheckoutSession } from "../payments/getCheckoutSession";
 import { updateMerch } from "@db/models/merch/updateMerch";
-import { CheckoutCompleteSession } from "@app/stripe";
+import type { CheckoutCompleteSession } from "@app/stripe";
 import { updateApp } from "@db/models/app/updateApp";
 import { getStore } from "@db/models/store/getStore";
 import { addNotification } from "@utils/app/addNotification";
 
 // // Retrieve the session. If you require line items in the response, you may include them by expanding line_items.
 const generateSession = async (id: string, stripeAccount: string) => {
-  return await getSessionWithId({
+  return await getCheckoutSession({
     id,
     // expand line items to full fill order
     options: { expand: ["line_items"] },

@@ -2,7 +2,7 @@ import { formatMenuPageData } from "@utils/app/format/formatMenuPageData";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import message from "@db/data/error.message.json";
 import { NextFunction, Response } from "express";
-import { StoreRequest } from "@app/request";
+import type { StoreRequest } from "@app/request";
 import { createStore } from "@db/models/store/createStore";
 import { addAccount } from "@utils/stripe/accounts/addAccount";
 import { v4 } from "uuid";

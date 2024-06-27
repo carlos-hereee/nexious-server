@@ -1,6 +1,6 @@
 import { createNotification } from "@db/models/notification/createNotification";
-import { FormatNotification } from "@app/app";
-import { NotificationSchema } from "@app/db";
+import type { FormatNotification } from "@app/app";
+import type { NotificationSchema } from "@app/db";
 
 // create notification
 export const addNotification = async ({ type, message, link }: FormatNotification) => {

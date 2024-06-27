@@ -1,6 +1,5 @@
-import { CheckoutMerch } from "@app/store";
+import type { CheckoutMerch } from "@app/store";
 import stripe from "../connection";
-import { StripeSession } from "@app/stripe";
 import { formatMerchData } from "../webhook/formatMerchData";
 import { clientUrl } from "@utils/app/config";
 

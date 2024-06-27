@@ -1,6 +1,6 @@
 import { storeCookies } from "@utils/auth/storeCookies";
 import { Response } from "express";
-import { AuthRequest } from "@app/request";
+import type { AuthRequest } from "@app/request";
 
 export const sendToken = (req: AuthRequest, res: Response) => {
   // made it through the forest, generate session cookie

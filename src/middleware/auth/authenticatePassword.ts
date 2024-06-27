@@ -1,7 +1,7 @@
 import message from "@db/data/error.message.json";
 import { generateHash } from "@utils/auth/generateHash";
 import { NextFunction, Response } from "express";
-import { AuthRequest } from "@app/request";
+import type { AuthRequest } from "@app/request";
 
 export const authenticatePassword = (req: AuthRequest, res: Response, next: NextFunction) => {
   // if (!req.auth) return res.status(403).json(message.unauthorizedUser).end();

@@ -21,7 +21,7 @@ export interface IAuth {
   nickname: string;
   name: string;
   phone: string;
-  accountTier?: AccountTier;
+  accountTier: AccountTier;
 }
 export interface AuthBody {
   username: string;

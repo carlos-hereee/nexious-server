@@ -1,4 +1,4 @@
-import { StoreRequest } from "@app/request";
+import type { StoreRequest } from "@app/request";
 import { StoreBody } from "@app/store";
 import { generateStringUrl } from "@utils/app/generateUrl";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
