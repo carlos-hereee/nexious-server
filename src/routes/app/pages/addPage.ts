@@ -1,7 +1,7 @@
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import type { IPage, IPageSchema, ISection } from "@app/page";
 import { NextFunction, Response } from "express";
-import { AppRequest } from "@app/request";
+import type { AppRequest } from "@app/request";
 import { formatFormData } from "@utils/app/format/formatFormData";
 import Page from "@db/schema/page";
 import { formatMenuPageData } from "@utils/app/format/formatMenuPageData";

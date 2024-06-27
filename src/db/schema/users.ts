@@ -20,6 +20,7 @@ const userSchema = new Schema<IUserSchema>(
       maxApps: { type: Number, default: 1 },
       maxPagesPerApp: { type: Number, default: 5 },
     },
+    isPlatformOwner: { type: Boolean, default: false },
     phone: { type: String },
     locale: { type: String },
     theme: { type: String },

@@ -1,7 +1,7 @@
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import themeList from "@db/data/app/themeList.json";
 import { NextFunction, Response } from "express";
-import { AppRequest } from "@app/request";
+import type { AppRequest } from "@app/request";
 import Page from "@db/schema/page";
 import App from "@db/schema/app";
 import { IPageSchema } from "@app/page";

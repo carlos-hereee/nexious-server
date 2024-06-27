@@ -35,7 +35,19 @@ export interface AppFilters {
   all?: boolean;
   locale?: string;
 }
-
+export interface SubscriptionSchema {
+  subscriptionId: string;
+  productId: string;
+  priceId: string;
+  thumbnail: string;
+  subscriptionLink: string;
+  name: string;
+  description: string;
+  cost: number;
+}
+export interface ISubscriptionSchema extends SubscriptionSchema, Document {
+  _id: ObjectId;
+}
 export interface GetCalendarProps {
   appId?: string;
   calendarId?: string;

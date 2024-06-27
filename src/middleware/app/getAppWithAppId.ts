@@ -1,7 +1,7 @@
 import { getApp } from "@db/models/app/getApp";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
-import { AppRequest } from "@app/request";
+import type { AppRequest } from "@app/request";
 
 export const getAppWithAppId = async (req: AppRequest, res: Response, next: NextFunction) => {
   try {

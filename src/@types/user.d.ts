@@ -33,12 +33,13 @@ export interface IUserSchema extends Document {
   locale: string;
   theme: string;
   name: string;
+  isPlatformOwner: boolean;
   permissions: { appId: ObjectId; role: string }[];
   auth: ObjectId;
   ownedApps: ObjectId[];
   subscriptions: ObjectId[];
   notifications: ObjectId[];
-  archivedNotifications: string[];
+  archivedNotifications: ObjectId[];
   feed: ObjectId[];
 }
 export interface InitUser {

@@ -1,5 +1,5 @@
 import type { IPage, IPageSchema, ISection } from "@app/page";
-import { AppRequest } from "@app/request";
+import type { AppRequest } from "@app/request";
 import Page from "@db/schema/page";
 import { formatFormData } from "@utils/app/format/formatFormData";
 import { formatMenuPageData } from "@utils/app/format/formatMenuPageData";
