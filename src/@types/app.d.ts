@@ -36,16 +36,23 @@ export interface AppFilters {
   locale?: string;
 }
 export interface SubscriptionSchema {
-  subscriptionId: string;
-  productId: string;
-  priceId: string;
   thumbnail: string;
-  subscriptionLink: string;
   name: string;
   description: string;
   cost: number;
+  features: {
+    featureId: string;
+    featureName: string;
+    featureValue: string;
+    featureValueType: "string" | "boolean";
+  }[];
 }
 export interface ISubscriptionSchema extends SubscriptionSchema, Document {
+  subscriptionId: string;
+  productId: string;
+  priceId: string;
+  isPlatformSubscription: boolean;
+  link: string;
   _id: ObjectId;
 }
 export interface GetCalendarProps {
@@ -135,6 +142,7 @@ export interface IAppSchema extends Document {
   calendar: ObjectId;
   store: ObjectId;
   notifications: ObjectId[];
+  subscriptions: ObjectId[];
   subscribers: ObjectId[];
   pages: ObjectId[];
 }

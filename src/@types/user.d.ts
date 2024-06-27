@@ -12,10 +12,15 @@ export interface UserFilters {
   userId?: string;
   id?: ObjectId;
 }
+
 export interface AccountTier {
   tier: "free" | "basic" | "advanced";
   tierId: string;
   calendarEvent: boolean;
+  name: string;
+  link: string;
+  description: string;
+  cost: number;
   calendarBooking: boolean;
   storeCheckout: boolean;
   maxApps: 1 | 3 | 10;
@@ -40,6 +45,7 @@ export interface IUserSchema extends Document {
   subscriptions: ObjectId[];
   notifications: ObjectId[];
   archivedNotifications: ObjectId[];
+  accountTiers: ObjectId[];
   feed: ObjectId[];
 }
 export interface InitUser {

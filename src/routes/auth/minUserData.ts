@@ -5,9 +5,9 @@ import type { AuthRequest } from "@app/request";
 export const minUserData = async (req: AuthRequest, res: Response) => {
   try {
     // depopulate auth data and populate data required by client
-    const userData = req.user.notifications
-      ? "ownedApps subscriptions permissions ownedApps.userId notifications"
-      : "ownedApps subscriptions permissions ownedApps.userId";
+    const userData = `ownedApps subscriptions permissions ownedApps.userId${
+      req.user.notifications ? " notifications" : ""
+    }${req.user.subscriptions ? " subscriptions" : ""}`;
 
     const user = await req.user.depopulate("auth").populate(userData);
     res.status(200).json(user).end();

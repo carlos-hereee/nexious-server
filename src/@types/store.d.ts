@@ -40,20 +40,20 @@ export interface CheckoutMerch {
   quantity: number;
 }
 export interface MerchSchema {
-  storeId: ObjectId;
+  storeId?: ObjectId;
   description: string;
   name: string;
-  merchLink: string;
+  link: string;
   cost: number;
-  inStock: number;
-  onHold: number;
+  inStock?: number;
+  onHold?: number;
   uid?: string;
   merchId?: string;
   productId?: string;
   priceId?: string;
   hero?: string;
   thumbnail?: string;
-  catalog: string[];
+  catalog?: string[];
 }
 export interface OrderMerchSchema {
   merchId: string;

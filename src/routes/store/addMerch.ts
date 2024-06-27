@@ -1,9 +1,8 @@
 import { createMerch } from "@db/models/merch/createMerch";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
-
 import { NextFunction, Response } from "express";
 import { addProductInfo } from "./stripe/addProductInfo";
-import { MerchBodyParams, MerchSchema } from "@app/store";
+import type { MerchBodyParams, MerchSchema } from "@app/store";
 import type { StoreRequest } from "@app/request";
 import { sendNotification } from "@db/models/notification/sendNotification";
 import { generateStringUrl } from "@utils/app/generateUrl";
@@ -25,13 +24,13 @@ export const addMerch = async (req: StoreRequest<MerchBodyParams>, res: Response
       priceId: "",
       catalog,
       onHold: 0,
-      merchLink: generateStringUrl(req.body.name),
+      link: generateStringUrl(req.body.name),
     };
     // create notification
     const notification = await addNotification({
       type: "add-merch",
       message: "Successfull added merch to inventory",
-      link: `/store/${generateStringUrl(req.store?.storeName || "")}/${payload.merchLink}`,
+      link: `/store/${generateStringUrl(req.store?.storeName || "")}/${payload.link}`,
     });
     // on success link notification to app
     if (notification) {
@@ -47,7 +46,7 @@ export const addMerch = async (req: StoreRequest<MerchBodyParams>, res: Response
 
     // add merch to stripe if stripe account is active
     if (accountId && isStripeActive) {
-      const { merch, error } = await addProductInfo({ merch: payload, store: req.store });
+      const { merch, error } = await addProductInfo({ merch: payload, accountId, currency: req.store.currency });
       if (!error) payload = merch;
     }
     // add merch to db

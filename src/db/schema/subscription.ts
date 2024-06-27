@@ -13,10 +13,20 @@ const subcriptionSchema = new Schema<ISubscriptionSchema>(
     priceId: { type: String },
     // currency: { type: String, default: "usd" },
     thumbnail: { type: String, default: "" },
-    subscriptionLink: { type: String, default: "" },
+    link: { type: String, default: "" },
+    isPlatformSubscription: { type: Boolean, default: false },
     name: { type: String, default: "" },
     description: { type: String, default: "" },
     cost: { type: Number, default: 0 },
+    features: {
+      type: [
+        { featureId: { type: String, default: v4() } },
+        { featureName: { type: String } },
+        { featureValue: { type: String } },
+        { featureValueType: { type: String, default: "string" } },
+      ],
+      default: [],
+    },
   },
   { timestamps: true }
 );

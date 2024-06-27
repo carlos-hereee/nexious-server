@@ -88,6 +88,7 @@ const appSchema = new Schema<IAppSchema>(
     pages: { type: [{ type: Schema.Types.ObjectId, ref: "Pages" }], default: [] },
     notifications: { type: [{ type: Schema.Types.ObjectId, ref: "Notification" }], default: [] },
     subscribers: { type: [{ type: Schema.Types.ObjectId, ref: "Users" }], default: [] },
+    subscriptions: { type: [{ type: Schema.Types.ObjectId, ref: "Subscription" }], default: [] },
     store: { type: Schema.Types.ObjectId, ref: "Store" },
     dbVersion: { type: Schema.Types.String },
   },

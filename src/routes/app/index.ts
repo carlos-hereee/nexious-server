@@ -17,7 +17,7 @@ import { subscribe } from "./updateApp/subscribe";
 import { updateAppDetails } from "./updateApp/updateAppDetails";
 import {
   adminWare,
-  assetWare,
+  // assetWare,
   heroWare,
   initAppWare,
   landingPageWare,
@@ -37,6 +37,7 @@ import { latest } from "./updateApp/latest";
 import { deleteNotification } from "./deleteNotification";
 import { createSubscription } from "./createSubscription";
 import { requireUser } from "@middleware/auth/requireUser";
+import { getAppWithAppId } from "@middleware/app/getAppWithAppId";
 
 const route = Router();
 // load app data
@@ -48,7 +49,7 @@ route.get("/page/:pageId", fetchPage);
 route.post("/init-app", initAppWare, saveAsset, initApp, minAppData);
 route.post("/latest/:appId", adminWare, latest, minAppData);
 // manage subscritions
-route.post("/create-subscription/:appId", requireUser, createSubscription, minUserData);
+route.post("/create-subscription/:appId", requireUser, getAppWithAppId, createSubscription, minUserData);
 route.post("/subscribe/:appId", userAppWare, subscribe, minUserData);
 // update app
 route.post("/update-newsletter/:appId", heroWare, updateNewsletter, minAppData);
