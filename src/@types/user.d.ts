@@ -20,6 +20,8 @@ export interface AccountTier {
   name: string;
   link: string;
   description: string;
+  recurring: "monthly" | "yearly";
+  features: { name: string; value: string; valueType: string }[];
   cost: number;
   calendarBooking: boolean;
   storeCheckout: boolean;

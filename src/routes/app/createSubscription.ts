@@ -20,7 +20,7 @@ export const createSubscription = async (req: AppRequest<Body>, res: Response, n
     let currency = "usd";
     let isPlatformSubscription = false;
     // format features
-    const features = formatSubFeatureData(subscription);
+    const features = formatSubFeatureData(req.body.subscription.features);
     // if app was found
     if (req.project) {
       const store = await getStore({ appId: req.project._id });
@@ -31,7 +31,6 @@ export const createSubscription = async (req: AppRequest<Body>, res: Response, n
     } else isPlatformSubscription = true;
     const { merch } = await addProductInfo({ merch: subscription, accountId, currency });
 
-    console.log("merch :>> ", merch);
     const Sub = await Subscription.create({
       name: merch.name,
       link: generateStringUrl(merch.name),

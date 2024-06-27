@@ -1,11 +1,9 @@
-import type { AccountTier } from "@app/user";
-
-export const formatSubFeatureData = (subscription: AccountTier) => {
-  return Object.keys(subscription).map((featureName) => {
+export const formatSubFeatureData = (subscription: { name: string; value: string; valueType: string }[]) => {
+  return subscription.map((feature) => {
     return {
-      featureName,
-      featureValue: subscription[featureName as keyof AccountTier],
-      featureValueType: typeof subscription[featureName],
+      featureName: feature.name,
+      featureValue: feature.value,
+      featureValueType: feature.valueType,
     };
   });
 };

@@ -39,12 +39,13 @@ export interface SubscriptionSchema {
   thumbnail: string;
   name: string;
   description: string;
+  recurring: "monthly" | "yearly";
   cost: number;
   features: {
     featureId: string;
     featureName: string;
     featureValue: string;
-    featureValueType: "string" | "boolean";
+    featureValueType: "Checkbox" | "Message";
   }[];
 }
 export interface ISubscriptionSchema extends SubscriptionSchema, Document {
