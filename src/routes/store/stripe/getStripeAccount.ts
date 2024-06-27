@@ -1,4 +1,4 @@
-import { StoreRequest } from "types/request";
+import { StoreRequest } from "@app/request";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { getAccount } from "@utils/stripe/accounts/getAccount";
 import { NextFunction, Response } from "express";

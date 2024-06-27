@@ -1,5 +1,5 @@
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
-import { getSessionWithId } from "@utils/stripe/payments/getSessionWithId";
+import { getSessionWithId } from "@utils/stripe/payments/getCheckoutSession";
 import { NextFunction, Request, Response } from "express";
 
 // import { getStripeCustomer }  from "@utils/stripe/customers/getStripeCustomer";

@@ -1,4 +1,4 @@
-import type { IOrderShema } from "types/store";
+import type { IOrderShema } from "@app/store";
 import mongoose from "mongoose";
 import { v4 } from "uuid";
 const Schema = mongoose.Schema;

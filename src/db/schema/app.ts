@@ -1,4 +1,4 @@
-import type { IAppSchema } from "types/app";
+import type { IAppSchema } from "@app/app";
 import mongoose from "mongoose";
 import { v4 } from "uuid";
 

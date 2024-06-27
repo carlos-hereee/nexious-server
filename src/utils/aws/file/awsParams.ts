@@ -1,4 +1,4 @@
-import type { AWSBucket, IFile } from "types/assets";
+import type { AWSBucket, IFile } from "@app/assets";
 import { awsBucketName } from "@utils/app/config";
 
 export const generateParamFile = (file: IFile): AWSBucket => {

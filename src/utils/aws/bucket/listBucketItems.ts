@@ -1,4 +1,4 @@
-import type { AWSBucketParams } from "types/assets";
+import type { AWSBucketParams } from "@app/assets";
 import { bucketError } from "@utils/aws/errors";
 
 // Call S3 to obtain a list of the objects in the bucket

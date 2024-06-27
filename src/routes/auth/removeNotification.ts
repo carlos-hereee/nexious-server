@@ -1,7 +1,7 @@
-import { AuthRequest } from "types/request";
+import { AuthRequest } from "@app/request";
 import { NextFunction, Response } from "express";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
-import { INotificationSchema } from "types/db";
+import { INotificationSchema } from "@app/db";
 
 export const removeNotification = async (req: AuthRequest, res: Response, next: NextFunction) => {
   try {

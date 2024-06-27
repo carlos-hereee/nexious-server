@@ -1,4 +1,4 @@
-import type { UserFilters } from "types/user";
+import type { UserFilters } from "@app/user";
 import Users from "@db/schema/users";
 
 export const removeUser = async ({ userId }: UserFilters) => {

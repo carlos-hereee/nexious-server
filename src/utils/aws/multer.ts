@@ -1,4 +1,4 @@
-import type { MulterFileFilter, MulterUploadField, MulterUploadList } from "types/assets";
+import type { MulterFileFilter, MulterUploadField, MulterUploadList } from "@app/assets";
 import multer, { memoryStorage } from "multer";
 
 const fileFilter: MulterFileFilter = (_req, file, cb) => {

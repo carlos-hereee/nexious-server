@@ -1,7 +1,7 @@
+import { AuthRequest } from "@app/request";
 import { getAllApps } from "@db/models/app/getApp";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { Response } from "express";
-import { AuthRequest } from "types/request";
 
 export const getAccessData = async (req: AuthRequest, res: Response) => {
   try {

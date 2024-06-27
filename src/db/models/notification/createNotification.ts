@@ -1,4 +1,4 @@
-import { NotificationSchema } from "types/db";
+import { NotificationSchema } from "@app/db";
 import Notfication from "@db/schema/notification";
 
 export const createNotification = async (payload: NotificationSchema) => {

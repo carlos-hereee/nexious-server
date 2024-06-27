@@ -1,10 +1,10 @@
-import { StoreRequest } from "types/request";
-import { CartBody, IOrderShema } from "types/store";
+import { StoreRequest } from "@app/request";
+import { CartBody, IOrderShema } from "@app/store";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import type { Response } from "express";
-import { createSession } from "../stripe/createSession";
 import { updateStore } from "@db/models/store/updateStore";
 import { v4 } from "uuid";
+import { createCheckoutSession } from "@utils/stripe/payments/createCheckoutSession";
 
 export const checkoutSession = async (req: StoreRequest<CartBody>, res: Response) => {
   try {
@@ -21,7 +21,8 @@ export const checkoutSession = async (req: StoreRequest<CartBody>, res: Response
     };
 
     await updateStore({ order, accountId, type: "payment" });
-    const session = await createSession(someInstore ? online : cart, accountId, orderId);
+    const cartData = someInstore ? online : cart;
+    const session = await createCheckoutSession({ cart: cartData, accountId, orderId, mode: "payment" });
     return res.status(200).json(session.url).end();
   } catch (error) {
     return useGenericErrors(res, error, "unable to create stripe session");

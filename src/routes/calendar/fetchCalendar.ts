@@ -1,4 +1,4 @@
-import { CalendarRequest } from "types/request";
+import { CalendarRequest } from "@app/request";
 import { Response } from "express";
 
 export const fetchCalendar = (req: CalendarRequest, res: Response) => {

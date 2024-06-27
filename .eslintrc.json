@@ -12,8 +12,6 @@
         "plugin:import/errors",
         "plugin:import/warnings",
         "plugin:import/typescript"
-        // "plugin:prettier/recommended"
-        // "prettier",
     ],
     "plugins": [
         "@typescript-eslint",
@@ -49,6 +47,12 @@
             ]
         },
         "import/resolver": {
+            "node": {
+                "extensions": [
+                    ".js",
+                    ".ts"
+                ]
+            },
             "typescript": {
                 "alwaysTryTypes": true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
                 // Choose from one of the "project" configs below or omit to use <root>/tsconfig.json by default

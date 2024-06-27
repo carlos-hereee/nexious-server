@@ -2,6 +2,7 @@ import type { CookieOptions, Response } from "express";
 import type { JwtPayload, VerifyErrors } from "jsonwebtoken";
 import { Document } from "mongoose";
 import { ObjectId } from "./db";
+import { AccountTier } from "./user";
 
 export interface AuthSchema {
   salt: string;
@@ -17,7 +18,10 @@ export interface IAuth {
   email: string;
   auth: AuthSchema;
   username: string;
+  nickname: string;
+  name: string;
   phone: string;
+  accountTier?: AccountTier;
 }
 export interface AuthBody {
   username: string;

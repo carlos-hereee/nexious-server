@@ -1,4 +1,4 @@
-import type { IStoreSchema } from "types/store";
+import type { IStoreSchema } from "@app/store";
 import mongoose from "mongoose";
 import { v4 } from "uuid";
 import { orderSchema } from "./order";

@@ -1,4 +1,4 @@
-import { StripeAccountParams } from "types/stripe";
+import { StripeAccountParams } from "@app/stripe";
 import stripe from "../connection";
 import { stripeRefreshUrl, stripeReturnUrl } from "@utils/app/config";
 

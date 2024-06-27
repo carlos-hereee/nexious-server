@@ -1,4 +1,4 @@
-import { AppRequest } from "types/request";
+import { AppRequest } from "@app/request";
 // import { formatLanguageList } from "@utils/app/format/formatLanguageList";
 import { formatThemeList } from "@utils/app/format/formatThemeList";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";

@@ -1,4 +1,4 @@
-import { StripeFundParams } from "types/stripe";
+import { StripeFundParams } from "@app/stripe";
 import stripe from "../connection";
 
 export const updateFunds = async ({ id, fundOptions, stripeAccount }: StripeFundParams) => {

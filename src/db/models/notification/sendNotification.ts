@@ -1,4 +1,4 @@
-import { ObjectId } from "types/db";
+import { ObjectId } from "@app/db";
 import App from "@db/schema/app";
 import Users from "@db/schema/users";
 

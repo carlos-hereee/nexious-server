@@ -1,4 +1,4 @@
-import { StoreFilters } from "types/store";
+import { StoreFilters } from "@app/store";
 import Merch from "@db/schema/merch";
 import Store from "@db/schema/store";
 

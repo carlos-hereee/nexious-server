@@ -32,7 +32,7 @@ export interface IUserSchema extends Document {
   phone: string;
   locale: string;
   theme: string;
-  name?: string;
+  name: string;
   permissions: { appId: ObjectId; role: string }[];
   auth: ObjectId;
   ownedApps: ObjectId[];

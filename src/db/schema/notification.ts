@@ -1,4 +1,4 @@
-import { INotificationSchema } from "types/db";
+import { INotificationSchema } from "@app/db";
 import mongoose from "mongoose";
 import { v4 } from "uuid";
 

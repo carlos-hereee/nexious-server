@@ -3,8 +3,8 @@ import { useGenericErrors } from "@utils/auth/useGenericErrors";
 
 import { NextFunction, Response } from "express";
 import { addProductInfo } from "./stripe/addProductInfo";
-import { MerchBodyParams, MerchSchema } from "types/store";
-import { StoreRequest } from "types/request";
+import { MerchBodyParams, MerchSchema } from "@app/store";
+import { StoreRequest } from "@app/request";
 import { sendNotification } from "@db/models/notification/sendNotification";
 import { generateStringUrl } from "@utils/app/generateUrl";
 import { addNotification } from "@utils/app/addNotification";

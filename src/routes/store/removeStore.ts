@@ -2,7 +2,7 @@ import { deleteStore } from "@db/models/store/deleteStore";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { removeAccount } from "@utils/stripe/accounts/removeAccount";
 import { NextFunction, Response } from "express";
-import { StoreRemovalRequest } from "types/request";
+import { StoreRemovalRequest } from "@app/request";
 
 export const removeStore = async (req: StoreRemovalRequest, res: Response, next: NextFunction) => {
   try {

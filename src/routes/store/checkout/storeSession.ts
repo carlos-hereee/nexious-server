@@ -1,5 +1,5 @@
-import { StoreRequest } from "types/request";
-import { IOrderShema, StoreSessionBody } from "types/store";
+import { StoreRequest } from "@app/request";
+import { IOrderShema, StoreSessionBody } from "@app/store";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import type { Response } from "express";
 import { updateStore } from "@db/models/store/updateStore";
@@ -15,7 +15,7 @@ export const storeSession = async (req: StoreRequest<StoreSessionBody>, res: Res
     // format order data
     const order: IOrderShema = { store, client, merch: cart, status: "pending", paymentMethod: "in-store" };
     // create notification
-    const n = await addNotification({ type: "order-in-store", message: `Ann order was submited` });
+    const n = await addNotification({ type: "order-in-store", message: `An order was submited` });
     await updateApp({ id: appId, type: "add-notification", notificationId: n._id });
 
     // add order to store pending order

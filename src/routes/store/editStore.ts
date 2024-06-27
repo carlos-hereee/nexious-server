@@ -1,5 +1,5 @@
-import { StoreRequest } from "types/request";
-import { StoreBody } from "types/store";
+import { StoreRequest } from "@app/request";
+import { StoreBody } from "@app/store";
 import { generateStringUrl } from "@utils/app/generateUrl";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";

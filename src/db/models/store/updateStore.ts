@@ -1,4 +1,4 @@
-import { UpdateStoreParams } from "types/store";
+import { UpdateStoreParams } from "@app/store";
 import Store from "@db/schema/store";
 
 export const updateStore = async (params: UpdateStoreParams) => {

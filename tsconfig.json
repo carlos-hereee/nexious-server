@@ -27,7 +27,7 @@
         "./routes/*"
       ],
       "@app/*": [
-        "./types/*"
+        "./@types/*"
       ],
       "@middleware/*": [
         "./middleware/*"

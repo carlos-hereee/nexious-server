@@ -1,4 +1,4 @@
-import { AppRequest } from "types/request";
+import { AppRequest } from "@app/request";
 import { getPage } from "@db/models/page/getPages";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { Response } from "express";

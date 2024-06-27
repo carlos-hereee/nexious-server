@@ -23,15 +23,15 @@ export interface InitRequest extends Request {
   auth: IAuthSchema | null;
 }
 // defined custom properties after passing middleware requirements
-export interface AuthRequest extends Request {
+export interface AuthRequest<B = AuthBody> extends Request {
   params: {
     userId: string;
     appId: string;
     username: string;
     notificationId: string;
   };
+  body: B;
   auth: IAuthSchema;
-  body: AuthBody;
   user: IUserSchema;
 }
 

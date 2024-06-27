@@ -1,4 +1,4 @@
-import type { IUserSchema, UserFilters } from "types/user";
+import type { IUserSchema, UserFilters } from "@app/user";
 import Users from "@db/schema/users";
 import Auth from "@db/schema/auth";
 

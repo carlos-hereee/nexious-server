@@ -1,7 +1,7 @@
 import { NextFunction, Response } from "express";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
-import { StoreRequest } from "types/request";
-import { MerchSchema } from "types/store";
+import { StoreRequest } from "@app/request";
+import { MerchSchema } from "@app/store";
 import { accountLinks } from "@utils/stripe/accounts/accountLinks";
 import { addProductInfo } from "./stripe/addProductInfo";
 import { updateMerch } from "@db/models/merch/updateMerch";

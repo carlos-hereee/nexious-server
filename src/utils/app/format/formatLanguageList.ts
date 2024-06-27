@@ -1,4 +1,4 @@
-import type { ILanguageList } from "types/app";
+import type { ILanguageList } from "@app/app";
 import languageList from "@db/data/app/languageList.json";
 // import translate  from "google-translate-api";
 // import translateString  from "../../translator/translateString";

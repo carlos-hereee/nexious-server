@@ -1,5 +1,5 @@
 import { NextFunction, Response } from "express";
-import { FileRequest } from "types/request";
+import { FileRequest } from "@app/request";
 import { saveFile } from "@utils/aws";
 
 export const saveAsset = (req: FileRequest, _res: Response, next: NextFunction) => {

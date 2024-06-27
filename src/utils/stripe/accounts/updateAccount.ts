@@ -1,4 +1,4 @@
-import type { StripeAccountParams } from "types/stripe";
+import type { StripeAccountParams } from "@app/stripe";
 import stripe from "../connection";
 
 export const updateAccount = async ({ id, updateAccount }: StripeAccountParams) => {

@@ -1,4 +1,4 @@
-import { AppRequest } from "types/request";
+import { AppRequest } from "@app/request";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import message from "@db/data/error.message.json";
 import { getApp } from "@db/models/app/getApp";

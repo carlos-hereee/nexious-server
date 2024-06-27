@@ -1,10 +1,10 @@
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import themeList from "@db/data/app/themeList.json";
 import { NextFunction, Response } from "express";
-import { AppRequest } from "types/request";
+import { AppRequest } from "@app/request";
 import Page from "@db/schema/page";
 import App from "@db/schema/app";
-import { IPageSchema } from "types/page";
+import { IPageSchema } from "@app/page";
 import data from "@db/data/lorem.json";
 import { generateStringUrl } from "@utils/app/generateUrl";
 import { addNotification } from "@utils/app/addNotification";

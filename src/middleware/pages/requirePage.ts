@@ -2,7 +2,7 @@ import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { getPage } from "@db/models/page/getPages";
 import messages from "@db/data/error.message.json";
 import { NextFunction, Response } from "express";
-import { PageRequest } from "types/request";
+import { PageRequest } from "@app/request";
 
 export const requirePage = async (req: PageRequest, res: Response, next: NextFunction) => {
   try {

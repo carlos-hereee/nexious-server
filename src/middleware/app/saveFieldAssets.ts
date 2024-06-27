@@ -1,5 +1,5 @@
 import { NextFunction, Response } from "express";
-import { FileRequest } from "types/request";
+import { FileRequest } from "@app/request";
 import { saveFile } from "@utils/aws";
 import { isDev } from "@utils/app/config";
 

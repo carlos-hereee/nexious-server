@@ -3,7 +3,7 @@ import { getSession, getUser } from "@db/models/users/getUser";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { verifyJWT } from "@utils/auth/JWT";
 import { NextFunction, Response } from "express";
-import { InitRequest } from "types/request";
+import { InitRequest } from "@app/request";
 
 export const deserializeUser = async (req: InitRequest, res: Response, next: NextFunction) => {
   try {

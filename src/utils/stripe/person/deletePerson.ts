@@ -1,4 +1,4 @@
-import { StripePersonParams } from "types/stripe";
+import { StripePersonParams } from "@app/stripe";
 import stripe from "../connection";
 
 export const deletePerson = async ({ id, accountId }: StripePersonParams) => {
