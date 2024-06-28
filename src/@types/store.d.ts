@@ -44,6 +44,7 @@ export interface MerchSchema {
   description: string;
   name: string;
   link: string;
+  recurring?: string;
   cost: number;
   inStock?: number;
   onHold?: number;

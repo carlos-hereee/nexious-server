@@ -11,7 +11,7 @@ export const minStoreData = async (req: StoreRequest, res: Response) => {
       // depopulate auth data for security
       const userData = `ownedApps subscriptions permissions ownedApps.userId${
         req.user.notifications ? " notifications" : ""
-      }${req.user.subscriptions ? " subscriptions" : ""}`;
+      }${req.user.subscriptions ? " subscriptions" : ""}${req.user.accountTiers ? " accountTiers" : ""}`;
 
       const user = await req.user.depopulate("auth").populate(userData);
       data.user = user;

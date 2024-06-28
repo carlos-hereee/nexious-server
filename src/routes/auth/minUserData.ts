@@ -7,7 +7,7 @@ export const minUserData = async (req: AuthRequest, res: Response) => {
     // depopulate auth data and populate data required by client
     const userData = `ownedApps subscriptions permissions ownedApps.userId${
       req.user.notifications ? " notifications" : ""
-    }${req.user.subscriptions ? " subscriptions" : ""}`;
+    }${req.user.subscriptions ? " subscriptions" : ""}${req.user.accountTiers ? " accountTiers" : ""}`;
 
     const user = await req.user.depopulate("auth").populate(userData);
     res.status(200).json(user).end();

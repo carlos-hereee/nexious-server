@@ -21,6 +21,7 @@ export const createSubscription = async (req: AppRequest<Body>, res: Response, n
     let isPlatformSubscription = false;
     // format features
     const features = formatSubFeatureData(req.body.subscription.features);
+    // console.log("features :>> ", features);
     // if app was found
     if (req.project) {
       const store = await getStore({ appId: req.project._id });
@@ -35,11 +36,13 @@ export const createSubscription = async (req: AppRequest<Body>, res: Response, n
       name: merch.name,
       link: generateStringUrl(merch.name),
       description: merch.description,
+      recurring: merch.recurring,
       // add property to find later
       isPlatformSubscription,
       cost: merch.cost,
       productId: merch.productId,
       priceId: merch.priceId,
+      // TODO: FEATURE NAME AND VALUE DONT SAVE TO DB
       features: features,
     });
     // if platform request add new subscription to all users account

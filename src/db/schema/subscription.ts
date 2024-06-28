@@ -16,17 +16,15 @@ const subcriptionSchema = new Schema<ISubscriptionSchema>(
     link: { type: String, default: "" },
     isPlatformSubscription: { type: Boolean, default: false },
     name: { type: String, default: "" },
+    recurring: { type: String },
     description: { type: String, default: "" },
     cost: { type: Number, default: 0 },
-    features: {
-      type: [
-        { featureId: { type: String, default: v4() } },
-        { featureName: { type: String } },
-        { featureValue: { type: String } },
-        { featureValueType: { type: String, default: "string" } },
-      ],
-      default: [],
-    },
+    features: [
+      { featureId: { type: String, default: v4() } },
+      { featureName: { type: String } },
+      { featureValue: { type: String } },
+      { featureValueType: { type: String } },
+    ],
   },
   { timestamps: true }
 );

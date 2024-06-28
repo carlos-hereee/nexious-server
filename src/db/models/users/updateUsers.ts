@@ -7,5 +7,7 @@ interface UpdateAll {
 }
 // search individual users
 export const updateAllUsers = async ({ type, subscriptionId }: UpdateAll) => {
-  if (type === "add-subscription") return await Users.updateMany({}, { $addToSet: { accountTiers: subscriptionId } });
+  if (type === "add-subscription") {
+    return await Users.updateMany({}, { $addToSet: { accountTiers: subscriptionId } }, { multi: true });
+  }
 };
