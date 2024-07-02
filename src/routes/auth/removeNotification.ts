@@ -1,22 +1,16 @@
 import type { AuthRequest } from "@app/request";
 import { NextFunction, Response } from "express";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
-import { INotificationSchema } from "@app/db";
+import { updateUserNotification } from "@db/models/users/updateUsers";
+import { getNotification } from "@db/models/notification/getNotification";
 
 export const removeNotification = async (req: AuthRequest, res: Response, next: NextFunction) => {
   try {
-    const { notificationId } = req.params;
-
-    await req.user.populate("notifications");
-    // clear notification
-    req.user.notifications = req.user.notifications.filter((n) => {
-      const notification = n as unknown as INotificationSchema;
-      return notification.notificationId !== notificationId;
-    });
-    // add it to archive
-    req.user.archivedNotifications.push(notificationId);
-    // save to db
-    await req.user.save();
+    const notification = await getNotification({ notificationId: req.params.notificationId });
+    if (notification) {
+      const notificationId = notification.notificationId;
+      await updateUserNotification({ userId: req.user._id, type: "remove-notification", notificationId });
+    }
     next();
   } catch (error) {
     useGenericErrors(res, error, "unable to update password");
