@@ -4,7 +4,7 @@ import { NextFunction, Response } from "express";
 
 export const requireUser = (req: AuthRequest, res: Response, next: NextFunction) => {
   // check if user was found  otherwise end progress
-  return req.user ? next() : res.status(400).json(message.userNotFound).end();
+  return req.user ? next() : res.status(404).json(message.userNotFound).end();
 };
 
 export const requireUniqueUser = (req: AuthRequest, res: Response, next: NextFunction) => {
