@@ -7,9 +7,9 @@ import type { Response } from "express";
 export const upgradeAccount = async (req: AuthRequest<IAuth>, res: Response) => {
   try {
     const { accountTier } = req.body;
-    if (accountTier.tier !== req.user.accountTier.tier) {
+    if (accountTier.name !== req.user.accountTier.name) {
       // redirect user if account upgrade when upgrading account
-      if (accountTier.tier !== "free") {
+      if (accountTier.name !== "free") {
         const subscriptionInfo = [{ merchId: "", priceId: "", quantity: 1, productId: "" }];
         const session = await createCheckoutSession({ cart: subscriptionInfo, accountId: "", mode: "subscription" });
         console.log("session :>> ", session);

@@ -12,6 +12,7 @@ import { requirePage } from "./requirePage";
 import { aquireAppPage } from "./aquireAppPage";
 
 export const adminWare = [requireUser, getAppWithAppId, requireApp, validateAdmin];
+export const appWare = [requireUser, getAppWithAppId];
 export const heroWare = [...adminWare, uploadSingle("hero"), saveAsset];
 export const assetWare = [requireUser, uploadSingle("hero"), saveAsset];
 export const logoWare = [requireUser, validateAdmin, getAppWithAppId, uploadSingle("logo"), saveAsset];

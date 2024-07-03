@@ -41,11 +41,14 @@ export interface SubscriptionSchema {
   description: string;
   recurring: "Monthly" | "Yearly";
   cost: number;
+  productId?: string;
+  priceId?: string;
+  addFeatures?: boolean;
   features: {
     featureId: string;
-    featureName: string;
-    featureValue: string;
-    featureValueType: "Checkbox" | "Message";
+    name: string;
+    value: string;
+    valueType: "Checkbox" | "Message";
   }[];
 }
 export interface ISubscriptionSchema extends SubscriptionSchema, Document {

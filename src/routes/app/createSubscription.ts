@@ -1,36 +1,35 @@
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
 import type { AppRequest } from "@app/request";
-import type { AccountTier } from "@app/user";
 import Subscription from "@db/schema/subscription";
 import { generateStringUrl } from "@utils/app/generateUrl";
-import { formatSubFeatureData } from "@utils/app/format/formatSubData";
-import { addProductInfo } from "@routes/store/stripe/addProductInfo";
+// import { formatSubFeatureData } from "@utils/app/format/formatSubData";
 import { updateAllUsers } from "@db/models/users/updateUsers";
-import { getStore } from "@db/models/store/getStore";
+// import { addProductInfo } from "@routes/store/stripe/addProductInfo";
+// import { getStore } from "@db/models/store/getStore";
 import { addNotification } from "@utils/app/addNotification";
+import { SubscriptionSchema } from "@app/app";
 
-interface Body {
-  subscription: AccountTier;
-}
-export const createSubscription = async (req: AppRequest<Body>, res: Response, next: NextFunction) => {
+export const createSubscription = async (req: AppRequest<SubscriptionSchema>, res: Response, next: NextFunction) => {
   try {
-    const { subscription } = req.body;
-    let accountId = "";
-    let currency = "usd";
-    let isPlatformSubscription = false;
+    const subscription = req.body;
+    // let accountId = "";
+    // let currency = "";
+    // let isPlatformSubscription = false;
+    const isPlatformSubscription = false;
     // format features
-    const features = formatSubFeatureData(req.body.subscription.features);
-    // console.log("features :>> ", features);
-    // if app was found
-    if (req.project) {
-      const store = await getStore({ appId: req.project._id });
-      // add sub to stripe
-      if (store?.currency) currency = store.currency;
-      if (store?.accountId) accountId = store.accountId;
-      // otherwise request is a platform request
-    } else isPlatformSubscription = true;
-    const { merch } = await addProductInfo({ merch: subscription, accountId, currency });
+    console.log("body :>> ", subscription);
+    console.log("features :>> ", subscription.features);
+    // // if app was found
+    // if (req.project) {
+    //   const store = await getStore({ appId: req.project._id });
+    //   // add sub to stripe
+    //   if (store?.currency) currency = store.currency;
+    //   if (store?.accountId) accountId = store.accountId;
+    //   // otherwise request is a platform request
+    // } else isPlatformSubscription = true;
+    const merch = subscription;
+    // const { merch } = await addProductInfo({ merch: subscription, accountId, currency });
 
     const Sub = await Subscription.create({
       name: merch.name,
@@ -43,8 +42,10 @@ export const createSubscription = async (req: AppRequest<Body>, res: Response, n
       productId: merch.productId,
       priceId: merch.priceId,
       // TODO: FEATURE NAME AND VALUE DONT SAVE TO DB
-      features: features,
+      features: req.body.features,
     });
+    console.log("Sub :>> ", Sub);
+    return;
     // if platform request add new subscription to all users account
     if (isPlatformSubscription) {
       // create notification
