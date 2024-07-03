@@ -34,9 +34,9 @@ export interface MerchBody {
   catalog: string[];
 }
 export interface CheckoutMerch {
-  productId: string;
+  productId?: string;
+  merchId?: string;
   priceId: string;
-  merchId: string;
   quantity: number;
 }
 export interface MerchSchema {
@@ -44,7 +44,7 @@ export interface MerchSchema {
   description: string;
   name: string;
   link: string;
-  recurring?: string;
+  recurring?: "day" | "month" | "week" | "year";
   cost: number;
   inStock?: number;
   onHold?: number;

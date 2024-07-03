@@ -39,7 +39,7 @@ export interface SubscriptionSchema {
   thumbnail: string;
   name: string;
   description: string;
-  recurring: "Monthly" | "Yearly";
+  recurring: "day" | "month" | "week" | "year";
   cost: number;
   productId?: string;
   priceId?: string;

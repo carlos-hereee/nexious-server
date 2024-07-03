@@ -12,6 +12,7 @@ interface SessionParams {
 
 export const createCheckoutSession = async ({ cart, accountId, orderId, mode }: SessionParams) => {
   const cartData = formatMerchData(cart);
+  console.log("cartData :>> ", cartData);
   return await stripe.checkout.sessions.create(
     {
       mode,
@@ -19,8 +20,8 @@ export const createCheckoutSession = async ({ cart, accountId, orderId, mode }: 
       line_items: cartData,
       success_url: `${clientUrl}/checkout/success/?success=true&session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${clientUrl}/checkout/error/?canceled=true`,
-      // platform fee
-      payment_intent_data: { application_fee_amount: 123 },
+      // platform fee in payment mode as you cannot pass payment initent data on subscription mode
+      payment_intent_data: mode === "payment" ? { application_fee_amount: 123 } : undefined,
       // // let stripe handle tax
       // automatic_tax: { enabled: true },
       // add orderid if order is already in system

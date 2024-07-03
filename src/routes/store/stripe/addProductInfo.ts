@@ -16,7 +16,12 @@ export const addProductInfo = async ({ merch, accountId, currency }: AddProductI
   // add images if any in catalog
   if (merch.catalog && merch.catalog.length > 0) productInfo.images = merch.catalog.filter((_, idx) => _ && idx < 8);
   // prices data
-  const pricesInfo: Stripe.PriceCreateParams = { currency, product: "", unit_amount: merch.cost };
+  const pricesInfo: Stripe.PriceCreateParams = {
+    currency,
+    product: "",
+    unit_amount: merch.cost,
+    recurring: merch.recurring ? { interval: merch.recurring } : undefined,
+  };
   const stripeAccount = accountId ? { stripeAccount: accountId } : undefined;
 
   // add to stripe

@@ -1,7 +1,7 @@
 interface MerchBody {
-  productId: string;
+  // productId: string;
+  // merchId?: string;
   priceId: string;
-  merchId: string;
   quantity: number;
 }
 
