@@ -25,7 +25,7 @@ const subcriptionSchema = new Schema<ISubscriptionSchema>(
         featureId: { type: String, default: v4() },
         name: { type: String },
         value: { type: String },
-        valueType: { type: String },
+        valueType: { type: String, default: "Message" },
       },
     ],
   },

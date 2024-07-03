@@ -8,3 +8,6 @@ interface UpdateSubs {
 export const updateSubscriptions = async ({ subscription, subscriptionId }: UpdateSubs) => {
   return await Subscription.updateOne({ subscriptionId }, { $set: subscription });
 };
+export const removeSubscription = async (subscriptionId: string) => {
+  return await Subscription.findOneAndDelete({ subscriptionId });
+};

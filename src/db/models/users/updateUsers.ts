@@ -2,7 +2,7 @@ import type { ObjectId } from "@app/db";
 import Users from "@db/schema/users";
 
 interface UpdateAll {
-  type: "add-subscription";
+  type: "add-subscription" | "remove-subscription";
   subscriptionId: ObjectId;
 }
 interface UpdateUser {
@@ -14,6 +14,9 @@ interface UpdateUser {
 export const updateAllUsers = async ({ type, subscriptionId }: UpdateAll) => {
   if (type === "add-subscription") {
     return await Users.updateMany({}, { $addToSet: { accountTiers: subscriptionId } }, { multi: true });
+  }
+  if (type === "remove-subscription") {
+    return await Users.updateMany({}, { $pull: { accountTiers: subscriptionId } }, { multi: true });
   }
 };
 export const updateUserNotification = async ({ userId, notificationId, type }: UpdateUser) => {

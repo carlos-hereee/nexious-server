@@ -26,16 +26,12 @@ export const createSubscription = async (req: AppRequest<SubscriptionSchema>, re
     const { merch } = await addProductInfo({ merch: req.body, accountId, currency });
 
     const Sub = await Subscription.create({
-      name: merch.name,
+      ...req.body,
       link: generateStringUrl(merch.name),
-      description: merch.description,
-      recurring: merch.recurring,
       // add property to find later
       isPlatformSubscription,
-      cost: merch.cost,
       productId: merch.productId,
       priceId: merch.priceId,
-      features: req.body.features,
     });
     console.log("Sub :>> ", Sub);
     // if platform request add new subscription to all users account
