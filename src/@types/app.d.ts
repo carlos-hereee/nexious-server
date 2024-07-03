@@ -57,6 +57,7 @@ export interface ISubscriptionSchema extends SubscriptionSchema, Document {
   productId: string;
   priceId: string;
   isPlatformSubscription: boolean;
+  isActive: boolean;
   link: string;
   _id: ObjectId;
 }

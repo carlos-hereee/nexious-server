@@ -30,15 +30,18 @@ export const createSubscription = async (req: AppRequest<SubscriptionSchema>, re
       link: generateStringUrl(merch.name),
       // add property to find later
       isPlatformSubscription,
+      isActive: true,
       productId: merch.productId,
       priceId: merch.priceId,
     });
-    console.log("Sub :>> ", Sub);
     // if platform request add new subscription to all users account
     if (isPlatformSubscription) {
       // create notification
-      await addNotification({ type: "app-update", message: "A new subscription was added" });
+      const notification = await addNotification({ type: "app-update", message: "A new subscription was added" });
+      req.user.notifications.push(notification._id);
+      // add subscription to all users
       await updateAllUsers({ type: "add-subscription", subscriptionId: Sub._id });
+      await req.user.save();
       // otherwise add subscription to project
     } else {
       req.project.subscriptions.push(Sub._id);
