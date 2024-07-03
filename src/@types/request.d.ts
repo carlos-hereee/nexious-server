@@ -39,6 +39,7 @@ export interface AppRequest<B = AppBody> extends Request {
   params: {
     appId: string;
     notificationId: string;
+    subscriptionId: string;
     locale: string;
     appName: string;
     assetId: string;

@@ -36,7 +36,7 @@ import { deleteMenuItem } from "./deleteMenuItem";
 import { latest } from "./updateApp/latest";
 import { deleteNotification } from "./deleteNotification";
 import { createSubscription } from "./createSubscription";
-import { updateSubscription } from "./updateSubscription";
+import { editSubscription } from "./editSubscription";
 
 const route = Router();
 // load app data
@@ -48,10 +48,10 @@ route.get("/page/:pageId", fetchPage);
 route.post("/init-app", initAppWare, saveAsset, initApp, minAppData);
 route.post("/latest/:appId", adminWare, latest, minAppData);
 // manage subscritions
-route.post("/create-subscription/:appId", appWare, createSubscription, minUserData);
+route.post("/create-subscription/:appId", appWare, createSubscription, minAppData);
 route.post("/subscribe/:appId", userAppWare, subscribe, minUserData);
 // update subscripions
-route.put("/update-subscription/:appId/:subscriptionId", appWare, updateSubscription, minUserData);
+route.put("/update-subscription/:appId/:subscriptionId", appWare, editSubscription, minAppData);
 // update app
 route.post("/update-newsletter/:appId", heroWare, updateNewsletter, minAppData);
 // route.post("/update-medias/:appId", heroWare, updateMedias, minAppData);
