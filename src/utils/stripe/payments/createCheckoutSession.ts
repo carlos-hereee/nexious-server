@@ -25,6 +25,10 @@ export const createCheckoutSession = async ({ cart, accountId, orderId, mode }: 
       // automatic_tax: { enabled: true },
       // add orderid if order is already in system
       metadata: orderId ? { orderId } : undefined,
+      // TODO: ADD TRIAL PERIOD
+      // subscription_data: {
+      //   trial_period_days: 7,
+      // },
     },
     accountId ? { stripeAccount: accountId } : undefined
   );

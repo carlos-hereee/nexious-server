@@ -6,6 +6,8 @@ export const checkoutCompleted = async (event: Stripe.CheckoutSessionCompletedEv
   const accountId = event.account;
   // track order id
   const { payment_status, id, metadata } = event.data.object;
+  console.log("event.data.object :>> ", event.data.object);
+  // TODO: FULLFILL SUSCRIBTION CHECKOUT
   try {
     if (accountId) {
       const orderId = metadata ? metadata.orderId : undefined;

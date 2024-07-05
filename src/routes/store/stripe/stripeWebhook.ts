@@ -29,15 +29,59 @@ export const stripeWebhook = async (req: StripeWebhookRequest, res: Response) =>
       case "account.updated":
         await accountUpdated(event);
         break;
-      // case "invoice.paid":
-      //   // Continue to provision the subscription as payments continue to be made.
-      //   // Store the status in your database and check when a user accesses your service.
-      //   // This approach helps you avoid hitting rate limits.
-      //   break;
-      // case "invoice.payment_failed":
-      //   // The payment failed or the customer does not have a valid payment method.
-      //   // The subscription becomes past_due. Notify your customer and send them to the
-      //   // customer portal to update their payment information.
+      // INVOICE FOR SUBSCRIPTIONS
+      // TODO: INVOICE PAID
+      case "invoice.paid":
+        // Continue to provision the subscription as payments continue to be made.
+        // Store the status in your database and check when a user accesses your service.
+        // This approach helps you avoid hitting rate limits.
+        break;
+      // TODO: INVOICE PAYMENT FAILED
+      case "invoice.payment_failed":
+        // The payment failed or the customer does not have a valid payment method.
+        // The subscription becomes past_due. Notify your customer and send them to the
+        // customer portal to update their payment information.
+        //          there are several possible actions to take:
+
+        //1. Notify the customer.
+        //2 If you’re using PaymentIntents, collect new payment information and confirm the PaymentIntent.
+        //3 Update the default payment method on the subscription.
+        //4 Consider enabling Smart Retries.
+        break;
+      // TODO: SUBSCRIPTION LIFE CYCLE
+      case "customer.subscription.trial_will_end":
+        // const subscription = event.data.object;
+        // const status = subscription.status;
+        // console.log(`Subscription status is ${status}.`);
+        // Then define and call a method to handle the subscription trial ending.
+        // handleSubscriptionTrialEnding(subscription);
+        break;
+      case "customer.subscription.deleted":
+        // const subscription = event.data.object;
+        // const status = subscription.status;
+        // console.log(`Subscription status is ${status}.`);
+        // Then define and call a method to handle the subscription deleted.
+        // handleSubscriptionDeleted(subscriptionDeleted);
+        break;
+      case "customer.subscription.created":
+        // const subscription = event.data.object;
+        // const status = subscription.status;
+        // console.log(`Subscription status is ${status}.`);
+        // Then define and call a method to handle the subscription created.
+        // handleSubscriptionCreated(subscription);
+        break;
+      case "customer.subscription.updated":
+        // const subscription = event.data.object;
+        // const status = subscription.status;
+        // console.log(`Subscription status is ${status}.`);
+        // Then define and call a method to handle the subscription update.
+        // handleSubscriptionUpdated(subscription);
+        break;
+      // case "entitlements.active_entitlement_summary.updated":
+      //   const subscription = event.data.object;
+      //   console.log(`Active entitlement summary updated for ${subscription}.`);
+      //   // Then define and call a method to handle active entitlement summary updated
+      //   // handleEntitlementUpdated(subscription);
       //   break;
       // case "capability.updated":
       //   // console.log("capabilty updated :>> ", event);
