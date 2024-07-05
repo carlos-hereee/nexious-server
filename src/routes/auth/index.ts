@@ -8,7 +8,6 @@ import { refreshSession } from "@middleware/auth/refreshSession";
 import { logout } from "./logout";
 import { changePassword } from "./changePassword";
 import { sendToken } from "./sendToken";
-import { getAccessData } from "./getAccessData";
 import { authSessionWare, registerWare, userWare, validateWare } from "@middleware/auth";
 import { requireUser } from "@middleware/auth/requireUser";
 import { aquireAuthSession } from "@middleware/auth/authSession";
@@ -16,6 +15,7 @@ import { editUser } from "./editUser";
 import { removeNotification } from "./removeNotification";
 import { upgradeAccount } from "./upgradeAccount";
 import { minAppData } from "@routes/minAppData";
+import { getPlatformData } from "@routes/getPlatformData";
 
 const route = Router();
 
@@ -23,7 +23,7 @@ const route = Router();
 route.get("/", requireUser, userRoute);
 // TODO: ADD ADDITIONAL VERFICATION METHODS
 route.get("/user/:username", userWare, userRoute);
-route.get("/access-token", requireUser, getAccessData);
+route.get("/access-token", requireUser, getPlatformData);
 // post
 route.post("/register", registerWare, register, sendToken);
 route.post("/login", validateWare, refreshSession, sendToken);

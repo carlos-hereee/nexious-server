@@ -3,7 +3,7 @@ import type { IMerchSchema, IStoreSchema, RequestStore, StoreBody } from "./stor
 import type { Request } from "express";
 import type Stripe from "stripe";
 import type { AuthBody, IAuthSchema } from "./auth";
-import type { AppBody, IAppSchema } from "./app";
+import type { AppBody, IAppSchema, SubscriptionSchema } from "./app";
 import type { IFile } from "./assets";
 import type { CalendarBody, ICalendarSchema } from "./calendar";
 import type { IPageSchema } from "./page";
@@ -11,6 +11,8 @@ import type { IPageSchema } from "./page";
 export interface MinAppResponseData {
   user?: IUserSchema;
   app?: IAppSchema;
+  appList?: IAppSchema[];
+  platformTiers?: SubscriptionSchema[];
   store?: IStoreSchema;
   account?: Stripe.Response<Stripe.Account>;
 }

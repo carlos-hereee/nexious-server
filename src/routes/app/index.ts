@@ -5,7 +5,6 @@ import { saveAsset } from "@middleware/app/saveAsset";
 import { deleteApp } from "./deleteApp";
 import { initApp } from "./initApp";
 import { getAppWithName } from "./getApp/getAppWithName";
-import { getAppList } from "./getApp/appList";
 import { minAppData } from "../minAppData";
 import { getAppWithLanguage } from "./getApp/getAppWithLanguage";
 import { updateNewsletter } from "./updateApp/updateNewsletter";
@@ -38,10 +37,11 @@ import { createSubscription } from "./createSubscription";
 import { editSubscription } from "./editSubscription";
 import { deleteSubscription } from "./deleteSubscription";
 import { getPlatformPricing } from "./getApp/getPlatformPricing";
+import { getPlatformData } from "@routes/getPlatformData";
 
 const route = Router();
 // load app data
-route.get("/app-list", getAppList);
+route.get("/platform-data", getPlatformData);
 route.get("/:appName", getAppWithName);
 route.get("/platform/pricing", getPlatformPricing);
 route.get("/:appName/locale/:locale", getAppWithLanguage);

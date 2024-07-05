@@ -25,7 +25,8 @@ export const createSubscription = async (req: AppRequest<SubscriptionSchema>, re
     } else isPlatformSubscription = true;
     // add subscription to stripe
     const { merch } = await addProductInfo({ merch: req.body, accountId, currency });
-    const subscription = {
+    // create subscription
+    const Sub = await Subscription.create({
       ...req.body,
       isActive: true,
       link: generateStringUrl(merch.name),
@@ -34,18 +35,13 @@ export const createSubscription = async (req: AppRequest<SubscriptionSchema>, re
       productId: merch.productId,
       priceId: merch.priceId,
       features: req.body.features.map((f) => ({ ...f, featureId: v4() })),
-    };
-    const Sub = await Subscription.create(subscription);
+    });
+    // create notification
+    const notification = await addNotification({ type: "app-update", message: "A new subscription was added" });
+    req.user.notifications.push(notification._id);
+    await req.user.save();
     // if platform request add new subscription to all users account
-    if (isPlatformSubscription) {
-      // create notification
-      const notification = await addNotification({ type: "app-update", message: "A new subscription was added" });
-      req.user.notifications.push(notification._id);
-      // add subscription to all users
-      // await updateAllUsers({ type: "add-subscription", subscriptionId: Sub._id });
-      await req.user.save();
-      // otherwise add subscription to project
-    } else {
+    if (!isPlatformSubscription) {
       req.project.subscriptions.push(Sub._id);
       // save to db
       await req.project.save();
