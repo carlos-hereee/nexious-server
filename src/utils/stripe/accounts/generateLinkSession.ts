@@ -23,5 +23,5 @@ export const accountSession = async ({ accountSession }: StripeAccountParams) =>
 export const createPortalSession = async ({ customer }: CheckoutPortalSession) => {
   // require key variable
   if (!customer) throw Error("customer param is required");
-  return await stripe.billingPortal.sessions.create({ customer: customer, return_url: clientUrl });
+  return await stripe.billingPortal.sessions.create({ customer, return_url: `${clientUrl}/dashboard` });
 };

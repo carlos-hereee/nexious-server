@@ -76,6 +76,7 @@ export interface StoreRequest<B = StoreBody> extends Request {
     option: string;
     from: string;
     orderId: string;
+    customer: string;
     merchId: string;
     orderUpdate: string;
   };
