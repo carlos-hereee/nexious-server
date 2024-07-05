@@ -24,6 +24,7 @@ export const changePassword = async (req: AuthRequest, res: Response, next: Next
     req.user.notifications.push(n._id);
     // save to db
     await req.user.save();
+    await req.auth.save();
     next();
   } catch (error) {
     useGenericErrors(res, error, "unable to update password");

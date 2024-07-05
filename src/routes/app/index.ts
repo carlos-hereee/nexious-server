@@ -36,14 +36,12 @@ import { deleteNotification } from "./deleteNotification";
 import { createSubscription } from "./createSubscription";
 import { editSubscription } from "./editSubscription";
 import { deleteSubscription } from "./deleteSubscription";
-import { getPlatformPricing } from "./getApp/getPlatformPricing";
 import { getPlatformData } from "@routes/getPlatformData";
 
 const route = Router();
 // load app data
 route.get("/platform-data", getPlatformData);
 route.get("/:appName", getAppWithName);
-route.get("/platform/pricing", getPlatformPricing);
 route.get("/:appName/locale/:locale", getAppWithLanguage);
 route.get("/page/:pageId", fetchPage);
 // build app data
