@@ -25,9 +25,8 @@ import { getMerchWithId } from "@middleware/store/getMerchWithId";
 import { requireClientData } from "@middleware/store/requireClientData";
 import { getStripeAccountBalance } from "./stripe/getStripeAccountBalance";
 import { managePayouts } from "./stripe/managePayouts";
-import { portalSession } from "./checkout/portalSession";
 import { minAppData } from "@routes/minAppData";
-import { getBillingPortal } from "./stripe/getBillingPortal";
+import { getBillingPortal } from "./checkout/getBillingPortal";
 
 const route = Router();
 const bodyParse = bodyParser.raw({ type: "application/json" });
@@ -45,7 +44,6 @@ route.get("/inventory/:storeId", getStoreWithStoreId, minAppData);
 route.post("/stripe-account/:appId/payouts/:option", storeWare, managePayouts, minAppData);
 // route.post("/request-secret", requestSecret);
 route.post("/create-checkout-session", requireClientData, checkoutSession);
-route.post("/create-portal-session", portalSession);
 // request for in store appointments
 route.post("/checkout-store-session/:storeId", getStoreWithStoreId, requireClientData, storeSession);
 route.post("/stripe-account-link/:appId", storeWare, stripeOnboarding);

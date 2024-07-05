@@ -4,11 +4,11 @@ import message from "@db/data/error.message.json";
 import { NextFunction, Response } from "express";
 import type { StoreRequest } from "@app/request";
 import { createStore } from "@db/models/store/createStore";
-import { addAccount } from "@utils/stripe/accounts/addAccount";
 import { v4 } from "uuid";
 import { StoreSchema } from "@app/store";
 import { generateStringUrl } from "@utils/app/generateUrl";
 import { addNotification } from "@utils/app/addNotification";
+import { addAccount } from "@utils/stripe/accounts/updateAccount";
 
 export const addStore = async (req: StoreRequest, res: Response, next: NextFunction) => {
   try {
