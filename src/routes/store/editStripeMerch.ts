@@ -3,7 +3,7 @@ import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import type { StoreRequest } from "@app/request";
 import { MerchSchema } from "@app/store";
 import { accountLinks } from "@utils/stripe/accounts/generateLinkSession";
-import { addProductInfo } from "./stripe/addProductInfo";
+import { addProductInfo } from "./stripe/updateProductInfo";
 import { updateMerch } from "@db/models/merch/updateMerch";
 import message from "@db/data/error.message.json";
 

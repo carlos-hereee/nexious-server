@@ -18,6 +18,7 @@ const subcriptionSchema = new Schema<ISubscriptionSchema>(
     isActive: { type: Boolean, default: false },
     addFeatures: { type: Boolean, default: false },
     name: { type: String, default: "" },
+    lookUpKey: { type: String, default: "" },
     recurring: { type: String },
     description: { type: String, default: "" },
     cost: { type: Number, default: 0 },

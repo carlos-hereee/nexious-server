@@ -20,6 +20,7 @@ const merchSchema = new Schema<IMerchSchema>(
     hasCatalog: { type: Boolean, default: false },
     catalog: [{ type: String, default: "" }],
     hero: { type: String, default: "" },
+    lookUpKey: { type: String, default: "" },
     name: { type: String, default: "" },
     description: { type: String, default: "" },
     inStock: { type: Number, default: 1 },

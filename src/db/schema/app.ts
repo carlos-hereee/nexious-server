@@ -5,6 +5,7 @@ import { v4 } from "uuid";
 const Schema = mongoose.Schema;
 const appSchema = new Schema<IAppSchema>(
   {
+    // TODO: MOVE STRIPE ACCOUNT ID TO APP SCHEMA
     appId: { type: String, require: true, default: v4 },
     appName: { type: String, unique: true },
     locale: { type: String },

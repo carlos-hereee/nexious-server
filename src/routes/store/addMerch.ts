@@ -1,7 +1,7 @@
 import { createMerch } from "@db/models/merch/createMerch";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
-import { addProductInfo } from "./stripe/addProductInfo";
+import { addProductInfo } from "./stripe/updateProductInfo";
 import type { MerchBodyParams, MerchSchema } from "@app/store";
 import type { StoreRequest } from "@app/request";
 import { sendNotification } from "@db/models/notification/sendNotification";

@@ -44,12 +44,14 @@ export interface MerchSchema {
   description: string;
   name: string;
   link: string;
+  lookUpKey?: string;
   recurring?: "day" | "month" | "week" | "year";
   cost: number;
   inStock?: number;
   onHold?: number;
   uid?: string;
   merchId?: string;
+  subscriptionId?: string;
   productId?: string;
   priceId?: string;
   hero?: string;

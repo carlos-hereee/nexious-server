@@ -29,6 +29,16 @@ export const stripeWebhook = async (req: StripeWebhookRequest, res: Response) =>
       case "account.updated":
         await accountUpdated(event);
         break;
+      // case "invoice.paid":
+      //   // Continue to provision the subscription as payments continue to be made.
+      //   // Store the status in your database and check when a user accesses your service.
+      //   // This approach helps you avoid hitting rate limits.
+      //   break;
+      // case "invoice.payment_failed":
+      //   // The payment failed or the customer does not have a valid payment method.
+      //   // The subscription becomes past_due. Notify your customer and send them to the
+      //   // customer portal to update their payment information.
+      //   break;
       // case "capability.updated":
       //   // console.log("capabilty updated :>> ", event);
       //   // if user was not fully onboarded check details_submitted parameter on their account

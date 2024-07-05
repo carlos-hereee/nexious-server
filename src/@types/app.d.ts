@@ -43,6 +43,7 @@ export interface SubscriptionSchema {
   cost: number;
   productId?: string;
   priceId?: string;
+  lookUpKey?: string;
   link: string;
   addFeatures?: boolean;
   isActive?: boolean;
