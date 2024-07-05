@@ -12,7 +12,6 @@ interface SessionParams {
 
 export const createCheckoutSession = async ({ cart, accountId, orderId, mode }: SessionParams) => {
   const cartData = formatMerchData(cart);
-  console.log("cartData :>> ", cartData);
   return await stripe.checkout.sessions.create(
     {
       mode,

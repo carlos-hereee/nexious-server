@@ -11,11 +11,7 @@ export const upgradeAccount = async (req: AuthRequest<IAuth>, res: Response) => 
       // redirect user if account upgrade when upgrading account
       const subscriptionInfo = [{ priceId: accountTier.priceId, quantity: 1 }];
       const session = await createCheckoutSession({ cart: subscriptionInfo, accountId: "", mode: "subscription" });
-      console.log("session :>> ", session);
-      // // update user accoutn
-      // req.user.accountTier = accountTier;
-      // // save to db
-      // await req.user.save();
+      return res.status(200).json(session.url).end();
     }
   } catch (error) {
     useGenericErrors(res, error);

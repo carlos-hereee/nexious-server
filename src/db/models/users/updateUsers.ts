@@ -1,4 +1,6 @@
+import { AuthSchema } from "@app/auth";
 import type { ObjectId } from "@app/db";
+import Auth from "@db/schema/auth";
 import Users from "@db/schema/users";
 
 interface UpdateAll {
@@ -28,4 +30,7 @@ export const updateUserNotification = async ({ userId, notificationId, type }: U
       { $pull: { notifications: notificationId }, $addToSet: { archivedNotifications: notificationId } }
     );
   }
+};
+export const updateAuthSession = async ({ id, auth }: { id: ObjectId; auth: AuthSchema }) => {
+  return await Auth.updateOne({ _id: id }, { $set: auth });
 };
