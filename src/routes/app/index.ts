@@ -6,7 +6,7 @@ import { deleteApp } from "./deleteApp";
 import { initApp } from "./initApp";
 import { getAppWithName } from "./getApp/getAppWithName";
 import { getAppList } from "./getApp/appList";
-import { minAppData } from "./minAppData";
+import { minAppData } from "../minAppData";
 import { getAppWithLanguage } from "./getApp/getAppWithLanguage";
 import { updateNewsletter } from "./updateApp/updateNewsletter";
 
@@ -30,7 +30,6 @@ import { updateLandingPage } from "./updateApp/landingPage";
 import { addPage } from "./pages/addPage";
 import { fetchPage } from "./pages/fetchPage";
 import { updatePage } from "./pages/updatePage";
-import { minUserData } from "../auth/minUserData";
 import { deletePage } from "./pages/deletePage";
 import { deleteMenuItem } from "./deleteMenuItem";
 import { latest } from "./updateApp/latest";
@@ -52,7 +51,7 @@ route.post("/init-app", initAppWare, saveAsset, initApp, minAppData);
 route.post("/latest/:appId", adminWare, latest, minAppData);
 // manage subscritions
 route.post("/create-subscription/:appId", appWare, createSubscription, minAppData);
-route.post("/subscribe/:appId", userAppWare, subscribe, minUserData);
+route.post("/subscribe/:appId", userAppWare, subscribe, minAppData);
 // update subscription
 route.put("/update-subscription/:appId/:subscriptionId", appWare, editSubscription, minAppData);
 // delete subscription

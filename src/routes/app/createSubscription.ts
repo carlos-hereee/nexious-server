@@ -8,6 +8,7 @@ import { addProductInfo } from "@routes/store/stripe/addProductInfo";
 import { getStore } from "@db/models/store/getStore";
 import { addNotification } from "@utils/app/addNotification";
 import { SubscriptionSchema } from "@app/app";
+import { v4 } from "uuid";
 
 export const createSubscription = async (req: AppRequest<SubscriptionSchema>, res: Response, next: NextFunction) => {
   try {
@@ -24,16 +25,17 @@ export const createSubscription = async (req: AppRequest<SubscriptionSchema>, re
     } else isPlatformSubscription = true;
     // add subscription to stripe
     const { merch } = await addProductInfo({ merch: req.body, accountId, currency });
-
-    const Sub = await Subscription.create({
+    const subscription = {
       ...req.body,
+      isActive: true,
       link: generateStringUrl(merch.name),
       // add property to find later
       isPlatformSubscription,
-      isActive: true,
       productId: merch.productId,
       priceId: merch.priceId,
-    });
+      features: req.body.features.map((f) => ({ ...f, featureId: v4() })),
+    };
+    const Sub = await Subscription.create(subscription);
     // if platform request add new subscription to all users account
     if (isPlatformSubscription) {
       // create notification

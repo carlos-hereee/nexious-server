@@ -3,7 +3,7 @@
   "appNotFound": "App not found",
   "invalidEmailOrPassword": "Invalid username/email or password",
   "invalidCredentails": "One or more credential(s) are wrong",
-  "unauthorizedUser": "You dont have enough permission",
+  "unauthorizedUser": "Invalid credentials",
   "userNotFound": "User not found",
   "userDoesNotExist": "User does not exists",
   "userAlreadyExist": "A user already exists with that username",

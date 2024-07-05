@@ -13,9 +13,9 @@ import { authSessionWare, registerWare, userWare, validateWare } from "@middlewa
 import { requireUser } from "@middleware/auth/requireUser";
 import { aquireAuthSession } from "@middleware/auth/authSession";
 import { editUser } from "./editUser";
-import { minUserData } from "./minUserData";
 import { removeNotification } from "./removeNotification";
 import { upgradeAccount } from "./upgradeAccount";
+import { minAppData } from "@routes/minAppData";
 
 const route = Router();
 
@@ -33,9 +33,9 @@ route.post("/upgrade-account", requireUser, upgradeAccount);
 route.post("/change-password/:username", userWare, authSessionWare, changePassword, refreshSession, sendToken);
 route.post("/forgot-password/:username", userWare, authSessionWare, changePassword, refreshSession, sendToken);
 // edit user data
-route.put("/update-user", userWare, editUser, minUserData);
+route.put("/update-user", userWare, editUser, minAppData);
 // log out
 route.delete("/logout", requireUser, aquireAuthSession, logout);
-route.delete("/remove-notification/:notificationId", requireUser, removeNotification, minUserData);
+route.delete("/remove-notification/:notificationId", requireUser, removeNotification, minAppData);
 
 export default route;

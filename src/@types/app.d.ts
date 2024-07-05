@@ -45,6 +45,7 @@ export interface SubscriptionSchema {
   priceId?: string;
   link: string;
   addFeatures?: boolean;
+  isActive?: boolean;
   features: {
     featureId: string;
     name: string;

@@ -56,6 +56,7 @@ export interface AppRequest<B = AppBody> extends Request {
   files: { hero: IFile[]; sectionHero: IFile[] };
   asset: string;
   assets: { hero: string; sectionHero: string[] };
+  account?: Stripe.Response<Stripe.Account>;
 }
 
 export interface FileRequest extends Request {
