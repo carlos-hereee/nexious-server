@@ -2,10 +2,10 @@ import { NextFunction, Response } from "express";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import type { StoreRequest } from "@app/request";
 import { MerchSchema } from "@app/store";
-import { accountLinks } from "@utils/stripe/accounts/generateLinkSession";
 import { addProductInfo } from "./stripe/updateProductInfo";
 import { updateMerch } from "@db/models/merch/updateMerch";
 import message from "@db/data/error.message.json";
+import { accountLinks } from "@utils/stripe/accounts/generateLinkSession";
 
 export const editStripeMerch = async (req: StoreRequest<{ merch: MerchSchema }>, res: Response, next: NextFunction) => {
   try {

@@ -7,6 +7,8 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema<IUserSchema>(
   {
     userId: { type: String, require: true, unique: true, default: v4 },
+    // stripe generated customer id
+    customerId: { type: String, default: "" },
     username: { type: String, require: true, unique: true },
     email: { type: String, set: toLowerCase },
     name: { type: String },

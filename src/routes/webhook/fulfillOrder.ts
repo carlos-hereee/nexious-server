@@ -1,5 +1,5 @@
 import Stripe from "stripe";
-import { getCheckoutSession } from "../payments/getCheckoutSession";
+import { getCheckoutSession } from "../../utils/stripe/payments/getCheckoutSession";
 import { updateMerch } from "@db/models/merch/updateMerch";
 import type { CheckoutCompleteSession } from "@app/stripe";
 import { updateApp } from "@db/models/app/updateApp";

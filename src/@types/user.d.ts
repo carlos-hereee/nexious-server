@@ -25,6 +25,7 @@ export interface IUserSchema extends Document {
   phone: string;
   locale: string;
   theme: string;
+  customerId?: string;
   name: string;
   isPlatformOwner: boolean;
   permissions: { appId: ObjectId; role: string }[];

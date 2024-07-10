@@ -8,7 +8,7 @@ import { editStore } from "./editStore";
 import { checkoutSession } from "./checkout/checkoutSession";
 import { getConfirmation } from "./getConfirmation";
 import { stripeWebhook } from "./stripe/stripeWebhook";
-import { initHook } from "@utils/stripe/webhook/initHook";
+import { initHook } from "@routes/webhook/initHook";
 import { removeStore } from "./removeStore";
 import { removeMerchendise } from "./removeMerch";
 import { getStoreWithName } from "./getStoreWithName";

@@ -1,7 +1,7 @@
 import type { StoreRequest } from "@app/request";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
-// import { getAccount } from "@utils/stripe/accounts/getAccount";
 import { getBalance } from "@utils/stripe/funds/getFunds";
+// import { getAccount } from "@routes/webhook/accounts/getAccount";
 import { NextFunction, Response } from "express";
 
 export const getStripeAccountBalance = async (req: StoreRequest, res: Response, next: NextFunction) => {

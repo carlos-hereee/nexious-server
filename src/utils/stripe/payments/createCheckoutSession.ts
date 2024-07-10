@@ -1,6 +1,6 @@
 import type { CheckoutMerch } from "@app/store";
 import stripe from "../connection";
-import { formatMerchData } from "../webhook/formatMerchData";
+import { formatMerchData } from "../../../routes/webhook/formatMerchData";
 import { clientUrl } from "@utils/app/config";
 
 interface SessionParams {

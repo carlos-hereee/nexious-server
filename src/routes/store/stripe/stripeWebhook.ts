@@ -1,11 +1,18 @@
 import { Response } from "express";
-import { checkoutCompleted } from "@utils/stripe/webhook/checkoutCompleted";
-// import { paymentIntentFailed, paymentIntentSucceeded } from "@utils/stripe/webhook/paymentIntent";
-// import { paymentAttached } from "@utils/stripe/webhook/paymentAttached";
+import { checkoutCompleted } from "@routes/webhook/checkoutCompleted";
+// import { paymentIntentFailed, paymentIntentSucceeded } from "@routes/webhook/webhook/paymentIntent";
+// import { paymentAttached } from "@routes/webhook/webhook/paymentAttached";
 import type { StripeWebhookRequest } from "@app/request";
-import { accountUpdated } from "@utils/stripe/webhook/accountUpdated";
-import { fulFillOrder } from "@utils/stripe/webhook/fulfillOrder";
-// import { emailCustomerAboutFailedPayment } from "@utils/stripe/webhook/emailCustomer";
+import { accountUpdated } from "@routes/webhook/accountUpdated";
+import { fulFillOrder } from "@routes/webhook/fulfillOrder";
+import {
+  addCustomerSubscription,
+  customerSubscriptionWillEndSoon,
+  removeCustomerSubscription,
+  updateCustomerSubscription,
+} from "@routes/webhook/updateCustomerSubscription";
+import { invoicePaid, invoicePaymentFailed } from "@routes/webhook/updateInvoice";
+// import { emailCustomerAboutFailedPayment } from "@routes/webhook/webhook/emailCustomer";
 // import { productCreated } from "./stripe/stripeProduct";
 
 export const stripeWebhook = async (req: StripeWebhookRequest, res: Response) => {
@@ -29,53 +36,25 @@ export const stripeWebhook = async (req: StripeWebhookRequest, res: Response) =>
       case "account.updated":
         await accountUpdated(event);
         break;
-      // INVOICE FOR SUBSCRIPTIONS
-      // TODO: INVOICE PAID
+      //CREATE INVOICE FOR SUBSCRIPTIONS
       case "invoice.paid":
-        // Continue to provision the subscription as payments continue to be made.
-        // Store the status in your database and check when a user accesses your service.
-        // This approach helps you avoid hitting rate limits.
+        await invoicePaid(event);
         break;
-      // TODO: INVOICE PAYMENT FAILED
       case "invoice.payment_failed":
-        // The payment failed or the customer does not have a valid payment method.
-        // The subscription becomes past_due. Notify your customer and send them to the
-        // customer portal to update their payment information.
-        //          there are several possible actions to take:
-
-        //1. Notify the customer.
-        //2 If you’re using PaymentIntents, collect new payment information and confirm the PaymentIntent.
-        //3 Update the default payment method on the subscription.
-        //4 Consider enabling Smart Retries.
+        await invoicePaymentFailed(event);
         break;
-      // TODO: SUBSCRIPTION LIFE CYCLE
+      // SUBSCRIPTION LIFE CYCLE
+      case "customer.subscription.created":
+        await addCustomerSubscription(event);
+        break;
       case "customer.subscription.trial_will_end":
-        // const subscription = event.data.object;
-        // const status = subscription.status;
-        // console.log(`Subscription status is ${status}.`);
-        // Then define and call a method to handle the subscription trial ending.
-        // handleSubscriptionTrialEnding(subscription);
+        await customerSubscriptionWillEndSoon(event);
         break;
       case "customer.subscription.deleted":
-        // const subscription = event.data.object;
-        // const status = subscription.status;
-        // console.log(`Subscription status is ${status}.`);
-        // Then define and call a method to handle the subscription deleted.
-        // handleSubscriptionDeleted(subscriptionDeleted);
-        break;
-      case "customer.subscription.created":
-        // const subscription = event.data.object;
-        // const status = subscription.status;
-        // console.log(`Subscription status is ${status}.`);
-        // Then define and call a method to handle the subscription created.
-        // handleSubscriptionCreated(subscription);
+        await removeCustomerSubscription(event);
         break;
       case "customer.subscription.updated":
-        // const subscription = event.data.object;
-        // const status = subscription.status;
-        // console.log(`Subscription status is ${status}.`);
-        // Then define and call a method to handle the subscription update.
-        // handleSubscriptionUpdated(subscription);
+        await updateCustomerSubscription(event);
         break;
       // case "entitlements.active_entitlement_summary.updated":
       //   const subscription = event.data.object;

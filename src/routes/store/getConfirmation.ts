@@ -2,18 +2,19 @@ import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { getCheckoutSession } from "@utils/stripe/payments/getCheckoutSession";
 import { NextFunction, Request, Response } from "express";
 
-// import { getStripeCustomer }  from "@utils/stripe/customers/getStripeCustomer";
-// import { getCheckoutItems }  from "@utils/stripe/payments/getCheckoutItems";
+// import { getStripeCustomer }  from "@routes/webhook/customers/getStripeCustomer";
+// import { getCheckoutItems }  from "@routes/webhook/payments/getCheckoutItems";
 
 export const getConfirmation = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const sessionId = req.query.session_id;
     // console.log("sessionId :>> ", sessionId);
     const session = await getCheckoutSession({ id: sessionId as string });
-    // const items = await getCheckoutItems({ id: sessionId });
-    // console.log("session :>> ", session);
+    console.log("session :>> ", session);
     const sessionDetails = {
       status: session.status,
+      mode: session.mode,
+      subscription: session.subscription,
       paymentStatus: session.payment_status,
       customerDetails: session.customer_details,
       customer: session.customer,
