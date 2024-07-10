@@ -16,6 +16,7 @@ import { removeNotification } from "./removeNotification";
 import { upgradeAccount } from "./upgradeAccount";
 import { minAppData } from "@routes/minAppData";
 import { getPlatformData } from "@routes/getPlatformData";
+import { linkSubscription } from "./linkSubscription";
 
 const route = Router();
 
@@ -28,7 +29,9 @@ route.get("/access-token", requireUser, getPlatformData);
 route.post("/register", registerWare, register, sendToken);
 route.post("/login", validateWare, refreshSession, sendToken);
 route.post("/refresh-token", requireUser, authSessionWare, refreshSession, sendToken);
+// update stripe subscription
 route.post("/upgrade-account", requireUser, upgradeAccount);
+route.put("/link-account", requireUser, linkSubscription, minAppData);
 // TODO: ADD ADDITIONAL VERFICATION MEDTHODS
 route.post("/change-password/:username", userWare, authSessionWare, changePassword, refreshSession, sendToken);
 route.post("/forgot-password/:username", userWare, authSessionWare, changePassword, refreshSession, sendToken);

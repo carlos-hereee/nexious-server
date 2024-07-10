@@ -10,7 +10,6 @@ export const getConfirmation = async (req: Request, res: Response, next: NextFun
     const sessionId = req.query.session_id;
     // console.log("sessionId :>> ", sessionId);
     const session = await getCheckoutSession({ id: sessionId as string });
-    console.log("session :>> ", session);
     const sessionDetails = {
       status: session.status,
       mode: session.mode,
@@ -18,6 +17,7 @@ export const getConfirmation = async (req: Request, res: Response, next: NextFun
       paymentStatus: session.payment_status,
       customerDetails: session.customer_details,
       customer: session.customer,
+      metadata: session.metadata,
     };
     // console.log("items :>> ", items);
     // // console.log("sessionDetails :>> ", sessionDetails);

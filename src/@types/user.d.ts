@@ -1,7 +1,6 @@
 import type { Document } from "mongoose";
 import { ObjectId } from "./db";
 import { AuthSchema } from "./auth";
-import { SubscriptionSchema } from "./app";
 
 // user
 export interface UserFilters {
@@ -18,7 +17,7 @@ export interface IUserSchema extends Document {
   _id: ObjectId;
   userId: string;
   username: string;
-  accountTier: SubscriptionSchema;
+  accountTier?: ObjectId;
   nickname: string;
   avatar: string;
   email: string;

@@ -5,12 +5,12 @@ import { clientUrl } from "@utils/app/config";
 
 interface SessionParams {
   cart: CheckoutMerch[];
-  accountId: string;
-  orderId?: string;
+  accountId?: string;
+  metadata?: { [key: string]: string };
   mode: "payment" | "subscription";
 }
 
-export const createCheckoutSession = async ({ cart, accountId, orderId, mode }: SessionParams) => {
+export const createCheckoutSession = async ({ cart, accountId, metadata, mode }: SessionParams) => {
   const cartData = formatMerchData(cart);
   return await stripe.checkout.sessions.create(
     {
@@ -24,7 +24,7 @@ export const createCheckoutSession = async ({ cart, accountId, orderId, mode }: 
       // // let stripe handle tax
       // automatic_tax: { enabled: true },
       // add orderid if order is already in system
-      metadata: orderId ? { orderId } : undefined,
+      metadata: metadata || undefined,
       // TODO: ADD TRIAL PERIOD
       // subscription_data: {
       //   trial_period_days: 7,

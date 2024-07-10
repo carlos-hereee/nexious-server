@@ -15,6 +15,7 @@ export interface FormatNotification {
     | "edit-calendar"
     | "edit-store"
     | "app-update"
+    | "update-account"
     | "add-store";
   user?: IUserSchema;
   merch?: MerchSchema;

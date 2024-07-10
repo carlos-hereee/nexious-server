@@ -3,6 +3,20 @@ import type Stripe from "stripe";
 export interface CheckoutPortalSession {
   customer: string;
 }
+export interface StripeConfirmation {
+  status: string;
+  paymentStatus: string;
+  customer: string;
+  mode: string;
+  subscription: string;
+  metadata: { [key: string]: string };
+  intent: string;
+  customerDetails: {
+    email: string;
+    name: string;
+    phone: string;
+  };
+}
 export interface CheckoutCompleteSession {
   accountId: string;
   sessionId: string;

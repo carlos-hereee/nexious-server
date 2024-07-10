@@ -17,7 +17,7 @@ export const addNotification = async ({ type, message, link }: FormatNotificatio
     data.category = "store";
     data.name = "Successfully updated store";
   }
-  if (type === "edit-user") {
+  if (type === "edit-user" || type === "update-account") {
     data.category = "user";
     data.name = "Account updated";
   }
