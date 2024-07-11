@@ -12,7 +12,7 @@ import { addNotification } from "@utils/app/addNotification";
 export const initApp = async (req: AppRequest, res: Response, next: NextFunction) => {
   try {
     // key variables
-    const appName = req.body.appName;
+    const appName = req.body.appName.trim();
     const appUrl = generateStringUrl(appName);
     const logo = req.asset || "";
     const owner = req.user._id;

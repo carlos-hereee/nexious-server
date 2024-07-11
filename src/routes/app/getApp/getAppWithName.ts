@@ -5,7 +5,7 @@ import { Response } from "express";
 
 export const getAppWithName = async (req: AppRequest, res: Response) => {
   try {
-    const appName = req.params.appName.split("+").join(" ");
+    const appName = req.params.appName.split("+").join(" ").trim();
     const app = await getApp({ appName });
     res.status(200).json({ app }).end();
   } catch (error) {
