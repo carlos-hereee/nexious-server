@@ -7,12 +7,13 @@ import type { Response } from "express";
 export const upgradeAccount = async (req: AuthRequest<SubscriptionSchema>, res: Response) => {
   try {
     const accountTier = req.body;
+    // no price id
+    if (!accountTier.priceId) return res.status(404).end();
+
     // populate user data
     await req.user.populate("accountTier");
     const userAccount = req.user.accountTier as unknown as SubscriptionSchema;
 
-    // no price id
-    if (!accountTier.priceId) return res.status(404).end();
     // key variables
     const cart = {
       // subscription payload

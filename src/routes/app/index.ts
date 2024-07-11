@@ -37,6 +37,7 @@ import { createSubscription } from "./createSubscription";
 import { editSubscription } from "./editSubscription";
 import { deleteSubscription } from "./deleteSubscription";
 import { getPlatformData } from "@routes/getPlatformData";
+import { editPlatformSub } from "./editPlatformSubscription";
 
 const route = Router();
 // load app data
@@ -51,6 +52,7 @@ route.post("/latest/:appId", adminWare, latest, minAppData);
 route.post("/create-subscription/:appId", appWare, createSubscription, minAppData);
 route.post("/subscribe/:appId", userAppWare, subscribe, minAppData);
 // update subscription
+route.put("/update-subscription/platform/:subscriptionId", appWare, editPlatformSub, minAppData);
 route.put("/update-subscription/:appId/:subscriptionId", appWare, editSubscription, minAppData);
 // delete subscription
 route.delete("/delete-subscription/:appId/:subscriptionId", appWare, deleteSubscription, minAppData);
