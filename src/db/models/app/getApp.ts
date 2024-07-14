@@ -27,3 +27,6 @@ export const getAllApps = async ({ appIds, all, ownerId }: AppFilters) => {
     return await App.find({ ownerId }).populate(includeData);
   }
 };
+// export const getAllAppUsers = async ({ appId }: AppFilters) => {
+//   if (appId) return await App.find();
+// };

@@ -38,11 +38,13 @@ import { editSubscription } from "./editSubscription";
 import { deleteSubscription } from "./deleteSubscription";
 import { getPlatformData } from "@routes/getPlatformData";
 import { editPlatformSub } from "./editPlatformSubscription";
+import { getAppUserData } from "./getApp/getAppUserData";
 
 const route = Router();
 // load app data
 route.get("/platform-data", getPlatformData);
 route.get("/:appName", getAppWithName);
+route.get("/:appId/user-data", getAppUserData);
 route.get("/:appName/locale/:locale", getAppWithLanguage);
 route.get("/page/:pageId", fetchPage);
 // build app data
