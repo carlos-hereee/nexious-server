@@ -16,25 +16,21 @@ export const addStore = async (req: StoreRequest, res: Response, next: NextFunct
     const { storeName } = req.body;
     const { country, _id } = req.project;
     const ownerId = req.user._id;
-    const hero = req.asset || "";
     const email = req.body.email || req.project.email;
     // require email to continue
     if (!email) return res.status(400).json(message.emailRequired).end();
     // format link url
-    const link = "/store/" + req.project.appUrl;
+    const link = "/store/" + req.project.appLink;
     const menuData = formatMenuPageData({ pageName: storeName, category: "store", link, menuId: v4() });
     const storeData: StoreSchema = {
       ...req.body,
       email,
       ownerId,
       appId: _id,
-      hero,
       storeLink: generateStringUrl(req.body.storeName),
+      storeUrl: link,
       accountId: "",
       inventory: [],
-      pendingOrders: [],
-      completedOrders: [],
-      inCompleteOrders: [],
       orders: [],
     };
 
@@ -44,11 +40,7 @@ export const addStore = async (req: StoreRequest, res: Response, next: NextFunct
     // // save store data
     const store = await createStore(storeData);
     // create notification
-    const notification = await addNotification({
-      type: "add-store",
-      message: "Successfull added merch to inventory",
-      link: `/store/${generateStringUrl(req.store?.storeName || "")}`,
-    });
+    const notification = await addNotification({ type: "add-store", message: "Successfully created store", link });
     // // connect store to app
     req.project.store = store._id;
     req.project.menu.push(menuData);

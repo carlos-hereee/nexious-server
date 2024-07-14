@@ -13,7 +13,7 @@ import { removeStore } from "./removeStore";
 import { removeMerchendise } from "./removeMerch";
 import { getStoreWithName } from "./getStoreWithName";
 import { getStripeAccount } from "./stripe/getStripeAccount";
-import { heroWare } from "@middleware/app";
+import { adminWare } from "@middleware/app";
 import { merchWare, merchindiseWare, storeWare } from "@middleware/store";
 import { stripeOnboarding } from "./stripe/stripeOnboarding";
 import { storeSession } from "./checkout/storeSession";
@@ -48,7 +48,7 @@ route.post("/create-checkout-session", requireClientData, checkoutSession);
 route.post("/checkout-store-session/:storeId", getStoreWithStoreId, requireClientData, storeSession);
 route.post("/stripe-account-link/:appId", storeWare, stripeOnboarding);
 // add to store
-route.post("/build-store/:appId", heroWare, addStore, minAppData);
+route.post("/build-store/:appId", adminWare, addStore, minAppData);
 route.post("/add-merch/:appId", storeWare, merchindiseWare, addMerch, minAppData);
 // construct stripe webhook
 route.post("/webhook", bodyParse, initHook, stripeWebhook);

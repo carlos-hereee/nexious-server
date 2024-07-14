@@ -111,6 +111,7 @@ export interface StoreSchema {
   email: string;
   storeId?: string;
   storeLink?: string;
+  storeUrl?: string;
   accountId?: string;
   stripeDisabledReason?: string;
   isStripeActive?: boolean;
@@ -128,10 +129,7 @@ export interface StoreSchema {
   isRegistered?: boolean;
   onBoardingRequired?: boolean;
   termsOfService?: boolean;
-  pendingOrders: IOrderShema[];
   orders: IOrderShema[];
-  completedOrders: IOrderShema[];
-  inCompleteOrders: IOrderShema[];
   inventory: ObjectId[];
 }
 export interface IStoreSchema extends StoreSchema, Document {
