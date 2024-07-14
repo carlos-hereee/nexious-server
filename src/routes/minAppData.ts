@@ -10,7 +10,7 @@ export const minAppData = async (req: AppRequest, res: Response) => {
     if (req.user) {
       const userData = `ownedApps subscriptions permissions ownedApps.userId${
         req.user.notifications ? " notifications" : ""
-      }${req.user.subscriptions ? " subscriptions" : ""}${req.user.accountTier ? " accountTier" : ""}`;
+      }${req.user.subscriptions ? " subscriptions" : ""}${req.user.accountTier ? " accountTier" : ""}${req.user.orders ? " orders" : ""}`;
       // depopulate auth data for security
       const user = await req.user.depopulate("auth").populate(userData);
       data.user = user;

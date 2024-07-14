@@ -13,7 +13,7 @@ export interface UpdateStoreParams {
   order?: ObjectId | string;
   client?: ClientSchema;
   stripe?: StoreUpdateWithStripe;
-  type?: "payment" | "stripe-account-updated" | "checkout-complete";
+  type?: "payment" | "stripe-account-updated" | "checkout-complete" | "payment-in-store";
 }
 export interface GetMerchProps {
   storeId?: string;
