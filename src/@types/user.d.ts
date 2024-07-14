@@ -35,6 +35,7 @@ export interface IUserSchema extends Document {
   archivedNotifications: ObjectId[];
   accountTiers: ObjectId[];
   feed: ObjectId[];
+  orders: ObjectId[];
 }
 export interface InitUser {
   username: string;

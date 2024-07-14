@@ -38,3 +38,6 @@ export const orderSchema = new Schema<IOrderShema>({
     },
   ],
 });
+
+const Orders = mongoose.model("Orders", orderSchema);
+export default Orders;

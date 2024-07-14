@@ -27,6 +27,7 @@ import { getStripeAccountBalance } from "./stripe/getStripeAccountBalance";
 import { managePayouts } from "./stripe/managePayouts";
 import { minAppData } from "@routes/minAppData";
 import { getBillingPortal } from "./checkout/getBillingPortal";
+import { trackOrder } from "./checkout/trackOrder";
 
 const route = Router();
 const bodyParse = bodyParser.raw({ type: "application/json" });
@@ -36,6 +37,7 @@ const bodyParse = bodyParser.raw({ type: "application/json" });
 route.get("/app/:appName", getStoreWithName);
 // stripe payments
 route.get("/confirm-intent", getConfirmation);
+route.get("/:accountId/track-order/:orderId", trackOrder);
 route.get("/stripe-billing-portal/:customer", getBillingPortal);
 route.get("/stripe-account/:appId", storeWare, getStripeAccount, minAppData);
 route.get("/stripe-account/:appId/balance", storeWare, getStripeAccountBalance, minAppData);

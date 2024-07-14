@@ -30,6 +30,7 @@ const userSchema = new Schema<IUserSchema>(
     archivedNotifications: { type: [{ type: String, ref: "Notification" }], default: [] },
     subscriptions: { type: [{ type: Schema.Types.ObjectId, ref: "App" }], default: [] },
     feed: { type: [{ type: Schema.Types.ObjectId, ref: "Post" }], default: [] },
+    orders: [{ type: Schema.Types.ObjectId, ref: "Orders" }],
   },
   { timestamps: true }
 );

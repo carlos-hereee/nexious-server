@@ -10,7 +10,7 @@ export interface UpdateStoreParams {
   orderId?: string;
   status?: "pending" | "awaiting-payment" | "completed" | "accepted" | "declined";
   paymentStatus?: "paid" | "unpaid" | "no_payment_required";
-  order?: IOrderShema;
+  order?: ObjectId | string;
   client?: ClientSchema;
   stripe?: StoreUpdateWithStripe;
   type?: "payment" | "stripe-account-updated" | "checkout-complete";
@@ -97,7 +97,7 @@ export interface IOrderShema {
   store?: OrderStoreInfo;
   statusReason?: string;
   paymentMethod?: "in-store" | "stripe" | "in-store-and-online";
-  _id?: ObjectId | string;
+  _id?: ObjectId;
 }
 export interface IMerchSchema extends MerchSchema, Document {
   hasCatalog: boolean;
@@ -137,7 +137,7 @@ export interface StoreSchema {
   isRegistered?: boolean;
   onBoardingRequired?: boolean;
   termsOfService?: boolean;
-  orders: IOrderShema[];
+  orders: ObjectId[];
   inventory: ObjectId[];
 }
 export interface IStoreSchema extends StoreSchema, Document {
