@@ -6,9 +6,17 @@ const Schema = mongoose.Schema;
 export const orderSchema = new Schema<IOrderShema>({
   client: {
     email: { type: Schema.Types.String },
+    name: { type: Schema.Types.String },
     phone: { type: Schema.Types.String },
     userId: { type: Schema.Types.String },
-    address: { type: Schema.Types.String },
+    address: {
+      city: { type: Schema.Types.String },
+      country: { type: Schema.Types.String },
+      line1: { type: Schema.Types.String },
+      line2: { type: Schema.Types.String },
+      postal_code: { type: Schema.Types.String },
+      state: { type: Schema.Types.String },
+    },
   },
   status: { type: Schema.Types.String, default: "pending" },
   statusReason: { type: Schema.Types.String },

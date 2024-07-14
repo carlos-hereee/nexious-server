@@ -67,9 +67,17 @@ export interface OrderMerchSchema {
 }
 export interface ClientSchema {
   email: string;
+  name?: string;
   phone: string;
   userId?: string;
-  address?: string;
+  address?: {
+    city: string | null;
+    country: string | null;
+    line1: string | null;
+    line2: string | null;
+    postal_code: string | null;
+    state: string | null;
+  };
 }
 export interface OrderStoreInfo {
   storeId: string;
@@ -161,7 +169,7 @@ export interface CartBody {
     merchId: string;
     quantity: number;
   }[];
-  client: { username: string; name: string; phone: string; address: string; email: string };
+  client: { username: string; name: string; phone: string; email: string };
 }
 export type StripeMerchData = RequestCart[];
 export interface RequestCart {

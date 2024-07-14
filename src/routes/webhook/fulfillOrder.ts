@@ -1,10 +1,11 @@
-import Stripe from "stripe";
+import S from "stripe";
 import { getCheckoutSession } from "../../utils/stripe/payments/getCheckoutSession";
 import { updateMerch } from "@db/models/merch/updateMerch";
 import type { CheckoutCompleteSession } from "@app/stripe";
 import { updateApp } from "@db/models/app/updateApp";
 import { getStore } from "@db/models/store/getStore";
 import { addNotification } from "@utils/app/addNotification";
+import { OrderMerchSchema } from "@app/store";
 
 // // Retrieve the session. If you require line items in the response, you may include them by expanding line_items.
 const generateSession = async (id: string, stripeAccount: string) => {
@@ -17,7 +18,7 @@ const generateSession = async (id: string, stripeAccount: string) => {
   });
 };
 // update merch quantity
-const updateMerchQuantity = (lineItems: Stripe.ApiList<Stripe.LineItem>) => {
+const updateMerchQuantity = (lineItems: S.ApiList<S.LineItem>) => {
   lineItems.data.forEach(async (d) => {
     const quantity = d.quantity || 1;
     // track merch with ids
@@ -26,7 +27,7 @@ const updateMerchQuantity = (lineItems: Stripe.ApiList<Stripe.LineItem>) => {
   });
 };
 // finish checkout send notification and update store order
-const completeCheckout = async (accountId: string, orderId: string) => {
+const completeCheckout = async (accountId: string, orderId: string, session: S.Response<S.Checkout.Session>) => {
   // find store
   const store = await getStore({ accountId });
   // create notification
@@ -39,7 +40,20 @@ const completeCheckout = async (accountId: string, orderId: string) => {
       if (order.orderId === orderId) {
         // update order status
         order.status = "accepted";
-        order.merch = order.merch.map((m) => {
+        // attach customer details to order
+        if (session.customer_details) {
+          order.client.name = session.customer_details.name || "";
+          order.client.email = session.customer_details.email || "";
+          order.client.address = {
+            city: session.customer_details.address?.city || "",
+            country: session.customer_details.address?.country || "",
+            line1: session.customer_details.address?.line1 || "",
+            line2: session.customer_details.address?.line2 || "",
+            postal_code: session.customer_details.address?.postal_code || "",
+            state: session.customer_details.address?.state || "",
+          };
+        }
+        order.merch = order.merch.map((m: OrderMerchSchema) => {
           // change payment status to paid if merch contains a productid
           if (m.productId) return { ...m, paymentStatus: "paid" };
           return m;
@@ -56,11 +70,11 @@ export const completeCheckoutOrder = async ({ accountId, sessionId, orderId }: C
   const session = await generateSession(sessionId, accountId);
   // update merch quantity
   if (session.line_items) updateMerchQuantity(session.line_items);
-  if (orderId) await completeCheckout(accountId, orderId);
+  if (orderId) await completeCheckout(accountId, orderId, session);
 };
 
 // 	The customer’s payment succeeded.
-export const fulFillOrder = async (event: Stripe.CheckoutSessionAsyncPaymentSucceededEvent) => {
+export const fulFillOrder = async (event: S.CheckoutSessionAsyncPaymentSucceededEvent) => {
   // track account id
   const accountId = event.account;
   const { id, metadata } = event.data.object;

@@ -15,9 +15,9 @@ export const createCheckoutSession = async ({ cart, accountId, metadata, mode }:
   return await stripe.checkout.sessions.create(
     {
       mode,
-      billing_address_collection: "auto",
+      billing_address_collection: mode === "payment" ? "required" : "auto",
       line_items: cartData,
-      success_url: `${clientUrl}/checkout/success/?success=true&session_id={CHECKOUT_SESSION_ID}`,
+      success_url: `${clientUrl}/checkout/success/?success=true&session_id={CHECKOUT_SESSION_ID}&accountId=${accountId}`,
       cancel_url: `${clientUrl}/checkout/error/?canceled=true`,
       // platform fee in payment mode as you cannot pass payment initent data on subscription mode
       payment_intent_data: mode === "payment" ? { application_fee_amount: 123 } : undefined,

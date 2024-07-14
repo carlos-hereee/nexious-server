@@ -19,10 +19,11 @@ export const checkoutSession = async (req: StoreRequest<CartBody>, res: Response
       merch: cart,
       paymentMethod: someInstore ? "in-store-and-online" : "stripe",
     };
+    const metadata = { orderId };
 
     await updateStore({ order, accountId, type: "payment" });
     const cartData = someInstore ? online : cart;
-    const session = await createCheckoutSession({ cart: cartData, accountId, orderId, mode: "payment" });
+    const session = await createCheckoutSession({ cart: cartData, accountId, metadata, mode: "payment" });
     return res.status(200).json(session.url).end();
   } catch (error) {
     return useGenericErrors(res, error, "unable to create stripe session");
