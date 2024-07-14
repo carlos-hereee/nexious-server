@@ -13,6 +13,7 @@ const appSchema = new Schema<IAppSchema>(
     country: { type: String },
     email: { type: String, require: true },
     appUrl: { type: String },
+    appLink: { type: String },
     logo: { type: String, default: "" },
     owner: { type: Schema.Types.ObjectId, ref: "Users" },
     adminIds: [{ userId: { type: String, ref: "Users" }, role: { type: String } }],
