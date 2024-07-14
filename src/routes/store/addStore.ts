@@ -20,7 +20,7 @@ export const addStore = async (req: StoreRequest, res: Response, next: NextFunct
     // require email to continue
     if (!email) return res.status(400).json(message.emailRequired).end();
     // format link url
-    const link = "/store/" + req.project.appLink;
+    const link = "/store/" + req.project.appLink ? req.project.appLink : req.project.appUrl;
     const menuData = formatMenuPageData({ pageName: storeName, category: "store", link, menuId: v4() });
     const storeData: StoreSchema = {
       ...req.body,
