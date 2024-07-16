@@ -32,6 +32,7 @@ export const addStore = async (req: StoreRequest, res: Response, next: NextFunct
       accountId: "",
       inventory: [],
       orders: [],
+      notifications: [],
     };
 
     const account = await addAccount({ addAccount: { country, email, type: "standard" } });

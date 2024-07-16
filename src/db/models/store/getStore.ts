@@ -9,6 +9,6 @@ export const getStore = async ({ appId, storeId, id, accountId }: GetMerchProps)
   if (accountId) return await Store.findOne({ accountId });
   // return null;
 };
-export const getOrder = async (orderId: string) => {
+export const getOrder = async ({ orderId }: { orderId: string }) => {
   return await Orders.findOne({ orderId });
 };

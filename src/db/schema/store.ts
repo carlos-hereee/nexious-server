@@ -27,6 +27,7 @@ const storeSchema = new Schema<IStoreSchema>(
     termsOfService: { type: Boolean, default: false },
     inventory: [{ type: Schema.Types.ObjectId, ref: "Merch" }],
     orders: [{ type: Schema.Types.ObjectId, ref: "Orders" }],
+    notifications: [{ type: Schema.Types.ObjectId, ref: "Notification" }],
 
     // orders: [orderSchema],
   },

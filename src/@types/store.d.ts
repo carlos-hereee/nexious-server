@@ -11,14 +11,16 @@ export interface UpdateStoreParams {
   status?: "pending" | "awaiting-payment" | "completed" | "accepted" | "declined";
   paymentStatus?: "paid" | "unpaid" | "no_payment_required";
   order?: ObjectId | string;
+  notification?: ObjectId;
   client?: ClientSchema;
   stripe?: StoreUpdateWithStripe;
-  type?: "payment" | "stripe-account-updated" | "checkout-complete" | "payment-in-store";
+  type?: "payment" | "stripe-account-updated" | "checkout-complete" | "payment-in-store" | "add-notification";
 }
 export interface GetMerchProps {
   storeId?: string;
   appId?: ObjectId;
   merchId?: string;
+  orderId?: string;
   accountId?: string;
   merchIds?: string;
   id?: ObjectId;
@@ -89,10 +91,11 @@ export interface StoreSessionBody {
   cart: OrderMerchSchema[];
   client: ClientSchema;
 }
+export type OrderStatus = "pending" | "awaiting-payment" | "completed" | "accepted" | "declined";
 export interface IOrderShema {
   client: ClientSchema;
   merch: OrderMerchSchema[];
-  status: "pending" | "awaiting-payment" | "completed" | "accepted" | "declined";
+  status: OrderStatus;
   orderId?: string;
   store?: OrderStoreInfo;
   statusReason?: string;
@@ -130,15 +133,16 @@ export interface StoreSchema {
   currency: string;
   storeName?: string;
   title?: string;
+  body?: string;
   location?: string;
   location2?: string;
-  body?: string;
   hero?: string;
   isRegistered?: boolean;
   onBoardingRequired?: boolean;
   termsOfService?: boolean;
   orders: ObjectId[];
   inventory: ObjectId[];
+  notifications: ObjectId[];
 }
 export interface IStoreSchema extends StoreSchema, Document {
   _id: ObjectId;

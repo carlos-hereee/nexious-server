@@ -5,7 +5,7 @@ import type { Response } from "express";
 
 export const trackOrder = async (req: StoreRequest, res: Response) => {
   try {
-    const order = await getOrder(req.params.orderId);
+    const order = await getOrder({ orderId: req.params.orderId });
     if (order) {
       return res.status(200).json(order).end();
     }

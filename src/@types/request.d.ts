@@ -1,5 +1,5 @@
 import type { IUserSchema } from "./user";
-import type { IMerchSchema, IStoreSchema, RequestStore, StoreBody } from "./store";
+import type { IMerchSchema, IStoreSchema, OrderStatus, RequestStore, StoreBody } from "./store";
 import type { Request } from "express";
 import type Stripe from "stripe";
 import type { AuthBody, IAuthSchema } from "./auth";
@@ -79,7 +79,7 @@ export interface StoreRequest<B = StoreBody> extends Request {
     orderId: string;
     customer: string;
     merchId: string;
-    orderUpdate: string;
+    orderUpdate: OrderStatus;
   };
   store: IStoreSchema;
   project: IAppSchema;
