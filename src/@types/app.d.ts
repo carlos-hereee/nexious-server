@@ -104,6 +104,7 @@ export interface IMediaItem {
   media: string;
   link: string;
   url: string;
+  username: string;
   sharedKey?: string;
   uid?: string;
 }

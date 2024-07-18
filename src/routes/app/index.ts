@@ -39,6 +39,7 @@ import { deleteSubscription } from "./deleteSubscription";
 import { getPlatformData } from "@routes/getPlatformData";
 import { editPlatformSub } from "./editPlatformSubscription";
 import { getAppUserData } from "./getApp/getAppUserData";
+import { updateMedias } from "./media/updateMedias";
 
 const route = Router();
 // load app data
@@ -60,7 +61,7 @@ route.put("/update-subscription/:appId/:subscriptionId", appWare, editSubscripti
 route.delete("/delete-subscription/:appId/:subscriptionId", appWare, deleteSubscription, minAppData);
 // update app
 route.post("/update-newsletter/:appId", heroWare, updateNewsletter, minAppData);
-// route.post("/update-medias/:appId", heroWare, updateMedias, minAppData);
+route.put("/update-medias/:appId", appWare, updateMedias, minAppData);
 route.put("/update-landing-page/:appId", multiHeroWare, landingPageWare, updateLandingPage, minAppData);
 route.put("/update-page/:appId/page/:pageId", multiHeroWare, pageWare, updatePage, minAppData);
 route.put("/update-app-details/:appId", logoWare, updateAppDetails, minAppData);

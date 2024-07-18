@@ -65,8 +65,8 @@ const appSchema = new Schema<IAppSchema>(
           {
             media: { type: String, default: "" },
             link: { type: String, default: "" },
+            username: { type: String, default: "" },
             url: { type: String, default: "" },
-            sharedKey: { type: String, default: v4 },
             uid: { type: String, default: v4 },
           },
         ],

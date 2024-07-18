@@ -6,8 +6,9 @@ import { NextFunction, Response } from "express";
 
 export const addMedia = async (req: AppRequest<MediaBody>, res: Response, next: NextFunction) => {
   try {
-    // const
-    const mediaData = { ...req.body, url: generateMediaUrl(req.body.media, req.body.link) };
+    const link = req.body.link;
+
+    const mediaData = { ...req.body, username: link, url: generateMediaUrl(req.body.media, link), link };
     req.project.media.medias.push(mediaData);
     await req.project.save();
     next();
