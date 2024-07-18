@@ -1,5 +1,5 @@
-import type { IPage, ISection } from "types/page";
-import { AppRequest } from "types/request";
+import type { IPage, ISection } from "@app/page";
+import type { AppRequest } from "@app/request";
 import { formatFormData } from "@utils/app/format/formatFormData";
 import { formatMenuPageData } from "@utils/app/format/formatMenuPageData";
 import { generateStringUrl } from "@utils/app/generateUrl";

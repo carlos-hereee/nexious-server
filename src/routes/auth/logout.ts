@@ -1,6 +1,6 @@
 import { Response } from "express";
 import { resetCookies } from "@utils/auth/resetCookies";
-import { AuthRequest } from "types/request";
+import type { AuthRequest } from "@app/request";
 
 export const logout = async (req: AuthRequest, res: Response) => {
   if (req.auth) {

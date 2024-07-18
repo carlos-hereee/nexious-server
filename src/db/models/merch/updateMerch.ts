@@ -1,4 +1,4 @@
-import { MerchSchema } from "types/store";
+import { MerchSchema } from "@app/store";
 import Merch from "@db/schema/merch";
 
 interface MerchUpdateFilter {

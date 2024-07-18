@@ -1,4 +1,4 @@
-import type { AWSBucketParams } from "types/assets";
+import type { AWSBucketParams } from "@app/assets";
 
 export const listBuckets = async ({ s3, listBucket }: AWSBucketParams) => {
   //  list them all

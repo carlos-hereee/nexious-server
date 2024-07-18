@@ -1,4 +1,4 @@
-import { StripeRadarParams } from "types/stripe";
+import { StripeRadarParams } from "@app/stripe";
 import stripe from "../connection";
 
 export const getFraudWarning = async ({ id, fruadList }: StripeRadarParams) => {

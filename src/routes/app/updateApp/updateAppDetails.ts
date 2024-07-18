@@ -1,22 +1,31 @@
-import { AppRequest } from "types/request";
+import type { AppRequest } from "@app/request";
+import { addNotification } from "@utils/app/addNotification";
 // import { formatLanguageList } from "@utils/app/format/formatLanguageList";
 import { formatThemeList } from "@utils/app/format/formatThemeList";
+import { generateStringUrl } from "@utils/app/generateUrl";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
 
 export const updateAppDetails = async (req: AppRequest, res: Response, next: NextFunction) => {
   try {
     // key variables
-    // const { theme, language, locale, appName, logo, email } = req.body;
-    const { theme, locale, appName, logo, email } = req.body;
+    const { theme, appName, email } = req.body;
     // update appname
-    req.project.appName = appName;
+    if (appName !== req.project.appName) {
+      req.project.appName = appName;
+      req.project.appUrl = `app/${generateStringUrl(appName)}`;
+      req.project.appLink = generateStringUrl(appName);
+    }
     // req.asset middleware yields asset url
-    req.project.logo = req.asset || logo;
-    req.project.locale = locale;
-    req.project.email = email;
+    if (req.asset !== req.project.logo) req.project.logo = req.asset;
+    // TODO: ADD APP LOCALE
+    // req.project.locale = locale;
+    if (email !== req.project.email) req.project.email = email;
     req.project.themeList = formatThemeList(theme);
-    // req.project.languageList = formatLanguageList(language);
+    // create notification
+    const notification = await addNotification({ type: "app-update", message: "Successfully added app details" });
+    // on success link notification to app
+    if (notification) req.project.notifications.push(notification._id);
     await req.project.save();
     next();
   } catch (error) {

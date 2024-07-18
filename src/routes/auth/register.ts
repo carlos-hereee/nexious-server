@@ -3,7 +3,7 @@ import { v4 } from "uuid";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
 import { random } from "@utils/auth/makeSession";
-import { AuthRequest } from "types/request";
+import type { AuthRequest } from "@app/request";
 import Auth from "@db/schema/auth";
 import Users from "@db/schema/users";
 

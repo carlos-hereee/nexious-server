@@ -1,15 +1,15 @@
 import { NextFunction, Response } from "express";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
-import { StoreRequest } from "types/request";
-import { MerchSchema } from "types/store";
-import { accountLinks } from "@utils/stripe/accounts/accountLinks";
-import { addProductInfo } from "./stripe/addProductInfo";
+import type { StoreRequest } from "@app/request";
+import { MerchSchema } from "@app/store";
+import { addProductInfo } from "./stripe/updateProductInfo";
 import { updateMerch } from "@db/models/merch/updateMerch";
 import message from "@db/data/error.message.json";
+import { accountLinks } from "@utils/stripe/accounts/generateLinkSession";
 
 export const editStripeMerch = async (req: StoreRequest<{ merch: MerchSchema }>, res: Response, next: NextFunction) => {
   try {
-    const { accountId, isStripeActive, onBoardingRequired } = req.store;
+    const { accountId, isStripeActive, onBoardingRequired, currency } = req.store;
     // if accountId is not registered deny request
     if (!accountId) return res.status(400).json(message.stripeAccountRequired).end();
     // continue onboarding if required or if stripe is not active
@@ -19,7 +19,7 @@ export const editStripeMerch = async (req: StoreRequest<{ merch: MerchSchema }>,
     }
     // add merch to stripe if stripe account is active
     if (accountId && isStripeActive) {
-      const { merch, error } = await addProductInfo({ merch: req.body.merch, store: req.store });
+      const { merch, error } = await addProductInfo({ merch: req.body.merch, accountId, currency });
       // if failed to add product to stripe
       if (error) return res.status(400).json(error).end();
       // update merch db

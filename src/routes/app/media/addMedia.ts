@@ -1,5 +1,5 @@
-import { MediaBody } from "types/assets";
-import { AppRequest } from "types/request";
+import { MediaBody } from "@app/assets";
+import type { AppRequest } from "@app/request";
 import { generateMediaUrl } from "@utils/app/generateUrl";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";

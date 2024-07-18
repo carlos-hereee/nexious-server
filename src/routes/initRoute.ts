@@ -1,6 +1,6 @@
 import type { Request, Response } from "express";
 import { isDev, port } from "@utils/app/config";
-import { ExpressApp } from "types/db";
+import { ExpressApp } from "@app/db";
 
 // test route
 export const initRoute = (_req: Request, res: Response) => {

@@ -1,6 +1,6 @@
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
-import { AuthRequest } from "types/request";
+import type { AuthRequest } from "@app/request";
 import { getSession } from "@db/models/users/getUser";
 import message from "@db/data/error.message.json";
 

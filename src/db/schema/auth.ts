@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import type { IAuthSchema } from "types/auth";
+import type { IAuthSchema } from "@app/auth";
 
 const Schema = mongoose.Schema;
 const authSchema = new Schema<IAuthSchema>(

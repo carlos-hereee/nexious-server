@@ -1,4 +1,4 @@
-import type { AWSFileProps } from "types/assets";
+import type { AWSFileProps } from "@app/assets";
 import { fileError } from "@utils/aws/errors";
 
 // call S3 to retrieve upload file to specified bucket

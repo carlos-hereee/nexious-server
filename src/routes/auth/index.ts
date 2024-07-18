@@ -8,13 +8,15 @@ import { refreshSession } from "@middleware/auth/refreshSession";
 import { logout } from "./logout";
 import { changePassword } from "./changePassword";
 import { sendToken } from "./sendToken";
-import { getAccessData } from "./getAccessData";
 import { authSessionWare, registerWare, userWare, validateWare } from "@middleware/auth";
 import { requireUser } from "@middleware/auth/requireUser";
 import { aquireAuthSession } from "@middleware/auth/authSession";
 import { editUser } from "./editUser";
-import { minUserData } from "./minUserData";
 import { removeNotification } from "./removeNotification";
+import { upgradeAccount } from "./upgradeAccount";
+import { minAppData } from "@routes/minAppData";
+import { getPlatformData } from "@routes/getPlatformData";
+import { linkSubscription } from "./linkSubscription";
 
 const route = Router();
 
@@ -22,18 +24,21 @@ const route = Router();
 route.get("/", requireUser, userRoute);
 // TODO: ADD ADDITIONAL VERFICATION METHODS
 route.get("/user/:username", userWare, userRoute);
-route.get("/access-token", requireUser, getAccessData);
+route.get("/access-token", requireUser, getPlatformData);
 // post
 route.post("/register", registerWare, register, sendToken);
 route.post("/login", validateWare, refreshSession, sendToken);
 route.post("/refresh-token", requireUser, authSessionWare, refreshSession, sendToken);
+// update stripe subscription
+route.post("/upgrade-account", requireUser, upgradeAccount);
+route.put("/link-account", requireUser, linkSubscription, minAppData);
 // TODO: ADD ADDITIONAL VERFICATION MEDTHODS
 route.post("/change-password/:username", userWare, authSessionWare, changePassword, refreshSession, sendToken);
 route.post("/forgot-password/:username", userWare, authSessionWare, changePassword, refreshSession, sendToken);
 // edit user data
-route.put("/update-user", userWare, editUser, minUserData);
+route.put("/update-user", userWare, editUser, minAppData);
 // log out
 route.delete("/logout", requireUser, aquireAuthSession, logout);
-route.delete("/remove-notification/:notificationId", requireUser, removeNotification, minUserData);
+route.delete("/remove-notification/:notificationId", requireUser, removeNotification, minAppData);
 
 export default route;

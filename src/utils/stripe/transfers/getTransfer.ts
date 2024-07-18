@@ -1,4 +1,4 @@
-import type { StripeTransferParams } from "types/stripe";
+import type { StripeTransferParams } from "@app/stripe";
 import stripe from "../connection";
 
 export const getTransfer = async ({ id, listLimit }: StripeTransferParams) => {

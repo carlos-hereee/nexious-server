@@ -1,4 +1,4 @@
-import { StripeBankParams } from "types/stripe";
+import { StripeBankParams } from "@app/stripe";
 import stripe from "../connection";
 
 export const updateBank = async ({ id, accountId, updateExternalBank }: StripeBankParams) => {

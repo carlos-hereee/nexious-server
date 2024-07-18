@@ -1,4 +1,4 @@
-import { StripeFundParams } from "types/stripe";
+import { StripeFundParams } from "@app/stripe";
 import stripe from "../connection";
 
 export const cancelFunds = async ({ id, cancelOptions }: StripeFundParams) => {

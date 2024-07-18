@@ -1,6 +1,6 @@
 import { sign, verify } from "jsonwebtoken";
 import { isDev, jwtPrivateKey } from "@utils/app/config";
-import type { JWTVerifyPayload, JWTDecodedProps, SignJWTProps } from "types/auth";
+import type { JWTVerifyPayload, JWTDecodedProps, SignJWTProps } from "@app/auth";
 
 // verfiry token with jwt
 export const verifyJWT = (token: string): JWTVerifyPayload => {

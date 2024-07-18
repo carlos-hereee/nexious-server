@@ -1,14 +1,12 @@
 import { createMerch } from "@db/models/merch/createMerch";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
-
 import { NextFunction, Response } from "express";
-import { addProductInfo } from "./stripe/addProductInfo";
-import { MerchBodyParams, MerchSchema } from "types/store";
-import { createNotification } from "@db/models/notification/createNotification";
-import { StoreRequest } from "types/request";
-import { formatNotification } from "@utils/app/format/formatNotification";
+import { addProductInfo } from "./stripe/updateProductInfo";
+import type { MerchBodyParams, MerchSchema } from "@app/store";
+import type { StoreRequest } from "@app/request";
 import { sendNotification } from "@db/models/notification/sendNotification";
 import { generateStringUrl } from "@utils/app/generateUrl";
+import { addNotification } from "@utils/app/addNotification";
 
 export const addMerch = async (req: StoreRequest<MerchBodyParams>, res: Response, next: NextFunction) => {
   try {
@@ -26,11 +24,14 @@ export const addMerch = async (req: StoreRequest<MerchBodyParams>, res: Response
       priceId: "",
       catalog,
       onHold: 0,
-      merchLink: generateStringUrl(req.body.name),
+      link: generateStringUrl(req.body.name),
     };
     // create notification
-    const notificationData = formatNotification({ type: "add-merch", store: req.store, merch: payload });
-    const notification = await createNotification(notificationData);
+    const notification = await addNotification({
+      type: "add-merch",
+      message: "Successfull added merch to inventory",
+      link: `/store/${generateStringUrl(req.store?.storeName || "")}/${payload.link}`,
+    });
     // on success link notification to app
     if (notification) {
       req.project.notifications.push(notification._id);
@@ -41,12 +42,11 @@ export const addMerch = async (req: StoreRequest<MerchBodyParams>, res: Response
       });
       // save to db
       await req.project.save();
-      // await req.user.save();
     }
 
     // add merch to stripe if stripe account is active
     if (accountId && isStripeActive) {
-      const { merch, error } = await addProductInfo({ merch: payload, store: req.store });
+      const { merch, error } = await addProductInfo({ merch: payload, accountId, currency: req.store.currency });
       if (!error) payload = merch;
     }
     // add merch to db

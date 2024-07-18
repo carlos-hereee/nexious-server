@@ -1,6 +1,6 @@
 import sendGrid from "@sendgrid/mail";
 import { sendgridKey } from "./config";
-import { EmailParams } from "types/app";
+import { EmailParams } from "@app/app";
 
 // configure apikey
 sendGrid.setApiKey(sendgridKey);

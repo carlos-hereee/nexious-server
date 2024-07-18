@@ -1,11 +1,18 @@
 import { Response } from "express";
-import { checkoutCompleted } from "@utils/stripe/webhook/checkoutCompleted";
-// import { paymentIntentFailed, paymentIntentSucceeded } from "@utils/stripe/webhook/paymentIntent";
-// import { paymentAttached } from "@utils/stripe/webhook/paymentAttached";
-import { StripeWebhookRequest } from "types/request";
-import { accountUpdated } from "@utils/stripe/webhook/accountUpdated";
-import { fulFillOrder } from "@utils/stripe/webhook/fulfillOrder";
-// import { emailCustomerAboutFailedPayment } from "@utils/stripe/webhook/emailCustomer";
+import { checkoutCompleted } from "@routes/webhook/checkoutCompleted";
+// import { paymentIntentFailed, paymentIntentSucceeded } from "@routes/webhook/webhook/paymentIntent";
+// import { paymentAttached } from "@routes/webhook/webhook/paymentAttached";
+import type { StripeWebhookRequest } from "@app/request";
+import { accountUpdated } from "@routes/webhook/accountUpdated";
+import { fulFillOrder } from "@routes/webhook/fulfillOrder";
+// import {
+//   addCustomerSubscription,
+//   customerSubscriptionWillEndSoon,
+//   removeCustomerSubscription,
+//   updateCustomerSubscription,
+// } from "@routes/webhook/updateCustomerSubscription";
+// import { invoicePaid, invoicePaymentFailed } from "@routes/webhook/updateInvoice";
+// import { emailCustomerAboutFailedPayment } from "@routes/webhook/webhook/emailCustomer";
 // import { productCreated } from "./stripe/stripeProduct";
 
 export const stripeWebhook = async (req: StripeWebhookRequest, res: Response) => {
@@ -29,6 +36,32 @@ export const stripeWebhook = async (req: StripeWebhookRequest, res: Response) =>
       case "account.updated":
         await accountUpdated(event);
         break;
+      // The minimum event types to monitor:  INVOICE FOR SUBSCRIPTIONS
+      // case "invoice.paid":
+      //   await invoicePaid(event);
+      //   break;
+      // case "invoice.payment_failed":
+      //   await invoicePaymentFailed(event);
+      //   break;
+      // // SUBSCRIPTION LIFE CYCLE
+      // case "customer.subscription.created":
+      //   await addCustomerSubscription(event);
+      //   break;
+      // case "customer.subscription.trial_will_end":
+      //   await customerSubscriptionWillEndSoon(event);
+      //   break;
+      // case "customer.subscription.deleted":
+      //   await removeCustomerSubscription(event);
+      //   break;
+      // case "customer.subscription.updated":
+      //   await updateCustomerSubscription(event);
+      //   break;
+      // case "entitlements.active_entitlement_summary.updated":
+      //   const subscription = event.data.object;
+      //   console.log(`Active entitlement summary updated for ${subscription}.`);
+      //   // Then define and call a method to handle active entitlement summary updated
+      //   // handleEntitlementUpdated(subscription);
+      //   break;
       // case "capability.updated":
       //   // console.log("capabilty updated :>> ", event);
       //   // if user was not fully onboarded check details_submitted parameter on their account

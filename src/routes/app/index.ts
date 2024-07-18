@@ -5,8 +5,7 @@ import { saveAsset } from "@middleware/app/saveAsset";
 import { deleteApp } from "./deleteApp";
 import { initApp } from "./initApp";
 import { getAppWithName } from "./getApp/getAppWithName";
-import { getAppList } from "./getApp/appList";
-import { minAppData } from "./minAppData";
+import { minAppData } from "../minAppData";
 import { getAppWithLanguage } from "./getApp/getAppWithLanguage";
 import { updateNewsletter } from "./updateApp/updateNewsletter";
 
@@ -17,6 +16,7 @@ import { subscribe } from "./updateApp/subscribe";
 import { updateAppDetails } from "./updateApp/updateAppDetails";
 import {
   adminWare,
+  appWare,
   heroWare,
   initAppWare,
   landingPageWare,
@@ -29,23 +29,35 @@ import { updateLandingPage } from "./updateApp/landingPage";
 import { addPage } from "./pages/addPage";
 import { fetchPage } from "./pages/fetchPage";
 import { updatePage } from "./pages/updatePage";
-import { minUserData } from "../auth/minUserData";
 import { deletePage } from "./pages/deletePage";
 import { deleteMenuItem } from "./deleteMenuItem";
 import { latest } from "./updateApp/latest";
 import { deleteNotification } from "./deleteNotification";
+import { createSubscription } from "./createSubscription";
+import { editSubscription } from "./editSubscription";
+import { deleteSubscription } from "./deleteSubscription";
+import { getPlatformData } from "@routes/getPlatformData";
+import { editPlatformSub } from "./editPlatformSubscription";
+import { getAppUserData } from "./getApp/getAppUserData";
 
 const route = Router();
 // load app data
-route.get("/app-list", getAppList);
+route.get("/platform-data", getPlatformData);
 route.get("/:appName", getAppWithName);
+route.get("/:appId/user-data", getAppUserData);
 route.get("/:appName/locale/:locale", getAppWithLanguage);
 route.get("/page/:pageId", fetchPage);
 // build app data
 route.post("/init-app", initAppWare, saveAsset, initApp, minAppData);
 route.post("/latest/:appId", adminWare, latest, minAppData);
-// user subscrition
-route.post("/subscribe/:appId", userAppWare, subscribe, minUserData);
+// manage subscritions
+route.post("/create-subscription/:appId", appWare, createSubscription, minAppData);
+route.post("/subscribe/:appId", userAppWare, subscribe, minAppData);
+// update subscription
+route.put("/update-subscription/platform/:subscriptionId", appWare, editPlatformSub, minAppData);
+route.put("/update-subscription/:appId/:subscriptionId", appWare, editSubscription, minAppData);
+// delete subscription
+route.delete("/delete-subscription/:appId/:subscriptionId", appWare, deleteSubscription, minAppData);
 // update app
 route.post("/update-newsletter/:appId", heroWare, updateNewsletter, minAppData);
 // route.post("/update-medias/:appId", heroWare, updateMedias, minAppData);

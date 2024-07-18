@@ -1,20 +1,20 @@
-import { AuthRequest } from "types/request";
+import type { AuthRequest } from "@app/request";
 import { NextFunction, Response } from "express";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
-import { formatNotification } from "@utils/app/format/formatNotification";
-import { createNotification } from "@db/models/notification/createNotification";
+import { addNotification } from "@utils/app/addNotification";
+import type { IAuth } from "@app/auth";
 
-export const editUser = async (req: AuthRequest, res: Response, next: NextFunction) => {
+export const editUser = async (req: AuthRequest<IAuth>, res: Response, next: NextFunction) => {
   try {
-    const { username, email, phone, nickname } = req.body;
+    const { username, email, phone, nickname, name } = req.body;
     // update user data if changes
     if (username !== req.user.username) req.user.username = username;
     if (email !== req.user.email) req.user.email = email;
     if (phone !== req.user.phone) req.user.phone = phone;
     if (nickname !== req.user.nickname) req.user.nickname = nickname;
+    if (name !== req.user.name) req.user.name = name;
     // create notification
-    const notificationData = formatNotification({ type: "edit-user" });
-    const notification = await createNotification(notificationData);
+    const notification = await addNotification({ type: "edit-user", message: "Successfully updated account" });
     if (notification) req.user.notifications.push(notification._id);
     await req.user.save();
     next();

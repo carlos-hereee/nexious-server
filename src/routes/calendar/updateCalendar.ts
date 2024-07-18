@@ -1,4 +1,4 @@
-import { CalendarRequest } from "types/request";
+import { CalendarRequest } from "@app/request";
 import { NextFunction, Response } from "express";
 import { generateStringUrl } from "@utils/app/generateUrl";
 import { addNotification } from "@utils/app/addNotification";

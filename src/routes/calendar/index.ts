@@ -9,7 +9,7 @@ import { addCalendar } from "./addCalendar";
 import { adminWare, heroWare } from "@middleware/app";
 import { updateCalendar } from "./updateCalendar";
 import { requireCalendar } from "@middleware/calendar/requireCalendar";
-import { minAppData } from "@routes/app/minAppData";
+import { minAppData } from "@routes/minAppData";
 
 const route = Router();
 // fetch calendar

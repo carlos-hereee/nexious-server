@@ -1,10 +1,11 @@
-import type { IAppSchema } from "types/app";
+import type { IAppSchema } from "@app/app";
 import mongoose from "mongoose";
 import { v4 } from "uuid";
 
 const Schema = mongoose.Schema;
 const appSchema = new Schema<IAppSchema>(
   {
+    // TODO: MOVE STRIPE ACCOUNT ID TO APP SCHEMA
     appId: { type: String, require: true, default: v4 },
     appName: { type: String, unique: true },
     locale: { type: String },
@@ -12,6 +13,7 @@ const appSchema = new Schema<IAppSchema>(
     country: { type: String },
     email: { type: String, require: true },
     appUrl: { type: String },
+    appLink: { type: String },
     logo: { type: String, default: "" },
     owner: { type: Schema.Types.ObjectId, ref: "Users" },
     adminIds: [{ userId: { type: String, ref: "Users" }, role: { type: String } }],
@@ -88,6 +90,7 @@ const appSchema = new Schema<IAppSchema>(
     pages: { type: [{ type: Schema.Types.ObjectId, ref: "Pages" }], default: [] },
     notifications: { type: [{ type: Schema.Types.ObjectId, ref: "Notification" }], default: [] },
     subscribers: { type: [{ type: Schema.Types.ObjectId, ref: "Users" }], default: [] },
+    subscriptions: { type: [{ type: Schema.Types.ObjectId, ref: "Subscription" }], default: [] },
     store: { type: Schema.Types.ObjectId, ref: "Store" },
     dbVersion: { type: Schema.Types.String },
   },

@@ -1,4 +1,4 @@
-import type { IPageSchema } from "types/page";
+import type { IPageSchema } from "@app/page";
 import mongoose from "mongoose";
 import { v4 } from "uuid";
 import data from "@db/data/lorem.json";

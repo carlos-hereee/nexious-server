@@ -1,7 +1,7 @@
 import { NextFunction, Response } from "express";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
-import { StoreRequest } from "types/request";
-import { MerchBody } from "types/store";
+import type { StoreRequest } from "@app/request";
+import type { MerchBody } from "@app/store";
 import { generateStringUrl } from "@utils/app/generateUrl";
 import { addNotification } from "@utils/app/addNotification";
 
@@ -11,7 +11,7 @@ export const editMerch = async (req: StoreRequest<MerchBody>, res: Response, nex
     // udpate string types
     if (name) {
       req.merch.name = name;
-      req.merch.merchLink = generateStringUrl(name);
+      req.merch.link = generateStringUrl(name);
     }
     if (description) req.merch.description = description;
     // format cost and in stock numbers
@@ -28,7 +28,11 @@ export const editMerch = async (req: StoreRequest<MerchBody>, res: Response, nex
     }
     if (req.merch.inStock !== inStock) {
       req.merch.inStock = inStock;
-      const n = await addNotification("edit-merch", `${inStock} of ${name} have been added to store inventory`);
+      const n = await addNotification({
+        type: "edit-merch",
+        message: `${inStock} of ${name} have been added to store inventory`,
+        link: `/store/${generateStringUrl(req.store?.storeName || "")}/${req.merch.link}`,
+      });
       req.project.notifications.push(n._id);
       await req.project.save();
     }

@@ -1,5 +1,5 @@
 // import { useGenericErrors }  from "@utils/auth/useGenericErrors";
-// // import { paymentInitent }  from "@utils/stripe/payments/paymentInitent";
+// // import { paymentInitent }  from "@routes/webhook/payments/paymentInitent";
 
 // export const requestSecret = async (req, res) => {
 //   try {

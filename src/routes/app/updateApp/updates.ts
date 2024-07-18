@@ -1,4 +1,4 @@
-import { IAppSchema, IMenu } from "types/app";
+import { IAppSchema, IMenu } from "@app/app";
 import { generateStringUrl } from "@utils/app/generateUrl";
 
 interface InitAppMenu extends IMenu {

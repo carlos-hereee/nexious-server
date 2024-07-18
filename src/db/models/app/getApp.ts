@@ -1,4 +1,4 @@
-import type { AppFilters } from "types/app";
+import type { AppFilters } from "@app/app";
 import App from "@db/schema/app";
 
 export const getApp = async ({ appId, appName, locale, id }: AppFilters) => {
@@ -27,3 +27,6 @@ export const getAllApps = async ({ appIds, all, ownerId }: AppFilters) => {
     return await App.find({ ownerId }).populate(includeData);
   }
 };
+// export const getAllAppUsers = async ({ appId }: AppFilters) => {
+//   if (appId) return await App.find();
+// };

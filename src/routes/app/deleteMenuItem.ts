@@ -1,6 +1,6 @@
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
-import { AppRequest } from "types/request";
+import type { AppRequest } from "@app/request";
 
 export const deleteMenuItem = async (req: AppRequest, res: Response, next: NextFunction) => {
   try {

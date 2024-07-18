@@ -4,7 +4,7 @@ import appRoute from "./app/index";
 import storeRoute from "./store/index";
 import calendarRoute from "./calendar/index";
 import { initRoute, startApp } from "./initRoute";
-import { ExpressApp } from "types/db";
+import type { ExpressApp } from "@app/db";
 import { deserializeUser } from "@middleware/auth/deserializeUser";
 import { RequestHandler } from "express";
 

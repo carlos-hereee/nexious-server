@@ -1,11 +1,11 @@
-import type { AppFilters } from "types/app";
+import type { AppFilters } from "@app/app";
 import App from "@db/schema/app";
 
-export const updateApp = async ({ id, type, notificationId }: AppFilters) => {
+export const updateApp = async ({ id, type, notificationId, storeId }: AppFilters) => {
   if (type === "add-notification") {
-    // require key variable
-    if (!id) throw Error("id param is required");
-    if (!notificationId) throw Error("notificationId param is required");
-    return await App.updateOne({ _id: id }, { $addToSet: { notifications: notificationId } });
+    if (id) return await App.updateOne({ _id: id }, { $addToSet: { notifications: notificationId } });
+    if (storeId) {
+      return await App.updateOne({ "store.storeId": storeId }, { $addToSet: { notifications: notificationId } });
+    }
   }
 };

@@ -1,4 +1,4 @@
-import type { IUserSchema, UserFilters } from "types/user";
+import type { IUserSchema, UserFilters } from "@app/user";
 import Users from "@db/schema/users";
 import Auth from "@db/schema/auth";
 
@@ -18,9 +18,9 @@ export const getUser = async ({ username, email, userId }: UserFilters): Promise
 // search a list of users
 export const getAllUsers = async ({ all, appId }: UserFilters) => {
   // find users in a given app
-  if (appId) return await Users.find({ appId });
+  if (appId) return await Users.find({ appId }).populate("accountTier");
   // list all users
-  if (all) return await Users.find();
+  if (all) return await Users.find().populate("accountTier");
 };
 
 // search individual users
