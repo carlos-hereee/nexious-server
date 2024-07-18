@@ -19,7 +19,6 @@ export const deserializeUser = async (req: InitRequest, res: Response, next: Nex
     if (username) req.user = await getUser({ username });
     // TODO: get user instead of session
     else if (sessionId) req.auth = await getSession({ sessionId });
-    console.log("token render :>> ");
     next();
   } catch (error) {
     useGenericErrors(res, error, "unable to deserialize user");

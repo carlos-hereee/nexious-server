@@ -27,6 +27,7 @@ import { managePayouts } from "./stripe/managePayouts";
 import { minAppData } from "@routes/minAppData";
 import { getBillingPortal } from "./checkout/getBillingPortal";
 import { trackOrder } from "./checkout/trackOrder";
+import { getWebhooks } from "./stripe/getWebhooks";
 
 const route = Router();
 const bodyParse = bodyParser.raw({ type: "application/json" });
@@ -50,6 +51,7 @@ route.post("/build-store/:appId", adminWare, addStore, minAppData);
 route.post("/add-merch/:appId", storeWare, merchindiseWare, addMerch, minAppData);
 // construct stripe webhook
 route.post("/webhook", bodyParse, initHook, stripeWebhook);
+route.get("/webhook", getWebhooks);
 
 // update store
 route.put("/update-store/:appId", storeWare, editStore, minAppData);

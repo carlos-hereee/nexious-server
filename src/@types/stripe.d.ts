@@ -68,6 +68,12 @@ export interface StripeRadarParams {
   addRadarItemOptions?: Stripe.Radar.ValueListItemCreateParams;
   addRadarList?: Stripe.Radar.ValueListCreateParams;
 }
+export interface StripeWebhookParams {
+  id?: string;
+  url?: string;
+  list?: number;
+  events?: Stripe.WebhookEndpointCreateParams.EnabledEvent[];
+}
 export interface StripeFeeParams {
   id?: string;
   refundId?: string;
