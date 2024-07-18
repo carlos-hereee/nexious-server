@@ -5,7 +5,7 @@ export const updateStore = async (params: UpdateStoreParams) => {
   const { accountId, type, order, stripe, orderId, status, storeId, notification } = params;
 
   if (type === "payment" && order) {
-    return await Store.updateOne({ accountId }, { $addToSet: { orders: order } });
+    return await Store.updateOne({ storeId }, { $addToSet: { orders: order } });
   }
   if (type === "add-notification" && order) {
     return await Store.updateOne({ storeId }, { $addToSet: { notifications: notification } });

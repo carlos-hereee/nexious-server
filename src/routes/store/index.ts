@@ -11,7 +11,6 @@ import { stripeWebhook } from "./stripe/stripeWebhook";
 import { initHook } from "@routes/webhook/initHook";
 import { removeStore } from "./removeStore";
 import { removeMerchendise } from "./removeMerch";
-import { getStoreWithName } from "./getStoreWithName";
 import { getStripeAccount } from "./stripe/getStripeAccount";
 import { adminWare } from "@middleware/app";
 import { merchWare, merchindiseWare, storeWare } from "@middleware/store";
@@ -32,9 +31,6 @@ import { trackOrder } from "./checkout/trackOrder";
 const route = Router();
 const bodyParse = bodyParser.raw({ type: "application/json" });
 
-// view store dataz
-// route.get("/customers", getCustomers);
-route.get("/app/:appName", getStoreWithName);
 // stripe payments
 route.get("/confirm-intent", getConfirmation);
 route.get("/:accountId/track-order/:orderId", trackOrder);

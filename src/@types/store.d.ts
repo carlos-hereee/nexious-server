@@ -174,6 +174,7 @@ export interface CartBody {
     quantity: number;
   }[];
   client: { username: string; name: string; phone: string; email: string };
+  store: { storeId: string };
 }
 export type StripeMerchData = RequestCart[];
 export interface RequestCart {

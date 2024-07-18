@@ -11,7 +11,7 @@ export const getPlatformData = async (req: AuthRequest, res: Response) => {
       // depopulate auth data and populate data required by client
       const userData = `ownedApps subscriptions permissions ownedApps.userId${
         req.user.notifications ? " notifications" : ""
-      }${req.user.subscriptions ? " subscriptions" : ""}${req.user.accountTier ? " accountTier" : ""}`;
+      }${req.user.subscriptions ? " subscriptions" : ""}${req.user.accountTier ? " accountTier" : ""}${req.user.orders ? " orders" : ""}`;
       // user data
       const user = await req.user.depopulate("auth").populate(userData);
       data.user = user;

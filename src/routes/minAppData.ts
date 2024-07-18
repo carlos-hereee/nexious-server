@@ -23,7 +23,8 @@ export const minAppData = async (req: AppRequest, res: Response) => {
     }
     // populate inventory in response
     if (req.store) {
-      const store = await req.store.populate("inventory");
+      const storeData = `inventory${req.store.notifications ? " notifications" : ""}${req.store.orders ? " orders" : ""}`;
+      const store = await req.store.populate(storeData);
       data.store = store;
     }
     // add stripe account data in response
