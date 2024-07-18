@@ -11,7 +11,7 @@ import { fulFillOrder } from "@routes/webhook/fulfillOrder";
 //   removeCustomerSubscription,
 //   updateCustomerSubscription,
 // } from "@routes/webhook/updateCustomerSubscription";
-import { invoicePaid, invoicePaymentFailed } from "@routes/webhook/updateInvoice";
+// import { invoicePaid, invoicePaymentFailed } from "@routes/webhook/updateInvoice";
 // import { emailCustomerAboutFailedPayment } from "@routes/webhook/webhook/emailCustomer";
 // import { productCreated } from "./stripe/stripeProduct";
 
@@ -37,12 +37,12 @@ export const stripeWebhook = async (req: StripeWebhookRequest, res: Response) =>
         await accountUpdated(event);
         break;
       // The minimum event types to monitor:  INVOICE FOR SUBSCRIPTIONS
-      case "invoice.paid":
-        await invoicePaid(event);
-        break;
-      case "invoice.payment_failed":
-        await invoicePaymentFailed(event);
-        break;
+      // case "invoice.paid":
+      //   await invoicePaid(event);
+      //   break;
+      // case "invoice.payment_failed":
+      //   await invoicePaymentFailed(event);
+      //   break;
       // // SUBSCRIPTION LIFE CYCLE
       // case "customer.subscription.created":
       //   await addCustomerSubscription(event);
