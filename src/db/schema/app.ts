@@ -89,6 +89,7 @@ const appSchema = new Schema<IAppSchema>(
     calendar: { type: Schema.Types.ObjectId, ref: "Calendar" },
     pages: { type: [{ type: Schema.Types.ObjectId, ref: "Pages" }], default: [] },
     notifications: { type: [{ type: Schema.Types.ObjectId, ref: "Notification" }], default: [] },
+    archivedNotifications: { type: [{ type: Schema.Types.ObjectId, ref: "Notification" }], default: [] },
     subscribers: { type: [{ type: Schema.Types.ObjectId, ref: "Users" }], default: [] },
     subscriptions: { type: [{ type: Schema.Types.ObjectId, ref: "Subscription" }], default: [] },
     store: { type: Schema.Types.ObjectId, ref: "Store" },

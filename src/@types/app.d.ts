@@ -27,7 +27,7 @@ export interface AppFilters {
   appId?: string;
   accountId?: string;
   storeId?: string;
-  type?: "add-notification";
+  type?: "add-notification" | "remove-notification";
   id?: ObjectId;
   appName?: string;
   appIds?: string[];
@@ -152,6 +152,7 @@ export interface IAppSchema extends Document {
   calendar: ObjectId;
   store: ObjectId;
   notifications: ObjectId[];
+  archivedNotifications: ObjectId[];
   subscriptions: ObjectId[];
   subscribers: ObjectId[];
   pages: ObjectId[];
