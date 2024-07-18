@@ -9,7 +9,7 @@ interface UpdateAll {
 }
 interface UpdateUser {
   userId: ObjectId;
-  notificationId?: string;
+  notificationId?: string | ObjectId;
   type: "remove-notification";
 }
 // search individual users
