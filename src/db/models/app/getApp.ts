@@ -17,8 +17,8 @@ export const getAllApps = async ({ appIds, all, ownerId }: AppFilters) => {
   const includeData = "owner pages store calendar notifications";
   if (all) {
     // avoid overloading requests set limit
-    const selectData = "appName appUrl logo adminIds media appId";
-    return await App.find().select(selectData).limit(30);
+    // const selectData = "appName appUrl logo adminIds media appId";
+    return await App.find().limit(30);
   }
   if (appIds) {
     return await App.find(appIds).populate(includeData);

@@ -9,7 +9,7 @@ export const addCalendar = async (req: CalendarRequest, _res: Response, next: Ne
   // link appId to calendar
   const appId = req.project.appId;
   const calendar = await Calendar.create({ name, hero, appId });
-  const link = req.project.appUrl.replace("/app/", "/booking/");
+  const link = "/booking/" + req.project.appLink;
   const menuItem = formatMenuPageData({ pageName: "booking", category: "calendar", link, menuId: calendar.calendarId });
   // link calendar to app menu
   req.project.menu.push(menuItem);

@@ -11,13 +11,13 @@ export const updateAppDetails = async (req: AppRequest, res: Response, next: Nex
     // key variables
     const { theme, appName, email } = req.body;
     // update appname
-    if (appName !== req.project.appName) {
+    if (appName) {
       req.project.appName = appName;
-      req.project.appUrl = `app/${generateStringUrl(appName)}`;
+      req.project.appUrl = `/app/${generateStringUrl(appName)}`;
       req.project.appLink = generateStringUrl(appName);
     }
     // req.asset middleware yields asset url
-    if (req.asset !== req.project.logo) req.project.logo = req.asset;
+    if (req.asset && req.asset !== req.project.logo) req.project.logo = req.asset;
     // TODO: ADD APP LOCALE
     // req.project.locale = locale;
     if (email !== req.project.email) req.project.email = email;
