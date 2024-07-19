@@ -11,6 +11,9 @@ export const updateCalendar = async (req: CalendarRequest, _res: Response, next:
   if (req.body.name) {
     req.calendar.name = req.body.name;
     req.calendar.calendarLink = "/booking/" + generateStringUrl(appName);
+    // update app menu link
+    const menuIdx = req.project.menu.findIndex((m) => m.category === "calendar");
+    if (menuIdx >= 0 && req.project.menu[menuIdx]) req.project.menu[menuIdx].link = req.calendar.calendarLink;
   }
   if (req.body.workWeek) req.calendar.workWeek = req.body.workWeek;
   if (req.body.startTime) req.calendar.startTime = req.body.startTime;
