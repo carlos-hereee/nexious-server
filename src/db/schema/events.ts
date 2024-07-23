@@ -9,7 +9,7 @@ const eventSchema = new Schema<IEventSchema>(
     calendarId: { type: Schema.Types.ObjectId, ref: "Calendar", require: true },
     hero: { type: String, ref: "Hero" },
     date: { type: Schema.Types.Date, require: true },
-    frequancy: { type: String, default: "" },
+    frequency: { type: String, default: "" },
     uid: { type: String, require: true, default: v4 },
     name: { type: String, default: "" },
     details: { type: String, default: "" },

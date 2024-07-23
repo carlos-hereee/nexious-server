@@ -24,7 +24,7 @@ export interface IEventSchema extends IEvent, Document {
   calendarId: ObjectId;
   date: Date;
   hero: string;
-  frequancy: string;
+  frequency: string;
   _id: ObjectId;
 }
 export interface CalendarFilters {
