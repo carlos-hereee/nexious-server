@@ -13,6 +13,8 @@ export interface IEvent {
   eventId: string;
   date: Date;
   startTime: string;
+  name: string;
+  details: string;
   endTime: string;
   isOpen: boolean;
   attendees: EventAttendees[];

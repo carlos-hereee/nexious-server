@@ -10,8 +10,9 @@ const eventSchema = new Schema<IEventSchema>(
     hero: { type: String, ref: "Hero" },
     date: { type: Schema.Types.Date, require: true },
     frequancy: { type: String, default: "" },
-
     uid: { type: String, require: true, default: v4 },
+    name: { type: String, default: "" },
+    details: { type: String, default: "" },
     startTime: { type: String, require: true },
     endTime: { type: String, require: true },
     isOpen: { type: Boolean, default: true },
