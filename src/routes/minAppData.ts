@@ -21,6 +21,10 @@ export const minAppData = async (req: AppRequest, res: Response) => {
       const app = await req.project.populate(appData);
       data.app = app;
     }
+    if (req.calendar) {
+      const calendar = await req.calendar.populate("events schedule");
+      data.calendar = calendar;
+    }
     // populate inventory in response
     if (req.store) {
       const storeData = `inventory${req.store.notifications ? " notifications" : ""}${req.store.orders ? " orders" : ""}`;

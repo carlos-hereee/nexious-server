@@ -14,6 +14,7 @@ export interface MinAppResponseData {
   appList?: IAppSchema[];
   platformTiers?: SubscriptionSchema[];
   store?: IStoreSchema;
+  calendar?: ICalendarSchema;
   account?: Stripe.Response<Stripe.Account>;
 }
 
@@ -54,6 +55,7 @@ export interface AppRequest<B = AppBody> extends Request {
   store?: IStoreSchema;
   pages: IPageSchema[];
   user: IUserSchema;
+  calendar: ICalendarSchema;
   file: IFile;
   files: { hero: IFile[]; sectionHero: IFile[] };
   asset: string;
