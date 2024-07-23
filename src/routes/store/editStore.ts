@@ -1,6 +1,5 @@
 import type { StoreRequest } from "@app/request";
 import { StoreBody } from "@app/store";
-import { generateStringUrl } from "@utils/app/generateUrl";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
 import { addNotification } from "@utils/app/addNotification";
@@ -10,8 +9,9 @@ export const editStore = async (req: StoreRequest<StoreBody>, res: Response, nex
     const { storeName, title, body } = req.body;
     const hero = req.asset || "";
     if (storeName) {
+      // format link url
       req.store.storeName = storeName;
-      req.store.storeLink = generateStringUrl(storeName);
+      req.store.storeLink = "/store/" + req.project.appLink ? req.project.appLink : req.project.appUrl;
     }
     if (title) req.store.title = title;
     if (body) req.store.body = body;

@@ -19,6 +19,6 @@ route.post("/:appId", heroWare, addCalendar, minAppData);
 // update calendar
 route.put("/update/:appId", adminWare, requireCalendar, updateCalendar, minAppData);
 // add calendar event
-route.post("/:appId/add-event", authenticateCalendar, addEvent);
+route.post("/:appId/add-event", authenticateCalendar, addEvent, minAppData);
 
 export default route;

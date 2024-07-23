@@ -6,7 +6,6 @@ import type { StoreRequest } from "@app/request";
 import { createStore } from "@db/models/store/createStore";
 import { v4 } from "uuid";
 import { StoreSchema } from "@app/store";
-import { generateStringUrl } from "@utils/app/generateUrl";
 import { addNotification } from "@utils/app/addNotification";
 import { addAccount } from "@utils/stripe/accounts/updateAccount";
 
@@ -27,7 +26,7 @@ export const addStore = async (req: StoreRequest, res: Response, next: NextFunct
       email,
       ownerId,
       appId: _id,
-      storeLink: generateStringUrl(req.body.storeName),
+      storeLink: link,
       storeUrl: link,
       accountId: "",
       inventory: [],

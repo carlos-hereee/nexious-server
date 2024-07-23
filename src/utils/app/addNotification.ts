@@ -9,6 +9,10 @@ export const addNotification = async ({ type, message, link }: FormatNotificatio
     data.category = "store-merch";
     data.name = "A new merchandise was added";
   }
+  if (type === "cal-event") {
+    data.category = "cal-event";
+    data.name = "Calendar was updated";
+  }
   if (type === "add-store") {
     data.category = "store";
     data.name = "Successfully created store";

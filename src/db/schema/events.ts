@@ -9,23 +9,19 @@ const eventSchema = new Schema<IEventSchema>(
     calendarId: { type: Schema.Types.ObjectId, ref: "Calendar", require: true },
     hero: { type: String, ref: "Hero" },
     date: { type: Schema.Types.Date, require: true },
-    events: [
+    frequancy: { type: String, default: "" },
+
+    uid: { type: String, require: true, default: v4 },
+    startTime: { type: String, require: true },
+    endTime: { type: String, require: true },
+    isOpen: { type: Boolean, default: true },
+    attendees: [
       {
         uid: { type: String, require: true, default: v4 },
-        eventId: { type: String, default: v4 },
-        date: { type: Date, require: true },
-        start: { type: String, require: true },
-        end: { type: String, require: true },
-        isOpen: { type: Boolean },
-        attendees: [
-          {
-            uid: { type: String, require: true, default: v4 },
-            userId: { type: Schema.Types.ObjectId, ref: "Users" },
-            username: { type: String },
-            email: { type: String },
-            phone: { type: Number },
-          },
-        ],
+        userId: { type: Schema.Types.ObjectId, ref: "Users" },
+        username: { type: String },
+        email: { type: String },
+        phone: { type: Number },
       },
     ],
   },

@@ -12,18 +12,18 @@ export interface IEvent {
   uid: string;
   eventId: string;
   date: Date;
-  start: string;
-  end: string;
+  startTime: string;
+  endTime: string;
   isOpen: boolean;
   attendees: EventAttendees[];
 }
 
-export interface IEventSchema extends Document {
-  eventId: string;
+export interface IEventSchema extends IEvent, Document {
   calendarId: ObjectId;
   date: Date;
   hero: string;
-  events: IEvent[];
+  frequancy: string;
+  _id: ObjectId;
 }
 export interface CalendarFilters {
   appId?: string;
@@ -41,7 +41,8 @@ export interface ICalendarSchema extends Document {
   closeTime: string;
   name: string;
   theme: string;
-  schedule: { eventId: ObjectId }[];
+  schedule: ObjectId[];
+  events: ObjectId[];
   appId: string;
   // adminIds: { userId: ObjectId; role: string }[];
 }

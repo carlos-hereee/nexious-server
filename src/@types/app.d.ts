@@ -9,6 +9,7 @@ export interface FormatNotification {
   type:
     | "add-merch"
     | "edit-user"
+    | "cal-event"
     | "order-paid"
     | "order-in-store"
     | "edit-merch"

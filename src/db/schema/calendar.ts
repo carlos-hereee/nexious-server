@@ -15,7 +15,8 @@ const calendarSchema = new Schema<ICalendarSchema>(
     startTime: { type: String, default: "" },
     closeTime: { type: String, default: "" },
     altHours: { type: Boolean, default: false },
-    schedule: [{ eventId: { type: Schema.Types.ObjectId, ref: "Events" } }],
+    schedule: [{ type: Schema.Types.ObjectId, ref: "Events" }],
+    events: [{ type: Schema.Types.ObjectId, ref: "Events" }],
   },
   { timestamps: true }
 );
