@@ -8,11 +8,13 @@ import type { IFile } from "./assets";
 import type { CalendarBody, ICalendarSchema } from "./calendar";
 import type { IPageSchema } from "./page";
 import { PostBody } from "./post";
+import { IPostSchema } from "./db";
 
 export interface MinAppResponseData {
   user?: IUserSchema;
   app?: IAppSchema;
   appList?: IAppSchema[];
+  posts?: IPostSchema[];
   platformTiers?: SubscriptionSchema[];
   store?: IStoreSchema;
   calendar?: ICalendarSchema;
