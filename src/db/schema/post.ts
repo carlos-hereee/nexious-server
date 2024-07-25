@@ -6,9 +6,10 @@ const Schema = mongoose.Schema;
 const postSchema = new Schema<IPostSchema>(
   {
     postId: { type: String, default: v4 },
-    message: { type: String },
+    uid: { type: String, default: v4 },
+    appId: { type: String },
+    body: { type: String },
     link: { type: String },
-    name: { type: String },
   },
   { timestamps: true }
 );

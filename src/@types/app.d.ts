@@ -157,6 +157,7 @@ export interface IAppSchema extends Document {
   archivedNotifications: ObjectId[];
   subscriptions: ObjectId[];
   subscribers: ObjectId[];
+  posts: ObjectId[];
   pages: ObjectId[];
 }
 export interface AppPayload {

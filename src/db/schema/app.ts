@@ -93,6 +93,7 @@ const appSchema = new Schema<IAppSchema>(
     subscribers: { type: [{ type: Schema.Types.ObjectId, ref: "Users" }], default: [] },
     subscriptions: { type: [{ type: Schema.Types.ObjectId, ref: "Subscription" }], default: [] },
     store: { type: Schema.Types.ObjectId, ref: "Store" },
+    posts: [{ type: Schema.Types.ObjectId, ref: "Post" }],
     dbVersion: { type: Schema.Types.String },
   },
   { timestamps: true }

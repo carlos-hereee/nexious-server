@@ -16,11 +16,11 @@ export interface INotificationSchema extends NotificationSchema, Document {
 }
 export interface PostSchema {
   postId?: string;
-  message: string;
+  appId?: string;
+  uid?: string;
+  body: string;
   link: string;
-  name: string;
 }
 export interface IPostSchema extends PostSchema, Document {
   _id: ObjectId;
-  postId: string;
 }

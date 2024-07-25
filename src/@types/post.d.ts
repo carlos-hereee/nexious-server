@@ -1,1 +1,3 @@
-export interface PostBody {}
+export interface PostBody {
+  body: string;
+}
