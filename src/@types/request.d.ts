@@ -7,6 +7,7 @@ import type { AppBody, IAppSchema, SubscriptionSchema } from "./app";
 import type { IFile } from "./assets";
 import type { CalendarBody, ICalendarSchema } from "./calendar";
 import type { IPageSchema } from "./page";
+import { PostBody } from "./post";
 
 export interface MinAppResponseData {
   user?: IUserSchema;
@@ -82,6 +83,19 @@ export interface StoreRequest<B = StoreBody> extends Request {
     customer: string;
     merchId: string;
     orderUpdate: OrderStatus;
+  };
+  store: IStoreSchema;
+  project: IAppSchema;
+  user: IUserSchema;
+  merch: IMerchSchema;
+  asset?: string;
+  assets: { hero: string; sectionHero: string[]; catalog: string[] };
+  account?: Stripe.Response<Stripe.Account>;
+}
+export interface PostRequest<B = PostBody> extends Request {
+  body: B;
+  params: {
+    appId: string;
   };
   store: IStoreSchema;
   project: IAppSchema;

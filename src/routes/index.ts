@@ -1,7 +1,7 @@
 import authRoute from "./auth/index";
 import appRoute from "./app/index";
-// import calendarRoute from "./calendar";
 import storeRoute from "./store/index";
+import postRoute from "./post/index";
 import calendarRoute from "./calendar/index";
 import { initRoute, startApp } from "./initRoute";
 import type { ExpressApp } from "@app/db";
@@ -10,13 +10,6 @@ import { RequestHandler } from "express";
 
 export default (app: ExpressApp) => {
   startApp(app);
-  // app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
-  //   res.status ? res.status : res.status(500);
-  //   res.json(error);
-  // });
-  // middleware for all functions
-  // TODO: DEBUG ERROR
-  // app.use(deserializeUser);
   app.use(deserializeUser as unknown as RequestHandler);
   // initial test route
   app.get("/", initRoute);
@@ -25,8 +18,8 @@ export default (app: ExpressApp) => {
   // app data
   app.use("/app/", appRoute);
   app.use("/calendar/", calendarRoute);
-  // app.use("/calendar/", calendarRoute);
   app.use("/store/", storeRoute);
+  app.use("/post/", postRoute);
 };
 // // assets route
 // import publicRoute  from "./public";
