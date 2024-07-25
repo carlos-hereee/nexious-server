@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck - may need to be at the start of file
 
-import { adminWare } from "@middleware/app";
+import { heroWare } from "@middleware/app";
 import { minAppData } from "@routes/minAppData";
 import { Router } from "express";
 import { addPost } from "./addPost";
@@ -15,7 +15,7 @@ const route = Router();
 // fetch calendar
 // route.get("/:appId", authenticateCalendar, );
 // // add calendar
-route.post("/create/:appId", adminWare, addPost, minAppData);
+route.post("/create/:appId", heroWare, addPost, minAppData);
 // // update calendar
 // route.put("/update/:appId", adminWare, requireCalendar, updateCalendar, minAppData);
 // // add calendar event

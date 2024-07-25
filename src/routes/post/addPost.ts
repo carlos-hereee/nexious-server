@@ -7,7 +7,8 @@ import { NextFunction, Response } from "express";
 export const addPost = async (req: PostRequest, res: Response, next: NextFunction) => {
   try {
     // create post
-    const post = await Post.create({ ...req.body, appId: req.project.appId });
+
+    const post = await Post.create({ ...req.body, appId: req.project.appId, thumbnail: req.asset || "" });
     if (!post) return res.status(400).json({ message: "unable to create post" }).end();
     // create notification
     const notification = await addNotification({ type: "app-update", message: "Successfully added post" });

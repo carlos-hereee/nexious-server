@@ -19,6 +19,7 @@ export interface PostSchema {
   appId?: string;
   uid?: string;
   body: string;
+  thumbnail: string;
   link: string;
 }
 export interface IPostSchema extends PostSchema, Document {
