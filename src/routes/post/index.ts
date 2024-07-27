@@ -5,7 +5,7 @@ import { heroWare } from "@middleware/app";
 import { minAppData } from "@routes/minAppData";
 import { Router } from "express";
 import { addPost } from "./addPost";
-import { fetchPosts } from "./getPosts";
+import { fetchPosts } from "./fetchPosts";
 
 const route = Router();
 // fetch calendar

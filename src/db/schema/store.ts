@@ -25,9 +25,9 @@ const storeSchema = new Schema<IStoreSchema>(
     hero: { type: String, default: "" },
     isRegistered: { type: Boolean, default: false },
     termsOfService: { type: Boolean, default: false },
-    inventory: [{ type: Schema.Types.ObjectId, ref: "Merch" }],
+    inventory: { type: [{ type: Schema.Types.ObjectId, ref: "Merch" }], default: [] },
     orders: { type: [{ type: Schema.Types.ObjectId, ref: "Orders" }], default: [] },
-    notifications: [{ type: Schema.Types.ObjectId, ref: "Notification" }],
+    notifications: { type: [{ type: Schema.Types.ObjectId, ref: "Notification" }], default: [] },
   },
   { timestamps: true }
 );
