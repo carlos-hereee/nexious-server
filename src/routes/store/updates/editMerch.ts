@@ -11,7 +11,7 @@ export const editMerch = async (req: StoreRequest<MerchBody>, res: Response, nex
     // udpate string types
     if (name) {
       req.merch.name = name;
-      req.merch.link = generateStringUrl(name);
+      req.merch.link = `/store/${req.project?.appLink}/${generateStringUrl(req.body.name)}`;
     }
     if (description) req.merch.description = description;
     // format cost and in stock numbers
@@ -31,7 +31,7 @@ export const editMerch = async (req: StoreRequest<MerchBody>, res: Response, nex
       const n = await addNotification({
         type: "edit-merch",
         message: `${inStock} of ${name} have been added to store inventory`,
-        link: `/store/${generateStringUrl(req.store?.storeName || "")}/${req.merch.link}`,
+        link: req.merch.link,
       });
       req.project.notifications.push(n._id);
       await req.project.save();

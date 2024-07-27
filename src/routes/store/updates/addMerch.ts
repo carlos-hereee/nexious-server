@@ -20,17 +20,18 @@ export const addMerch = async (req: StoreRequest<MerchBodyParams>, res: Response
       ...req.body,
       thumbnail,
       storeId,
+      hero: thumbnail,
       productId: "",
       priceId: "",
       catalog,
       onHold: 0,
-      link: generateStringUrl(req.body.name),
+      link: `/store/${req.project?.appLink}/${generateStringUrl(req.body.name)}`,
     };
     // create notification
     const notification = await addNotification({
       type: "add-merch",
       message: "Successfull added merch to inventory",
-      link: `/store/${generateStringUrl(req.store?.storeName || "")}/${payload.link}`,
+      link: payload.link,
     });
     // on success link notification to app
     if (notification) {
