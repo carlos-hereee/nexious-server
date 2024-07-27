@@ -14,7 +14,6 @@ import { removeMerchendise } from "./updates/removeMerch";
 import { getStripeAccount } from "./stripe/getStripeAccount";
 import { adminWare } from "@middleware/app";
 import { merchWare, merchindiseWare, storeWare } from "@middleware/store";
-import { stripeOnboarding } from "./stripe/stripeOnboarding";
 import { storeSession } from "./checkout/storeSession";
 import { getStoreWithStoreId } from "@middleware/store/getStoreWithStoreId";
 import { updateOrder } from "./updates/updateOrder";
@@ -28,6 +27,8 @@ import { minAppData } from "@routes/minAppData";
 import { getBillingPortal } from "./checkout/getBillingPortal";
 import { trackOrder } from "./checkout/trackOrder";
 import { getWebhooks } from "./stripe/getWebhooks";
+import { createAccount } from "./stripe/createAccount";
+import { stripeOnboarding } from "./stripe/stripeOnboarding";
 
 const route = Router();
 const bodyParse = bodyParser.raw({ type: "application/json" });
@@ -48,6 +49,7 @@ route.post("/checkout-store-session/:storeId", getStoreWithStoreId, requireClien
 route.post("/stripe-account-link/:appId", storeWare, stripeOnboarding);
 // add to store
 route.post("/build-store/:appId", adminWare, addStore, minAppData);
+route.post("/build-stripe-store/:appId", storeWare, createAccount, minAppData);
 route.post("/add-merch/:appId", storeWare, merchindiseWare, addMerch, minAppData);
 // construct stripe webhook
 route.post("/webhook", bodyParse, initHook, stripeWebhook);
