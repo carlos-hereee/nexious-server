@@ -19,7 +19,7 @@ export const initApp = async (req: AppRequest, res: Response, next: NextFunction
     // add inital landing page data
     const landing: IPageSchema = await Page.create({ type: "landing", tagline: `${data.title}` });
     const appUrl = `/app/${generateStringUrl(appName)}`;
-    const appLink = generateStringUrl(appName);
+    const appLink = `/${generateStringUrl(appName)}`;
     // const themeLis
     const appData = { appLink, appName, logo, owner, adminIds, themeList, appUrl, landing: landing._id, dbVersion: "1.0.0" };
     const app = await App.create(appData);

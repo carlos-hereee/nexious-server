@@ -40,6 +40,7 @@ import { getPlatformData } from "@routes/getPlatformData";
 import { editPlatformSub } from "./editPlatformSubscription";
 import { getAppUserData } from "./getApp/getAppUserData";
 import { updateMedias } from "./media/updateMedias";
+import { updateMenuItem } from "./updateApp/updateMenuItem";
 
 const route = Router();
 // load app data
@@ -64,6 +65,7 @@ route.post("/update-newsletter/:appId", heroWare, updateNewsletter, minAppData);
 route.put("/update-medias/:appId", appWare, updateMedias, minAppData);
 route.put("/update-landing-page/:appId", multiHeroWare, landingPageWare, updateLandingPage, minAppData);
 route.put("/update-page/:appId/page/:pageId", multiHeroWare, pageWare, updatePage, minAppData);
+route.put("/:appId/menu/:menuId", adminWare, updateMenuItem, minAppData);
 route.put("/update-app-details/:appId", logoWare, updateAppDetails, minAppData);
 // building pages
 route.post("/add-page/:appId", multiHeroWare, addPage, minAppData);

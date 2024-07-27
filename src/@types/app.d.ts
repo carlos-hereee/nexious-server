@@ -173,6 +173,7 @@ export interface AppBody {
   theme: string;
   language: string;
   locale: string;
+  icon?: string;
   logo: string;
   email: string;
   title: string;
