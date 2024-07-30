@@ -13,7 +13,7 @@ import { minAppData } from "@routes/minAppData";
 
 const route = Router();
 // fetch calendar
-route.get("/:appId", authenticateCalendar, fetchCalendar);
+route.get("/:appId", requireCalendar, fetchCalendar);
 // add calendar
 route.post("/:appId", heroWare, addCalendar, minAppData);
 // update calendar
