@@ -15,6 +15,7 @@ const userSchema = new Schema<IUserSchema>(
     nickname: { type: String },
     accountTier: { type: Schema.Types.ObjectId, ref: "Subscription" },
     isPlatformOwner: { type: Boolean, default: false },
+    role: { type: String, default: "customer" },
     phone: { type: String },
     locale: { type: String },
     theme: { type: String },
@@ -31,6 +32,7 @@ const userSchema = new Schema<IUserSchema>(
     subscriptions: { type: [{ type: Schema.Types.ObjectId, ref: "App" }], default: [] },
     feed: { type: [{ type: Schema.Types.ObjectId, ref: "Post" }], default: [] },
     orders: [{ type: Schema.Types.ObjectId, ref: "Orders" }],
+    messages: { type: [{ type: Schema.Types.ObjectId, ref: "Messages" }], default: [] },
   },
   { timestamps: true }
 );

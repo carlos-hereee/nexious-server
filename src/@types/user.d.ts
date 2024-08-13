@@ -12,6 +12,7 @@ export interface UserFilters {
   userId?: string;
   id?: ObjectId;
 }
+export type UserRole = "customer" | "dev-team" | "app-support" | "owner" | "app-owner";
 
 export interface IUserSchema extends Document {
   _id: ObjectId;
@@ -24,6 +25,7 @@ export interface IUserSchema extends Document {
   phone: string;
   locale: string;
   theme: string;
+  role: UserRole;
   customerId?: string;
   name: string;
   isPlatformOwner: boolean;
@@ -36,6 +38,7 @@ export interface IUserSchema extends Document {
   accountTiers: ObjectId[];
   feed: ObjectId[];
   orders: ObjectId[];
+  messages: ObjectId[];
 }
 export interface InitUser {
   username: string;

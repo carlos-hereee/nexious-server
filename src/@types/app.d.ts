@@ -159,6 +159,7 @@ export interface IAppSchema extends Document {
   subscribers: ObjectId[];
   posts: ObjectId[];
   pages: ObjectId[];
+  messages: ObjectId[];
 }
 export interface AppPayload {
   appName: string;

@@ -10,14 +10,18 @@ export const minAppData = async (req: AppRequest, res: Response) => {
     if (req.user) {
       const userData = `ownedApps subscriptions permissions ownedApps.userId${
         req.user.notifications ? " notifications" : ""
-      }${req.user.subscriptions ? " subscriptions" : ""}${req.user.accountTier ? " accountTier" : ""}${req.user.orders ? " orders" : ""}`;
+      }${req.user.subscriptions ? " subscriptions" : ""}${req.user.accountTier ? " accountTier" : ""}${
+        req.user.orders ? " orders" : ""
+      }${req.user.messages ? " messages" : ""}`;
       // depopulate auth data for security
       const user = await req.user.depopulate("auth").populate(userData);
       data.user = user;
     }
     // populate app data required by client
     if (req.project) {
-      const appData = `owner adminIds landing pages calendar notifications${req.project.subscriptions ? " subscriptions" : ""}${req.project.posts ? " posts" : ""}`;
+      const appData = `owner adminIds landing pages calendar notifications${req.project.subscriptions ? " subscriptions" : ""}${
+        req.project.posts ? " posts" : ""
+      }${req.project.messages ? " messages" : ""}`;
       const app = await req.project.populate(appData);
       data.app = app;
     }

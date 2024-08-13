@@ -41,6 +41,8 @@ import { editPlatformSub } from "./editPlatformSubscription";
 import { getAppUserData } from "./getApp/getAppUserData";
 import { updateMedias } from "./media/updateMedias";
 import { updateMenuItem } from "./updateApp/updateMenuItem";
+import { sendMessage } from "./contact/sendMessage";
+import { sendPlatformMessage } from "./contact/sendPlatformMessage";
 
 const route = Router();
 // load app data
@@ -49,6 +51,9 @@ route.get("/:appName", getAppWithName);
 route.get("/:appId/user-data", getAppUserData);
 route.get("/:appName/locale/:locale", getAppWithLanguage);
 route.get("/page/:pageId", fetchPage);
+// contact app
+route.post("/platform/contact", appWare, sendPlatformMessage, minAppData);
+route.post("/:appId/contact", appWare, sendMessage, minAppData);
 // build app data
 route.post("/init-app", initAppWare, saveAsset, initApp, minAppData);
 route.post("/latest/:appId", adminWare, latest, minAppData);
