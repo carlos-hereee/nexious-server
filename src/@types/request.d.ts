@@ -39,6 +39,7 @@ export interface AuthRequest<B = AuthBody> extends Request {
   body: B;
   auth: IAuthSchema;
   user: IUserSchema;
+  asset: string;
 }
 
 export interface AppRequest<B = AppBody> extends Request {

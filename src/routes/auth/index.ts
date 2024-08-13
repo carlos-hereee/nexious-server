@@ -17,6 +17,8 @@ import { upgradeAccount } from "./upgradeAccount";
 import { minAppData } from "@routes/minAppData";
 import { getPlatformData } from "@routes/getPlatformData";
 import { linkSubscription } from "./linkSubscription";
+import { editAvatar } from "./editAvatar";
+import { assetWare } from "@middleware/app";
 
 const route = Router();
 
@@ -29,6 +31,7 @@ route.get("/access-token", requireUser, getPlatformData);
 route.post("/register", registerWare, register, sendToken);
 route.post("/login", validateWare, refreshSession, sendToken);
 route.post("/refresh-token", requireUser, authSessionWare, refreshSession, sendToken);
+route.post("/avatar", assetWare, editAvatar, minAppData);
 // update stripe subscription
 route.post("/upgrade-account", requireUser, upgradeAccount);
 route.put("/link-account", requireUser, linkSubscription, minAppData);
