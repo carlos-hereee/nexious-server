@@ -7,7 +7,15 @@ export const sendMessage = async (req: AppRequest, res: Response, next: NextFunc
   try {
     if (req.project) {
       // create message
-      const message = await Messages.create({ ...req.body, user: req.user._id, recipientRole: "app-support" });
+      const message = await Messages.create({
+        ...req.body,
+        user: {
+          avatar: req.user.avatar,
+          userId: req.user.userId,
+          name: req.user.name || req.user.nickname || req.user.email,
+        },
+        recipientRole: "app-support",
+      });
       // link message
       req.user.messages.push(message._id);
       req.project.messages.push(message._id);

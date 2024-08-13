@@ -7,7 +7,15 @@ export const sendPlatformMessage = async (req: AppRequest, res: Response, next: 
   try {
     if (!req.project) {
       // create message
-      const message = await Messages.create({ ...req.body, user: req.user._id, recipientRole: "dev-team" });
+      const message = await Messages.create({
+        ...req.body,
+        user: {
+          avatar: req.user.avatar,
+          userId: req.user.userId,
+          name: req.user.name || req.user.nickname || req.user.email,
+        },
+        recipientRole: "dev-team",
+      });
       // link message
       req.user.messages.push(message._id);
       await req.user.save();

@@ -9,10 +9,14 @@ export interface Messages {
   data: string;
   title: string;
   status: string;
-  user: ObjectId;
-  recipient: ObjectId;
+  user: { avatar: string; name: string; userId: string };
+  recipient: { avatar: string; name: string; userId: string };
   recipientRole: UserRole;
-  replies: { user: ObjectId; data: string; uid: string }[];
+  replies: {
+    user: { avatar: string; name: string; userId: string };
+    data: string;
+    uid: string;
+  }[];
 }
 export interface IMessage extends Messages, Document {
   _id: ObjectId;
