@@ -6,19 +6,20 @@ import { register } from "./register";
 import { userRoute } from "./userRoute";
 import { refreshSession } from "@middleware/auth/refreshSession";
 import { logout } from "./logout";
-import { changePassword } from "./changePassword";
+import { changePassword } from "./edits/changePassword";
 import { sendToken } from "./sendToken";
 import { authSessionWare, registerWare, userWare, validateWare } from "@middleware/auth";
 import { requireUser } from "@middleware/auth/requireUser";
 import { aquireAuthSession } from "@middleware/auth/authSession";
-import { editUser } from "./editUser";
+import { editUser } from "./edits/editUser";
 import { removeNotification } from "./removeNotification";
-import { upgradeAccount } from "./upgradeAccount";
+import { upgradeAccount } from "./edits/upgradeAccount";
 import { minAppData } from "@routes/minAppData";
 import { getPlatformData } from "@routes/getPlatformData";
 import { linkSubscription } from "./linkSubscription";
-import { editAvatar } from "./editAvatar";
+import { editAvatar } from "./edits/editAvatar";
 import { assetWare } from "@middleware/app";
+import { sendUserMessage } from "./sendUserMessage";
 
 const route = Router();
 
@@ -32,6 +33,8 @@ route.post("/register", registerWare, register, sendToken);
 route.post("/login", validateWare, refreshSession, sendToken);
 route.post("/refresh-token", requireUser, authSessionWare, refreshSession, sendToken);
 route.post("/avatar", assetWare, editAvatar, minAppData);
+// send user message
+route.post("/:userId/contact", sendUserMessage, minAppData);
 // update stripe subscription
 route.post("/upgrade-account", requireUser, upgradeAccount);
 route.put("/link-account", requireUser, linkSubscription, minAppData);

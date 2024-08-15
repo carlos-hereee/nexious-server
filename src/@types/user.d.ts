@@ -12,7 +12,7 @@ export interface UserFilters {
   userId?: string;
   id?: ObjectId;
 }
-export type UserRole = "customer" | "dev-team" | "app-support" | "owner" | "app-owner";
+export type UserRole = "customer" | "dev-team" | "app-support" | "owner" | "app-owner" | "friend";
 
 export interface IUserSchema extends Document {
   _id: ObjectId;

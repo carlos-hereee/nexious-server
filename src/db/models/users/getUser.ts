@@ -7,6 +7,7 @@ export const getUser = async ({ username, email, userId }: UserFilters): Promise
   if (username) return await Users.findOne({ username });
   if (email) return await Users.findOne({ email });
   if (userId) {
+    if (userId === "nexious-admin") return await Users.findOne({ isPlatformOwner: true });
     // send data required by client
     return await Users.findOne({ userId }).populate({
       path: "ownedApps subscriptions",
