@@ -27,7 +27,7 @@ export const sendUserMessage = async (req: AuthRequest, res: Response, next: Nex
     recipientUser.messages.push(message._id);
     // save to db
     await req.user.save();
-    await recipientUser.save();
+    if (req.user.userId !== recipientUser.userId) await recipientUser.save();
 
     next();
   } catch (error) {
