@@ -43,6 +43,7 @@ import { updateMedias } from "./media/updateMedias";
 import { updateMenuItem } from "./updateApp/updateMenuItem";
 import { sendMessage } from "./contact/sendMessage";
 import { sendPlatformMessage } from "./contact/sendPlatformMessage";
+import { buildMap } from "./buildMap";
 
 const route = Router();
 // load app data
@@ -56,6 +57,7 @@ route.post("/platform/contact", appWare, sendPlatformMessage, minAppData);
 route.post("/:appId/contact", appWare, sendMessage, minAppData);
 // build app data
 route.post("/init-app", initAppWare, saveAsset, initApp, minAppData);
+route.post("/:appId/build-map", appWare, buildMap, minAppData);
 route.post("/latest/:appId", adminWare, latest, minAppData);
 // manage subscritions
 route.post("/create-subscription/:appId", appWare, createSubscription, minAppData);

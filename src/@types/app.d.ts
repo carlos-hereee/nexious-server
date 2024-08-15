@@ -159,6 +159,7 @@ export interface IAppSchema extends Document {
   subscribers: ObjectId[];
   posts: ObjectId[];
   pages: ObjectId[];
+  maps: ObjectId[];
   messages: ObjectId[];
 }
 export interface AppPayload {
@@ -168,6 +169,26 @@ export interface AppPayload {
   adminIds: { userId: string; role: string }[];
   themeList: IThemeList[];
   appUrl: string;
+}
+export interface GridData {
+  id: string;
+  data: string;
+  orientation: string;
+  x: number;
+  y: number;
+}
+export interface MapDimensions {
+  width: number;
+  length: number;
+  unit: "cm" | "m" | "km";
+}
+export interface IMap {
+  map: GridData[][];
+  dimensions: MapDimensions;
+  uid: string;
+}
+export interface IMapSchema extends IMap, Document {
+  _id: ObjectId;
 }
 export interface AppBody {
   appName: string;
