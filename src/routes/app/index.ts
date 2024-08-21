@@ -44,6 +44,7 @@ import { updateMenuItem } from "./updateApp/updateMenuItem";
 import { sendMessage } from "./contact/sendMessage";
 import { sendPlatformMessage } from "./contact/sendPlatformMessage";
 import { buildMap } from "./buildMap";
+import { editMap } from "./editMap";
 
 const route = Router();
 // load app data
@@ -62,13 +63,14 @@ route.post("/latest/:appId", adminWare, latest, minAppData);
 // manage subscritions
 route.post("/create-subscription/:appId", appWare, createSubscription, minAppData);
 route.post("/subscribe/:appId", userAppWare, subscribe, minAppData);
+route.post("/update-newsletter/:appId", heroWare, updateNewsletter, minAppData);
 // update subscription
 route.put("/update-subscription/platform/:subscriptionId", appWare, editPlatformSub, minAppData);
 route.put("/update-subscription/:appId/:subscriptionId", appWare, editSubscription, minAppData);
 // delete subscription
 route.delete("/delete-subscription/:appId/:subscriptionId", appWare, deleteSubscription, minAppData);
 // update app
-route.post("/update-newsletter/:appId", heroWare, updateNewsletter, minAppData);
+route.put("/:appId/update-map", adminWare, editMap, minAppData);
 route.put("/update-medias/:appId", appWare, updateMedias, minAppData);
 route.put("/update-landing-page/:appId", multiHeroWare, landingPageWare, updateLandingPage, minAppData);
 route.put("/update-page/:appId/page/:pageId", multiHeroWare, pageWare, updatePage, minAppData);

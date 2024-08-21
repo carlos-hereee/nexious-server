@@ -12,9 +12,11 @@ const mapSchema = new Schema<IMapSchema>(
       type: [
         [
           {
-            id: { type: String },
-            data: { type: String },
-            orientation: { type: String },
+            id: { type: String, default: v4 },
+            data: { type: String, default: "" },
+            roomType: { type: String, default: "" },
+            orientation: { type: String, default: "zero-deg" },
+            name: { type: String, default: "" },
             x: { type: Number },
             y: { type: Number },
           },

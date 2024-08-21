@@ -174,6 +174,8 @@ export interface GridData {
   id: string;
   data: string;
   orientation: string;
+  roomType: string;
+  name: string;
   x: number;
   y: number;
 }
