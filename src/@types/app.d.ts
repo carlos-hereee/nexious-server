@@ -184,6 +184,7 @@ export interface MapDimensions {
 }
 export interface IMap {
   map: GridData[][];
+  name: string;
   dimensions: MapDimensions;
   uid: string;
 }

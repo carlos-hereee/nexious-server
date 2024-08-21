@@ -7,6 +7,7 @@ const mapSchema = new Schema<IMapSchema>(
   {
     // key variables
     uid: { type: String, default: v4 },
+    name: { type: String, default: "" },
     map: {
       type: [
         [
