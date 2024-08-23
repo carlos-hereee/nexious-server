@@ -10,6 +10,7 @@ import { saveFieldAssets } from "./saveFieldAssets";
 import { aquireAppLanding } from "./aquireAppLanding";
 import { requirePage } from "./requirePage";
 import { aquireAppPage } from "./aquireAppPage";
+import { requirePost } from "./requirePost";
 
 export const adminWare = [requireUser, getAppWithAppId, requireApp, validateAdmin];
 export const appWare = [requireUser, getAppWithAppId];
@@ -28,3 +29,4 @@ export const multiHeroWare = [
 ];
 export const pageWare = [aquireAppPage, requirePage];
 export const landingPageWare = [aquireAppLanding, requirePage];
+export const postWare = [requireUser, requirePost];

@@ -100,11 +100,13 @@ export interface PostRequest<B = PostBody> extends Request {
   body: B;
   params: {
     appId: string;
+    postId: string;
   };
   store: IStoreSchema;
   project: IAppSchema;
   user: IUserSchema;
   merch: IMerchSchema;
+  post: IPostSchema;
   asset?: string;
   assets: { hero: string; sectionHero: string[]; catalog: string[] };
   account?: Stripe.Response<Stripe.Account>;

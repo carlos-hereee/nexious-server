@@ -10,6 +10,6 @@ export const getPosts = async ({ appId }: PotsFilters) => {
   return await Post.find();
 };
 export const getPost = async ({ postId }: PotsFilters) => {
-  if (postId) return await Post.findOne({ uid: postId });
+  if (postId) return await Post.findOne({ postId });
   return null;
 };
