@@ -7,6 +7,7 @@ export type ExpressApp = Express;
 export type MessageReadReceipts = "sent" | "delivered" | "read" | "unsent";
 export interface Messages {
   uid: string;
+  messageId: string;
   data: string;
   title: string;
   status: {

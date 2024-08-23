@@ -10,13 +10,10 @@ export const getPlatformData = async (req: AuthRequest, res: Response) => {
     const data: MinAppResponseData = {};
     if (req.user) {
       // depopulate auth data and populate data required by client
-      const userData = `ownedApps subscriptions permissions ownedApps.userId${
-        req.user.notifications ? " notifications" : ""
-      }${req.user.subscriptions ? " subscriptions" : ""}${req.user.accountTier ? " accountTier" : ""}${
-        req.user.orders ? " orders" : ""
-      }${req.user.messages ? " messages" : ""}`;
+      const userData =
+        "ownedApps subscriptions permissions ownedApps.userId notifications subscriptions accountTier orders messages";
       // user data
-      const user = await req.user.depopulate("auth").populate(userData);
+      const user = await req.user.depopulate("auth").populate(userData, { options: { strictPopulate: false } });
       data.user = user;
     }
     // applist data

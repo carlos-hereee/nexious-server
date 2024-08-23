@@ -7,6 +7,7 @@ const messageSchema = new Schema<IMessage>(
   {
     // universal id
     uid: { type: String, default: v4 },
+    messageId: { type: String, default: v4 },
     data: { type: String, default: "" },
     title: { type: String, default: "" },
     status: {
