@@ -1,6 +1,7 @@
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { Response } from "express";
 import type { AppRequest, MinAppResponseData } from "@app/request";
+import { postsPopulate } from "@db/data/app/post.json";
 
 export const minAppData = async (req: AppRequest, res: Response) => {
   try {
@@ -27,7 +28,11 @@ export const minAppData = async (req: AppRequest, res: Response) => {
     }
     // add post data
     if (req.post) {
-      const post = await req.post.populate("comments comments.replies", { options: { strictPopulate: false } });
+      const post = await req.post.populate({
+        path: "comments",
+        populate: postsPopulate,
+        options: { strictPopulate: false },
+      });
       data.post = post;
     }
     // populate inventory in response

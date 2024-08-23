@@ -1,5 +1,7 @@
 import Post from "@db/schema/post";
 import Messages from "@db/schema/messages";
+// import { IPostSchema } from "@app/db";
+import { postsPopulate } from "@db/data/app/post.json";
 
 interface PotsFilters {
   appId?: string;
@@ -9,7 +11,7 @@ interface PotsFilters {
 }
 export const getPosts = async ({ appId }: PotsFilters) => {
   if (appId) return await Post.find({ appId });
-  return await Post.find().populate({ path: "comments", populate: { path: "replies" }, options: { strictPopulate: false } });
+  return await Post.find().populate({ path: "comments", populate: postsPopulate, options: { strictPopulate: false } });
 };
 export const getPost = async ({ postId }: PotsFilters) => {
   if (postId) return await Post.findOne({ postId });
