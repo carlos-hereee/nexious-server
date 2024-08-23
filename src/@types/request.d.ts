@@ -8,7 +8,7 @@ import type { IFile } from "./assets";
 import type { CalendarBody, ICalendarSchema } from "./calendar";
 import type { IPageSchema } from "./page";
 import { PostBody } from "./post";
-import { IPostSchema } from "./db";
+import { IMessage, IPostSchema } from "./db";
 
 export interface MinAppResponseData {
   user?: IUserSchema;
@@ -17,6 +17,7 @@ export interface MinAppResponseData {
   posts?: IPostSchema[];
   platformTiers?: SubscriptionSchema[];
   store?: IStoreSchema;
+  message?: IMessage;
   post?: IPostSchema;
   calendar?: ICalendarSchema;
   account?: Stripe.Response<Stripe.Account>;
@@ -59,6 +60,7 @@ export interface AppRequest<B = AppBody> extends Request {
   project: IAppSchema;
   page: IPageSchema;
   store?: IStoreSchema;
+  message?: IMessage;
   pages: IPageSchema[];
   user: IUserSchema;
   post: IPostSchema;
@@ -103,8 +105,10 @@ export interface PostRequest<B = PostBody> extends Request {
   params: {
     appId: string;
     postId: string;
+    messageId: string;
   };
   store: IStoreSchema;
+  message: IMessage;
   project: IAppSchema;
   user: IUserSchema;
   merch: IMerchSchema;

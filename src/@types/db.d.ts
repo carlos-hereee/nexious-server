@@ -11,6 +11,7 @@ export interface Messages {
   data: string;
   title: string;
   status: {
+    messageLikes: string[];
     reaction: string;
     messageStatus: string;
     linkCount: number;
@@ -20,8 +21,8 @@ export interface Messages {
   replies: {
     user: { avatar: string; name: string; userId: string };
     data: string;
-    uid: string;
-    replyId: string;
+    uid?: string;
+    replyId?: string;
   }[];
 }
 export interface IMessage extends Messages, Document {

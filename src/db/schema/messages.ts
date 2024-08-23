@@ -14,6 +14,7 @@ const messageSchema = new Schema<IMessage>(
       reaction: { type: String, default: "" },
       likeCount: { type: Number, default: 0 },
       messageStatus: { type: String, default: "sent" },
+      messageLikes: { type: [{ type: String, default: "" }], default: [] },
     },
     user: {
       avatar: { type: String },
