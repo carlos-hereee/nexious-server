@@ -20,6 +20,7 @@ import { linkSubscription } from "./linkSubscription";
 import { editAvatar } from "./edits/editAvatar";
 import { assetWare } from "@middleware/app";
 import { sendUserMessage } from "./sendUserMessage";
+import { toggleLikePost } from "./posts/toggleLikePost";
 
 const route = Router();
 
@@ -46,5 +47,8 @@ route.put("/update-user", userWare, editUser, minAppData);
 // log out
 route.delete("/logout", requireUser, aquireAuthSession, logout);
 route.delete("/remove-notification/:notificationId", requireUser, removeNotification, minAppData);
+
+// user actions
+route.put("/toggle-like-post/:postId", requireUser, toggleLikePost, minAppData);
 
 export default route;

@@ -37,9 +37,13 @@ export interface PostSchema {
   appId?: string;
   uid?: string;
   body: string;
+  likeCount: number;
+  likeUsers: string[];
   thumbnail: string;
   link: string;
 }
 export interface IPostSchema extends PostSchema, Document {
+  postId: string;
+  uid: string;
   _id: ObjectId;
 }

@@ -8,9 +8,11 @@ const postSchema = new Schema<IPostSchema>(
     postId: { type: String, default: v4 },
     uid: { type: String, default: v4 },
     appId: { type: String },
-    thumbnail: { type: String },
-    body: { type: String },
-    link: { type: String },
+    thumbnail: { type: String, default: "" },
+    body: { type: String, default: "" },
+    likeCount: { type: Number, default: 0 },
+    likeUsers: { type: [{ type: String }], default: [] },
+    link: { type: String, default: "" },
   },
   { timestamps: true }
 );

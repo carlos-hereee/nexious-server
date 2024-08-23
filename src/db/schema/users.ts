@@ -33,6 +33,7 @@ const userSchema = new Schema<IUserSchema>(
     feed: { type: [{ type: Schema.Types.ObjectId, ref: "Post" }], default: [] },
     orders: [{ type: Schema.Types.ObjectId, ref: "Orders" }],
     messages: { type: [{ type: Schema.Types.ObjectId, ref: "Messages" }], default: [] },
+    likePosts: { type: [{ type: String }], default: [] },
   },
   { timestamps: true }
 );

@@ -33,6 +33,7 @@ export interface AuthRequest<B = AuthBody> extends Request {
   params: {
     userId: string;
     appId: string;
+    postId: string;
     username: string;
     notificationId: string;
   };
