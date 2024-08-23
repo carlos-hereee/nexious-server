@@ -34,6 +34,7 @@ const userSchema = new Schema<IUserSchema>(
     orders: [{ type: Schema.Types.ObjectId, ref: "Orders" }],
     messages: { type: [{ type: Schema.Types.ObjectId, ref: "Messages" }], default: [] },
     likePosts: { type: [{ type: String }], default: [] },
+    likeMessages: { type: [{ type: String }], default: [] },
   },
   { timestamps: true }
 );

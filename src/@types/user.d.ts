@@ -28,6 +28,7 @@ export interface IUserSchema extends Document {
   role: UserRole;
   customerId?: string;
   likePosts: string[];
+  likeMessages: string[];
   name: string;
   isPlatformOwner: boolean;
   permissions: { appId: ObjectId; role: string }[];

@@ -43,7 +43,14 @@ export const minAppData = async (req: AppRequest, res: Response) => {
     }
     // add stripe account data in response
     if (req.account) data.account = req.account;
-    if (req.message) data.message = req.message;
+    if (req.message) {
+      const message = await req.message.populate({
+        path: "replies",
+        populate: postsPopulate,
+        options: { strictPopulate: false },
+      });
+      data.message = message;
+    }
     res.status(200).json(data).end();
   } catch (error) {
     useGenericErrors(res, error, "error occurred sending client data");
