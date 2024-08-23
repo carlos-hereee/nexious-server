@@ -14,16 +14,12 @@ export interface Messages {
     messageLikes: string[];
     reaction: string;
     messageStatus: string;
-    linkCount: number;
+    likeCount: number;
+    nestLevel: number;
   };
   user: { avatar: string; name: string; userId: string };
   recipient: { avatar: string; name: string; userId: string; role: UserRole };
-  replies: {
-    user: { avatar: string; name: string; userId: string };
-    data: string;
-    uid?: string;
-    replyId?: string;
-  }[];
+  replies: ObjectId[];
 }
 export interface IMessage extends Messages, Document {
   _id: ObjectId;

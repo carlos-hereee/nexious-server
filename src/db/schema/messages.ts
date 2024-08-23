@@ -12,6 +12,7 @@ const messageSchema = new Schema<IMessage>(
     title: { type: String, default: "" },
     status: {
       reaction: { type: String, default: "" },
+      nestLevel: { type: Number, default: 0 },
       likeCount: { type: Number, default: 0 },
       messageStatus: { type: String, default: "sent" },
       messageLikes: { type: [{ type: String, default: "" }], default: [] },
@@ -29,14 +30,7 @@ const messageSchema = new Schema<IMessage>(
       name: { type: String },
     },
     replies: {
-      type: [
-        {
-          uid: { type: String, default: v4 },
-          replyId: { type: String, default: v4 },
-          user: { avatar: { type: String }, userId: { type: String }, name: { type: String } },
-          data: { type: String, default: "" },
-        },
-      ],
+      type: [{ type: Schema.Types.ObjectId, ref: "Messages" }],
       default: [],
     },
   },

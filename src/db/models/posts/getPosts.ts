@@ -9,7 +9,7 @@ interface PotsFilters {
 }
 export const getPosts = async ({ appId }: PotsFilters) => {
   if (appId) return await Post.find({ appId });
-  return await Post.find().populate("comments", { options: { strictPopulate: false } });
+  return await Post.find().populate({ path: "comments", populate: { path: "replies" }, options: { strictPopulate: false } });
 };
 export const getPost = async ({ postId }: PotsFilters) => {
   if (postId) return await Post.findOne({ postId });

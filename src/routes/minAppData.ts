@@ -27,7 +27,7 @@ export const minAppData = async (req: AppRequest, res: Response) => {
     }
     // add post data
     if (req.post) {
-      const post = await req.post.populate("comments", { options: { strictPopulate: false } });
+      const post = await req.post.populate("comments comments.replies", { options: { strictPopulate: false } });
       data.post = post;
     }
     // populate inventory in response
