@@ -12,6 +12,8 @@ const postSchema = new Schema<IPostSchema>(
     body: { type: String, default: "" },
     likeCount: { type: Number, default: 0 },
     likeUsers: { type: [{ type: String }], default: [] },
+    comments: { type: [{ type: Schema.Types.ObjectId, ref: "Messages" }], default: [] },
+    pinnedComment: { type: [{ type: Schema.Types.ObjectId, ref: "Messages" }], default: [] },
     link: { type: String, default: "" },
   },
   { timestamps: true }

@@ -10,16 +10,15 @@ import Users from "@db/schema/users";
 export const register = async (req: AuthRequest, res: Response, next: NextFunction) => {
   try {
     // key variables
-    const username = req.body.username;
-    const email = req.body.email || "";
-    const phone = req.body.phone || 0;
+    const { username, email, phone } = req.body;
     const userId = v4();
     const salt = random();
+    const nickname = username || email;
     // save protect password with hash-encryption
     const password = generateHash(salt, req.body.password);
     const sessionId = generateHash(salt, userId);
     req.auth = await Auth.create({ salt, password, sessionId, passwordHistory: [password] });
-    req.user = await Users.create({ userId, email, username, phone, auth: req.auth._id });
+    req.user = await Users.create({ userId, email, username, nickname, phone, auth: req.auth._id });
     next();
   } catch (error) {
     useGenericErrors(res, error, "error registering user");

@@ -4,18 +4,23 @@ import type { UserRole } from "./user";
 
 export type ObjectId = Schema.Types.ObjectId;
 export type ExpressApp = Express;
+export type MessageReadReceipts = "sent" | "delivered" | "read" | "unsent";
 export interface Messages {
   uid: string;
   data: string;
   title: string;
-  status: string;
+  status: {
+    reaction: string;
+    messageStatus: string;
+    linkCount: number;
+  };
   user: { avatar: string; name: string; userId: string };
-  recipient: { avatar: string; name: string; userId: string };
-  recipientRole: UserRole;
+  recipient: { avatar: string; name: string; userId: string; role: UserRole };
   replies: {
     user: { avatar: string; name: string; userId: string };
     data: string;
     uid: string;
+    replyId: string;
   }[];
 }
 export interface IMessage extends Messages, Document {
@@ -39,11 +44,14 @@ export interface PostSchema {
   body: string;
   likeCount: number;
   likeUsers: string[];
+  comments?: ObjectId[];
+  pinnedComment?: ObjectId[];
   thumbnail: string;
   link: string;
 }
 export interface IPostSchema extends PostSchema, Document {
   postId: string;
+  comments: ObjectId[];
   uid: string;
   _id: ObjectId;
 }

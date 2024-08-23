@@ -7,18 +7,32 @@ const messageSchema = new Schema<IMessage>(
   {
     // universal id
     uid: { type: String, default: v4 },
-    data: { type: String },
-    title: { type: String },
-    status: { type: String },
-    user: { avatar: { type: String }, userId: { type: String }, name: { type: String } },
-    recipient: { avatar: { type: String }, userId: { type: String }, name: { type: String } },
-    recipientRole: { type: String, default: "customer" },
+    data: { type: String, default: "" },
+    title: { type: String, default: "" },
+    status: {
+      reaction: { type: String, default: "" },
+      likeCount: { type: Number, default: 0 },
+      messageStatus: { type: String, default: "sent" },
+    },
+    user: {
+      avatar: { type: String },
+      role: { type: String, default: "user" },
+      userId: { type: String },
+      name: { type: String },
+    },
+    recipient: {
+      avatar: { type: String },
+      role: { type: String, default: "user" },
+      userId: { type: String },
+      name: { type: String },
+    },
     replies: {
       type: [
         {
           uid: { type: String, default: v4 },
+          replyId: { type: String, default: v4 },
           user: { avatar: { type: String }, userId: { type: String }, name: { type: String } },
-          data: { type: String },
+          data: { type: String, default: "" },
         },
       ],
       default: [],

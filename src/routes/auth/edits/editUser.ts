@@ -6,7 +6,8 @@ import type { IAuth } from "@app/auth";
 
 export const editUser = async (req: AuthRequest<IAuth>, res: Response, next: NextFunction) => {
   try {
-    const { username, email, phone, nickname, name } = req.body;
+    const { username, email, phone, name } = req.body;
+    const nickname = req.body.nickname || name || username || email || "";
     // update user data if changes
     if (username !== req.user.username) req.user.username = username;
     if (email !== req.user.email) req.user.email = email;
