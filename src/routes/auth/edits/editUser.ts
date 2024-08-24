@@ -16,8 +16,7 @@ export const editUser = async (req: AuthRequest<IAuth>, res: Response, next: Nex
     if (name !== req.user.name) req.user.name = name;
     // create notification
     const n = await addNotification({ type: "accountChanges", message: "Successfully updated account", user: req.user });
-    console.log("n :>> ", n);
-    return;
+
     if (n) req.user.notifications.push(n._id);
     await req.user.save();
     next();

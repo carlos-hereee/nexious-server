@@ -17,8 +17,8 @@ export const editStore = async (req: StoreRequest<StoreBody>, res: Response, nex
     if (body) req.store.body = body;
     if (hero) req.store.hero = hero;
     // create notification
-    const n = await addNotification({ type: "edit-store", message: "An order has been paid", user: req.user });
-    req.project.notifications.push(n._id);
+    const n = await addNotification({ type: "storeChanges", message: "Store information has been updated", user: req.user });
+    if (n) req.project.notifications.push(n._id);
     // save changes to db
     await req.store.save();
     await req.project.save();

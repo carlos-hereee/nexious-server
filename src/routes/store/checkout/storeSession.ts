@@ -24,8 +24,8 @@ export const storeSession = async (req: StoreRequest<StoreSessionBody>, res: Res
       await updateStore({ order: order._id, storeId, type: "payment-in-store" });
     }
     // create notification
-    const n = await addNotification({ type: "order-in-store", message: `An order was submited`, user: req.user });
-    await updateApp({ id: appId, type: "add-notification", notificationId: n._id });
+    const n = await addNotification({ type: "orderConfirmations", message: `An order was submited`, user: req.user });
+    if (n) await updateApp({ id: appId, type: "add-notification", notificationId: n._id });
 
     res.status(200).json(order).end();
   } catch (error) {

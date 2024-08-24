@@ -14,10 +14,10 @@ export const buildMap = async (req: AppRequest<Body>, res: Response, next: NextF
     // create map
     const map = await Maps.create(req.body);
     // add notification to project
-    const notification = await addNotification({ type: "app-update", message: "Map was created", user: req.user });
+    const notification = await addNotification({ type: "newFeatureActivity", message: "Map was created", user: req.user });
     // link map to project
     req.project.maps.push(map._id);
-    req.project.notifications.push(notification._id);
+    if (notification) req.project.notifications.push(notification._id);
     // save to db
     await req.project.save();
     next();

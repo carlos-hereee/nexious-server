@@ -28,8 +28,8 @@ export const initApp = async (req: AppRequest, res: Response, next: NextFunction
     req.user.ownedApps.push(app._id);
     req.user.permissions.push({ appId: app._id, role: "owner" });
     // add notification
-    const n = await addNotification({ type: "app-update", message: "App creation was successful", user: req.user });
-    req.user.notifications.push(n._id);
+    const n = await addNotification({ type: "milestones", message: "App creation was successful", user: req.user });
+    if (n) req.user.notifications.push(n._id);
     // save to db
     await req.user.save();
     next();

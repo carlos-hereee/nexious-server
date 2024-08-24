@@ -12,6 +12,13 @@ export interface UserFilters {
   userId?: string;
   id?: ObjectId;
 }
+export interface PhoneNotificationSettings {
+  subscriptionRenewal: boolean;
+  milestones: boolean;
+  loginAlerts: boolean;
+  accountChanges: boolean;
+  suspiciousActivity: boolean;
+}
 export interface NSettings {
   // account notifications
   muteAllAccount: boolean;
@@ -33,6 +40,11 @@ export interface NSettings {
   muteAllCalendar: boolean;
   eventReminders: boolean;
   taskReminders: boolean;
+  calendarChanges: boolean;
+  // app notifications
+  storeChanges: boolean;
+  appChanges: boolean;
+  newFeatureActivity: boolean;
   // social notifications
   muteAllSocial: boolean;
   messages: boolean;
@@ -42,7 +54,7 @@ export interface NSettings {
 export interface NotificationSettings {
   notifications: NSettings;
   email: NSettings;
-  phone: NSettings;
+  phone: PhoneNotificationSettings;
 }
 export type UserRole = "customer" | "dev-team" | "app-support" | "owner" | "app-owner" | "friend" | "user";
 

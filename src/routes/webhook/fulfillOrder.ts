@@ -31,10 +31,10 @@ const completeCheckout = async (orderId: string, session: S.Response<S.Checkout.
   // find store
   const order = await getOrder({ orderId });
   // create notification
-  const n = await addNotification({ type: "order-paid", message: "An order has been paid", user: null });
+  const n = await addNotification({ type: "paymentReceipts", message: "An order has been paid", user: null });
   if (order && order.store?.storeId) {
     // link notification to app
-    await updateStore({ storeId: order.store.storeId, type: "add-notification", notification: n._id });
+    if (n) await updateStore({ storeId: order.store.storeId, type: "add-notification", notification: n._id });
     // update order status
     order.status = "accepted";
     // attach customer details to order

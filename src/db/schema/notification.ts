@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 const notificationSchema = new Schema<INotificationSchema>(
   {
     notificationId: { type: String, default: v4 },
-    category: { type: String, default: "user" },
+    category: { type: String, default: "accountChanges" },
     message: { type: String, default: "" },
     link: { type: String, default: "" },
     name: { type: String, default: "" },

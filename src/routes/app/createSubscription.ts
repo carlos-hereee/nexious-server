@@ -36,12 +36,8 @@ export const createSubscription = async (req: AppRequest<SubscriptionSchema>, re
       features: req.body.features.map((f) => ({ ...f, featureId: v4() })),
     });
     // create notification
-    const notification = await addNotification({
-      type: "app-update",
-      message: "A new subscription was added",
-      user: req.user,
-    });
-    req.user.notifications.push(notification._id);
+    const n = await addNotification({ type: "newFeatures", message: "A new subscription was added", user: req.user });
+    if (n) req.user.notifications.push(n._id);
     await req.user.save();
     // if platform request add new subscription to all users account
     if (!isPlatformSubscription) {

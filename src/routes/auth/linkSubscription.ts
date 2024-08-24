@@ -37,11 +37,11 @@ export const linkSubscription = async (req: AuthRequest<StripeConfirmation>, res
     }
     // create Notifications
     const n = await addNotification({
-      type: "update-account",
+      type: "accountChanges",
       message: `${subscription.name} was added successfully`,
       user: req.user,
     });
-    req.user.notifications.push(n._id);
+    if (n) req.user.notifications.push(n._id);
 
     // // save data to db
     await req.user.save();

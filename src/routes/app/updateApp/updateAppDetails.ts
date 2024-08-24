@@ -22,7 +22,7 @@ export const updateAppDetails = async (req: AppRequest, res: Response, next: Nex
     if (email !== req.project.email) req.project.email = email;
     req.project.themeList = generateThemeList(theme);
     // create notification
-    const n = await addNotification({ type: "app-update", message: "Successfully added app details", user: req.user });
+    const n = await addNotification({ type: "appChanges", message: "Successfully added app details", user: req.user });
     // on success link notification to app
     if (n) req.project.notifications.push(n._id);
     await req.project.save();

@@ -2,7 +2,6 @@
   "emailData": {
     "accountChanges": {
       "subject": "Your Account Information Has Been Updated",
-      "category": "store",
       "madLib": ["{{name}}", "{{date-and-time}}", "{{resetPasswordLink}}", "{{support-email}}"],
       "textData": [
         "Hello {{name}},",
@@ -14,6 +13,35 @@
         "Contact our support team if you notice any suspicious activity: {{support-email}}",
         "Your account security is our top priority, and we’re here to help if you need any assistance.",
         "Thank you for being a valued member of our community."
+      ]
+    },
+    "storeChanges": {
+      "subject": "Your Store Information Has Been Updated",
+      "madLib": ["{{name}}"],
+      "textData": ["Hello {{name}},", "Successfully updated store"]
+    },
+    "newFeatureActivity": {
+      "subject": "Your payment has been received",
+      "madLib": ["{{name}}"],
+      "textData": [
+        "Hello {{name}},",
+        "Thank you for your payment! We’re happy to confirm that your recent transaction was successful. Below are the details of your payment:"
+      ]
+    },
+    "paymentReceipts": {
+      "subject": "Your payment has been received",
+      "madLib": ["{{name}}"],
+      "textData": [
+        "Hello {{name}},",
+        "Thank you for your payment! We’re happy to confirm that your recent transaction was successful. Below are the details of your payment:"
+      ]
+    },
+    "orderConfirmations": {
+      "subject": "Your order has been received",
+      "madLib": ["{{name}}"],
+      "textData": [
+        "Hello {{name}},",
+        "Thank you for your order! We’re happy to confirm that your order was successful. Below are the details of your order:"
       ]
     }
   },
@@ -38,6 +66,14 @@
         "{{support-email}}"
       ],
       "subject": "Account Information Updated"
+    },
+    "paymentReceipts": {
+      "subject": "Your Account Information Has Been Updated",
+      "madLib": ["{{name}}"],
+      "textData": [
+        "Hello {{name}},",
+        "Thank you for your payment! We’re happy to confirm that your recent transaction was successful. Below are the details of your payment:"
+      ]
     }
   },
   "disabledNotifications": {
