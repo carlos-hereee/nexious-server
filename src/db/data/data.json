@@ -1,25 +1,5 @@
 {
   "emailData": {
-    "add-merch": {
-      "category": "store-merch",
-      "textData": ["store-merch"],
-      "name": "A new merchandise was added"
-    },
-    "cal-event": {
-      "category": "cal-event",
-      "textData": ["cal-event"],
-      "name": "Calendar was updated"
-    },
-    "add-store": {
-      "category": "store",
-      "textData": ["store"],
-      "name": "Successfully created store"
-    },
-    "edit-store": {
-      "category": "store",
-      "textData": ["store"],
-      "name": "Successfully updated store"
-    },
     "accountChanges": {
       "subject": "Your Account Information Has Been Updated",
       "category": "store",
@@ -35,31 +15,29 @@
         "Your account security is our top priority, and we’re here to help if you need any assistance.",
         "Thank you for being a valued member of our community."
       ]
-    },
-    "app-update": {
-      "category": "app",
-      "textData": ["app"],
-      "name": "App udpate success"
-    },
-    "order-paid": {
-      "category": "orders",
-      "textData": ["orders"],
-      "name": "Order paid"
-    },
-    "edit-calendar": {
-      "category": "app",
-      "textData": ["app"],
-      "name": "Updated calendar"
-    },
-    "order-in-store": {
-      "category": "orders",
-      "textData": ["orders"],
-      "name": "Order submitted"
-    },
-    "edit-merch": {
-      "category": "orders",
-      "textData": ["orders"],
-      "name": "Merchandise update"
+    }
+  },
+  "phoneData": {
+    "accountChanges": {
+      "madLib": ["{{name}}", "{{date-and-time}}", "{{resetPasswordLink}}", "{{support-email}}"],
+      "textData": [
+        "Hi {{name}},",
+        "your account information was updated on {{date-and-time}}.",
+        "If this wasn't you, secure your account immediately: {{resetPasswordLink}}.",
+        "{{support-email}}"
+      ]
+    }
+  },
+  "appNotificationData": {
+    "accountChanges": {
+      "madLib": ["{{name}}", "{{date-and-time}}", "{{resetPasswordLink}}", "{{support-email}}"],
+      "textData": [
+        "Hi {{name}},",
+        "your account information was updated on {{date-and-time}}.",
+        "If this wasn't you, secure your account immediately: {{resetPasswordLink}}.",
+        "{{support-email}}"
+      ],
+      "subject": "Account Information Updated"
     }
   },
   "disabledNotifications": {

@@ -39,3 +39,7 @@ export const allowedMethods = ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"
 // emails
 export const sendgridKey = process.env.SENDGRID_API_KEY || "";
 export const sendgridEmail = process.env.EMAIL || "";
+// SMS
+export const twilioAccountSid = process.env.TWILIO_ACCOUNT_SID || "";
+export const twilioToken = process.env.TWILIO_AUTH_TOKEN || "";
+export const twilioNumber = process.env.TWILIO_PHONE_NUMBER || "";

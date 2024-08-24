@@ -7,7 +7,7 @@ export const userName = (user: IUserSchema) => user.name || user.nickname || use
 export const generatePasswordResetUrl = (id: string) => clientUrl + "/reset-password/?userid=" + id;
 // TODO:  "Location of Change: {{City, Country (if applicable)}}",
 // TODO:   "- Review your account activity: {{Account Activity Link}}",,
-export const emailMadLib = (textData: string[], madLib: string[], user: IUserSchema) => {
+export const generateMadLib = (textData: string[], madLib: string[], user: IUserSchema) => {
   return textData
     .map((str) => {
       const targetIdx = madLib.findIndex((val) => str.includes(val));
