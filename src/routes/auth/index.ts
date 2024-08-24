@@ -20,6 +20,7 @@ import { linkSubscription } from "./linkSubscription";
 import { editAvatar } from "./edits/editAvatar";
 import { assetWare } from "@middleware/app";
 import { sendUserMessage } from "./sendUserMessage";
+import { configureNotifications } from "./edits/configureNotifications";
 
 const route = Router();
 
@@ -43,6 +44,7 @@ route.post("/change-password/:username", userWare, authSessionWare, changePasswo
 route.post("/forgot-password/:username", userWare, authSessionWare, changePassword, refreshSession, sendToken);
 // edit user data
 route.put("/update-user", userWare, editUser, minAppData);
+route.put("/email-settings/:notificationType", userWare, configureNotifications, minAppData);
 // log out
 route.delete("/logout", requireUser, aquireAuthSession, logout);
 route.delete("/remove-notification/:notificationId", requireUser, removeNotification, minAppData);

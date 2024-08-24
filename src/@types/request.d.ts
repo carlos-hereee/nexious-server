@@ -38,6 +38,7 @@ export interface AuthRequest<B = AuthBody> extends Request {
     postId: string;
     username: string;
     notificationId: string;
+    notificationType: string;
   };
   body: B;
   auth: IAuthSchema;
