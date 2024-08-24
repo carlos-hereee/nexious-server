@@ -32,7 +32,7 @@ export const updateMenuItem = async (req: AppRequest, res: Response, next: NextF
     // // TODO: ADD APP LOCALE
     // // req.project.locale = locale;
     // if (email !== req.project.email) req.project.email = email;
-    // req.project.themeList = formatThemeList(theme);
+    // req.project.themeList = generateThemeList(theme);
     // // create notification
     // const notification = await addNotification({ type: "app-update", message: "Successfully added app details" });
     // // on success link notification to app

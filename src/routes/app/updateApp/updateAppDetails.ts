@@ -1,8 +1,7 @@
 import type { AppRequest } from "@app/request";
 import { addNotification } from "@utils/app/addNotification";
 // import { formatLanguageList } from "@utils/app/format/formatLanguageList";
-import { formatThemeList } from "@utils/app/format/formatThemeList";
-import { generateStringUrl } from "@utils/app/generateUrl";
+import { generateStringUrl, generateThemeList } from "@utils/app/generateUrl";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
 
@@ -21,7 +20,7 @@ export const updateAppDetails = async (req: AppRequest, res: Response, next: Nex
     // TODO: ADD APP LOCALE
     // req.project.locale = locale;
     if (email !== req.project.email) req.project.email = email;
-    req.project.themeList = formatThemeList(theme);
+    req.project.themeList = generateThemeList(theme);
     // create notification
     const notification = await addNotification({ type: "app-update", message: "Successfully added app details" });
     // on success link notification to app

@@ -5,24 +5,26 @@ import type { ObjectId } from "./db";
 import type { IUserSchema } from "./user";
 import { IStoreSchema, MerchSchema } from "./store";
 
+export type NotificationType =
+  | "add-merch"
+  | "edit-user"
+  | "cal-event"
+  | "order-paid"
+  | "order-in-store"
+  | "edit-merch"
+  | "edit-calendar"
+  | "edit-store"
+  | "app-update"
+  | "update-account"
+  | "add-store";
 export interface FormatNotification {
-  type:
-    | "add-merch"
-    | "edit-user"
-    | "cal-event"
-    | "order-paid"
-    | "order-in-store"
-    | "edit-merch"
-    | "edit-calendar"
-    | "edit-store"
-    | "app-update"
-    | "update-account"
-    | "add-store";
+  type: NotificationType;
   user?: IUserSchema;
   merch?: MerchSchema;
   store?: IStoreSchema;
   message?: string;
   link?: string;
+  name?: string;
 }
 export interface AppFilters {
   appId?: string;

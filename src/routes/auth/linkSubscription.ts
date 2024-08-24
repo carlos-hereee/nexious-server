@@ -35,7 +35,7 @@ export const linkSubscription = async (req: AuthRequest<StripeConfirmation>, res
         // app subscription
       } else req.user.subscriptions.push(subscription._id);
     }
-    // create notfication
+    // create Notifications
     const notification = await addNotification({
       type: "update-account",
       message: `${subscription.name} was added successfully`,

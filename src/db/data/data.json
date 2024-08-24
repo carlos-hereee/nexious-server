@@ -1,0 +1,45 @@
+{
+  "notifications": {
+    "add-merch": {
+      "category": "store-merch",
+      "name": "A new merchandise was added"
+    },
+    "cal-event": {
+      "category": "cal-event",
+      "name": "Calendar was updated"
+    },
+    "add-store": {
+      "category": "store",
+      "name": "Successfully created store"
+    },
+    "edit-store": {
+      "category": "store",
+      "name": "Successfully updated store"
+    },
+    "edit-user": {
+      "category": "user",
+      "name": "Account updated"
+    },
+    "app-update": {
+      "category": "app",
+      "name": "App udpate success"
+    },
+    "order-paid": {
+      "category": "orders",
+      "name": "Order paid"
+    },
+    "edit-calendar": {
+      "category": "app",
+      "name": "Updated calendar"
+    },
+    "order-in-store": {
+      "category": "orders",
+      "name": "Order submitted",
+      "message": "Client placed an order"
+    },
+    "edit-merch": {
+      "category": "orders",
+      "name": "Merchandise update"
+    }
+  }
+}

@@ -26,10 +26,10 @@ export interface IMessage extends Messages, Document {
 }
 export interface NotificationSchema {
   notificationId?: string;
-  category: "user" | "app" | "store-merch" | "orders" | "store" | "cal-event";
-  message: string;
-  link: string;
   name: string;
+  category: "user" | "app" | "store-merch" | "orders" | "store" | "cal-event";
+  message?: string;
+  link?: string;
 }
 export interface INotificationSchema extends NotificationSchema, Document {
   _id: ObjectId;
