@@ -1,45 +1,85 @@
 {
-  "notifications": {
+  "emailData": {
     "add-merch": {
       "category": "store-merch",
+      "textData": ["store-merch"],
       "name": "A new merchandise was added"
     },
     "cal-event": {
       "category": "cal-event",
+      "textData": ["cal-event"],
       "name": "Calendar was updated"
     },
     "add-store": {
       "category": "store",
+      "textData": ["store"],
       "name": "Successfully created store"
     },
     "edit-store": {
       "category": "store",
+      "textData": ["store"],
       "name": "Successfully updated store"
     },
-    "edit-user": {
-      "category": "user",
-      "name": "Account updated"
+    "accountChanges": {
+      "subject": "Your Account Information Has Been Updated",
+      "category": "store",
+      "madLib": ["{{name}}", "{{date-and-time}}", "{{resetPasswordLink}}", "{{support-email}}"],
+      "textData": [
+        "Hello {{name}},",
+        "We wanted to let you know that change(s) were recently made to your account:",
+        "Date and Time of Change: {{date-and-time}}",
+        "If you made this change, no further action is required.",
+        "If you didn’t make this change: Please take the following steps to secure your account:",
+        "Reset your password immediately: {{resetPasswordLink}}",
+        "Contact our support team if you notice any suspicious activity: {{support-email}}",
+        "Your account security is our top priority, and we’re here to help if you need any assistance.",
+        "Thank you for being a valued member of our community."
+      ]
     },
     "app-update": {
       "category": "app",
+      "textData": ["app"],
       "name": "App udpate success"
     },
     "order-paid": {
       "category": "orders",
+      "textData": ["orders"],
       "name": "Order paid"
     },
     "edit-calendar": {
       "category": "app",
+      "textData": ["app"],
       "name": "Updated calendar"
     },
     "order-in-store": {
       "category": "orders",
-      "name": "Order submitted",
-      "message": "Client placed an order"
+      "textData": ["orders"],
+      "name": "Order submitted"
     },
     "edit-merch": {
       "category": "orders",
+      "textData": ["orders"],
       "name": "Merchandise update"
     }
+  },
+  "disabledNotifications": {
+    "muteAllAccount": "",
+    "muteAllCheckout": "",
+    "muteAllCalendar": "",
+    "muteAllSocial": "",
+    "messages": "muteAllSocial",
+    "mentionsTags": "muteAllSocial",
+    "activityAlerts": "muteAllSocial",
+    "eventReminders": "muteAllCalendar",
+    "taskReminders": "muteAllCalendar",
+    "newFeatures": "muteAllAccount",
+    "promotionalNotifications": "muteAllAccount",
+    "milestones": "muteAllAccount",
+    "subscriptionRenewal": "muteAllAccount",
+    "loginAlerts": "",
+    "accountChanges": "",
+    "suspiciousActivity": "",
+    "orderConfirmations": "muteAllCheckout",
+    "paymentReceipts": "muteAllCheckout"
   }
 }

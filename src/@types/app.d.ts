@@ -2,24 +2,24 @@ import type { Request } from "express";
 import type { Document } from "mongoose";
 import type { ObjectId } from "./db";
 // import type { ILandingPage } from "./page";
-import type { IUserSchema } from "./user";
+import type { IUserSchema, NSettings } from "./user";
 import { IStoreSchema, MerchSchema } from "./store";
 
-export type NotificationType =
-  | "add-merch"
-  | "edit-user"
-  | "cal-event"
-  | "order-paid"
-  | "order-in-store"
-  | "edit-merch"
-  | "edit-calendar"
-  | "edit-store"
-  | "app-update"
-  | "update-account"
-  | "add-store";
+// export type NotificationType =
+//   | "add-merch"
+//   | "edit-user"
+//   | "cal-event"
+//   | "order-paid"
+//   | "order-in-store"
+//   | "edit-merch"
+//   | "edit-calendar"
+//   | "edit-store"
+//   | "app-update"
+//   | "update-account"
+//   | "add-store";
 export interface FormatNotification {
-  type: NotificationType;
-  user?: IUserSchema;
+  type: keyof NSettings;
+  user: IUserSchema | null;
   merch?: MerchSchema;
   store?: IStoreSchema;
   message?: string;
@@ -116,6 +116,7 @@ export interface EmailParams {
   to: string;
   subject: string;
   text: string;
+  html?: string;
 }
 export interface IMedia {
   title: string;

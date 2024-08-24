@@ -1,4 +1,4 @@
-import sendGrid from "@sendgrid/mail";
+import sendGrid, { ResponseError } from "@sendgrid/mail";
 import { sendgridKey } from "./config";
 import { EmailParams } from "@app/app";
 
@@ -15,17 +15,13 @@ const textToHTML = (text: string) => {
 export const sendEmail = async (email: EmailParams) => {
   try {
     // format data to send
-    const msg = {
-      to: email.to,
-      from: email.from || "carlos.h@nexious.tech",
-      subject: email.subject,
-      text: email.text,
-      html: textToHTML(email.text),
-    };
+    const msg = { ...email, from: email.from || "carlos.h@nexious.tech", html: textToHTML(email.text) };
     await sendGrid.send(msg);
     return { status: true };
   } catch (error) {
-    console.log("error unable to send email  :>> ", error);
+    const err = error as ResponseError;
+    console.log("error unable to send email  :>> ", err.response);
+    console.log("sendGridError unable to send email  :>> ", err.response.body);
     return { status: false };
   }
 };

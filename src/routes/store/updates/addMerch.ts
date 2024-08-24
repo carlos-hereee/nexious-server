@@ -28,18 +28,19 @@ export const addMerch = async (req: StoreRequest<MerchBodyParams>, res: Response
       link: `/store/${req.project?.appLink}/${generateStringUrl(req.body.name)}`,
     };
     // create notification
-    const notification = await addNotification({
+    const n = await addNotification({
       type: "add-merch",
       message: "Successfull added merch to inventory",
       link: payload.link,
+      user: req.user,
     });
     // on success link notification to app
-    if (notification) {
-      req.project.notifications.push(notification._id);
+    if (n) {
+      req.project.notifications.push(n._id);
       // req.user.notifications.push(notification._id);
       // notify subscribers
       req.project.subscribers.forEach(async (sub) => {
-        await sendNotification({ id: sub, notificationId: notification._id, type: "user" });
+        await sendNotification({ id: sub, notificationId: n._id, type: "user" });
       });
       // save to db
       await req.project.save();

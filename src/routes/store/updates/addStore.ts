@@ -23,11 +23,11 @@ export const addStore = async (req: StoreRequest, res: Response, next: NextFunct
     // // save store data
     const store = await Store.create({ ...req.body, email, ownerId, appId: _id, storeLink: link, storeUrl: link });
     // create notification
-    const notification = await addNotification({ type: "add-store", message: "Successfully created store", link });
+    const n = await addNotification({ type: "add-store", message: "Successfully created store", link, user: req.user });
     // // connect store to app
     req.project.store = store._id;
     req.project.menu.push(menuData);
-    req.project.notifications.push(notification._id);
+    req.project.notifications.push(n._id);
     req.store = store;
     // save to db
     await req.project.save();

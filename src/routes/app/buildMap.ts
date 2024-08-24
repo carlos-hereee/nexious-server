@@ -14,7 +14,7 @@ export const buildMap = async (req: AppRequest<Body>, res: Response, next: NextF
     // create map
     const map = await Maps.create(req.body);
     // add notification to project
-    const notification = await addNotification({ type: "app-update", message: "Map was created" });
+    const notification = await addNotification({ type: "app-update", message: "Map was created", user: req.user });
     // link map to project
     req.project.maps.push(map._id);
     req.project.notifications.push(notification._id);

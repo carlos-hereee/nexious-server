@@ -11,10 +11,10 @@ export const addPost = async (req: PostRequest, res: Response, next: NextFunctio
     const post = await Post.create({ ...req.body, appId: req.project.appId, thumbnail: req.asset || "" });
     if (!post) return res.status(400).json({ message: "unable to create post" }).end();
     // create notification
-    const notification = await addNotification({ type: "app-update", message: "Successfully added post" });
+    const n = await addNotification({ type: "app-update", message: "Successfully added post", user: req.user });
     // link post and notification to app
     req.project.posts.push(post._id);
-    req.project.notifications.push(notification._id);
+    req.project.notifications.push(n._id);
     await req.project.save();
     next();
   } catch (error) {

@@ -15,8 +15,10 @@ export const editUser = async (req: AuthRequest<IAuth>, res: Response, next: Nex
     if (nickname !== req.user.nickname) req.user.nickname = nickname;
     if (name !== req.user.name) req.user.name = name;
     // create notification
-    const notification = await addNotification({ type: "edit-user", message: "Successfully updated account" });
-    if (notification) req.user.notifications.push(notification._id);
+    const n = await addNotification({ type: "accountChanges", message: "Successfully updated account", user: req.user });
+    console.log("n :>> ", n);
+    return;
+    if (n) req.user.notifications.push(n._id);
     await req.user.save();
     next();
   } catch (error) {

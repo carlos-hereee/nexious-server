@@ -21,7 +21,7 @@ export const changePassword = async (req: AuthRequest, res: Response, next: Next
     // new to history add old password to history
     req.auth.password = generateHash(req.body.newPassword);
     // notify user of password change
-    const n = await addNotification({ type: "edit-user", message: "successfully udpated account password" });
+    const n = await addNotification({ type: "edit-user", message: "successfully udpated account password", user: req.user });
     req.user.notifications.push(n._id);
     // save to db
     await req.user.save();

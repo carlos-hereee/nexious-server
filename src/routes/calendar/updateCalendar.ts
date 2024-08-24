@@ -22,7 +22,7 @@ export const updateCalendar = async (req: CalendarRequest, _res: Response, next:
   if (req.body.closeTime) req.calendar.closeTime = req.body.closeTime;
   if (req.body.theme) req.calendar.theme = req.body.theme;
   // add notification
-  const n = await addNotification({ type: "edit-calendar", message: "succesfully update calendar data" });
+  const n = await addNotification({ type: "edit-calendar", message: "succesfully update calendar data", user: req.user });
   req.project.notifications.push(n._id);
   // save to db
   await req.calendar.save();

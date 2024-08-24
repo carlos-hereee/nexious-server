@@ -24,10 +24,10 @@ export const addEvent = async (req: CalendarRequest<CalEvent>, res: Response, ne
     }
     if (req.project) {
       // create notification
-      const notification = await addNotification({ type: "cal-event", message: "Successfully added calendar event" });
+      const n = await addNotification({ type: "cal-event", message: "Successfully added calendar event", user: req.user });
       // save notification to db
-      if (notification) {
-        req.project.notifications.push(notification._id);
+      if (n) {
+        req.project.notifications.push(n._id);
         await req.project.save();
       }
     }
