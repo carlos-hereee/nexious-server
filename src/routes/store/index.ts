@@ -31,6 +31,8 @@ import { createAccount } from "./stripe/createAccount";
 import { stripeOnboarding } from "./stripe/stripeOnboarding";
 import { postReview } from "./merch/postReview";
 import { requireUser } from "@middleware/auth/requireUser";
+import { requireMessage } from "@middleware/app/requireMessage";
+import { postMessageReply } from "@routes/post/postMessageReply";
 
 const route = Router();
 const bodyParse = bodyParser.raw({ type: "application/json" });
@@ -52,6 +54,7 @@ route.post("/checkout-store-session/:storeId", getStoreWithStoreId, requireClien
 route.post("/stripe-account-link/:appId", storeWare, stripeOnboarding);
 // user actions
 route.post("/merch/:merchId/review", requireUser, getMerchWithId, postReview, minAppData);
+route.post("/message/:messageId", requireUser, requireMessage, postMessageReply, minAppData);
 // add to store
 route.post("/build-store/:appId", adminWare, addStore, minAppData);
 route.post("/build-stripe-store/:appId", storeWare, createAccount, minAppData);
