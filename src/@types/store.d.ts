@@ -59,6 +59,7 @@ export interface MerchSchema {
   hero?: string;
   thumbnail?: string;
   catalog?: string[];
+  reviews?: ObjectId[];
 }
 export interface OrderMerchSchema {
   merchId: string;

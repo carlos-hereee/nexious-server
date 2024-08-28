@@ -13,6 +13,7 @@ import { IMessage, IPostSchema } from "./db";
 export interface MinAppResponseData {
   user?: IUserSchema;
   app?: IAppSchema;
+  merch?: IMerchSchema;
   appList?: IAppSchema[];
   posts?: IPostSchema[];
   platformTiers?: SubscriptionSchema[];
@@ -61,6 +62,7 @@ export interface AppRequest<B = AppBody> extends Request {
   project: IAppSchema;
   page: IPageSchema;
   store?: IStoreSchema;
+  merch?: IMerchSchema;
   message?: IMessage;
   pages: IPageSchema[];
   user: IUserSchema;
@@ -97,6 +99,7 @@ export interface StoreRequest<B = StoreBody> extends Request {
   project: IAppSchema;
   user: IUserSchema;
   merch: IMerchSchema;
+  message: IMessage;
   asset?: string;
   assets: { hero: string; sectionHero: string[]; catalog: string[] };
   account?: Stripe.Response<Stripe.Account>;

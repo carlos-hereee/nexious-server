@@ -19,6 +19,7 @@ const merchSchema = new Schema<IMerchSchema>(
     link: { type: String, default: "" },
     hasCatalog: { type: Boolean, default: false },
     catalog: [{ type: String, default: "" }],
+    reviews: { type: [{ type: Schema.Types.ObjectId, ref: "Messages" }], default: [] },
     hero: { type: String, default: "" },
     lookUpKey: { type: String, default: "" },
     name: { type: String, default: "" },

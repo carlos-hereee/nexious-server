@@ -37,9 +37,14 @@ export const minAppData = async (req: AppRequest, res: Response) => {
     }
     // populate inventory in response
     if (req.store) {
-      const storeData = "inventory notifications orders";
+      const storeData = "inventory notifications orders inventory.reviews";
       const store = await req.store.populate(storeData, { options: { strictPopulate: false } });
       data.store = store;
+    }
+    // populate inventory in response
+    if (req.merch) {
+      const merch = await req.merch.populate("reviews", { options: { strictPopulate: false } });
+      data.merch = merch;
     }
     // add stripe account data in response
     if (req.account) data.account = req.account;

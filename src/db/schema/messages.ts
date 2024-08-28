@@ -11,6 +11,7 @@ const messageSchema = new Schema<IMessage>(
     data: { type: String, default: "" },
     title: { type: String, default: "" },
     status: {
+      star: { type: Number },
       reaction: { type: String, default: "" },
       nestLevel: { type: Number, default: 0 },
       likeCount: { type: Number, default: 0 },

@@ -15,6 +15,7 @@ export interface Messages {
     reaction: string;
     messageStatus: string;
     likeCount: number;
+    star?: number;
     nestLevel: number;
   };
   user: { avatar: string; name: string; userId: string };

@@ -29,6 +29,8 @@ import { trackOrder } from "./checkout/trackOrder";
 import { getWebhooks } from "./stripe/getWebhooks";
 import { createAccount } from "./stripe/createAccount";
 import { stripeOnboarding } from "./stripe/stripeOnboarding";
+import { postReview } from "./merch/postReview";
+import { requireUser } from "@middleware/auth/requireUser";
 
 const route = Router();
 const bodyParse = bodyParser.raw({ type: "application/json" });
@@ -36,6 +38,7 @@ const bodyParse = bodyParser.raw({ type: "application/json" });
 // stripe payments
 route.get("/confirm-intent", getConfirmation);
 route.get("/:accountId/track-order/:orderId", trackOrder);
+route.get("/merch/:merchId", getMerchWithId, minAppData);
 route.get("/stripe-billing-portal/:customer", getBillingPortal);
 route.get("/stripe-account/:appId", storeWare, getStripeAccount, minAppData);
 route.get("/stripe-account/:appId/balance", storeWare, getStripeAccountBalance, minAppData);
@@ -47,6 +50,8 @@ route.post("/create-checkout-session", requireClientData, checkoutSession);
 // request for in store appointments
 route.post("/checkout-store-session/:storeId", getStoreWithStoreId, requireClientData, storeSession);
 route.post("/stripe-account-link/:appId", storeWare, stripeOnboarding);
+// user actions
+route.post("/merch/:merchId/review", requireUser, getMerchWithId, postReview, minAppData);
 // add to store
 route.post("/build-store/:appId", adminWare, addStore, minAppData);
 route.post("/build-stripe-store/:appId", storeWare, createAccount, minAppData);
