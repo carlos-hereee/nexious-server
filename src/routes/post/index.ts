@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck - may need to be at the start of file
 
-import { heroWare, messageWare, postWare } from "@middleware/app";
+import { appWare, heroWare, messageWare, postWare } from "@middleware/app";
 import { minAppData } from "@routes/minAppData";
 import { Router } from "express";
 import { addPost } from "./addPost";
@@ -10,6 +10,7 @@ import { postReply } from "./postReply";
 import { toggleLikePost } from "./toggleLikePost";
 import { postMessageReply } from "./postMessageReply";
 import { toggleMessageLike } from "./toggleMessageLike";
+import { deletePost } from "./deletePost";
 
 const route = Router();
 // fetch posts
@@ -22,6 +23,8 @@ route.post("/post-message-reply/:messageId", messageWare, postMessageReply, minA
 // user actions
 route.put("/toggle-like-post/:postId", postWare, toggleLikePost, minAppData);
 route.put("/toggle-like-message/:messageId", messageWare, toggleMessageLike, minAppData);
+// delete post
+route.delete("/:appId/:postId", appWare, postWare, deletePost, minAppData);
 
 // // add calendar event
 // route.post("/:appId/add-event", authenticateCalendar, addEvent, minAppData);

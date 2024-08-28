@@ -161,6 +161,7 @@ export interface IAppSchema extends Document {
   subscriptions: ObjectId[];
   subscribers: ObjectId[];
   posts: ObjectId[];
+  archivePosts: ObjectId[];
   pages: ObjectId[];
   maps: ObjectId[];
   messages: ObjectId[];
