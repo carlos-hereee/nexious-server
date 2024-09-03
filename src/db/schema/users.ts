@@ -84,7 +84,7 @@ const userSchema = new Schema<IUserSchema>(
     accountTiers: { type: [{ type: Schema.Types.ObjectId, ref: "Subscription" }], default: [] },
     notifications: { type: [{ type: Schema.Types.ObjectId, ref: "Notification" }], default: [] },
     archivedNotifications: { type: [{ type: String, ref: "Notification" }], default: [] },
-    subscriptions: { type: [{ type: Schema.Types.ObjectId, ref: "App" }], default: [] },
+    subscriptions: { type: [{ type: String }], default: [] },
     feed: { type: [{ type: Schema.Types.ObjectId, ref: "Post" }], default: [] },
     orders: [{ type: Schema.Types.ObjectId, ref: "Orders" }],
     messages: { type: [{ type: Schema.Types.ObjectId, ref: "Messages" }], default: [] },

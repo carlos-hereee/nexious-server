@@ -79,7 +79,7 @@ export interface IUserSchema extends Document {
   permissions: { appId: ObjectId; role: string }[];
   auth: ObjectId;
   ownedApps: ObjectId[];
-  subscriptions: ObjectId[];
+  subscriptions: string[];
   notifications: ObjectId[];
   archivedNotifications: ObjectId[];
   accountTiers: ObjectId[];

@@ -17,7 +17,7 @@ export const minAppData = async (req: AppRequest, res: Response) => {
     }
     // populate app data required by client
     if (req.project) {
-      const appData = "owner adminIds landing pages calendar notifications  subscriptions posts messages maps";
+      const appData = "owner adminIds landing pages calendar notifications posts messages maps";
       const app = await req.project.populate(appData, { options: { strictPopulate: false } });
       data.app = app;
     }

@@ -2,7 +2,7 @@
 // @ts-nocheck - may need to be at the start of file
 import { Router } from "express";
 import { saveAsset } from "@middleware/app/saveAsset";
-import { deleteApp } from "./deleteApp";
+import { deleteApp } from "./admin/deleteApp";
 import { initApp } from "./initApp";
 import { getAppWithName } from "./getApp/getAppWithName";
 import { minAppData } from "../minAppData";
@@ -30,12 +30,12 @@ import { addPage } from "./pages/addPage";
 import { fetchPage } from "./pages/fetchPage";
 import { updatePage } from "./pages/updatePage";
 import { deletePage } from "./pages/deletePage";
-import { deleteMenuItem } from "./deleteMenuItem";
+import { deleteMenuItem } from "./admin/deleteMenuItem";
 import { latest } from "./updateApp/latest";
 import { deleteNotification } from "./deleteNotification";
-import { createSubscription } from "./createSubscription";
+import { createSubscription } from "./admin/createSubscription";
 import { editSubscription } from "./editSubscription";
-import { deleteSubscription } from "./deleteSubscription";
+import { deleteSubscription } from "./admin/deleteSubscription";
 import { getPlatformData } from "@routes/getPlatformData";
 import { editPlatformSub } from "./editPlatformSubscription";
 import { getAppUserData } from "./getApp/getAppUserData";
@@ -62,13 +62,14 @@ route.post("/:appId/build-map", appWare, buildMap, minAppData);
 route.post("/latest/:appId", adminWare, latest, minAppData);
 // manage subscritions
 route.post("/create-subscription/:appId", appWare, createSubscription, minAppData);
-route.post("/subscribe/:appId", userAppWare, subscribe, minAppData);
 route.post("/update-newsletter/:appId", heroWare, updateNewsletter, minAppData);
 // update subscription
 route.put("/update-subscription/platform/:subscriptionId", appWare, editPlatformSub, minAppData);
 route.put("/update-subscription/:appId/:subscriptionId", appWare, editSubscription, minAppData);
 // delete subscription
 route.delete("/delete-subscription/:appId/:subscriptionId", appWare, deleteSubscription, minAppData);
+// user accounts
+route.put("/subscribe/:appId", userAppWare, subscribe);
 // update app
 route.put("/:appId/update-map", adminWare, editMap, minAppData);
 route.put("/update-medias/:appId", appWare, updateMedias, minAppData);
