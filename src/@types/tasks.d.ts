@@ -28,7 +28,7 @@ export interface Boards {
   ownerId: string;
   name: string;
   description: string;
-  link: string;
+  boardLink: string;
   lists: TaskList[];
 }
 

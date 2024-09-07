@@ -21,8 +21,3 @@ export default (app: ExpressApp) => {
   app.use("/store/", storeRoute);
   app.use("/post/", postRoute);
 };
-// // assets route
-// import publicRoute  from "./public";
-// import heroRoute  from "./hero";
-// app.use("/public", publicRoute);
-// app.use("/hero/", heroRoute);

@@ -5,11 +5,11 @@ import { v4 } from "uuid";
 const Schema = mongoose.Schema;
 const boardTasksSchema = new Schema<IBoards>(
   {
-    boardId: { type: String, default: v4 },
     uid: { type: String, default: v4 },
+    boardId: { type: String },
     ownerId: { type: String },
     description: { type: String },
-    link: { type: String, default: "" },
+    boardLink: { type: String },
     lists: {
       type: [
         {
