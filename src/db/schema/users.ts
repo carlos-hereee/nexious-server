@@ -79,6 +79,16 @@ const userSchema = new Schema<IUserSchema>(
       type: [{ appId: { type: Schema.Types.ObjectId, ref: "App", require: true }, role: { type: String } }],
       default: [],
     },
+    boards: {
+      type: [
+        {
+          boardId: { type: Schema.Types.ObjectId, ref: "Tasks" },
+          boardUid: { type: String },
+          role: { type: String },
+        },
+      ],
+      default: [],
+    },
     auth: { type: Schema.Types.ObjectId, ref: "Auth" },
     ownedApps: { type: [{ type: Schema.Types.ObjectId, ref: "App" }], default: [] },
     accountTiers: { type: [{ type: Schema.Types.ObjectId, ref: "Subscription" }], default: [] },

@@ -3,7 +3,7 @@
 import { Router } from "express";
 import { saveAsset } from "@middleware/app/saveAsset";
 import { deleteApp } from "./admin/deleteApp";
-import { initApp } from "./initApp";
+import { initApp } from "./admin/initApp";
 import { getAppWithName } from "./getApp/getAppWithName";
 import { minAppData } from "../minAppData";
 import { getAppWithLanguage } from "./getApp/getAppWithLanguage";
@@ -32,7 +32,7 @@ import { updatePage } from "./pages/updatePage";
 import { deletePage } from "./pages/deletePage";
 import { deleteMenuItem } from "./admin/deleteMenuItem";
 import { latest } from "./updateApp/latest";
-import { deleteNotification } from "./deleteNotification";
+import { deleteNotification } from "./updateApp/deleteNotification";
 import { createSubscription } from "./admin/createSubscription";
 import { editSubscription } from "./editSubscription";
 import { deleteSubscription } from "./admin/deleteSubscription";
@@ -43,8 +43,8 @@ import { updateMedias } from "./media/updateMedias";
 import { updateMenuItem } from "./updateApp/updateMenuItem";
 import { sendMessage } from "./contact/sendMessage";
 import { sendPlatformMessage } from "./contact/sendPlatformMessage";
-import { buildMap } from "./buildMap";
-import { editMap } from "./editMap";
+import { buildMap } from "./map/buildMap";
+import { editMap } from "./map/editMap";
 
 const route = Router();
 // load app data

@@ -58,7 +58,16 @@ export interface NotificationSettings {
 }
 export type UserRole = "customer" | "dev-team" | "app-support" | "owner" | "app-owner" | "friend" | "user";
 
-export interface IUserSchema extends Document {
+export interface UserSchema {
+  customerId?: string;
+  boards?: {
+    boardUid: string;
+    boardId: ObjectId;
+    role: string;
+  }[];
+}
+
+export interface IUserSchema extends UserSchema, Document {
   _id: ObjectId;
   userId: string;
   username: string;
@@ -70,7 +79,6 @@ export interface IUserSchema extends Document {
   locale: string;
   theme: string;
   role: UserRole;
-  customerId?: string;
   likePosts: string[];
   likeMessages: string[];
   name: string;

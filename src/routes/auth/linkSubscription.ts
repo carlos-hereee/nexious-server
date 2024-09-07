@@ -23,17 +23,18 @@ export const linkSubscription = async (req: AuthRequest<StripeConfirmation>, res
       if (subscription.isPlatformSubscription) {
         req.user.accountTier = subscription._id;
         req.user.customerId = confirmation.customer;
-        // app subscription
-      } else req.user.subscriptions.push(subscription._id);
+      }
+      // app subscription
+      //  else req.user.subscriptions.push(subscription._id);
     }
     if (!req.user.accountTier) {
-      console.log("new user");
       // platform subscription
       if (subscription.isPlatformSubscription) {
         req.user.accountTier = subscription._id;
         req.user.customerId = confirmation.customer;
-        // app subscription
-      } else req.user.subscriptions.push(subscription._id);
+      }
+      // app subscription
+      //  else req.user.subscriptions.push(subscription._id);
     }
     // create Notifications
     const n = await addNotification({
