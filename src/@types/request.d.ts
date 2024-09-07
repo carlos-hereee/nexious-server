@@ -57,6 +57,7 @@ export interface AppRequest<B = AppBody> extends Request {
     assetId: string;
     pageId: string;
     menuId: string;
+    boardId: string;
   };
   body: B;
   project: IAppSchema;

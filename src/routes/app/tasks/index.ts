@@ -4,6 +4,7 @@ import { Router } from "express";
 import { buildBoard } from "./buildBoard";
 import { appAdminWare } from "@middleware/app";
 import { getAllTaskBoard, getTaskBoard } from "./getTaskBoard";
+import { updateBoard } from "./updateBoard";
 
 const route = Router();
 
@@ -12,5 +13,6 @@ route.get("/", getTaskBoard);
 route.get("/all", getAllTaskBoard);
 // route.get("/:id", getTaskBoardWithId);
 route.post("/build", appAdminWare, buildBoard);
+route.put("/update/:boardId", appAdminWare, updateBoard);
 
 export default route;
