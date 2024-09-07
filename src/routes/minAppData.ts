@@ -1,7 +1,7 @@
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { Response } from "express";
 import type { AppRequest, MinAppResponseData } from "@app/request";
-import { postsPopulate } from "@db/data/app/post.json";
+import { postsPopulate, userPopulateData, appPopulateData } from "@db/data/app/dbPopulateData.json";
 
 export const minAppData = async (req: AppRequest, res: Response) => {
   try {
@@ -9,16 +9,14 @@ export const minAppData = async (req: AppRequest, res: Response) => {
     const data: MinAppResponseData = {};
     // populate user data required by client
     if (req.user) {
-      const userData =
-        "ownedApps subscriptions permissions ownedApps.userId notifications subscriptions accountTier orders messages";
       // depopulate auth data for security
-      const user = await req.user.depopulate("auth").populate(userData, { options: { strictPopulate: false } });
+      const user = await req.user.depopulate("auth").populate(userPopulateData, { options: { strictPopulate: false } });
       data.user = user;
     }
     // populate app data required by client
     if (req.project) {
-      const appData = "owner adminIds landing pages calendar notifications posts messages maps";
-      const app = await req.project.populate(appData, { options: { strictPopulate: false } });
+      const app = await req.project.populate(appPopulateData, { options: { strictPopulate: false } });
+      console.log("req.project.taskBoard :>> ", req.project.taskBoard);
       data.app = app;
     }
     // add calendar data

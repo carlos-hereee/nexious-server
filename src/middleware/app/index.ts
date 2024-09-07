@@ -14,6 +14,7 @@ import { requirePost } from "./requirePost";
 import { requireMessage } from "./requireMessage";
 
 export const adminWare = [requireUser, getAppWithAppId, requireApp, validateAdmin];
+export const appAdminWare = [requireApp, validateAdmin];
 export const appWare = [requireUser, getAppWithAppId];
 export const heroWare = [...adminWare, uploadSingle("hero"), saveAsset];
 export const assetWare = [requireUser, uploadSingle("hero"), saveAsset];

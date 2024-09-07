@@ -10,6 +10,7 @@ export interface Task {
   description: string;
   dueDate: Date;
   assignedTo: string;
+  createdBy: string;
   comments: ObjectId[];
   pinnedComment: ObjectId[];
 }
@@ -20,7 +21,6 @@ export interface TaskList {
   description: string;
   order: number;
   tasks: Task[];
-  // status: TaskStatus;
 }
 export interface Boards {
   boardId: string;

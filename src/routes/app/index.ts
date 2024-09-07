@@ -45,9 +45,13 @@ import { sendMessage } from "./contact/sendMessage";
 import { sendPlatformMessage } from "./contact/sendPlatformMessage";
 import { buildMap } from "./map/buildMap";
 import { editMap } from "./map/editMap";
-import { buildBoard } from "./tasks/buildBoard";
+import taskBoardRoute from "./tasks";
 
 const route = Router();
+
+// task board
+route.use("/:appId/task-board/", appWare, taskBoardRoute, minAppData);
+
 // load app data
 route.get("/platform-data", getPlatformData);
 route.get("/:appName", getAppWithName);
@@ -80,8 +84,7 @@ route.put("/:appId/menu/:menuId", adminWare, updateMenuItem, minAppData);
 route.put("/update-app-details/:appId", logoWare, updateAppDetails, minAppData);
 // building pages
 route.post("/add-page/:appId", multiHeroWare, addPage, minAppData);
-// task board
-route.post("/:appId/build-task-board", adminWare, buildBoard, minAppData);
+
 // add social media
 route.post("/add-media/:appId", adminWare, addMedia, minAppData);
 // delete app

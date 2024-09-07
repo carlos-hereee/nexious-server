@@ -1,7 +1,0 @@
-{
-  "postsPopulate": {
-    "path": "replies",
-    "populate": "replies replies.replies replies.replies.replies replies.replies.replies.replies",
-    "model": "Messages"
-  }
-}

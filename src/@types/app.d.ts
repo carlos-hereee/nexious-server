@@ -156,6 +156,7 @@ export interface IAppSchema extends Document {
   menu: IMenu[];
   calendar: ObjectId;
   taskBoard: ObjectId;
+  taskBoards: ObjectId[];
   store: ObjectId;
   notifications: ObjectId[];
   archivedNotifications: ObjectId[];

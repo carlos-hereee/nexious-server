@@ -1,7 +1,7 @@
 import Post from "@db/schema/post";
 import Messages from "@db/schema/messages";
 // import { IPostSchema } from "@app/db";
-import { postsPopulate } from "@db/data/app/post.json";
+import { postsPopulate } from "@db/data/app/dbPopulateData.json";
 
 interface PotsFilters {
   appId?: string;

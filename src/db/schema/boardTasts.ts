@@ -8,6 +8,7 @@ const boardTasksSchema = new Schema<IBoards>(
     uid: { type: String, default: v4 },
     boardId: { type: String },
     ownerId: { type: String },
+    name: { type: String },
     description: { type: String },
     boardLink: { type: String },
     lists: {
@@ -27,6 +28,7 @@ const boardTasksSchema = new Schema<IBoards>(
                 description: { type: String },
                 dueDate: { type: String },
                 assignedTo: { type: String },
+                createdBy: { type: String },
                 comments: { type: [{ type: Schema.Types.ObjectId, ref: "Messages" }], default: [] },
                 pinnedComment: { type: [{ type: Schema.Types.ObjectId, ref: "Messages" }], default: [] },
               },
