@@ -16,7 +16,6 @@ export const minAppData = async (req: AppRequest, res: Response) => {
     // populate app data required by client
     if (req.project) {
       const app = await req.project.populate(appPopulateData, { options: { strictPopulate: false } });
-      console.log("req.project.taskBoard :>> ", req.project.taskBoard);
       data.app = app;
     }
     // add calendar data

@@ -9,6 +9,7 @@ import type { CalendarBody, ICalendarSchema } from "./calendar";
 import type { IPageSchema } from "./page";
 import { PostBody } from "./post";
 import { IMessage, IPostSchema } from "./db";
+import { IBoards } from "./tasks";
 
 export interface MinAppResponseData {
   user?: IUserSchema;
@@ -52,6 +53,7 @@ export interface AppRequest<B = AppBody> extends Request {
     appId: string;
     notificationId: string;
     subscriptionId: string;
+    listId: string;
     locale: string;
     appName: string;
     assetId: string;
@@ -62,6 +64,7 @@ export interface AppRequest<B = AppBody> extends Request {
   body: B;
   project: IAppSchema;
   page: IPageSchema;
+  taskBoard: IBoards;
   store?: IStoreSchema;
   merch?: IMerchSchema;
   message?: IMessage;

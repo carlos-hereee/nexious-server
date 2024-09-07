@@ -1,13 +1,33 @@
 import { AppRequest } from "@app/request";
+import { Task } from "@app/tasks";
+import { generateUsername } from "@utils/app/generateStr";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
-import { NextFunction, Response } from "express";
+import { Response } from "express";
 
-export const createTask = async (req: AppRequest, res: Response, next: NextFunction) => {
+interface B {
+  name: string;
+  description: string;
+  dueDate: string;
+}
+export const createTask = async (req: AppRequest<B>, res: Response) => {
   try {
-    console.log("req.body :>> ", req.body);
-    console.log("req.params :>> ", req.params);
-    return;
-    next();
+    // create task
+    const task: Task = {
+      ...req.body,
+      createdBy: { name: generateUsername(req.user), avatar: req.user.avatar, userId: req.user.userId },
+    };
+    const listIdx = req.taskBoard.lists.findIndex((list) => list.listId === req.params.listId);
+
+    if (listIdx < 0) return res.status(404).json("unable to find list item").end();
+    if (req.taskBoard.lists[listIdx]) {
+      // add task to list
+      req.taskBoard.lists[listIdx].tasks.push(task);
+      // save to db
+      await req.taskBoard.save();
+    }
+    await req.project.populate("taskBoards");
+
+    return res.status(200).json(req.project.taskBoards).end();
   } catch (error) {
     useGenericErrors(res, error, "error registering user");
   }

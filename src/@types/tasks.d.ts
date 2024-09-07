@@ -1,18 +1,23 @@
-import type { Date, Document } from "mongoose";
+import type { Document } from "mongoose";
 import { ObjectId } from "./db";
 
 export type TaskStatus = "incomplete" | "complete";
 
+export interface UserData {
+  name: string;
+  avatar: string;
+  userId: string;
+}
 export interface Task {
-  uid: string;
-  taskId: string;
+  uid?: string;
+  taskId?: string;
+  assignedTo?: UserData;
   name: string;
   description: string;
-  dueDate: Date;
-  assignedTo: string;
-  createdBy: string;
-  comments: ObjectId[];
-  pinnedComment: ObjectId[];
+  dueDate: string;
+  createdBy: UserData;
+  comments?: ObjectId[];
+  pinnedComment?: ObjectId[];
 }
 export interface TaskList {
   listId: string;
