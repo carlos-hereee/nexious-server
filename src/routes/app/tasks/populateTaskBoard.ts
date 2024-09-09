@@ -2,7 +2,7 @@ import { AppRequest } from "@app/request";
 import { Response } from "express";
 import { postsPopulate } from "@db/data/app/dbPopulateData.json";
 
-export const getTaskBoardWithBoardId = async (req: AppRequest, res: Response) => {
+export const populateTaskBoard = async (req: AppRequest, res: Response) => {
   await req.taskBoard.populate({
     path: "lists.tasks",
     populate: {
