@@ -10,6 +10,7 @@ const tasksSchema = new Schema<ITasks>(
     name: { type: String },
     description: { type: String },
     dueDate: { type: String },
+    dueTime: { type: String },
     assignedTo: { name: { type: String }, avatar: { type: String }, userId: { type: String } },
     createdBy: { name: { type: String }, avatar: { type: String }, userId: { type: String } },
     comments: { type: [{ type: Schema.Types.ObjectId, ref: "Messages" }], default: [] },
