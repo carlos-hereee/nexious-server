@@ -1,16 +1,30 @@
 import { AppRequest } from "@app/request";
+import { getTaskWithId } from "@db/models/app/getTaskBoard";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
-import { NextFunction, Response } from "express";
+import { Response } from "express";
+// import type { ObjectId } from "mongodb";
 
-export const deleteTaskFromList = async (req: AppRequest, res: Response, next: NextFunction) => {
+export const deleteTaskFromList = async (req: AppRequest, res: Response) => {
   try {
     console.log("req.params :>> ", req.params);
-    console.log("req.taskBoard :>> ", req.taskBoard);
-    console.log("task list :>> ", req.taskBoard.lists[0]?.tasks, "");
-    console.log("isMatch task :>> ", req.taskBoard.lists[0]?.tasks[0]?.toString() === req.params.taskId);
+    const listIdx = req.taskBoard.lists.findIndex((l) => l.listId === req.params.listId);
+    // if list not found
+    if (listIdx < 0 || !req.taskBoard.lists[listIdx]) return res.status(404).end();
 
-    return;
-    next();
+    if (typeof req.taskBoard.lists[listIdx].tasks[0] !== "string") {
+      const taskIdx = req.taskBoard.lists[listIdx].tasks.findIndex((t) => t.toString() === req.params.taskId);
+      const task = await getTaskWithId({ id: req.taskBoard.lists[listIdx].tasks[taskIdx] });
+      //  task not found
+      if (!task) {
+        req.taskBoard.lists[listIdx].tasks = req.taskBoard.lists[listIdx].tasks.filter(
+          (t) => t.toString() !== req.params.taskId
+        );
+      }
+    }
+    // save to db
+    await req.taskBoard.save();
+
+    return res.status(200).json(req.taskBoard).end();
   } catch (error) {
     useGenericErrors(res, error, "error registering user");
   }
