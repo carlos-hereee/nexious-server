@@ -22,7 +22,7 @@ export const createTask = async (req: AppRequest<B>, res: Response, next: NextFu
     if (listIdx < 0 || !req.taskBoard.lists[listIdx]) return res.status(404).json("unable to find list item").end();
 
     // link task to list
-    req.taskBoard.lists[listIdx].tasks.push(task._id);
+    req.taskBoard.lists[listIdx]?.tasks.push(task._id);
     // save to db
     await req.taskBoard.save();
     next();
