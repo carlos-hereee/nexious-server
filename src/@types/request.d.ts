@@ -53,13 +53,14 @@ export interface AppRequest<B = AppBody> extends Request {
     appId: string;
     notificationId: string;
     subscriptionId: string;
-    listId: string;
     locale: string;
     appName: string;
     assetId: string;
     pageId: string;
     menuId: string;
     boardId: string;
+    listId: string;
+    taskId: string;
   };
   body: B;
   project: IAppSchema;

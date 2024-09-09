@@ -25,7 +25,7 @@ export interface TaskList {
   name: string;
   description: string;
   order: number;
-  tasks: Task[];
+  tasks: ObjectId[];
 }
 export interface Boards {
   boardId: string;
@@ -37,6 +37,10 @@ export interface Boards {
   lists: TaskList[];
 }
 
+export interface ITasks extends Task, Document {
+  // populate default values
+  _id?: ObjectId;
+}
 export interface IBoards extends Boards, Document {
   // populate default values
   _id?: ObjectId;

@@ -206,6 +206,7 @@ export interface AppBody {
   locale: string;
   icon?: string;
   logo: string;
+  data: string;
   email: string;
   title: string;
   details: string;

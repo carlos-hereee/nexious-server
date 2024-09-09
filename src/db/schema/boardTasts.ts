@@ -19,22 +19,7 @@ const boardTasksSchema = new Schema<IBoards>(
           name: { type: String },
           description: { type: String },
           order: { type: String },
-          tasks: {
-            type: [
-              {
-                uid: { type: String, default: v4 },
-                taskId: { type: String, default: v4 },
-                name: { type: String },
-                description: { type: String },
-                dueDate: { type: String },
-                assignedTo: { name: { type: String }, avatar: { type: String }, userId: { type: String } },
-                createdBy: { name: { type: String }, avatar: { type: String }, userId: { type: String } },
-                comments: { type: [{ type: Schema.Types.ObjectId, ref: "Messages" }], default: [] },
-                pinnedComment: { type: [{ type: Schema.Types.ObjectId, ref: "Messages" }], default: [] },
-              },
-            ],
-            default: [],
-          },
+          tasks: { type: [{ type: Schema.Types.ObjectId }], default: [] },
         },
       ],
       default: [],
