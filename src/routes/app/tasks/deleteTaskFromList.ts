@@ -6,7 +6,6 @@ import { Response } from "express";
 
 export const deleteTaskFromList = async (req: AppRequest, res: Response) => {
   try {
-    console.log("req.params :>> ", req.params);
     const listIdx = req.taskBoard.lists.findIndex((l) => l.listId === req.params.listId);
     // if list not found
     if (listIdx < 0 || !req.taskBoard.lists[listIdx]) return res.status(404).end();

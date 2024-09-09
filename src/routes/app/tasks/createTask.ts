@@ -19,13 +19,12 @@ export const createTask = async (req: AppRequest<B>, res: Response) => {
 
     const listIdx = req.taskBoard.lists.findIndex((list) => list.listId === req.params.listId);
 
-    if (listIdx < 0) return res.status(404).json("unable to find list item").end();
-    if (req.taskBoard.lists[listIdx]) {
-      // add task to list
-      req.taskBoard.lists[listIdx]?.tasks.push(task._id);
-      // save to db
-      await req.taskBoard.save();
-    }
+    if (listIdx < 0 || !req.taskBoard.lists[listIdx]) return res.status(404).json("unable to find list item").end();
+
+    // link task to list
+    req.taskBoard.lists[listIdx].tasks.push(task._id);
+    // save to db
+    await req.taskBoard.save();
     await req.project.populate("taskBoards");
 
     return res.status(200).json(req.project.taskBoards).end();

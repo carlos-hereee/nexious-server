@@ -19,7 +19,7 @@ const boardTasksSchema = new Schema<IBoards>(
           name: { type: String },
           description: { type: String },
           order: { type: String },
-          tasks: { type: [{ type: Schema.Types.ObjectId }], default: [] },
+          tasks: { type: [{ type: Schema.Types.ObjectId, ref: "Tasks" }], default: [] },
         },
       ],
       default: [],
