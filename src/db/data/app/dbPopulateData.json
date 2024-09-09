@@ -1,7 +1,7 @@
 {
   "postsPopulate": {
     "path": "replies",
-    "populate": "replies replies.replies replies.replies.replies replies.replies.replies.replies",
+    "populate": "replies replies.replies replies.replies.replies",
     "model": "Messages"
   },
   "userPopulateData": "ownedApps subscriptions permissions ownedApps.userId notifications subscriptions accountTier orders messages",

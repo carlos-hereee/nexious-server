@@ -19,7 +19,7 @@ route.get("/all", getAllTaskBoard);
 route.get("/:boardId", requireTaskBoard, getTaskBoardWithBoardId);
 route.post("/build", appAdminWare, buildBoard);
 route.post("/:boardId/list/:listId/task", requireTaskBoard, createTask);
-route.post("/:boardId/task/:taskId/comment", requireTaskBoard, postTaskComment);
+route.post("/:boardId/task/:taskId/comment", requireTaskBoard, postTaskComment, getTaskBoardWithBoardId);
 route.put("/update/:boardId", appAdminWare, updateBoard);
 route.delete("/:boardId/list/:listId/task/:taskId", appAdminWare, requireTaskBoard, deleteTaskFromList);
 

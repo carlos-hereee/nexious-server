@@ -16,8 +16,8 @@ export interface Task {
   description: string;
   dueDate: string;
   createdBy: UserData;
-  comments?: ObjectId[];
-  pinnedComment?: ObjectId[];
+  comments: ObjectId[];
+  pinnedComment: ObjectId[];
 }
 export interface TaskList {
   listId: string;
