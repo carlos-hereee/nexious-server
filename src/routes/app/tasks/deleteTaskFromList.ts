@@ -1,29 +1,28 @@
 import { AppRequest } from "@app/request";
 import { getTaskWithId } from "@db/models/app/getTaskBoard";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
-import { Response } from "express";
-// import type { ObjectId } from "mongodb";
+import { NextFunction, Response } from "express";
 
-export const deleteTaskFromList = async (req: AppRequest, res: Response) => {
+export const deleteTaskFromList = async (req: AppRequest, res: Response, next: NextFunction) => {
   try {
-    const listIdx = req.taskBoard.lists.findIndex((l) => l.listId === req.params.listId);
+    const targetList = req.taskBoard.lists.filter((l) => l.listId === req.params.listId);
     // if list not found
-    if (listIdx < 0 || !req.taskBoard.lists[listIdx]) return res.status(404).json("unable to find task").end();
+    if (!targetList[0]) return res.status(404).json("unable to find task").end();
+    const task = await getTaskWithId({ taskId: req.params.taskId });
+    // if task not found
+    if (!task) return res.status(404).end();
 
-    if (typeof req.taskBoard.lists[listIdx]?.tasks[0] !== "string") {
-      const taskIdx = req.taskBoard.lists[listIdx]?.tasks.findIndex((t) => t.valueOf() === req.params.taskId);
-      const task = await getTaskWithId({ id: req.taskBoard.lists[listIdx]?.tasks[taskIdx || 0] });
-      //  task not found
-      if (!task && req.taskBoard.lists && req.taskBoard.lists[listIdx] && req.taskBoard.lists?.[listIdx]?.tasks) {
-        const t = req.taskBoard.lists[listIdx]?.tasks.filter((t) => t.valueOf() !== req.params.taskId);
+    // remove from tasks
+    const update = targetList[0].tasks.filter((t) => t.valueOf() !== task._id.valueOf());
+    //  update lists
+    req.taskBoard.lists = req.taskBoard.lists.map((list) => {
+      if (list.listId === req.params.listId) return { ...list, tasks: update };
+      return list;
+    });
 
-        req.taskBoard.lists[listIdx] && { ...req.taskBoard.lists[listIdx], tasks: t || [] };
-      }
-    }
     // save to db
     await req.taskBoard.save();
-
-    return res.status(200).json(req.taskBoard).end();
+    next();
   } catch (error) {
     useGenericErrors(res, error, "error registering user");
   }

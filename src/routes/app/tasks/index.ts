@@ -34,6 +34,6 @@ route.put("/:boardId/assign/:taskId/:userId", requireTaskBoard, assignMemberToTa
 route.put("/update/:boardId", appAdminWare, updateBoard);
 route.put("/update/list/:boardId", appAdminWare, requireTaskBoard, updateBoardList, populateTaskBoard);
 route.put("/:boardId/invite", appAdminWare, requireTaskBoard, updateBoardInvitations, populateTaskBoard);
-route.delete("/:boardId/list/:listId/task/:taskId", appAdminWare, requireTaskBoard, deleteTaskFromList);
+route.delete("/:boardId/list/:listId/task/:taskId", appAdminWare, requireTaskBoard, deleteTaskFromList, populateTaskBoard);
 
 export default route;
