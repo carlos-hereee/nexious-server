@@ -8,7 +8,7 @@ import { addPost } from "./addPost";
 import { fetchPosts } from "./fetchPosts";
 import { postReply } from "./postReply";
 import { toggleLikePost } from "./toggleLikePost";
-import { postMessageReply } from "../../middleware/app/postMessageReply";
+import { postMessageReply } from "@middleware/app/postMessageReply";
 import { toggleMessageLike } from "./toggleMessageLike";
 import { deletePost } from "./deletePost";
 

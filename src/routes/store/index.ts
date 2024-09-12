@@ -32,7 +32,7 @@ import { stripeOnboarding } from "./stripe/stripeOnboarding";
 import { postReview } from "./merch/postReview";
 import { requireUser } from "@middleware/auth/requireUser";
 import { requireMessage } from "@middleware/app/requireMessage";
-import { postMessageReply } from "@routes/post/postMessageReply";
+import { postMessageReply } from "@middleware/app/postMessageReply";
 
 const route = Router();
 const bodyParse = bodyParser.raw({ type: "application/json" });
