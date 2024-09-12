@@ -13,6 +13,8 @@ import { deleteTaskFromList } from "./deleteTaskFromList";
 import { postMessageReply } from "@middleware/app/postMessageReply";
 import { requireMessage } from "@middleware/app/requireMessage";
 import { updateBoardList } from "./updateBoardList";
+import { inviteMember } from "./inviteMember";
+import { updateBoardInvitations } from "./updateBoardInvitations";
 
 const route = Router();
 
@@ -20,6 +22,7 @@ const route = Router();
 route.get("/", getTaskBoard);
 route.get("/all", getAllTaskBoard);
 route.get("/:boardId", requireTaskBoard, populateTaskBoard);
+route.get("/:boardId/invite", requireTaskBoard, inviteMember);
 // add to task task board
 route.post("/build", appAdminWare, buildBoard);
 route.post("/:boardId/list/:listId/task", requireTaskBoard, createTask, populateTaskBoard);
@@ -28,6 +31,7 @@ route.post("/:boardId/task/comment/:messageId", requireTaskBoard, requireMessage
 // update task board
 route.put("/update/:boardId", appAdminWare, updateBoard);
 route.put("/update/list/:boardId", appAdminWare, requireTaskBoard, updateBoardList, populateTaskBoard);
+route.put("/:boardId/invite", appAdminWare, requireTaskBoard, updateBoardInvitations, populateTaskBoard);
 route.delete("/:boardId/list/:listId/task/:taskId", appAdminWare, requireTaskBoard, deleteTaskFromList);
 
 export default route;

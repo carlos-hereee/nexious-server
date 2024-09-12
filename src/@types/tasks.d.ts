@@ -6,6 +6,8 @@ export type TaskStatus = "incomplete" | "complete";
 export interface UserData {
   name: string;
   avatar: string;
+  role: string;
+  invitationStatus: "accepted" | "declined" | "pending";
   userId: string;
 }
 export interface Task {
@@ -35,6 +37,8 @@ export interface Boards {
   name: string;
   description: string;
   boardLink: string;
+  members: UserData[];
+  memberInvitations: UserData[];
   lists: TaskList[];
 }
 

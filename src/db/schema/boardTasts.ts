@@ -11,6 +11,30 @@ const boardTasksSchema = new Schema<IBoards>(
     name: { type: String },
     description: { type: String },
     boardLink: { type: String },
+    members: {
+      type: [
+        {
+          name: { type: String, default: "" },
+          avatar: { type: String, default: "" },
+          role: { type: String, default: "member" },
+          invitationStatus: { type: String, default: "accepted" },
+          userId: { type: String, default: "" },
+        },
+      ],
+      default: [],
+    },
+    memberInvitations: {
+      type: [
+        {
+          name: { type: String, default: "" },
+          avatar: { type: String, default: "" },
+          invitationStatus: { type: String, default: "pending" },
+          role: { type: String, default: "member" },
+          userId: { type: String, default: "" },
+        },
+      ],
+      default: [],
+    },
     lists: {
       type: [
         {
