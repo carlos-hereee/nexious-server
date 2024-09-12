@@ -10,9 +10,9 @@ import { createTask } from "./createTask";
 import { requireTaskBoard } from "@middleware/app/requireTaskBoard";
 import { postTaskComment } from "./postTaskComment";
 import { deleteTaskFromList } from "./deleteTaskFromList";
-import { postTaskReplyComment } from "./postTaskReplyComment";
 import { postMessageReply } from "@middleware/app/postMessageReply";
 import { requireMessage } from "@middleware/app/requireMessage";
+import { updateBoardList } from "./updateBoardList";
 
 const route = Router();
 
@@ -20,11 +20,14 @@ const route = Router();
 route.get("/", getTaskBoard);
 route.get("/all", getAllTaskBoard);
 route.get("/:boardId", requireTaskBoard, populateTaskBoard);
+// add to task task board
 route.post("/build", appAdminWare, buildBoard);
 route.post("/:boardId/list/:listId/task", requireTaskBoard, createTask, populateTaskBoard);
 route.post("/:boardId/task/:taskId/comment", requireTaskBoard, postTaskComment, populateTaskBoard);
 route.post("/:boardId/task/comment/:messageId", requireTaskBoard, requireMessage, postMessageReply, populateTaskBoard);
+// update task board
 route.put("/update/:boardId", appAdminWare, updateBoard);
+route.put("/update/list/:boardId", appAdminWare, requireTaskBoard, updateBoardList, populateTaskBoard);
 route.delete("/:boardId/list/:listId/task/:taskId", appAdminWare, requireTaskBoard, deleteTaskFromList);
 
 export default route;

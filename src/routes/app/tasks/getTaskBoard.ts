@@ -6,7 +6,6 @@ export const getTaskBoard = async (req: AppRequest, res: Response) => {
   try {
     if (!req.project.taskBoard) return res.status(404).json("unable to find taskboard").end();
     await req.project.populate("taskBoard taskBoard.lists.tasks");
-    console.log("req.project.taskBoard :>> ", req.project.taskBoard);
     return res.status(200).json(req.project.taskBoard).end();
   } catch (error) {
     useGenericErrors(res, error, "error registering user");
