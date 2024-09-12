@@ -1,4 +1,4 @@
-import type { IPage, ISection } from "@app/page";
+import type { IPageB, ISection } from "@app/page";
 import type { AppRequest } from "@app/request";
 import { formatFormData } from "@utils/app/format/formatFormData";
 import { formatMenuPageData } from "@utils/app/format/formatMenuPageData";
@@ -6,7 +6,7 @@ import { generateStringUrl } from "@utils/app/generateUrl";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { NextFunction, Response } from "express";
 
-export const updatePage = async (req: AppRequest<IPage>, res: Response, next: NextFunction) => {
+export const updatePage = async (req: AppRequest<IPageB>, res: Response, next: NextFunction) => {
   try {
     const page = formatFormData(req.body);
     // update page data

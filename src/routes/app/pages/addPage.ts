@@ -1,5 +1,5 @@
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
-import type { IPage, IPageSchema, ISection } from "@app/page";
+import type { IPageB, IPageSchema, ISection } from "@app/page";
 import { NextFunction, Response } from "express";
 import type { AppRequest } from "@app/request";
 import { formatFormData } from "@utils/app/format/formatFormData";
@@ -7,7 +7,7 @@ import Page from "@db/schema/page";
 import { formatMenuPageData } from "@utils/app/format/formatMenuPageData";
 import { generateStringUrl } from "@utils/app/generateUrl";
 
-export const addPage = async (req: AppRequest<IPage>, res: Response, next: NextFunction) => {
+export const addPage = async (req: AppRequest<IPageB>, res: Response, next: NextFunction) => {
   try {
     const pageName = req.body.name;
     const page = formatFormData(req.body);
@@ -28,6 +28,7 @@ export const addPage = async (req: AppRequest<IPage>, res: Response, next: NextF
       }
     }
     // add page data
+    const link = req.project.appUrl + "/" + generateStringUrl(pageName || "");
     const pageData: IPageSchema = await Page.create({
       type: "page",
       title: req.body.title,
@@ -38,13 +39,14 @@ export const addPage = async (req: AppRequest<IPage>, res: Response, next: NextF
       hero: req.assets.hero || "",
       cta: page.hasCta,
       sections: page.hasSections,
+      pageLink: link,
     });
-    if (pageData.pageId) {
+    if (pageData && pageData._id) {
       // app page name to appurl
-      const link = req.project.appUrl + "/" + generateStringUrl(pageName);
       const menuItem = formatMenuPageData({ pageName, menuId: pageData.pageId, category: "page", link });
       // link page to app menu
       req.project.menu.push(menuItem);
+      req.project.pages.push(pageData._id);
       await req.project.save();
     }
     next();

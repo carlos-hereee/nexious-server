@@ -11,11 +11,11 @@ export const deleteTaskFromList = async (req: AppRequest, res: Response) => {
     if (listIdx < 0 || !req.taskBoard.lists[listIdx]) return res.status(404).json("unable to find task").end();
 
     if (typeof req.taskBoard.lists[listIdx]?.tasks[0] !== "string") {
-      const taskIdx = req.taskBoard.lists[listIdx]?.tasks.findIndex((t) => t.toString() === req.params.taskId);
+      const taskIdx = req.taskBoard.lists[listIdx]?.tasks.findIndex((t) => t.valueOf() === req.params.taskId);
       const task = await getTaskWithId({ id: req.taskBoard.lists[listIdx]?.tasks[taskIdx || 0] });
       //  task not found
       if (!task && req.taskBoard.lists && req.taskBoard.lists[listIdx] && req.taskBoard.lists?.[listIdx]?.tasks) {
-        const t = req.taskBoard.lists[listIdx]?.tasks.filter((t) => t.toString() !== req.params.taskId);
+        const t = req.taskBoard.lists[listIdx]?.tasks.filter((t) => t.valueOf() !== req.params.taskId);
 
         req.taskBoard.lists[listIdx] && { ...req.taskBoard.lists[listIdx], tasks: t || [] };
       }

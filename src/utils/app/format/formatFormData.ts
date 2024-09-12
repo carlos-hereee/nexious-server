@@ -1,6 +1,6 @@
-import type { ICta, IPage, ISection, RefsProps } from "@app/page";
+import type { ICta, IPageB, ISection, RefsProps } from "@app/page";
 
-export const formatFormData = (data: IPage) => {
+export const formatFormData = (data: IPageB) => {
   const canSkip = ["hero", "sectionHero"];
 
   const refs: RefsProps = { hasSections: [], hasCta: [], hasMedias: [] };

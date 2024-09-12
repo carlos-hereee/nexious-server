@@ -31,35 +31,35 @@ export interface RefsProps {
   hasCta: ICta[];
   hasSections: ISection[];
 }
-export interface IPage {
-  body: string;
-  pageId: string;
-  hero: string;
-  tagline: string;
-  title: string;
+export interface IPageB {
   name: string;
-  isStore: string;
+  title: string;
+  tagline: string;
+  body: string;
   hasCta: string;
   hasSections: string;
-  cta: ICta[];
-  sections: ISection[];
 }
-export interface IPageSchema extends Document {
+export interface IPage {
   // require type of page
   type: "store" | "landing" | "page";
-  // populate default values
+  name: string;
   body?: string;
-  _id?: ObjectId;
+  pageLink?: string;
   pageId: string;
   hero?: string;
   title?: string;
   tagline?: string;
-  name?: string;
   isStore?: boolean;
   hasCta?: boolean;
   hasSections?: boolean;
   cta?: ICta[];
   sections?: ISection[];
+}
+export interface IPageSchema extends IPage, Document {
+  // populate default values
+  _id: ObjectId;
+  hasCta: boolean;
+  hasSections: boolean;
 }
 
 export interface PageDataProps {

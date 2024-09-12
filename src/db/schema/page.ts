@@ -13,6 +13,7 @@ const pageSchema = new Schema<IPageSchema>(
     body: { type: String, default: `${data.body}` },
     hero: { type: String, default: "" },
     tagline: { type: String, default: "" },
+    pageLink: { type: String, default: "" },
     name: { type: String, default: "Lorem" },
     isStore: { type: Boolean, default: false },
     hasCta: { type: Boolean, default: false },
@@ -25,9 +26,7 @@ const pageSchema = new Schema<IPageSchema>(
         uid: { type: String, default: v4 },
       },
     ],
-    cta: [
-      { label: { type: String }, link: { type: String }, icon: { type: String }, uid: { type: String, default: v4 } },
-    ],
+    cta: [{ label: { type: String }, link: { type: String }, icon: { type: String }, uid: { type: String, default: v4 } }],
   },
   { timestamps: true }
 );
