@@ -15,6 +15,7 @@ import { requireMessage } from "@middleware/app/requireMessage";
 import { updateBoardList } from "./updateBoardList";
 import { inviteMember } from "./inviteMember";
 import { updateBoardInvitations } from "./updateBoardInvitations";
+import { assignMemberToTask } from "./assignMemberToTask";
 
 const route = Router();
 
@@ -29,6 +30,7 @@ route.post("/:boardId/list/:listId/task", requireTaskBoard, createTask, populate
 route.post("/:boardId/task/:taskId/comment", requireTaskBoard, postTaskComment, populateTaskBoard);
 route.post("/:boardId/task/comment/:messageId", requireTaskBoard, requireMessage, postMessageReply, populateTaskBoard);
 // update task board
+route.put("/:boardId/assign/:taskId/:userId", requireTaskBoard, assignMemberToTask, populateTaskBoard);
 route.put("/update/:boardId", appAdminWare, updateBoard);
 route.put("/update/list/:boardId", appAdminWare, requireTaskBoard, updateBoardList, populateTaskBoard);
 route.put("/:boardId/invite", appAdminWare, requireTaskBoard, updateBoardInvitations, populateTaskBoard);

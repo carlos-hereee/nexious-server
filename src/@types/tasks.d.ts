@@ -13,7 +13,7 @@ export interface UserData {
 export interface Task {
   uid?: string;
   taskId?: string;
-  assignedTo?: UserData;
+  assignedTo?: UserData[];
   name: string;
   description: string;
   dueDate: string;

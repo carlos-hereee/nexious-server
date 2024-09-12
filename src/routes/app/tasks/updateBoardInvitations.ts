@@ -21,9 +21,11 @@ export const updateBoardInvitations = async (req: AppRequest<IBody>, res: Respon
       if (m.userId === req.body.user.userId) return { ...m, invitationStatus: req.body.status };
       return m;
     });
-    // update invations list
-    members.push({ ...req.body.user, invitationStatus: req.body.status, role: "member" });
-    req.taskBoard.members = members;
+    if (req.body.status === "accepted") {
+      // update invations list
+      members.push({ ...req.body.user, invitationStatus: req.body.status, role: "member" });
+      req.taskBoard.members = members;
+    }
     await req.taskBoard.save();
     next();
   } catch (error) {
