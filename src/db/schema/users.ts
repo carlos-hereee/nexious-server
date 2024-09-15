@@ -96,6 +96,7 @@ const userSchema = new Schema<IUserSchema>(
     archivedNotifications: { type: [{ type: String, ref: "Notification" }], default: [] },
     subscriptions: { type: [{ type: String }], default: [] },
     feed: { type: [{ type: Schema.Types.ObjectId, ref: "Post" }], default: [] },
+    calendarEvents: { type: [{ type: Schema.Types.ObjectId, ref: "Events" }], default: [] },
     orders: [{ type: Schema.Types.ObjectId, ref: "Orders" }],
     messages: { type: [{ type: Schema.Types.ObjectId, ref: "Messages" }], default: [] },
     likePosts: { type: [{ type: String }], default: [] },

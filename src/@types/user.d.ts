@@ -60,6 +60,7 @@ export type UserRole = "customer" | "dev-team" | "app-support" | "owner" | "app-
 
 export interface UserSchema {
   customerId?: string;
+  calendarEvents?: ObjectId[];
   boards?: {
     boardUid: string;
     boardId: ObjectId;
