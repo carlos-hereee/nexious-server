@@ -1,10 +1,10 @@
 import { Response } from "express";
-import { checkoutCompleted } from "@routes/webhook/checkoutCompleted";
-// import { paymentIntentFailed, paymentIntentSucceeded } from "@routes/webhook/webhook/paymentIntent";
-// import { paymentAttached } from "@routes/webhook/webhook/paymentAttached";
+import { checkoutCompleted } from "@routes/stripe/webhook/checkoutCompleted";
+// import { paymentIntentFailed, paymentIntentSucceeded } from "@routes/stripe/webhook/webhook/paymentIntent";
+// import { paymentAttached } from "@routes/stripe/webhook/webhook/paymentAttached";
 import type { StripeWebhookRequest } from "@app/request";
-import { accountUpdated } from "@routes/webhook/accountUpdated";
-import { fulFillOrder } from "@routes/webhook/fulfillOrder";
+import { accountUpdated } from "@routes/stripe/webhook/accountUpdated";
+import { fulFillOrder } from "@routes/stripe/webhook/fulfillOrder";
 // import {
 //   addCustomerSubscription,
 //   customerSubscriptionWillEndSoon,

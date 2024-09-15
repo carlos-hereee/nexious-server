@@ -3,6 +3,7 @@ import appRoute from "./app/index";
 import storeRoute from "./store/index";
 import postRoute from "./post/index";
 import calendarRoute from "./calendar/index";
+import stripeRoute from "./stripe/index";
 import { initRoute, startApp } from "./initRoute";
 import type { ExpressApp } from "@app/db";
 import { deserializeUser } from "@middleware/auth/deserializeUser";
@@ -19,5 +20,6 @@ export default (app: ExpressApp) => {
   app.use("/app/", appRoute);
   app.use("/calendar/", calendarRoute);
   app.use("/store/", storeRoute);
+  app.use("/stripe/", stripeRoute);
   app.use("/post/", postRoute);
 };

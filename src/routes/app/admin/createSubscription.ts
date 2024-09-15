@@ -3,7 +3,7 @@ import { NextFunction, Response } from "express";
 import type { AppRequest } from "@app/request";
 import Subscription from "@db/schema/subscription";
 import { generateStringUrl } from "@utils/app/generateUrl";
-import { addProductInfo } from "@routes/store/stripe/updateProductInfo";
+import { addProductInfo } from "@routes/stripe/stripe/updateProductInfo";
 import { getStore } from "@db/models/store/getStore";
 import { addNotification } from "@utils/app/addNotification";
 import { SubscriptionSchema } from "@app/app";
