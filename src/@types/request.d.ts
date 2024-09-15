@@ -47,6 +47,20 @@ export interface AuthRequest<B = AuthBody> extends Request {
   user: IUserSchema;
   asset: string;
 }
+export interface UserRequest<B = AuthBody> extends Request {
+  params: {
+    userId: string;
+    postId: string;
+    username: string;
+    notificationId: string;
+    notificationType: string;
+  };
+  body: B;
+  auth: IAuthSchema;
+  user: IUserSchema;
+  asset: string;
+  assets: string[];
+}
 
 export interface AppRequest<B = AppBody> extends Request {
   params: {

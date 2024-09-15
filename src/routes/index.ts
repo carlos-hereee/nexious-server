@@ -3,6 +3,7 @@ import appRoute from "./app/index";
 import storeRoute from "./store/index";
 import postRoute from "./post/index";
 import calendarRoute from "./calendar/index";
+import userRoute from "./user/index";
 import stripeRoute from "./stripe/index";
 import { initRoute, startApp } from "./initRoute";
 import type { ExpressApp } from "@app/db";
@@ -16,6 +17,7 @@ export default (app: ExpressApp) => {
   app.get("/", initRoute);
   // authentication route for login and access/refresh tokens
   app.use("/auth/", authRoute);
+  app.use("/user/", userRoute);
   // app data
   app.use("/app/", appRoute);
   app.use("/calendar/", calendarRoute);

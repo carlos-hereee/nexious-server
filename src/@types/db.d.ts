@@ -5,6 +5,12 @@ import type { NSettings, UserRole } from "./user";
 export type ObjectId = Schema.Types.ObjectId;
 export type ExpressApp = Express;
 export type MessageReadReceipts = "sent" | "delivered" | "read" | "unsent";
+export interface UserPostData {
+  avatar: string;
+  name: string;
+  userId: string;
+  role: UserRole;
+}
 export interface Messages {
   uid: string;
   messageId: string;
@@ -18,8 +24,8 @@ export interface Messages {
     star?: number;
     nestLevel: number;
   };
-  user: { avatar: string; name: string; userId: string };
-  recipient: { avatar: string; name: string; userId: string; role: UserRole };
+  user: UserPostData;
+  recipient: UserPostData;
   replies: ObjectId[];
 }
 export interface IMessage extends Messages, Document {
@@ -43,6 +49,7 @@ export interface PostSchema {
   body: string;
   likeCount: number;
   likeUsers: string[];
+  createdBy: UserPostData;
   comments?: ObjectId[];
   pinnedComment?: ObjectId[];
   thumbnail: string;

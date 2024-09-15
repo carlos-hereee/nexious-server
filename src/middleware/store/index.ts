@@ -4,7 +4,7 @@ import { requireUser } from "@middleware/auth/requireUser";
 import { getStoreWithAppId } from "./getStoreWithAppId";
 import { requireStore } from "./requireStore";
 import { uploadFields } from "@utils/aws/multer";
-import { saveFieldAssets } from "@middleware/app/saveFieldAssets";
+import { saveFieldAssets } from "@middleware/assets/saveFieldAssets";
 
 export const merchWare = [requireUser, validateAdmin];
 export const storeWare = [...adminWare, getStoreWithAppId, requireStore];
