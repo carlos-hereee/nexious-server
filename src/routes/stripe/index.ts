@@ -20,14 +20,14 @@ const bodyParse = bodyParser.raw({ type: "application/json" });
 //
 route.get("/webhook", getWebhooks);
 route.get("/confirm-intent", getConfirmation);
-route.get("/stripe-billing-portal/:customer", getBillingPortal);
-route.get("/stripe-account/:appId", storeWare, getStripeAccount, minAppData);
-route.get("/stripe-account/:appId/balance", storeWare, getStripeAccountBalance, minAppData);
-route.post("/stripe-account-link/:appId", storeWare, stripeOnboarding);
+route.get("/billing-portal/:customer", getBillingPortal);
+route.get("/account/:appId", storeWare, getStripeAccount, minAppData);
+route.get("/account/:appId/balance", storeWare, getStripeAccountBalance, minAppData);
 
+route.post("/account-link/:appId", storeWare, stripeOnboarding);
 // manage stripe payouts
-route.post("/build-stripe-store/:appId", storeWare, createAccount, minAppData);
-route.post("/stripe-account/:appId/payouts/:option", storeWare, managePayouts, minAppData);
+route.post("/build-store/:appId", storeWare, createAccount, minAppData);
+route.post("/account/:appId/payouts/:option", storeWare, managePayouts, minAppData);
 // construct stripe webhook
 route.post("/webhook", bodyParse, initHook, stripeWebhook);
 
