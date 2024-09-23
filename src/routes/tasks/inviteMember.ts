@@ -12,15 +12,18 @@ export const inviteMember = async (req: AppRequest, res: Response) => {
     const name = generateUsername(req.user);
     // add user to invitations
     req.taskBoard.memberInvitations.push({ avatar, userId, name, invitationStatus: "pending", role: "" });
-    const notification = await addNotification({
-      type: "appChanges",
-      user: null,
-      message: name + " request to join " + req.taskBoard.name + " taskboard",
-    });
-    req.project.notifications.push(notification._id);
+
+    if (req.project) {
+      const notification = await addNotification({
+        type: "appChanges",
+        user: null,
+        message: name + " request to join " + req.taskBoard.name + " taskboard",
+      });
+      req.project.notifications.push(notification._id);
+      await req.project.save();
+    }
     // save to db
     await req.taskBoard.save();
-    await req.project.save();
     return res.status(200).redirect(clientUrl + "/invite/success");
   } catch (error) {
     useGenericErrors(res, error, "error registering user");

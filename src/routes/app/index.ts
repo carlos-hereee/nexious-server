@@ -45,12 +45,12 @@ import { sendMessage } from "./contact/sendMessage";
 import { sendPlatformMessage } from "./contact/sendPlatformMessage";
 import { buildMap } from "./map/buildMap";
 import { editMap } from "./map/editMap";
-import taskBoardRoute from "./tasks";
+// import taskBoardRoute from "../tasks";
 
 const route = Router();
 
-// task board
-route.use("/:appId/task-board/", appWare, taskBoardRoute, minAppData);
+// // task board
+// route.use("/:appId/task-board/", appWare, taskBoardRoute, minAppData);
 
 // load app data
 route.get("/platform-data", getPlatformData);

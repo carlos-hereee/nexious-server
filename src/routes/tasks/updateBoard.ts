@@ -10,13 +10,14 @@ interface B {
 }
 export const updateBoard = async (req: AppRequest<B>, res: Response) => {
   try {
-    const board = await getTaskBoard({ boardId: req.params.boardId });
+    const { boardId } = req.params;
+    const board = await getTaskBoard({ boardId });
     if (!board) return res.status(404).json("task board not found").end();
 
     // update changes if any
     if (board.name !== req.body.name) {
       // generate new board link
-      const boardLink = `/task-board${req.project.appLink}/${board.boardId}`;
+      const boardLink = req.project ? `/task-board${req.project.appLink}/${boardId}` : `/dashboard/task-board/${boardId}`;
       board.name = req.body.name;
       board.boardLink = boardLink;
     }
@@ -24,9 +25,7 @@ export const updateBoard = async (req: AppRequest<B>, res: Response) => {
     // save to db
     await board.save();
 
-    await req.project.populate("taskBoards");
-
-    return res.status(200).json(req.project.taskBoards).end();
+    return res.status(200).json(board).end();
   } catch (error) {
     useGenericErrors(res, error, "error registering user");
   }
