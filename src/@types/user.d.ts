@@ -62,7 +62,8 @@ export interface UserSchema {
   customerId?: string;
   calendarEvents?: ObjectId[];
   boards?: {
-    boardUid: string;
+    uid: string;
+    name: string;
     boardId: ObjectId;
     role: string;
   }[];

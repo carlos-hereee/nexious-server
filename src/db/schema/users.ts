@@ -82,8 +82,9 @@ const userSchema = new Schema<IUserSchema>(
     boards: {
       type: [
         {
-          boardId: { type: Schema.Types.ObjectId, ref: "Tasks" },
-          boardUid: { type: String },
+          boardId: { type: Schema.Types.ObjectId, ref: "BoardTasks" },
+          name: { type: String },
+          uid: { type: String, default: v4 },
           role: { type: String },
         },
       ],
