@@ -32,6 +32,8 @@ export interface TaskList {
 }
 export interface Boards {
   boardId: string;
+  calendarEvents: ObjectId[];
+  notifications: ObjectId[];
   uid: string;
   ownerId: string;
   name: string;

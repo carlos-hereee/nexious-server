@@ -17,12 +17,14 @@ export const buildBoard = async (req: AppRequest<B>, res: Response, next: NextFu
     const boardLink = req.project ? `/task-board${req.project.appLink}/${boardId}` : `/dashboard/task-board/${boardId}`;
     // user data
     const { avatar, userId } = req.user;
+    const ownerId = req.user.userId;
     const name = generateUsername(req.user);
     const members = [{ name, userId, avatar, role: "owner" }];
     // generate starter list
     const lists = generateBoardList();
+
     // create board
-    const taskBoard = await BoardTasks.create({ ...req.body, ownerId: req.user.userId, boardId, boardLink, lists, members });
+    const taskBoard = await BoardTasks.create({ ...req.body, ownerId, boardId, boardLink, lists, members });
     if (!taskBoard) return res.status(500).json("unable to build task board").end();
     req.taskBoard = taskBoard;
     // link to user

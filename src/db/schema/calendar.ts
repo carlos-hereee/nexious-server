@@ -5,8 +5,8 @@ import { v4 } from "uuid";
 const Schema = mongoose.Schema;
 const calendarSchema = new Schema<ICalendarSchema>(
   {
-    calendarId: { type: String, require: true, unique: true, default: v4 },
-    appId: { type: String, require: true },
+    calendarId: { type: String, unique: true, default: v4 },
+    appId: { type: String },
     hero: { type: String },
     name: { type: String },
     theme: { type: String },
@@ -15,8 +15,8 @@ const calendarSchema = new Schema<ICalendarSchema>(
     startTime: { type: String, default: "" },
     closeTime: { type: String, default: "" },
     altHours: { type: Boolean, default: false },
-    schedule: [{ type: Schema.Types.ObjectId, ref: "Events" }],
-    events: [{ type: Schema.Types.ObjectId, ref: "Events" }],
+    schedule: { type: [{ type: Schema.Types.ObjectId, ref: "Events" }], default: [] },
+    events: { type: [{ type: Schema.Types.ObjectId, ref: "Events" }], default: [] },
   },
   { timestamps: true }
 );

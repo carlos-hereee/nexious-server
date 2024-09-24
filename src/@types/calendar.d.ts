@@ -5,6 +5,8 @@ export interface EventAttendees {
   uid: string;
   userId: ObjectId;
   username: string;
+  avatar: string;
+  name: string;
   email: string;
   phone: number;
 }
@@ -21,7 +23,6 @@ export interface IEvent {
 }
 
 export interface IEventSchema extends IEvent, Document {
-  calendarId: ObjectId;
   date: Date;
   hero: string;
   frequency: string;

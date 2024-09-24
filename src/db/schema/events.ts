@@ -5,26 +5,30 @@ import { v4 } from "uuid";
 const Schema = mongoose.Schema;
 const eventSchema = new Schema<IEventSchema>(
   {
-    eventId: { type: String, require: true, unique: true, default: v4 },
-    calendarId: { type: Schema.Types.ObjectId, ref: "Calendar", require: true },
-    hero: { type: String, ref: "Hero" },
+    eventId: { type: String, default: v4 },
+    hero: { type: String },
     date: { type: Schema.Types.Date, require: true },
     frequency: { type: String, default: "" },
-    uid: { type: String, require: true, default: v4 },
+    uid: { type: String, default: v4 },
     name: { type: String, default: "" },
     details: { type: String, default: "" },
-    startTime: { type: String, require: true },
-    endTime: { type: String, require: true },
+    startTime: { type: String },
+    endTime: { type: String },
     isOpen: { type: Boolean, default: true },
-    attendees: [
-      {
-        uid: { type: String, require: true, default: v4 },
-        userId: { type: Schema.Types.ObjectId, ref: "Users" },
-        username: { type: String },
-        email: { type: String },
-        phone: { type: Number },
-      },
-    ],
+    attendees: {
+      type: [
+        {
+          uid: { type: String, require: true, default: v4 },
+          userId: { type: String },
+          username: { type: String },
+          avatar: { type: String },
+          name: { type: String },
+          email: { type: String },
+          phone: { type: Number },
+        },
+      ],
+      default: [],
+    },
   },
   { timestamps: true }
 );

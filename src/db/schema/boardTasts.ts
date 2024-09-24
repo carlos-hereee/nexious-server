@@ -11,6 +11,8 @@ const boardTasksSchema = new Schema<IBoards>(
     name: { type: String },
     description: { type: String },
     boardLink: { type: String },
+    calendarEvents: { type: [{ type: Schema.Types.ObjectId, ref: "Events" }], default: [] },
+    notifications: { type: [{ type: Schema.Types.ObjectId, ref: "Notification" }], default: [] },
     members: {
       type: [
         {
