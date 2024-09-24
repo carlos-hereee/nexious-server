@@ -4,7 +4,7 @@ import { postsPopulate } from "@db/data/app/dbPopulateData.json";
 
 export const populateTaskBoard = async (req: AppRequest, res: Response) => {
   await req.taskBoard.populate({
-    path: "lists.tasks",
+    path: "lists.tasks calendarEvents notifications",
     populate: {
       path: "comments pinnedComment",
       populate: postsPopulate,

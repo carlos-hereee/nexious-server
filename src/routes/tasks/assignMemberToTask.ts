@@ -27,21 +27,18 @@ export const assignMemberToTask = async (req: AppRequest<{ status: string }>, re
     if (req.body.status === "remove") {
       task.assignedTo = task.assignedTo?.filter((m) => m.userId !== req.params.userId);
       // remove event from user
-      const user = await Users.updateOne(
+      await Users.updateOne(
         { userId: member.userId },
         { $pull: { calendarEvents: event?._id }, $addToSet: { notifications: notification._id } }
       );
-      console.log("user :>> ", user);
     }
     // add to task
     if (req.body.status === "assign" && event) {
       // link event to user
-      const user = await Users.updateOne(
+      await Users.updateOne(
         { userId: member.userId },
         { $addToSet: { calendarEvents: event._id, notifications: notification._id } }
       );
-      console.log("user :>> ", user);
-      console.log("member :>> ", member);
       // link to taskboard notifications
       req.taskBoard.notifications.push(notification._id);
       // link assigned member
