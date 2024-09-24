@@ -24,6 +24,7 @@ export const buildBoard = async (req: AppRequest<B>, res: Response, next: NextFu
     // create board
     const taskBoard = await BoardTasks.create({ ...req.body, ownerId: req.user.userId, boardId, boardLink, lists, members });
     if (!taskBoard) return res.status(500).json("unable to build task board").end();
+    req.taskBoard = taskBoard;
     // link to user
     req.user.boards?.push({ uid: boardId, boardId: taskBoard._id, role: "owner", name: taskBoard.name });
     await req.user.save();

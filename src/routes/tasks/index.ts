@@ -19,21 +19,24 @@ import { assignMemberToTask } from "./assignMemberToTask";
 
 const route = Router();
 
-// build task board
 route.get("/", getTaskBoard);
 route.get("/all", getAllTaskBoard);
 route.get("/:boardId", requireTaskBoard, populateTaskBoard);
 route.get("/:boardId/invite", requireTaskBoard, inviteMember);
+// build task board
+route.post("/:appId/build", appAdminWare, buildBoard, populateTaskBoard);
+route.post("/build", buildBoard, populateTaskBoard);
 // add to task task board
-route.post("/build", appAdminWare, buildBoard);
 route.post("/:boardId/list/:listId/task", requireTaskBoard, createTask, populateTaskBoard);
+// add comments to task
 route.post("/:boardId/task/:taskId/comment", requireTaskBoard, postTaskComment, populateTaskBoard);
 route.post("/:boardId/task/comment/:messageId", requireTaskBoard, requireMessage, postMessageReply, populateTaskBoard);
 // update task board
+route.put("/update/:boardId", updateBoard);
+route.put("/update/list/:boardId", requireTaskBoard, updateBoardList, populateTaskBoard);
+route.put("/:boardId/invite", requireTaskBoard, updateBoardInvitations, populateTaskBoard);
+// assign user to task
 route.put("/:boardId/assign/:taskId/:userId", requireTaskBoard, assignMemberToTask, populateTaskBoard);
-route.put("/update/:boardId", appAdminWare, updateBoard);
-route.put("/update/list/:boardId", appAdminWare, requireTaskBoard, updateBoardList, populateTaskBoard);
-route.put("/:boardId/invite", appAdminWare, requireTaskBoard, updateBoardInvitations, populateTaskBoard);
-route.delete("/:boardId/list/:listId/task/:taskId", appAdminWare, requireTaskBoard, deleteTaskFromList, populateTaskBoard);
+route.delete("/:boardId/list/:listId/task/:taskId", requireTaskBoard, deleteTaskFromList, populateTaskBoard);
 
 export default route;
