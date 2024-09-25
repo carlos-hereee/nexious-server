@@ -31,6 +31,8 @@ export const assignMemberToTask = async (req: AppRequest<{ status: string }>, re
         { userId: member.userId },
         { $pull: { calendarEvents: event?._id }, $addToSet: { notifications: notification._id } }
       );
+      // remove cal event attendees
+      if (event) event.attendees = event.attendees.filter((user) => user.userId !== member.userId);
     }
     // add to task
     if (req.body.status === "assign" && event) {
@@ -39,11 +41,15 @@ export const assignMemberToTask = async (req: AppRequest<{ status: string }>, re
         { userId: member.userId },
         { $addToSet: { calendarEvents: event._id, notifications: notification._id } }
       );
+      // add to cal event
+      event.attendees.push(member);
       // link to taskboard notifications
       req.taskBoard.notifications.push(notification._id);
       // link assigned member
       task.assignedTo?.push(member);
     }
+    // save to db
+    if (event) await event.save();
     await task.save();
     await req.taskBoard.save();
     next();

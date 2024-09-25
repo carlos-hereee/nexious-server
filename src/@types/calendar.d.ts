@@ -2,13 +2,13 @@ import { Date, Document } from "mongoose";
 import { ObjectId } from "./db";
 
 export interface EventAttendees {
-  uid: string;
-  userId: ObjectId;
-  username: string;
+  uid?: string;
+  userId: string;
   avatar: string;
   name: string;
-  email: string;
-  phone: number;
+  username?: string;
+  email?: string;
+  phone?: number;
 }
 export interface IEvent {
   uid: string;

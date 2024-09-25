@@ -8,6 +8,7 @@ export const populateTaskBoard = async (req: AppRequest, res: Response) => {
     populate: {
       path: "comments pinnedComment",
       populate: postsPopulate,
+      options: { strictPopulate: false },
     },
     options: { strictPopulate: false },
   });
