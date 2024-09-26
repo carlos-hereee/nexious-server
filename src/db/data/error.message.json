@@ -23,5 +23,6 @@
   "storeNotFound": "Page not found",
   "merchNotFound": "Unable to find merhandise",
   "orderNotFound": "Order not found",
+  "passwordChangeSuccess": "successfully udpated account password",
   "stripeAccountRequired": "Stripe account is required to continue"
 }
