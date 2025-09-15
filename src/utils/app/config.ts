@@ -16,7 +16,9 @@ export const jwtPublicKey = process.env.JWT_PUBLIC_KEY || "JWT_PUBLIC_KEY";
 export const appId = process.env.APP_ID || "";
 export const baseUrl = process.env.BASE_URL || "";
 export const translatorKey = process.env.TRANSLATOR_AKI_KEY || "";
+
 export const cookieDomain = process.env.COOKIE_DOMAIN || "";
+
 // aws
 export const awsBucketName = process.env.AWS_BUCKET_NAME || "";
 export const awsImageUrl = process.env.AWS_IMAGE_URL || "";

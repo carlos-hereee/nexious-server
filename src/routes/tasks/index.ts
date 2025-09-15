@@ -2,7 +2,7 @@
 // @ts-nocheck - may need to be at the start of file
 import { Router } from "express";
 import { buildBoard } from "./buildBoard";
-import { appAdminWare } from "@middleware/app";
+import { adminWare } from "@middleware/app";
 import { getAllAppTaskBoard, getAllTaskBoard, getTaskBoard } from "./getTaskBoard";
 import { updateBoard } from "./updateBoard";
 import { populateTaskBoard } from "./populateTaskBoard";
@@ -25,7 +25,7 @@ route.get("/all/:appId", getAllAppTaskBoard);
 route.get("/:boardId", requireTaskBoard, populateTaskBoard);
 route.get("/:boardId/invite", requireTaskBoard, inviteMember);
 // build task board
-route.post("/:appId/build", appAdminWare, buildBoard, populateTaskBoard);
+route.post("/:appId/build", ...adminWare, buildBoard, populateTaskBoard);
 route.post("/build", buildBoard, populateTaskBoard);
 // add to task task board
 route.post("/:boardId/list/:listId/task", requireTaskBoard, createTask, populateTaskBoard);

@@ -20,7 +20,7 @@ export const updateAppDetails = async (req: AppRequest, res: Response, next: Nex
     // TODO: ADD APP LOCALE
     // req.project.locale = locale;
     if (email !== req.project.email) req.project.email = email;
-    req.project.themeList = generateThemeList(theme);
+    if(req.project.themeList.length>0) req.project.themeList = generateThemeList(theme);
     // create notification
     const n = await addNotification({ type: "appChanges", message: "Successfully added app details", user: req.user });
     // on success link notification to app
