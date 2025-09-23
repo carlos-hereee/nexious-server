@@ -23,6 +23,7 @@ route.get("/", getTaskBoard);
 route.get("/all", getAllTaskBoard);
 route.get("/all/:appId", getAllAppTaskBoard);
 route.get("/:boardId", requireTaskBoard, populateTaskBoard);
+route.get("/app/:boardId", requireTaskBoard, populateTaskBoard);
 route.get("/:boardId/invite", requireTaskBoard, inviteMember);
 // build task board
 route.post("/:appId/build", ...adminWare, buildBoard, populateTaskBoard);
