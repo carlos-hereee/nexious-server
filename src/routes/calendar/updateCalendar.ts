@@ -8,7 +8,7 @@ export const updateCalendar = async (req: CalendarRequest, _res: Response, next:
   const hero = req.asset || "";
   const { appName } = req.project;
   // update if values exists
-  if (req.calendar.hero !== hero) req.calendar.hero = hero;
+if (req.calendar.hero !== hero) req.calendar.hero = hero;
   if (req.body.name) {
     req.calendar.name = req.body.name;
     req.calendar.calendarLink = "/booking/" + generateStringUrl(appName);
