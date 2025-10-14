@@ -30,7 +30,7 @@ export const buildBoard = async (req: AppRequest<B>, res: Response, next: NextFu
     // link to user
     req.user.boards?.push({ uid: boardId, boardId: taskBoard._id, role: "owner", name: taskBoard.name });
     await req.user.save();
-    // link board to app
+    // link board to app if defined
     if (req.project) {
       if (!req.project.taskBoard) req.project.taskBoard = taskBoard._id;
       req.project.taskBoards.push(taskBoard._id);
