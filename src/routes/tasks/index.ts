@@ -3,7 +3,7 @@
 import { Router } from "express";
 import { buildBoard } from "./buildBoard";
 import { adminWare } from "@middleware/app";
-import { getAllAppTaskBoard, getAllTaskBoard, getTaskBoard } from "./getTaskBoard";
+import { getAllAppTaskBoard, getAllTaskBoard, getAllUserTaskBoard, getTaskBoard } from "./getTaskBoard";
 import { updateBoard } from "./updateBoard";
 import { populateTaskBoard } from "./populateTaskBoard";
 import { createTask } from "./createTask";
@@ -22,6 +22,7 @@ const route = Router();
 route.get("/", getTaskBoard);
 route.get("/all", getAllTaskBoard);
 route.get("/all/:appId", getAllAppTaskBoard);
+route.get("/user/:userId", getAllUserTaskBoard);
 route.get("/:boardId", requireTaskBoard, populateTaskBoard);
 route.get("/app/:boardId", requireTaskBoard, populateTaskBoard);
 route.get("/:boardId/invite", requireTaskBoard, inviteMember);
