@@ -1,5 +1,5 @@
 export const port = process.env.PORT || "0000";
-export const uri = process.env.MONGOOSE_URI? `${process.env.MONGOOSE_URI}&retryWrites=true&w=majority` : "";
+export const uri = process.env.MONGOOSE_URI ? `${process.env.MONGOOSE_URI}&retryWrites=true&w=majority` : "";
 export const clientUrl = process.env.CLIENT_URL || "";
 export const clientUrlAlt = process.env.CLIENT_URL_ALT || "";
 export const isDev = process.env.NODE_ENV === "development" || process.env.NODE_ENV === "dev";
