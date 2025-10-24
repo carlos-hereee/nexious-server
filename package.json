@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/server.js",
   "scripts": {
-    "start": "node ./dist/server.js",
+    "start": "node dotenv/config ./dist/server.js",
     "lint": "eslint . --ext .ts",
     "watch:1": "tsc -p tsconfig.json --watch",
     "watch:2": "tsc-alias -p tsconfig.json --watch",
