@@ -16,6 +16,7 @@ const app = express();
 app.use(helmet({ crossOriginResourcePolicy: false }));
 app.use(cookieParser());
 app.use(json());
+// console.log("client", clientUrl)
 // app.use(urlencoded({ extended: true }));
 app.use(cors({ credentials: true, origin: [clientUrl, clientUrlAlt], methods: allowedMethods }));
 // db connection

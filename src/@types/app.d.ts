@@ -163,6 +163,7 @@ export interface IAppSchema extends Document {
   subscriptions: ObjectId[];
   subscribers: ObjectId[];
   posts: ObjectId[];
+  hoursOfOperation: {uid: string, details: string, value: string}[];
   archivePosts: ObjectId[];
   pages: ObjectId[];
   maps: ObjectId[];

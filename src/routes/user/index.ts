@@ -4,6 +4,8 @@ import { Router } from "express";
 import { assetWare } from "@middleware/assets";
 import { addPost } from "@routes/post/addPost";
 import { minAppData } from "@routes/minAppData";
+import { requireUser } from "@middleware/auth/requireUser";
+import { updateLocale } from "./updateLocale";
 // import { addTaskBoard } from "./addTaskBoard";
 
 const route = Router();
@@ -11,5 +13,8 @@ const route = Router();
 // route.get("/", addUserPost);
 route.post("/add-post", assetWare, addPost, minAppData);
 // route.post("/task-board", addTaskBoard, minAppData);
+
+// TODO: ADD ADDITION VERIFICATION
+route.put("/locale", requireUser, updateLocale);
 
 export default route;

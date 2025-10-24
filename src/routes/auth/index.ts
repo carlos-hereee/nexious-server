@@ -38,6 +38,7 @@ route.post("/avatar", assetWare, editAvatar, minAppData);
 route.post("/:userId/contact", sendUserMessage, minAppData);
 // update stripe subscription
 route.post("/upgrade-account", requireUser, upgradeAccount);
+// update data
 route.put("/link-account", requireUser, linkSubscription, minAppData);
 // TODO: ADD ADDITIONAL VERFICATION MEDTHODS
 route.post("/change-password/:username", userWare, authSessionWare, changePassword, refreshSession, sendToken);

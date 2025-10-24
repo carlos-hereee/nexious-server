@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { toLowerCase } from "@utils/app/generateStr";
 import { v4 } from "uuid";
 import type { IUserSchema } from "@app/user";
 
@@ -10,14 +9,14 @@ const userSchema = new Schema<IUserSchema>(
     // stripe generated customer id
     customerId: { type: String, default: "" },
     username: { type: String, require: true, unique: true },
-    email: { type: String, set: toLowerCase },
+    email: { type: String },
     name: { type: String, default: "" },
     nickname: { type: String, default: "" },
     accountTier: { type: Schema.Types.ObjectId, ref: "Subscription" },
     isPlatformOwner: { type: Boolean, default: false },
     role: { type: String, default: "customer" },
     phone: { type: String, default: "" },
-    locale: { type: String, default: "" },
+    locale: { type: String, default: "english" },
     theme: { type: String, default: "" },
     avatar: { type: String, default: "" },
     notificationSettings: {

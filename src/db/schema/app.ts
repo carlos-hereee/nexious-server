@@ -27,6 +27,13 @@ const appSchema = new Schema<IAppSchema>(
         uid: { type: String, default: v4 },
       },
     ],
+    hoursOfOperation: {type: [
+      {
+        details: { type: String },
+        value: { type: String },
+        uid: { type: String, default: v4 },
+      },
+    ], default: []},
     themeList: [
       {
         name: { type: String },
