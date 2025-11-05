@@ -18,7 +18,7 @@ import { minAppData } from "@routes/minAppData";
 import { getPlatformData } from "@routes/getPlatformData";
 import { linkSubscription } from "./linkSubscription";
 import { editAvatar } from "./edits/editAvatar";
-import { sendUserMessage } from "./sendUserMessage";
+import { sendUserMessage } from "../user/sendUserMessage";
 import { configureNotifications } from "./edits/configureNotifications";
 import { assetWare } from "@middleware/assets";
 

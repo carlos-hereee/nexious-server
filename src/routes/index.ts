@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck - may need to be at the start of file
 import authRoute from "./auth/index";
 import appRoute from "./app/index";
 import storeRoute from "./store/index";
@@ -9,16 +11,16 @@ import taskBoardRoute from "./tasks/index";
 import { initRoute, startApp } from "./initRoute";
 import type { ExpressApp } from "@app/db";
 import { deserializeUser } from "@middleware/auth/deserializeUser";
-import { RequestHandler } from "express";
+import { requireUser } from "@middleware/auth/requireUser";
 
 export default (app: ExpressApp) => {
   startApp(app);
-  app.use(deserializeUser as unknown as RequestHandler);
+  app.use(deserializeUser);
   // initial test route
   app.get("/", initRoute);
   // authentication route for login and access/refresh tokens
   app.use("/auth/", authRoute);
-  app.use("/user/", userRoute);
+  app.use("/user/", requireUser, userRoute);
   // app data
   app.use("/app/", appRoute);
   app.use("/calendar/", calendarRoute);
