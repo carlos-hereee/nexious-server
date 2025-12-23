@@ -1,7 +1,7 @@
+import type { AppRequest, MinAppResponseData } from "@app/request";
+import { appPopulateData, postsPopulate } from "@db/data/app/dbPopulateData.json";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { Response } from "express";
-import type { AppRequest, MinAppResponseData } from "@app/request";
-import { postsPopulate, userPopulateData, appPopulateData } from "@db/data/app/dbPopulateData.json";
 
 export const minAppData = async (req: AppRequest, res: Response) => {
   try {
@@ -10,7 +10,10 @@ export const minAppData = async (req: AppRequest, res: Response) => {
     // populate user data required by client
     if (req.user) {
       // depopulate auth data for security
-      const user = await req.user.depopulate("auth").populate(userPopulateData, { options: { strictPopulate: false } });
+      const user = await req.user.depopulate("auth").populate({
+        path: "ownedApps subscriptions permissions ownedApps.userId boards.boardId notifications calendarEvents subscriptions accountTier orders",
+        options: { strictPopulate: false },
+      });
       data.user = user;
     }
     // populate app data required by client
@@ -52,7 +55,6 @@ export const minAppData = async (req: AppRequest, res: Response) => {
     if (req.message) {
       const message = await req.message.populate({
         path: "replies",
-        populate: postsPopulate,
         options: { strictPopulate: false },
       });
       data.message = message;

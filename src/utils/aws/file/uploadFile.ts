@@ -1,7 +1,7 @@
 import type { AWSFileProps, AWSMultiFileUploadProps } from "@app/assets";
+import { awsImageUrl } from "@utils/app/config";
 import { fileError } from "@utils/aws/errors";
 import { generateParamFile } from "./awsParams";
-import { awsImageUrl } from "@utils/app/config";
 
 // call S3 to retrieve upload file to specified bucket
 export const uploadFile = ({ s3, file }: AWSFileProps) => {

@@ -1,15 +1,15 @@
-import type { IUserSchema } from "./user";
-import type { IMerchSchema, IStoreSchema, OrderStatus, RequestStore, StoreBody } from "./store";
 import type { Request } from "express";
 import type Stripe from "stripe";
-import type { AuthBody, IAuthSchema } from "./auth";
 import type { AppBody, IAppSchema, SubscriptionSchema } from "./app";
 import type { IFile } from "./assets";
+import type { AuthBody, IAuthSchema } from "./auth";
 import type { CalendarBody, ICalendarSchema } from "./calendar";
+import { IMessage, IPostSchema } from "./db";
 import type { IPageSchema } from "./page";
 import { PostBody } from "./post";
-import { IMessage, IPostSchema } from "./db";
+import type { IMerchSchema, IStoreSchema, OrderStatus, RequestStore, StoreBody } from "./store";
 import { IBoards } from "./tasks";
+import type { IUserSchema } from "./user";
 
 export interface MinAppResponseData {
   user?: IUserSchema;
@@ -50,6 +50,7 @@ export interface AuthRequest<B = AuthBody> extends Request {
 export interface UserRequest<B = AuthBody> extends Request {
   params: {
     userId: string;
+    messageId: string;
     postId: string;
     username: string;
     notificationId: string;
@@ -57,6 +58,7 @@ export interface UserRequest<B = AuthBody> extends Request {
   };
   body: B;
   auth: IAuthSchema;
+  message: IMessage;
   user: IUserSchema;
   asset: string;
   assets: string[];

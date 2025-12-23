@@ -4,14 +4,16 @@ import { getPosts } from "@db/models/posts/getPosts";
 import { getPlatformSubs } from "@db/models/subscription/getSubscription";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { Response } from "express";
-import { userPopulateData } from "@db/data/app/dbPopulateData.json";
 
 export const getPlatformData = async (req: AuthRequest, res: Response) => {
   try {
     const data: MinAppResponseData = {};
     if (req.user) {
       // depopulate auth data and populate data required by client
-      const user = await req.user.depopulate("auth").populate(userPopulateData, { options: { strictPopulate: false } });
+      const user = await req.user.depopulate("auth").populate({
+        path: "ownedApps subscriptions permissions ownedApps.userId boards.boardId notifications calendarEvents subscriptions accountTier orders",
+        options: { strictPopulate: false },
+      });
       data.user = user;
     }
     // applist data
