@@ -4,9 +4,9 @@ import { getUser } from "@db/models/users/getUser";
 import Messages from "@db/schema/messages";
 import { generateUsername } from "@utils/app/generateStr";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
-import { NextFunction, Response } from "express";
+import { Response } from "express";
 
-export const sendReply = async (req: UserRequest<{ data: string }>, res: Response, next: NextFunction) => {
+export const sendReply = async (req: UserRequest<{ data: string }>, res: Response) => {
   try {
     const { userId, messageId } = req.params;
     // Find recipient user
@@ -22,16 +22,16 @@ export const sendReply = async (req: UserRequest<{ data: string }>, res: Respons
     const recipient = { userId: recipientUser.userId, avatar: recipientUser.avatar, name: generateUsername(recipientUser) };
     const reply = await Messages.create({ ...req.body, user, recipient, recipientRole: "friend" });
 
-    // Append reply to user's replies
+    // add reply to user's replies
     msg.replies.push(reply._id);
-    req.message = msg;
+    // SAVE MESSAGE
     await msg.save();
+    await msg.populate({ path: "replies", options: { strictPopulate: false, limit: 50 } });
+    // console.log("\nmsg.replies ==>", msg.replies.length, "\n\n");
 
-    // req.user.messages.push(reply._id);
+    // TODO: add notification to recipient user
 
-    // save to db
-    await req.user.save();
-    next();
+    return res.status(201).json(msg).end();
   } catch (error) {
     useGenericErrors(res, error, "unable to send reply");
   }

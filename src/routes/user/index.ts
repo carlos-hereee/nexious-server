@@ -15,8 +15,13 @@ const route = Router();
 
 route.get("/messages/:messageId", getUserMessage);
 route.post("/add-post", assetWare, addPost, minAppData);
+
+// TODO: ADD ABILITY TO SEND MEDIA IN MESSAGES
+// TODO: ADD RATE LIMITING TO MESSAGE SEND/REPLY
+// TODO: ADD WEBSOCKET INTEGRATION FOR REAL-TIME MESSAGING
 route.post("/send-message/:userId", sendUserMessage, minAppData);
-route.post("/reply/:userId/:messageId", sendReply, minAppData);
+
+route.post("/reply/:userId/:messageId", sendReply);
 // route.post("/task-board", addTaskBoard, minAppData);
 
 // TODO: ADD ADDITION VERIFICATION
