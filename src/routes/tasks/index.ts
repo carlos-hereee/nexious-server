@@ -1,28 +1,31 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck - may need to be at the start of file
-import { Router } from "express";
-import { buildBoard } from "./buildBoard";
 import { adminWare } from "@middleware/app";
-import { getAllAppTaskBoard, getAllTaskBoard, getAllUserTaskBoard, getTaskBoard } from "./getTaskBoard";
-import { updateBoard } from "./updateBoard";
-import { populateTaskBoard } from "./populateTaskBoard";
-import { createTask } from "./createTask";
-import { requireTaskBoard } from "@middleware/app/requireTaskBoard";
-import { postTaskComment } from "./postTaskComment";
-import { deleteTaskFromList } from "./deleteTaskFromList";
 import { postMessageReply } from "@middleware/app/postMessageReply";
 import { requireMessage } from "@middleware/app/requireMessage";
-import { updateBoardList } from "./updateBoardList";
-import { inviteMember } from "./inviteMember";
-import { updateBoardInvitations } from "./updateBoardInvitations";
+import { requireTaskBoard } from "@middleware/app/requireTaskBoard";
+import { Router } from "express";
 import { assignMemberToTask } from "./assignMemberToTask";
+import { buildBoard } from "./buildBoard";
+import { createTask } from "./createTask";
+import { deleteTaskFromList } from "./deleteTaskFromList";
+import { getAllAppTaskBoard, getAllTaskBoard, getAllUserTaskBoard } from "./getTaskBoard";
+import { inviteMember } from "./inviteMember";
+import { populateTaskBoard } from "./populateTaskBoard";
+import { postTaskComment } from "./postTaskComment";
+import { updateBoard } from "./updateBoard";
+import { updateBoardInvitations } from "./updateBoardInvitations";
+import { updateBoardList } from "./updateBoardList";
 
 const route = Router();
 
-route.get("/", getTaskBoard);
+// all task boards
 route.get("/all", getAllTaskBoard);
+// all task boards for app
 route.get("/all/:appId", getAllAppTaskBoard);
+// all task boards for user
 route.get("/user/:userId", getAllUserTaskBoard);
+// get specific task board
 route.get("/:boardId", requireTaskBoard, populateTaskBoard);
 route.get("/app/:boardId", requireTaskBoard, populateTaskBoard);
 route.get("/:boardId/invite", requireTaskBoard, inviteMember);
@@ -35,8 +38,8 @@ route.post("/:boardId/list/:listId/task", requireTaskBoard, createTask, populate
 route.post("/:boardId/task/:taskId/comment", requireTaskBoard, postTaskComment, populateTaskBoard);
 route.post("/:boardId/task/comment/:messageId", requireTaskBoard, requireMessage, postMessageReply, populateTaskBoard);
 // update task board
-route.put("/update/:boardId", updateBoard);
-route.put("/update/list/:boardId", requireTaskBoard, updateBoardList, populateTaskBoard);
+route.put("/update/:boardId", requireTaskBoard, updateBoard);
+route.put("/list/:boardId", requireTaskBoard, updateBoardList, populateTaskBoard);
 route.put("/:boardId/invite", requireTaskBoard, updateBoardInvitations, populateTaskBoard);
 // assign user to task
 route.put("/:boardId/assign/:taskId/:userId", requireTaskBoard, assignMemberToTask, populateTaskBoard);

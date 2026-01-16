@@ -1,8 +1,6 @@
 import { AppRequest } from "@app/request";
-import { getTaskBoard } from "@db/models/app/getTaskBoard";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { Response } from "express";
-// import { IBoards } from "@app/tasks";
 
 interface B {
   name: string;
@@ -10,9 +8,8 @@ interface B {
 }
 export const updateBoard = async (req: AppRequest<B>, res: Response) => {
   try {
+    const board = req.taskBoard;
     const { boardId } = req.params;
-    const board = await getTaskBoard({ boardId });
-    if (!board) return res.status(404).json("task board not found").end();
 
     // update changes if any
     if (board.name !== req.body.name) {
