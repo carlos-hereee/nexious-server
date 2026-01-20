@@ -46,6 +46,7 @@ route.put("/list/:boardId", requireTaskBoard, updateBoardList);
 route.put("/:boardId/invite", requireTaskBoard, updateBoardInvitations, populateTaskBoard);
 // assign user to task
 route.put("/:boardId/assign/:taskId/:userId", requireTaskBoard, assignMemberToTask, populateTaskBoard);
-route.delete("/:boardId/list/:listId/task/:taskId", requireTaskBoard, deleteTaskFromList, populateTaskBoard);
+// delete task from list
+route.delete("/:boardId/list/:listId/task/:taskId", requireTaskBoard, deleteTaskFromList);
 
 export default route;
