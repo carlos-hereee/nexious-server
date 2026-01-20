@@ -72,6 +72,7 @@ export interface AppRequest<B = AppBody> extends Request {
     subscriptionId: string;
     locale: string;
     appName: string;
+    cardId: string;
     assetId: string;
     pageId: string;
     menuId: string;

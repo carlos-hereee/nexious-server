@@ -10,6 +10,7 @@ import { buildBoard } from "./buildBoard";
 import { createTask } from "./createTask";
 import { deleteTaskFromList } from "./deleteTaskFromList";
 import { getAllAppTaskBoard, getAllTaskBoard, getAllUserTaskBoard } from "./getTaskBoard";
+import { getTaskCardById } from "./getTaskCardById";
 import { inviteMember } from "./inviteMember";
 import { populateTaskBoard } from "./populateTaskBoard";
 import { postTaskComment } from "./postTaskComment";
@@ -25,6 +26,8 @@ route.get("/all", getAllTaskBoard);
 route.get("/all/:appId", getAllAppTaskBoard);
 // all task boards for user
 route.get("/user/:userId", getAllUserTaskBoard);
+// get taskcard with card Id
+route.get("/card/:cardId", getTaskCardById);
 // get specific task board
 route.get("/:boardId", requireTaskBoard, populateTaskBoard);
 route.get("/app/:boardId", requireTaskBoard, populateTaskBoard);
@@ -39,7 +42,7 @@ route.post("/:boardId/task/:taskId/comment", requireTaskBoard, postTaskComment, 
 route.post("/:boardId/task/comment/:messageId", requireTaskBoard, requireMessage, postMessageReply, populateTaskBoard);
 // update task board
 route.put("/update/:boardId", requireTaskBoard, updateBoard);
-route.put("/list/:boardId", requireTaskBoard, updateBoardList, populateTaskBoard);
+route.put("/list/:boardId", requireTaskBoard, updateBoardList);
 route.put("/:boardId/invite", requireTaskBoard, updateBoardInvitations, populateTaskBoard);
 // assign user to task
 route.put("/:boardId/assign/:taskId/:userId", requireTaskBoard, assignMemberToTask, populateTaskBoard);

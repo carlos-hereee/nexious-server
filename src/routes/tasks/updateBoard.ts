@@ -14,7 +14,7 @@ export const updateBoard = async (req: AppRequest<B>, res: Response) => {
     // update changes if any
     if (board.name !== req.body.name) {
       // generate new board link
-      const boardLink = req.project ? `/task-board${req.project.appLink}/${boardId}` : `/dashboard/task-board/${boardId}`;
+      const boardLink = `/task-board/${boardId}`;
       board.name = req.body.name;
       board.boardLink = boardLink;
     }
