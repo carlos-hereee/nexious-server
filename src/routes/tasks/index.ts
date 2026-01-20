@@ -27,7 +27,7 @@ route.get("/all/:appId", getAllAppTaskBoard);
 // all task boards for user
 route.get("/user/:userId", getAllUserTaskBoard);
 // get taskcard with card Id
-route.get("/card/:cardId", getTaskCardById);
+route.get("/task/:cardId", getTaskCardById);
 // get specific task board
 route.get("/:boardId", requireTaskBoard, populateTaskBoard);
 route.get("/app/:boardId", requireTaskBoard, populateTaskBoard);
