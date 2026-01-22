@@ -23,6 +23,7 @@ export const deleteTaskFromList = async (req: AppRequest, res: Response) => {
 
     // // save to db
     await req.taskBoard.save();
+    await req.taskBoard.populate("lists.tasks");
     return res.status(200).json(req.taskBoard.lists).end();
   } catch (error) {
     useGenericErrors(res, error, "error registering user");

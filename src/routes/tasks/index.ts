@@ -35,8 +35,8 @@ route.get("/:boardId/invite", requireTaskBoard, inviteMember);
 // build task board
 route.post("/:appId/build", ...adminWare, buildBoard, populateTaskBoard);
 route.post("/build", buildBoard, populateTaskBoard);
-// add to task task board
-route.post("/:boardId/list/:listId/task", requireTaskBoard, createTask, populateTaskBoard);
+// add to task list
+route.post("/:boardId/list/:listId/task", requireTaskBoard, createTask);
 // add comments to task
 route.post("/:boardId/task/:taskId/comment", requireTaskBoard, postTaskComment, populateTaskBoard);
 route.post("/:boardId/task/comment/:messageId", requireTaskBoard, requireMessage, postMessageReply, populateTaskBoard);

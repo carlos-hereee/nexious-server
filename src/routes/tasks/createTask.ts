@@ -4,14 +4,14 @@ import Tasks from "@db/schema/tasks";
 import { today12hr } from "@utils/app/format/generateDate";
 import { generateUsername } from "@utils/app/generateStr";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
-import { Response, NextFunction } from "express";
+import { Response } from "express";
 
-interface B {
+interface AppBody {
   name: string;
   description: string;
   dueDate: string;
 }
-export const createTask = async (req: AppRequest<B>, res: Response, next: NextFunction) => {
+export const createTask = async (req: AppRequest<AppBody>, res: Response) => {
   try {
     const listIdx = req.taskBoard.lists.findIndex((list) => list.listId === req.params.listId);
     if (listIdx < 0 || !req.taskBoard.lists[listIdx]) return res.status(404).json("unable to find list item").end();
@@ -37,7 +37,8 @@ export const createTask = async (req: AppRequest<B>, res: Response, next: NextFu
     req.taskBoard.lists[listIdx]?.tasks.push(task._id);
     // save to db
     await req.taskBoard.save();
-    next();
+    await req.taskBoard.populate("lists.tasks");
+    return res.status(201).json(req.taskBoard.lists).end();
   } catch (error) {
     useGenericErrors(res, error, "error registering user");
   }
