@@ -1,7 +1,5 @@
 import Messages from "@db/schema/messages";
 import Post from "@db/schema/post";
-// import { IPostSchema } from "@app/db";
-import { postsPopulate } from "@db/data/app/dbPopulateData.json";
 
 interface PotsFilters {
   appId?: string;
@@ -9,11 +7,21 @@ interface PotsFilters {
   uid?: string;
   id?: string;
   all?: boolean;
+  limit?: number;
+  page?: number;
   messageId?: string;
 }
-export const getPosts = async ({ appId }: PotsFilters) => {
-  if (appId) return await Post.find({ appId });
-  return await Post.find().populate({ path: "comments", populate: postsPopulate, options: { strictPopulate: false } });
+export const getPosts = async ({ appId, limit = 5, page = 0 }: PotsFilters) => {
+  if (appId) {
+    return await Post.find({ appId })
+      .sort({ createdAt: -1, _id: -1 })
+      .limit(limit)
+      .skip(page * limit);
+  }
+  return await Post.find()
+    .sort({ createdAt: -1, _id: -1 })
+    .limit(limit)
+    .skip(page * limit);
 };
 export const getPost = async ({ postId }: PotsFilters) => {
   if (postId) return await Post.findOne({ postId });

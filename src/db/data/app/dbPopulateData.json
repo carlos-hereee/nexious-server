@@ -1,8 +1,3 @@
 {
-  "postsPopulate": {
-    "path": "replies",
-    "populate": "replies replies.replies replies.replies.replies replies.replies.replies.replies",
-    "model": "Messages"
-  },
   "appPopulateData": "owner adminIds landing pages calendar notifications posts messages maps taskBoard taskBoards"
 }

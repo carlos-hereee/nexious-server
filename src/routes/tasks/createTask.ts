@@ -31,6 +31,7 @@ export const createTask = async (req: AppRequest<AppBody>, res: Response) => {
       startTime: today12hr(),
       endTime: task.dueTime,
     });
+    // TODO: ADD NOTIFICATION FOR TASK AND EVENT CREATION + NOTIFY ASSINGNEES
     // link cal event to taskboard
     req.taskBoard.calendarEvents.push(event._id);
     // link task to list
@@ -38,6 +39,8 @@ export const createTask = async (req: AppRequest<AppBody>, res: Response) => {
     // save to db
     await req.taskBoard.save();
     await req.taskBoard.populate("lists.tasks");
+    req.user.calendarEvents.push(event._id);
+    await req.user.save();
     return res.status(201).json(req.taskBoard.lists).end();
   } catch (error) {
     useGenericErrors(res, error, "error registering user");
