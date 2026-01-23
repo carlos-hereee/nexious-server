@@ -1,5 +1,5 @@
 import type { AppRequest, MinAppResponseData } from "@app/request";
-import { appPopulateData, postsPopulate } from "@db/data/app/dbPopulateData.json";
+import { appPopulateData } from "@db/data/app/dbPopulateData.json";
 import { useGenericErrors } from "@utils/auth/useGenericErrors";
 import { Response } from "express";
 
@@ -30,7 +30,7 @@ export const minAppData = async (req: AppRequest, res: Response) => {
     if (req.post) {
       const post = await req.post.populate({
         path: "comments",
-        populate: postsPopulate,
+        populate: "comments.replies pinnedComment.replies",
         options: { strictPopulate: false },
       });
       data.post = post;
@@ -45,7 +45,7 @@ export const minAppData = async (req: AppRequest, res: Response) => {
     if (req.merch) {
       const merch = await req.merch.populate({
         path: "reviews",
-        populate: postsPopulate,
+        populate: "comments.replies pinnedComment.replies",
         options: { strictPopulate: false },
       });
       data.merch = merch;
