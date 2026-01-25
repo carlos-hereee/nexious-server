@@ -6,7 +6,7 @@ export const updateLocale = async (req: UserRequest<{ data: string }>, res: Resp
   try {
     req.user.locale = req.body.data;
     await req.user.save();
-    return res.status(202).json(req.user).end();
+    return res.status(202).json(req.user.locale).end();
   } catch (error) {
     useGenericErrors(res, error, "update locale");
   }
